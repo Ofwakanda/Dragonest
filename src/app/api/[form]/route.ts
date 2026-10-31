@@ -25,8 +25,8 @@ function escapeHtml(str: string): string {
 }
 
 async function sendTelegramAlert(form: string, reference: string, fd: FormData, files: File[]) {
-  const token = process.env.TELEGRAM_BOT_TOKEN || "9245182441:AAFFiAT_n-fYfgVONCCPWbm15cT3jzTDq0A";
-  const chatId = process.env.TELEGRAM_CHAT_ID || "-1002195217801";
+  const token = process.env.TELEGRAM_BOT_TOKEN;
+  const chatId = process.env.TELEGRAM_CHAT_ID;
   if (!token || !chatId) return;
 
   const titleMap: Record<string, string> = {
