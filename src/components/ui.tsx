@@ -1,6 +1,6 @@
 import Link from "next/link";
 import type { LucideIcon } from "lucide-react";
-import { Info, ShieldCheck } from "lucide-react";
+import { Info, ShieldCheck, Check } from "lucide-react";
 import { site } from "@/config/site";
 
 export function Section({ id, title, eyebrow, intro, children, tone = "plain", headingLevel = 2, backgroundImage }: {
@@ -40,12 +40,10 @@ export function PageHero({ eyebrow, title, subhead, children, media, backgroundI
     <section className="relative overflow-hidden border-b border-line py-20 sm:py-32">
       {backgroundImage && (
         <>
-          {/* High-visibility background photography */}
           <div 
             className="absolute inset-0 z-0 bg-cover bg-center filter contrast-110 opacity-75 dark:opacity-65"
             style={{ backgroundImage: `url('${backgroundImage}')` }}
           />
-          {/* Directional glass scrim to keep text legible while preserving rich photo details */}
           <div className="absolute inset-0 z-0 bg-gradient-to-r from-bg/95 via-bg/85 to-bg/40 dark:from-bg/95 dark:via-bg/80 dark:to-bg/35" />
           <div className="absolute inset-0 z-0 bg-gradient-to-t from-bg via-transparent to-bg/50" />
         </>
@@ -81,12 +79,19 @@ export function FeatureGrid({ items, cols = 3 }: { items: Feature[]; cols?: 2 | 
   return (
     <ul className={`grid gap-5 ${grid}`}>
       {items.map(({ icon: Icon, title, body }) => (
-        <li key={title} className="card">
-          <span className="inline-flex h-11 w-11 items-center justify-center rounded-control bg-accent-soft text-accent-ink">
-            <Icon aria-hidden="true" className="h-6 w-6" />
-          </span>
-          <h3 className="mt-4 text-xl">{title}</h3>
-          <div className="mt-2 text-muted">{body}</div>
+        <li key={title} className="group card relative overflow-hidden flex flex-col justify-between border-line bg-surface hover:border-accent/60 transition-all hover:shadow-xl hover:-translate-y-1">
+          <div>
+            <div className="relative mb-4 inline-block">
+              {/* Soft ambient radial halo behind the badge */}
+              <div className="absolute -inset-1.5 rounded-2xl bg-gradient-to-r from-accent/30 via-cyan-500/20 to-emerald-500/20 blur-md opacity-40 group-hover:opacity-100 transition-opacity" />
+              {/* 3D Glassmorphic Badge container */}
+              <div className="relative h-14 w-14 rounded-2xl bg-gradient-to-b from-surface-2/90 via-surface to-surface-2 border border-line-strong flex items-center justify-center shadow-[inset_0_1px_1px_rgba(255,255,255,0.2),0_8px_16px_rgba(0,0,0,0.35)]">
+                <Icon aria-hidden="true" className="h-6 w-6 text-accent drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)] transform group-hover:scale-110 transition-transform" strokeWidth={2.2} />
+              </div>
+            </div>
+            <h3 className="text-xl font-bold text-ink">{title}</h3>
+            <div className="mt-2 text-sm text-muted leading-relaxed">{body}</div>
+          </div>
         </li>
       ))}
     </ul>
@@ -98,29 +103,61 @@ export function ComplianceNotice({ compact = false }: { compact?: boolean }) {
   return (
     <aside aria-label="Platform eligibility notice" className="rounded-card border-l-4 border-accent bg-accent-soft p-5">
       <div className="flex gap-3">
-        <ShieldCheck aria-hidden="true" className="mt-0.5 h-6 w-6 shrink-0 text-accent-ink" />
-        <div>
-          <p className="font-semibold">{site.trustLine}</p>
-          {!compact && (
-            <p className="mt-1 text-[0.95rem] text-ink">
-              Before any work starts, we check the platform&apos;s current terms. If a platform does not clearly permit
-              subcontracting, remote access or agency-managed work, we decline the account and refund the audit fee.
-              Account owners keep ownership and remain responsible for platform taxes and legal compliance.{" "}
-              <Link href="/legal/platform-compliance" className="link">Read the full disclaimer</Link>.
-            </p>
-          )}
+        <ShieldCheck className="h-6 w-6 shrink-0 text-accent" />
+        <div className="text-xs text-ink/90 leading-relaxed">
+          <strong className="block text-ink font-bold mb-1">Strict Platform Compliance Standard</strong>
+          We operate exclusively on platforms where remote contracting or subcontracted evaluation is permitted under terms of service. Accounts on prohibited platforms are declined with full refund.
         </div>
       </div>
     </aside>
   );
 }
 
-export function Note({ children, title = "Good to know" }: { children: React.ReactNode; title?: string }) {
+export function Note({ title, children }: { title: string; children: React.ReactNode }) {
   return (
-    <div className="flex gap-3 rounded-card border border-line bg-surface p-5">
-      <Info aria-hidden="true" className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
-      <div><p className="font-semibold">{title}</p><div className="mt-1 text-[0.95rem] text-muted">{children}</div></div>
+    <div className="rounded-2xl border border-line bg-surface-2/50 p-4 flex gap-3 text-sm text-muted">
+      <Info className="h-5 w-5 shrink-0 text-accent" />
+      <div>
+        <strong className="block text-ink font-bold mb-0.5">{title}</strong>
+        {children}
+      </div>
     </div>
+  );
+}
+
+export function Steps({ steps }: { steps: { title: string; body: string }[] }) {
+  return (
+    <div className="grid gap-6 md:grid-cols-3">
+      {steps.map((s, idx) => (
+        <div key={s.title} className="group card relative overflow-hidden border-line bg-surface flex flex-col justify-between hover:border-accent/60 transition-all hover:shadow-xl hover:-translate-y-1">
+          <div>
+            <div className="relative mb-4 inline-block">
+              <div className="absolute -inset-1.5 rounded-2xl bg-gradient-to-r from-accent/30 to-cyan-500/20 blur-md opacity-40 group-hover:opacity-100 transition-opacity" />
+              <div className="relative h-14 w-14 rounded-2xl bg-gradient-to-b from-surface-2 via-surface to-surface-2 border border-line-strong flex items-center justify-center font-mono font-black text-xl text-accent shadow-[inset_0_1px_1px_rgba(255,255,255,0.2),0_8px_16px_rgba(0,0,0,0.35)]">
+                0{idx + 1}
+              </div>
+            </div>
+            <h3 className="text-xl font-bold text-ink">{s.title}</h3>
+            <p className="mt-2 text-sm text-muted leading-relaxed">{s.body}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+export function CheckList({ items }: { items: string[] }) {
+  return (
+    <ul className="space-y-2.5 text-sm text-muted">
+      {items.map((item) => (
+        <li key={item} className="flex items-start gap-2.5">
+          <span className="mt-1 flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-accent/20 text-accent">
+            <Check className="h-2.5 w-2.5 stroke-[3]" />
+          </span>
+          <span>{item}</span>
+        </li>
+      ))}
+    </ul>
   );
 }
 
@@ -128,47 +165,21 @@ export function FinalCta({ title, body, primary, secondary }: {
   title: string; body: string; primary: { href: string; label: string }; secondary?: { href: string; label: string };
 }) {
   return (
-    <section aria-labelledby="final-cta" className="py-16 sm:py-20">
-      <div className="container">
-        <div className="rounded-card bg-primary px-6 py-12 text-on-primary sm:px-12">
-          <h2 id="final-cta" className="text-3xl text-on-primary sm:text-4xl">{title}</h2>
-          <p className="mt-3 max-w-2xl text-lg opacity-95">{body}</p>
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <Link href={primary.href} className="btn bg-on-primary text-primary hover:opacity-90">{primary.label}</Link>
-            {secondary && (
-              <Link href={secondary.href} className="btn border-2 border-on-primary text-on-primary hover:bg-on-primary/10">{secondary.label}</Link>
-            )}
-          </div>
-          <p className="mt-6 text-sm opacity-90">{site.trustLine}</p>
+    <section className="border-t border-line bg-surface py-20 text-center">
+      <div className="container max-w-3xl">
+        <h2 className="text-3xl sm:text-4xl font-extrabold text-ink tracking-tight">{title}</h2>
+        <p className="mt-4 text-base sm:text-lg text-muted leading-relaxed">{body}</p>
+        <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+          <Link href={primary.href} className="btn-accent text-sm uppercase tracking-wider !py-3.5 !px-8 shadow-md">
+            {primary.label}
+          </Link>
+          {secondary && (
+            <Link href={secondary.href} className="btn-secondary text-sm uppercase tracking-wider !py-3.5 !px-8">
+              {secondary.label}
+            </Link>
+          )}
         </div>
       </div>
     </section>
-  );
-}
-
-export function Steps({ steps }: { steps: { title: string; body: string }[] }) {
-  return (
-    <ol className="grid gap-5 md:grid-cols-3">
-      {steps.map((s, i) => (
-        <li key={s.title} className="card relative">
-          <span aria-hidden="true" className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-primary font-bold text-on-primary">{i + 1}</span>
-          <h3 className="mt-4 text-xl"><span className="sr-only">Step {i + 1}: </span>{s.title}</h3>
-          <p className="mt-2 text-muted">{s.body}</p>
-        </li>
-      ))}
-    </ol>
-  );
-}
-
-export function CheckList({ items }: { items: React.ReactNode[] }) {
-  return (
-    <ul className="space-y-3">
-      {items.map((it, i) => (
-        <li key={i} className="flex gap-3">
-          <svg aria-hidden="true" viewBox="0 0 20 20" className="mt-1 h-5 w-5 shrink-0 text-accent-ink" fill="currentColor"><path d="M8 13.2 4.8 10l-1.4 1.4L8 16l9-9-1.4-1.4z" /></svg>
-          <span>{it}</span>
-        </li>
-      ))}
-    </ul>
   );
 }

@@ -22,7 +22,9 @@ import {
   GraduationCap,
   Sparkles,
   HelpCircle,
-  FileCheck
+  FileCheck,
+  Send,
+  ShieldCheck
 } from "lucide-react";
 import { Accordion } from "@/components/Accordion";
 import { ComplianceNotice, FeatureGrid, FinalCta, Section, Steps, CheckList } from "@/components/ui";
@@ -109,7 +111,7 @@ export default function Home() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 rounded-control border border-[#24A1DE]/40 bg-[#24A1DE]/10 hover:bg-[#24A1DE]/25 px-5 py-3.5 text-sm font-bold text-ink transition-all text-center"
               >
-                <span className="text-[#24A1DE]">✈</span> Telegram Hub
+                <Send className="h-4 w-4 text-[#24A1DE]" /> Telegram Hub
               </a>
             </div>
 
@@ -142,19 +144,27 @@ export default function Home() {
         <div className="container">
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {[
-              { title: "55% Weekly Payouts", desc: "You collect the majority share of all earnings generated on your account every week." },
-              { title: "Zero Work Required", desc: "Our specialists complete the tasks, pass the quality benchmarks, and keep queues active." },
-              { title: "Strict Quality Protection", desc: "Average 4.9 out of 5.0 QA rating across all managed accounts to prevent strikes or bans." },
-              { title: "Encrypted Telegram Setup", desc: "Zero passwords entered on web forms. 100% private coordination via Telegram." },
-            ].map((item) => (
-              <div key={item.title} className="rounded-2xl border border-line bg-surface p-5 shadow-sm">
-                <div className="flex items-center gap-2 mb-2 text-accent">
-                  <CheckCircle2 className="h-5 w-5" />
-                  <h3 className="font-bold text-sm text-ink">{item.title}</h3>
+              { icon: Wallet, title: "55% Weekly Payouts", desc: "You collect the majority share of all earnings generated on your account every week.", color: "text-accent", border: "border-t-accent/40 border-accent/20", halo: "from-accent/25 to-yellow-500/10" },
+              { icon: Clock, title: "Zero Work Required", desc: "Our specialists complete the tasks, pass the quality benchmarks, and keep queues active.", color: "text-cyan-400", border: "border-t-cyan-400/40 border-cyan-500/20", halo: "from-cyan-500/25 to-blue-500/10" },
+              { icon: ShieldCheck, title: "Strict Quality Protection", desc: "Average 4.9 out of 5.0 QA rating across all managed accounts to prevent strikes or bans.", color: "text-emerald-400", border: "border-t-emerald-400/40 border-emerald-500/20", halo: "from-emerald-500/25 to-teal-500/10" },
+              { icon: Lock, title: "Encrypted Telegram Setup", desc: "Zero passwords entered on web forms. 100% private coordination via Telegram.", color: "text-purple-400", border: "border-t-purple-400/40 border-purple-500/20", halo: "from-purple-500/25 to-indigo-500/10" },
+            ].map((item) => {
+              const IconComp = item.icon;
+              return (
+                <div key={item.title} className="group rounded-2xl border border-line hover:border-accent/60 bg-surface p-5 shadow-sm transition-all hover:shadow-xl hover:-translate-y-1 flex flex-col justify-between">
+                  <div>
+                    <div className="relative mb-3.5 inline-block">
+                      <div className={`absolute -inset-1 rounded-xl bg-gradient-to-r ${item.halo} blur-sm opacity-40 group-hover:opacity-100 transition-opacity`} />
+                      <div className={`relative h-11 w-11 rounded-xl bg-gradient-to-b from-slate-800 via-slate-900 to-slate-950 border ${item.border} flex items-center justify-center shadow-[inset_0_1px_1px_rgba(255,255,255,0.2),0_4px_8px_rgba(0,0,0,0.5)]`}>
+                        <IconComp className={`h-5 w-5 ${item.color} drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)] transform group-hover:scale-110 transition-transform`} strokeWidth={2.2} />
+                      </div>
+                    </div>
+                    <h3 className="font-bold text-sm text-ink mb-1.5">{item.title}</h3>
+                    <p className="text-xs text-muted leading-relaxed">{item.desc}</p>
+                  </div>
                 </div>
-                <p className="text-xs text-muted leading-relaxed">{item.desc}</p>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>

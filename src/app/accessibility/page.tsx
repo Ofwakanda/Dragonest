@@ -28,7 +28,7 @@ export default function AccessibilityPage() {
           { icon: ScrollText, title: "Plain-language instructions", body: "We rewrite project guidelines into short, clear steps with examples, alongside the original." },
           { icon: Split, title: "Task splitting", body: "Long tasks broken into smaller steps with checkpoints, where the platform allows it." },
           { icon: Clock, title: "Extra time options", body: "Extra time on our skills tests, and longer shift windows. Platform time limits we can't change are flagged before you accept." },
-          { icon: UserRound, title: "Human support and coaching", body: "A named coach for setup, questions and check-ins — by chat, email, phone or video, your choice." },
+          { icon: UserRound, title: "Human support and coaching", body: "A named coach for setup, questions and check-ins: by chat, email, phone or video, your choice." },
         ]} />
       </Section>
 

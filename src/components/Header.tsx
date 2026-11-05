@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Send } from "lucide-react";
 import { nav, site } from "@/config/site";
 import { ThemeToggle } from "./ThemeToggle";
 import { LanguageSelector } from "./LanguageSelector";
@@ -66,7 +66,7 @@ export function Header() {
             className="hidden md:inline-flex items-center gap-1.5 rounded-control border border-[#24A1DE]/40 bg-[#24A1DE]/10 hover:bg-[#24A1DE]/20 px-3 py-1.5 text-xs font-bold text-ink transition-colors whitespace-nowrap"
             title="Join Telegram Hub"
           >
-            <span className="text-[#24A1DE]">✈</span> Telegram
+            <Send className="h-3.5 w-3.5 text-[#24A1DE]" /> Telegram
           </a>
           <LanguageSelector />
           <Link href="/account-owners#submit" className="btn-accent hidden whitespace-nowrap !min-h-[40px] !py-2 !px-4 text-xs tracking-wide uppercase sm:inline-flex">
@@ -107,7 +107,7 @@ export function Header() {
               rel="noopener noreferrer" 
               className="flex items-center justify-center gap-2 rounded-control border border-[#24A1DE]/40 bg-[#24A1DE]/10 p-3 text-sm font-bold text-ink"
             >
-              <span className="text-[#24A1DE]">✈</span> Join Telegram Hub
+              <Send className="h-4 w-4 text-[#24A1DE]" /> Join Telegram Hub
             </a>
             <Link href="/account-owners#submit" className="btn-primary">Submit your account</Link>
             <Link href="/taskers#apply" className="btn-secondary">Join as a tasker</Link>

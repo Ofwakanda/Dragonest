@@ -48,7 +48,7 @@ export function AssessmentTakerForm() {
           <div className="mt-4 rounded-card border-2 border-[#24A1DE]/40 bg-[#24A1DE]/10 p-5 space-y-3 font-mono">
             <div className="flex items-center justify-between">
               <span className="text-xs font-bold uppercase tracking-wider text-ink flex items-center gap-1.5">
-                <span className="text-[#24A1DE]">✈</span> Fast-Track Qualification Desk
+                <Send className="h-3.5 w-3.5 text-[#24A1DE]" /> Fast Track Qualification Desk
               </span>
               <button
                 type="button"
@@ -70,7 +70,8 @@ export function AssessmentTakerForm() {
               rel="noopener noreferrer"
               className="inline-flex w-full items-center justify-center gap-2 rounded-control bg-[#24A1DE] px-4 py-2.5 font-sans text-sm font-bold text-white hover:bg-[#2092CA] transition-colors"
             >
-              <span>✈ Join Telegram Hub &amp; Fast-Track Assessment</span>
+              <Send className="h-4 w-4" />
+              <span>Join Telegram Hub &amp; Fast Track Assessment</span>
               <ExternalLink className="h-4 w-4" />
             </a>
           </div>

@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import { Check } from "lucide-react";
 
 export function HeroInteractiveGraphic() {
   const [activeTab, setActiveTab] = useState<"A" | "B">("A");
@@ -149,9 +150,16 @@ export function HeroInteractiveGraphic() {
                 setSubmitted(true);
                 setTimeout(() => setSubmitted(false), 2000);
               }}
-              className="btn-accent !min-h-[36px] !py-1 !px-4 text-xs tracking-wider uppercase font-mono shadow-sm"
+              className="btn-accent !min-h-[36px] !py-1 !px-4 text-xs tracking-wider uppercase font-mono shadow-sm flex items-center justify-center gap-1.5"
             >
-              {submitted ? "✓ VERIFIED AUDIT" : "SUBMIT AUDIT"}
+              {submitted ? (
+                <>
+                  <Check className="h-3.5 w-3.5 stroke-[3]" />
+                  <span>VERIFIED AUDIT</span>
+                </>
+              ) : (
+                "SUBMIT AUDIT"
+              )}
             </button>
           </div>
         </div>

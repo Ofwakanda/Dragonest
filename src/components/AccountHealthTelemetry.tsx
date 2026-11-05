@@ -326,8 +326,8 @@ export function AccountHealthTelemetry() {
                 className="mt-3 flex items-center justify-between rounded-lg border-2 border-[#24A1DE]/40 bg-[#24A1DE]/10 p-2.5 hover:border-[#24A1DE] hover:bg-[#24A1DE]/20 transition-all group"
               >
                 <div className="flex items-center gap-2.5">
-                  <span className="h-7 w-7 rounded bg-[#24A1DE] text-white flex items-center justify-center font-bold text-sm">
-                    ✈
+                  <span className="h-7 w-7 rounded bg-[#24A1DE] text-white flex items-center justify-center">
+                    <Send className="h-3.5 w-3.5" />
                   </span>
                   <div>
                     <div className="flex items-center gap-1.5">

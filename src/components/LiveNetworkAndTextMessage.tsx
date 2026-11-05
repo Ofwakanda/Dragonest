@@ -264,8 +264,8 @@ export function LiveNetworkAndTextMessage() {
                   className="flex items-center justify-between rounded-lg border border-[#24A1DE]/40 bg-[#24A1DE]/10 p-2 text-xs hover:border-[#24A1DE] hover:bg-[#24A1DE]/20 transition-all group"
                 >
                   <span className="flex items-center gap-2 text-ink font-medium">
-                    <span className="text-[#24A1DE] font-bold">✈</span>
-                    <span>Prefer Telegram? Fast-track your inquiry &bull; <strong className="font-mono">Join Telegram Hub</strong></span>
+                    <Send className="h-3.5 w-3.5 text-[#24A1DE]" />
+                    <span>Prefer Telegram? Fast track your inquiry &bull; <strong className="font-mono">Join Telegram Hub</strong></span>
                   </span>
                   <span className="font-mono text-[11px] font-bold text-[#24A1DE] group-hover:translate-x-0.5 transition-transform">
                     Join →

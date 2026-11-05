@@ -8,7 +8,7 @@ export function SampleBadge() {
   return (
     <span className="inline-flex items-center gap-2 rounded-full border border-accent/40 bg-accent/10 px-3.5 py-1 text-xs font-mono font-semibold text-ink shadow-[0_0_12px_rgba(200,255,46,0.25)]">
       <span className="h-2 w-2 rounded-full bg-accent animate-pulse" />
-      Verified Audited Feedback — Transparent Network Ratings
+      Verified Audited Feedback : Transparent Network Ratings
     </span>
   );
 }
@@ -82,7 +82,7 @@ function SocialIcon({ platform }: { platform: SocialPlatform }) {
   if (platform === "x") {
     return (
       <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-black text-white text-[11px] font-mono font-semibold border border-neutral-800">
-        𝕏 Post
+        X Post
       </span>
     );
   }
@@ -109,7 +109,7 @@ function SocialIcon({ platform }: { platform: SocialPlatform }) {
   }
   return (
     <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-[#00B67A] text-white text-[11px] font-mono font-semibold">
-      ★ Trustpilot
+      <Star className="h-3 w-3 fill-current text-white" /> Trustpilot
     </span>
   );
 }

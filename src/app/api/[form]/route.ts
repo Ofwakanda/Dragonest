@@ -30,14 +30,14 @@ async function sendTelegramAlert(form: string, reference: string, fd: FormData, 
   if (!token || !chatId) return;
 
   const titleMap: Record<string, string> = {
-    account: "💼 NEW ACCOUNT OWNER SUBMISSION",
-    tasker: "⚡ NEW TASKER APPLICATION",
-    assessment: "🎯 NEW ASSESSMENT TAKER INTAKE",
-    contact: "📬 NEW CONTACT MESSAGE",
-    digest: "📰 NEW NEWSLETTER SUBSCRIBER",
+    account: "[ACCOUNT] NEW ACCOUNT OWNER SUBMISSION",
+    tasker: "[TASKER] NEW TASKER APPLICATION",
+    assessment: "[ASSESSMENT] NEW ASSESSMENT TAKER INTAKE",
+    contact: "[CONTACT] NEW CONTACT MESSAGE",
+    digest: "[NEWSLETTER] NEW SUBSCRIBER",
   };
 
-  const title = titleMap[form] || "📋 NEW FORM SUBMISSION";
+  const title = titleMap[form] || "[SUBMISSION] NEW FORM SUBMISSION";
   const name = escapeHtml(String(fd.get("name") ?? "N/A").trim());
   const email = escapeHtml(String(fd.get("email") ?? "N/A").trim());
   const country = escapeHtml(String(fd.get("country") ?? "").trim());
@@ -45,31 +45,31 @@ async function sendTelegramAlert(form: string, reference: string, fd: FormData, 
 
   let body = `<b>${title}</b>\n`;
   body += `━━━━━━━━━━━━━━━━━━━━\n`;
-  body += `🔖 <b>Reference:</b> <code>${reference}</code>\n`;
-  if (name !== "N/A") body += `👤 <b>Name:</b> ${name}\n`;
-  body += `📧 <b>Email:</b> ${email}\n`;
-  if (country) body += `🌍 <b>Country:</b> ${country}\n`;
+  body += `• <b>Reference:</b> <code>${reference}</code>\n`;
+  if (name !== "N/A") body += `• <b>Name:</b> ${name}\n`;
+  body += `• <b>Email:</b> ${email}\n`;
+  if (country) body += `• <b>Country:</b> ${country}\n`;
 
   if (form === "account") {
-    body += `🏢 <b>Platform:</b> ${escapeHtml(String(fd.get("platform") ?? "N/A"))}\n`;
-    body += `📊 <b>Status:</b> ${escapeHtml(String(fd.get("status") ?? "N/A"))}\n`;
+    body += `• <b>Platform:</b> ${escapeHtml(String(fd.get("platform") ?? "N/A"))}\n`;
+    body += `• <b>Status:</b> ${escapeHtml(String(fd.get("status") ?? "N/A"))}\n`;
     const policy = fd.get("policyUrl");
-    if (policy) body += `🔗 <b>Profile/Policy:</b> ${escapeHtml(String(policy))}\n`;
+    if (policy) body += `• <b>Profile/Policy:</b> ${escapeHtml(String(policy))}\n`;
   } else if (form === "tasker") {
-    body += `⏰ <b>Timezone:</b> ${escapeHtml(String(fd.get("timezone") ?? "N/A"))}\n`;
-    body += `⏳ <b>Hours/Week:</b> ${escapeHtml(String(fd.get("hours") ?? "N/A"))}\n`;
+    body += `• <b>Timezone:</b> ${escapeHtml(String(fd.get("timezone") ?? "N/A"))}\n`;
+    body += `• <b>Hours/Week:</b> ${escapeHtml(String(fd.get("hours") ?? "N/A"))}\n`;
   } else if (form === "assessment") {
-    body += `🔬 <b>Domain:</b> ${escapeHtml(String(fd.get("domain") ?? "N/A"))}\n`;
-    body += `🎯 <b>Project Target:</b> ${escapeHtml(String(fd.get("projectTarget") ?? "N/A"))}\n`;
-    body += `📝 <b>Experience:</b> ${escapeHtml(String(fd.get("experience") ?? "N/A"))}\n`;
+    body += `• <b>Domain:</b> ${escapeHtml(String(fd.get("domain") ?? "N/A"))}\n`;
+    body += `• <b>Project Target:</b> ${escapeHtml(String(fd.get("projectTarget") ?? "N/A"))}\n`;
+    body += `• <b>Experience:</b> ${escapeHtml(String(fd.get("experience") ?? "N/A"))}\n`;
   } else if (form === "contact") {
-    body += `💬 <b>Topic:</b> ${escapeHtml(String(fd.get("topic") ?? "N/A"))}\n`;
-    body += `💭 <b>Message:</b>\n${escapeHtml(String(fd.get("message") ?? "N/A"))}\n`;
+    body += `• <b>Topic:</b> ${escapeHtml(String(fd.get("topic") ?? "N/A"))}\n`;
+    body += `• <b>Message:</b>\n${escapeHtml(String(fd.get("message") ?? "N/A"))}\n`;
   }
 
   if (files.length > 0) {
     const fileList = files.map((f) => escapeHtml(f.name)).join(", ");
-    body += `📎 <b>Attachments (${files.length}):</b> ${fileList}\n`;
+    body += `• <b>Attachments (${files.length}):</b> ${fileList}\n`;
   }
 
   body += `━━━━━━━━━━━━━━━━━━━━\n`;

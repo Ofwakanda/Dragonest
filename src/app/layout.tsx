@@ -11,7 +11,7 @@ import { CustomerCareModal } from "@/components/CustomerCareModal";
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
-  title: { default: `${site.name} — Your AI training account, professionally staffed`, template: `%s | ${site.name}` },
+  title: { default: `${site.name} : Your AI training account, professionally staffed`, template: `%s | ${site.name}` },
   description: site.description,
   applicationName: site.name,
   openGraph: { type: "website", siteName: site.name, locale: "en_US" },

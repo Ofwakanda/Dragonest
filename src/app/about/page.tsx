@@ -27,7 +27,8 @@ import {
   Send,
   Lock,
   Layers,
-  ArrowRight
+  ArrowRight,
+  Check
 } from "lucide-react";
 import Link from "next/link";
 import { ContactForm } from "@/components/forms/ContactForm";
@@ -122,9 +123,10 @@ export default function About() {
             href={site.telegram.hub} 
             target="_blank" 
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 rounded-control border border-[#24A1DE]/40 bg-[#24A1DE]/10 hover:bg-[#24A1DE]/25 px-4 py-3 text-xs font-bold uppercase tracking-wider text-ink transition-colors"
+            className="inline-flex items-center gap-2 rounded-control border border-[#24A1DE]/40 bg-[#24A1DE]/10 hover:bg-[#24A1DE]/25 px-4 py-3 text-xs font-bold uppercase tracking-wider text-ink transition-colors"
           >
-            <span className="text-[#24A1DE]">✈</span> Join Telegram Now
+            <Send className="h-4 w-4 text-[#24A1DE]" />
+            <span>Join Telegram Now</span>
           </a>
         </div>
       </PageHero>
@@ -145,16 +147,19 @@ export default function About() {
           </p>
           <div className="pt-4 grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-2xl mx-auto text-center">
             {[
-              { icon: Wallet, label: "Weekly payouts", color: "text-emerald-400", border: "border-emerald-500/30", bg: "from-emerald-500/10 via-slate-900 to-slate-950" },
-              { icon: Smartphone, label: "Phone or laptop only", color: "text-cyan-400", border: "border-cyan-500/30", bg: "from-cyan-500/10 via-slate-900 to-slate-950" },
-              { icon: Globe2, label: "Any country", color: "text-amber-400", border: "border-amber-500/30", bg: "from-amber-500/10 via-slate-900 to-slate-950" },
-              { icon: Clock, label: "Your own hours", color: "text-purple-400", border: "border-purple-500/30", bg: "from-purple-500/10 via-slate-900 to-slate-950" },
+              { icon: Wallet, label: "Weekly payouts", color: "text-emerald-400", border: "border-t-emerald-400/40 border-emerald-500/30", halo: "from-emerald-500/25 to-teal-500/10", bg: "from-slate-800 via-slate-900 to-slate-950" },
+              { icon: Smartphone, label: "Phone or laptop only", color: "text-cyan-400", border: "border-t-cyan-400/40 border-cyan-500/30", halo: "from-cyan-500/25 to-blue-500/10", bg: "from-slate-800 via-slate-900 to-slate-950" },
+              { icon: Globe2, label: "Any country", color: "text-amber-400", border: "border-t-amber-400/40 border-amber-500/30", halo: "from-amber-500/25 to-yellow-500/10", bg: "from-slate-800 via-slate-900 to-slate-950" },
+              { icon: Clock, label: "Your own hours", color: "text-purple-400", border: "border-t-purple-400/40 border-purple-500/30", halo: "from-purple-500/25 to-indigo-500/10", bg: "from-slate-800 via-slate-900 to-slate-950" },
             ].map((item) => {
               const IconComp = item.icon;
               return (
-                <div key={item.label} className="group rounded-2xl border border-line bg-surface p-4 flex flex-col items-center gap-3 shadow-md hover:border-accent/50 transition-all hover:-translate-y-1">
-                  <div className={`h-14 w-14 rounded-2xl bg-gradient-to-b ${item.bg} border ${item.border} flex items-center justify-center shadow-[inset_0_1px_1px_rgba(255,255,255,0.15),0_8px_16px_rgba(0,0,0,0.5)]`}>
-                    <IconComp className={`h-6 w-6 ${item.color} drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)]`} strokeWidth={2.2} />
+                <div key={item.label} className="group rounded-2xl border border-line bg-surface p-5 flex flex-col items-center gap-3 shadow-md hover:border-accent/50 transition-all hover:-translate-y-1">
+                  <div className="relative">
+                    <div className={`absolute -inset-1.5 rounded-2xl bg-gradient-to-r ${item.halo} blur-md opacity-40 group-hover:opacity-100 transition-opacity`} />
+                    <div className={`relative h-14 w-14 rounded-2xl bg-gradient-to-b ${item.bg} border ${item.border} flex items-center justify-center shadow-[inset_0_1px_1px_rgba(255,255,255,0.25),0_8px_16px_rgba(0,0,0,0.5)]`}>
+                      <IconComp className={`h-6 w-6 ${item.color} drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)] transform group-hover:scale-110 transition-transform`} strokeWidth={2.2} />
+                    </div>
                   </div>
                   <span className="text-xs font-bold text-ink">{item.label}</span>
                 </div>
@@ -172,9 +177,12 @@ export default function About() {
         intro="AI companies like Outlier, Scale AI, and Alignerr pay people to review and improve AI responses. The work is done online, from your phone or laptop, on your own schedule."
       >
         <div className="grid gap-8 lg:grid-cols-3">
-          <div className="card space-y-4 border-accent/40 bg-surface shadow-xl">
-            <div className="inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-b from-amber-400/20 via-slate-900 to-slate-950 border border-amber-500/40 text-amber-400 font-mono font-black text-xl shadow-[inset_0_1px_2px_rgba(255,255,255,0.2),0_8px_16px_rgba(0,0,0,0.6)]">
-              01
+          <div className="group card space-y-4 border-line hover:border-accent/60 bg-surface shadow-xl transition-all hover:-translate-y-1">
+            <div className="relative inline-block">
+              <div className="absolute -inset-1.5 rounded-2xl bg-gradient-to-r from-amber-500/30 to-yellow-500/20 blur-md opacity-40 group-hover:opacity-100 transition-opacity" />
+              <div className="relative inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-b from-slate-800 via-slate-900 to-slate-950 border border-t-amber-400/50 border-amber-500/30 text-amber-400 font-mono font-black text-xl shadow-[inset_0_1px_2px_rgba(255,255,255,0.25),0_8px_16px_rgba(0,0,0,0.5)]">
+                01
+              </div>
             </div>
             <h3 className="text-xl font-bold text-ink">You Get a Verified Account</h3>
             <p className="text-sm text-muted leading-relaxed">
@@ -182,9 +190,12 @@ export default function About() {
             </p>
           </div>
 
-          <div className="card space-y-4 border-line bg-surface shadow-xl">
-            <div className="inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-b from-cyan-400/20 via-slate-900 to-slate-950 border border-cyan-500/40 text-cyan-400 font-mono font-black text-xl shadow-[inset_0_1px_2px_rgba(255,255,255,0.2),0_8px_16px_rgba(0,0,0,0.6)]">
-              02
+          <div className="group card space-y-4 border-line hover:border-accent/60 bg-surface shadow-xl transition-all hover:-translate-y-1">
+            <div className="relative inline-block">
+              <div className="absolute -inset-1.5 rounded-2xl bg-gradient-to-r from-cyan-500/30 to-blue-500/20 blur-md opacity-40 group-hover:opacity-100 transition-opacity" />
+              <div className="relative inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-b from-slate-800 via-slate-900 to-slate-950 border border-t-cyan-400/50 border-cyan-500/30 text-cyan-400 font-mono font-black text-xl shadow-[inset_0_1px_2px_rgba(255,255,255,0.25),0_8px_16px_rgba(0,0,0,0.5)]">
+                02
+              </div>
             </div>
             <h3 className="text-xl font-bold text-ink">You Do the Tasks, We Handle the Rest</h3>
             <p className="text-sm text-muted leading-relaxed">
@@ -192,9 +203,12 @@ export default function About() {
             </p>
           </div>
 
-          <div className="card space-y-4 border-line bg-surface shadow-xl">
-            <div className="inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-b from-emerald-400/20 via-slate-900 to-slate-950 border border-emerald-500/40 text-emerald-400 font-mono font-black text-xl shadow-[inset_0_1px_2px_rgba(255,255,255,0.2),0_8px_16px_rgba(0,0,0,0.6)]">
-              03
+          <div className="group card space-y-4 border-line hover:border-accent/60 bg-surface shadow-xl transition-all hover:-translate-y-1">
+            <div className="relative inline-block">
+              <div className="absolute -inset-1.5 rounded-2xl bg-gradient-to-r from-emerald-500/30 to-teal-500/20 blur-md opacity-40 group-hover:opacity-100 transition-opacity" />
+              <div className="relative inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-b from-slate-800 via-slate-900 to-slate-950 border border-t-emerald-400/50 border-emerald-500/30 text-emerald-400 font-mono font-black text-xl shadow-[inset_0_1px_2px_rgba(255,255,255,0.25),0_8px_16px_rgba(0,0,0,0.5)]">
+                03
+              </div>
             </div>
             <h3 className="text-xl font-bold text-ink">You Get Paid Every Week</h3>
             <p className="text-muted leading-relaxed text-sm">
@@ -224,28 +238,34 @@ export default function About() {
         </p>
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {[
-            { icon: BookOpen, who: "University Students", situation: "Broke between semesters, classes only 3 days a week, need money for rent and data.", howItHelps: "Work during free periods. Earn while you study. No boss to ask permission from.", color: "text-blue-400", border: "border-blue-500/30", bg: "from-blue-500/10 via-slate-900 to-slate-950" },
-            { icon: Home, who: "Stay at Home Parents", situation: "Taking care of kids all day, cannot do a 9 to 5, but need income.", howItHelps: "Work during nap times, evenings, or whenever you get 30 free minutes. Weekly payout.", color: "text-rose-400", border: "border-rose-500/30", bg: "from-rose-500/10 via-slate-900 to-slate-950" },
-            { icon: TrendingDown, who: "Unemployed & Job Hunting", situation: "Sending CVs every day with no response, bills piling up, dignity running low.", howItHelps: "Start earning this week with no interview and no waiting. AI does not care about your CV.", color: "text-amber-400", border: "border-amber-500/30", bg: "from-amber-500/10 via-slate-900 to-slate-950" },
-            { icon: Car, who: "Ride Hail & Delivery Workers", situation: "Long hours, bad weather, low pay, no benefits, no security.", howItHelps: "AI tasks pay more per hour than driving. Work from home. Keep your sanity.", color: "text-emerald-400", border: "border-emerald-500/30", bg: "from-emerald-500/10 via-slate-900 to-slate-950" },
-            { icon: Globe2, who: "People in Developing Countries", situation: "Local salary is too low, exchange rate makes international income life changing.", howItHelps: "Paid in USD equivalent. Even $5 to $10 an hour is transformational in many countries.", color: "text-teal-400", border: "border-teal-500/30", bg: "from-teal-500/10 via-slate-900 to-slate-950" },
-            { icon: Armchair, who: "People Who Say They Are Lazy", situation: "Do not want a demanding job. Want easy, flexible income they can do at their own pace.", howItHelps: "Rate AI responses from your couch. Some tasks take 2 minutes. You just need consistency.", color: "text-purple-400", border: "border-purple-500/30", bg: "from-purple-500/10 via-slate-900 to-slate-950" },
-            { icon: Laptop, who: "Remote Work Seekers", situation: "Tried Upwork, Fiverr, and other platforms with no clients and too much competition.", howItHelps: "We already have the accounts and task queues. You just show up and do the work.", color: "text-cyan-400", border: "border-cyan-500/30", bg: "from-cyan-500/10 via-slate-900 to-slate-950" },
-            { icon: Coffee, who: "Older Adults & Retirees", situation: "Pension not enough, do not want physical work, need something they can do from home.", howItHelps: "Simple tasks. No physical activity. Just reading, judging, and writing at your own speed.", color: "text-orange-400", border: "border-orange-500/30", bg: "from-orange-500/10 via-slate-900 to-slate-950" },
-            { icon: PenTool, who: "Writers, Bloggers & Creatives", situation: "Passion does not always pay. Need consistent income while building your craft.", howItHelps: "AI writing and prompt tasks are perfect for your skill set. And they pay weekly.", color: "text-fuchsia-400", border: "border-fuchsia-500/30", bg: "from-fuchsia-500/10 via-slate-900 to-slate-950" },
+            { icon: BookOpen, who: "University Students", situation: "Broke between semesters, classes only 3 days a week, need money for rent and data.", howItHelps: "Work during free periods. Earn while you study. No boss to ask permission from.", color: "text-blue-400", border: "border-t-blue-400/40 border-blue-500/30", halo: "from-blue-500/25 to-indigo-500/10" },
+            { icon: Home, who: "Stay at Home Parents", situation: "Taking care of kids all day, cannot do a 9 to 5, but need income.", howItHelps: "Work during nap times, evenings, or whenever you get 30 free minutes. Weekly payout.", color: "text-rose-400", border: "border-t-rose-400/40 border-rose-500/30", halo: "from-rose-500/25 to-pink-500/10" },
+            { icon: TrendingDown, who: "Unemployed & Job Hunting", situation: "Sending CVs every day with no response, bills piling up, dignity running low.", howItHelps: "Start earning this week with no interview and no waiting. AI does not care about your CV.", color: "text-amber-400", border: "border-t-amber-400/40 border-amber-500/30", halo: "from-amber-500/25 to-orange-500/10" },
+            { icon: Car, who: "Ride Hail & Delivery Workers", situation: "Long hours, bad weather, low pay, no benefits, no security.", howItHelps: "AI tasks pay more per hour than driving. Work from home. Keep your sanity.", color: "text-emerald-400", border: "border-t-emerald-400/40 border-emerald-500/30", halo: "from-emerald-500/25 to-teal-500/10" },
+            { icon: Globe2, who: "People in Developing Countries", situation: "Local salary is too low, exchange rate makes international income life changing.", howItHelps: "Paid in USD equivalent. Even $5 to $10 an hour is transformational in many countries.", color: "text-teal-400", border: "border-t-teal-400/40 border-teal-500/30", halo: "from-teal-500/25 to-cyan-500/10" },
+            { icon: Armchair, who: "People Who Say They Are Lazy", situation: "Do not want a demanding job. Want easy, flexible income they can do at their own pace.", howItHelps: "Rate AI responses from your couch. Some tasks take 2 minutes. You just need consistency.", color: "text-purple-400", border: "border-t-purple-400/40 border-purple-500/30", halo: "from-purple-500/25 to-fuchsia-500/10" },
+            { icon: Laptop, who: "Remote Work Seekers", situation: "Tried Upwork, Fiverr, and other platforms with no clients and too much competition.", howItHelps: "We already have the accounts and task queues. You just show up and do the work.", color: "text-cyan-400", border: "border-t-cyan-400/40 border-cyan-500/30", halo: "from-cyan-500/25 to-sky-500/10" },
+            { icon: Coffee, who: "Older Adults & Retirees", situation: "Pension not enough, do not want physical work, need something they can do from home.", howItHelps: "Simple tasks. No physical activity. Just reading, judging, and writing at your own speed.", color: "text-orange-400", border: "border-t-orange-400/40 border-orange-500/30", halo: "from-orange-500/25 to-amber-500/10" },
+            { icon: PenTool, who: "Writers, Bloggers & Creatives", situation: "Passion does not always pay. Need consistent income while building your craft.", howItHelps: "AI writing and prompt tasks are perfect for your skill set. And they pay weekly.", color: "text-fuchsia-400", border: "border-t-fuchsia-400/40 border-fuchsia-500/30", halo: "from-fuchsia-500/25 to-pink-500/10" },
           ].map((item) => {
             const IconComp = item.icon;
             return (
-              <div key={item.who} className="group card flex flex-col border-line bg-surface hover:border-accent transition-all hover:shadow-xl hover:-translate-y-1">
+              <div key={item.who} className="group card flex flex-col border-line bg-surface hover:border-accent/60 transition-all hover:shadow-xl hover:-translate-y-1">
                 <div className="flex items-center gap-3.5 mb-3">
-                  <div className={`h-12 w-12 rounded-xl bg-gradient-to-b ${item.bg} border ${item.border} flex items-center justify-center shrink-0 shadow-[inset_0_1px_1px_rgba(255,255,255,0.2),0_6px_12px_rgba(0,0,0,0.5)]`}>
-                    <IconComp className={`h-5 w-5 ${item.color} drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)]`} strokeWidth={2.2} />
+                  <div className="relative shrink-0">
+                    <div className={`absolute -inset-1 rounded-xl bg-gradient-to-r ${item.halo} blur-sm opacity-40 group-hover:opacity-100 transition-opacity`} />
+                    <div className={`relative h-12 w-12 rounded-xl bg-gradient-to-b from-slate-800 via-slate-900 to-slate-950 border ${item.border} flex items-center justify-center shadow-[inset_0_1px_1px_rgba(255,255,255,0.2),0_6px_12px_rgba(0,0,0,0.5)]`}>
+                      <IconComp className={`h-5 w-5 ${item.color} drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)] transform group-hover:scale-110 transition-transform`} strokeWidth={2.2} />
+                    </div>
                   </div>
                   <h3 className="text-base font-extrabold text-ink">{item.who}</h3>
                 </div>
                 <p className="text-xs text-muted mb-3 leading-relaxed italic">&ldquo;{item.situation}&rdquo;</p>
                 <div className="mt-auto pt-3 border-t border-line">
-                  <p className="text-xs font-semibold text-accent leading-relaxed">✓ {item.howItHelps}</p>
+                  <p className="text-xs font-semibold text-accent leading-relaxed flex items-center gap-1.5">
+                    <Check className="h-3 w-3 shrink-0 stroke-[3]" />
+                    <span>{item.howItHelps}</span>
+                  </p>
                 </div>
               </div>
             );
@@ -269,14 +289,17 @@ export default function About() {
       >
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
           {[
-            { step: "01", title: "Apply as a Tasker", body: "Fill out a short form telling us your skills, timezone, and how many hours you can work per week. It takes less than 5 minutes.", color: "text-amber-400", border: "border-amber-500/40", bg: "from-amber-500/10 via-slate-900 to-slate-950" },
-            { step: "02", title: "We Review & Match You", body: "Our team reviews your application within 24 hours and matches you to the best platform and account for your skills and location.", color: "text-cyan-400", border: "border-cyan-500/40", bg: "from-cyan-500/10 via-slate-900 to-slate-950" },
-            { step: "03", title: "Get Onboarded via Telegram", body: "We send you everything you need via Telegram including your account access, task guides, quality tips, and a direct line to your support manager.", color: "text-purple-400", border: "border-purple-500/40", bg: "from-purple-500/10 via-slate-900 to-slate-950" },
-            { step: "04", title: "Start Earning Immediately", body: "Log in, complete tasks, and get paid weekly. The more consistent and high quality your work, the more tasks and earnings come your way.", color: "text-emerald-400", border: "border-emerald-500/40", bg: "from-emerald-500/10 via-slate-900 to-slate-950" },
+            { step: "01", title: "Apply as a Tasker", body: "Fill out a short form telling us your skills, timezone, and how many hours you can work per week. It takes less than 5 minutes.", color: "text-amber-400", border: "border-t-amber-400/40 border-amber-500/30", halo: "from-amber-500/25 to-yellow-500/10" },
+            { step: "02", title: "We Review & Match You", body: "Our team reviews your application within 24 hours and matches you to the best platform and account for your skills and location.", color: "text-cyan-400", border: "border-t-cyan-400/40 border-cyan-500/30", halo: "from-cyan-500/25 to-blue-500/10" },
+            { step: "03", title: "Get Onboarded via Telegram", body: "We send you everything you need via Telegram including your account access, task guides, quality tips, and a direct line to your support manager.", color: "text-purple-400", border: "border-t-purple-400/40 border-purple-500/30", halo: "from-purple-500/25 to-indigo-500/10" },
+            { step: "04", title: "Start Earning Immediately", body: "Log in, complete tasks, and get paid weekly. The more consistent and high quality your work, the more tasks and earnings come your way.", color: "text-emerald-400", border: "border-t-emerald-400/40 border-emerald-500/30", halo: "from-emerald-500/25 to-teal-500/10" },
           ].map((item) => (
-            <div key={item.step} className="card space-y-3 border-line bg-surface hover:shadow-xl transition-shadow">
-              <div className={`inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-b ${item.bg} border ${item.border} ${item.color} font-mono font-black text-xl shadow-[inset_0_1px_2px_rgba(255,255,255,0.2),0_6px_12px_rgba(0,0,0,0.5)]`}>
-                {item.step}
+            <div key={item.step} className="group card space-y-3 border-line hover:border-accent/60 bg-surface hover:shadow-xl transition-all hover:-translate-y-1">
+              <div className="relative inline-block">
+                <div className={`absolute -inset-1.5 rounded-2xl bg-gradient-to-r ${item.halo} blur-md opacity-40 group-hover:opacity-100 transition-opacity`} />
+                <div className={`relative inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-b from-slate-800 via-slate-900 to-slate-950 border ${item.border} ${item.color} font-mono font-black text-xl shadow-[inset_0_1px_2px_rgba(255,255,255,0.25),0_6px_12px_rgba(0,0,0,0.5)]`}>
+                  {item.step}
+                </div>
               </div>
               <h3 className="text-lg font-bold text-ink">{item.title}</h3>
               <p className="text-sm text-muted leading-relaxed">{item.body}</p>
@@ -335,9 +358,9 @@ export default function About() {
                   href={member.telegram} 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="link flex items-center gap-1 font-bold text-ink hover:text-[#24A1DE]"
+                  className="link flex items-center gap-1.5 font-bold text-ink hover:text-[#24A1DE]"
                 >
-                  <span className="text-[#24A1DE]">✈</span> Telegram Hub
+                  <Send className="h-3.5 w-3.5 text-[#24A1DE]" /> Telegram Hub
                 </a>
                 <a href={`mailto:${member.email}`} className="text-muted hover:text-ink">
                   {member.email}
@@ -376,18 +399,21 @@ export default function About() {
       >
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {[
-            { icon: MessageSquare, title: "Rating AI Responses", body: "You read two AI answers to the same question and pick which one is better. Simple comparisons that help AI learn faster.", color: "text-sky-400", border: "border-sky-500/30", bg: "from-sky-500/10 via-slate-900 to-slate-950" },
-            { icon: PenTool, title: "Writing Prompts & Instructions", body: "You write questions or tasks for the AI to try to answer. The more creative your prompts, the better the AI gets and the more you earn.", color: "text-emerald-400", border: "border-emerald-500/30", bg: "from-emerald-500/10 via-slate-900 to-slate-950" },
-            { icon: Binary, title: "Checking Math & Reasoning", body: "AI often makes subtle logic errors. If you are good at math or science, you can earn top rates reviewing step by step reasoning for mistakes.", color: "text-purple-400", border: "border-purple-500/30", bg: "from-purple-500/10 via-slate-900 to-slate-950" },
-            { icon: Code2, title: "Reviewing Code", body: "If you know any programming language like Python, JavaScript, or SQL, companies will pay you to verify that AI generated code actually works correctly.", color: "text-amber-400", border: "border-amber-500/30", bg: "from-amber-500/10 via-slate-900 to-slate-950" },
-            { icon: Languages, title: "Translating & Localizing", body: "AI needs to work in every language. If you speak a second language fluently, you can earn by translating or reviewing AI content in that language.", color: "text-teal-400", border: "border-teal-500/30", bg: "from-teal-500/10 via-slate-900 to-slate-950" },
-            { icon: SearchCheck, title: "Fact Checking & Research", body: "You verify that AI answers are accurate, up to date, and not making things up. Great for people who enjoy researching and reading critically.", color: "text-rose-400", border: "border-rose-500/30", bg: "from-rose-500/10 via-slate-900 to-slate-950" },
+            { icon: MessageSquare, title: "Rating AI Responses", body: "You read two AI answers to the same question and pick which one is better. Simple comparisons that help AI learn faster.", color: "text-sky-400", border: "border-t-sky-400/40 border-sky-500/30", halo: "from-sky-500/25 to-blue-500/10" },
+            { icon: PenTool, title: "Writing Prompts & Instructions", body: "You write questions or tasks for the AI to try to answer. The more creative your prompts, the better the AI gets and the more you earn.", color: "text-emerald-400", border: "border-t-emerald-400/40 border-emerald-500/30", halo: "from-emerald-500/25 to-teal-500/10" },
+            { icon: Binary, title: "Checking Math & Reasoning", body: "AI often makes subtle logic errors. If you are good at math or science, you can earn top rates reviewing step by step reasoning for mistakes.", color: "text-purple-400", border: "border-t-purple-400/40 border-purple-500/30", halo: "from-purple-500/25 to-indigo-500/10" },
+            { icon: Code2, title: "Reviewing Code", body: "If you know any programming language like Python, JavaScript, or SQL, companies will pay you to verify that AI generated code actually works correctly.", color: "text-amber-400", border: "border-t-amber-400/40 border-amber-500/30", halo: "from-amber-500/25 to-orange-500/10" },
+            { icon: Languages, title: "Translating & Localizing", body: "AI needs to work in every language. If you speak a second language fluently, you can earn by translating or reviewing AI content in that language.", color: "text-teal-400", border: "border-t-teal-400/40 border-teal-500/30", halo: "from-teal-500/25 to-cyan-500/10" },
+            { icon: SearchCheck, title: "Fact Checking & Research", body: "You verify that AI answers are accurate, up to date, and not making things up. Great for people who enjoy researching and reading critically.", color: "text-rose-400", border: "border-t-rose-400/40 border-rose-500/30", halo: "from-rose-500/25 to-pink-500/10" },
           ].map((item) => {
             const IconComp = item.icon;
             return (
-              <div key={item.title} className="group card flex flex-col border-line bg-surface hover:border-accent transition-all hover:shadow-xl hover:-translate-y-1">
-                <div className={`h-14 w-14 rounded-2xl bg-gradient-to-b ${item.bg} border ${item.border} flex items-center justify-center mb-4 shadow-[inset_0_1px_1px_rgba(255,255,255,0.2),0_8px_16px_rgba(0,0,0,0.5)]`}>
-                  <IconComp className={`h-6 w-6 ${item.color} drop-shadow-[0_2px_6px_rgba(0,0,0,0.6)]`} strokeWidth={2.2} />
+              <div key={item.title} className="group card flex flex-col border-line bg-surface hover:border-accent/60 transition-all hover:shadow-xl hover:-translate-y-1">
+                <div className="relative mb-4 inline-block">
+                  <div className={`absolute -inset-1.5 rounded-2xl bg-gradient-to-r ${item.halo} blur-md opacity-40 group-hover:opacity-100 transition-opacity`} />
+                  <div className={`relative h-14 w-14 rounded-2xl bg-gradient-to-b from-slate-800 via-slate-900 to-slate-950 border ${item.border} flex items-center justify-center shadow-[inset_0_1px_1px_rgba(255,255,255,0.25),0_8px_16px_rgba(0,0,0,0.5)]`}>
+                    <IconComp className={`h-6 w-6 ${item.color} drop-shadow-[0_2px_6px_rgba(0,0,0,0.6)] transform group-hover:scale-110 transition-transform`} strokeWidth={2.2} />
+                  </div>
                 </div>
                 <h3 className="text-lg font-bold text-ink mb-2">{item.title}</h3>
                 <p className="text-sm text-muted leading-relaxed">{item.body}</p>
@@ -419,8 +445,8 @@ export default function About() {
               description: "Our platform works in over 30 languages so anyone, anywhere can read, understand, and use the site in their own language.",
               url: "https://translate.google.com",
               color: "text-blue-400",
-              border: "border-blue-500/30",
-              bg: "from-blue-500/10 via-slate-900 to-slate-950",
+              border: "border-t-blue-400/40 border-blue-500/30",
+              halo: "from-blue-500/25 to-indigo-500/10",
             },
             {
               icon: Send,
@@ -429,8 +455,8 @@ export default function About() {
               description: "All communication, account access, support, and weekly payment confirmations happen through Telegram. It is encrypted, fast, and free.",
               url: "https://telegram.org",
               color: "text-sky-400",
-              border: "border-sky-500/30",
-              bg: "from-sky-500/10 via-slate-900 to-slate-950",
+              border: "border-t-sky-400/40 border-sky-500/30",
+              halo: "from-sky-500/25 to-cyan-500/10",
             },
             {
               icon: ShieldCheck,
@@ -439,15 +465,18 @@ export default function About() {
               description: "Our website is protected and accelerated by Cloudflare, keeping your data safe and the site fast no matter where you access from.",
               url: "https://cloudflare.com",
               color: "text-amber-400",
-              border: "border-amber-500/30",
-              bg: "from-amber-500/10 via-slate-900 to-slate-950",
+              border: "border-t-amber-400/40 border-amber-500/30",
+              halo: "from-amber-500/25 to-orange-500/10",
             },
           ].map((item) => {
             const IconComp = item.icon;
             return (
-              <div key={item.name} className="group card flex flex-col border-line bg-surface hover:border-accent transition-all hover:shadow-xl hover:-translate-y-1">
-                <div className={`h-14 w-14 rounded-2xl bg-gradient-to-b ${item.bg} border ${item.border} flex items-center justify-center mb-4 shadow-[inset_0_1px_1px_rgba(255,255,255,0.2),0_8px_16px_rgba(0,0,0,0.5)]`}>
-                  <IconComp className={`h-6 w-6 ${item.color} drop-shadow-[0_2px_6px_rgba(0,0,0,0.6)]`} strokeWidth={2.2} />
+              <div key={item.name} className="group card flex flex-col border-line bg-surface hover:border-accent/60 transition-all hover:shadow-xl hover:-translate-y-1">
+                <div className="relative mb-4 inline-block">
+                  <div className={`absolute -inset-1.5 rounded-2xl bg-gradient-to-r ${item.halo} blur-md opacity-40 group-hover:opacity-100 transition-opacity`} />
+                  <div className={`relative h-14 w-14 rounded-2xl bg-gradient-to-b from-slate-800 via-slate-900 to-slate-950 border ${item.border} flex items-center justify-center shadow-[inset_0_1px_1px_rgba(255,255,255,0.25),0_8px_16px_rgba(0,0,0,0.5)]`}>
+                    <IconComp className={`h-6 w-6 ${item.color} drop-shadow-[0_2px_6px_rgba(0,0,0,0.6)] transform group-hover:scale-110 transition-transform`} strokeWidth={2.2} />
+                  </div>
                 </div>
                 <h3 className="text-xl font-bold text-ink">{item.name}</h3>
                 <p className="text-xs font-mono text-accent font-semibold mb-2">{item.role}</p>
@@ -476,7 +505,7 @@ export default function About() {
             <div className="rounded-2xl border-2 border-[#24A1DE]/40 bg-[#24A1DE]/10 p-5 font-mono shadow-xl">
               <div className="flex items-center justify-between">
                 <span className="flex items-center gap-2 font-sans font-bold text-lg text-ink">
-                  <span className="text-[#24A1DE] text-xl">✈</span> Telegram Community Hub
+                  <Send className="text-[#24A1DE] h-5 w-5" /> Telegram Community Hub
                 </span>
                 <span className="rounded bg-[#24A1DE]/25 text-[#24A1DE] dark:text-[#64B5F6] text-xs px-2 py-0.5 font-bold">
                   24/7 Live
@@ -492,7 +521,8 @@ export default function About() {
                   target="_blank" 
                   rel="noopener noreferrer"
                 >
-                  <span>✈ Join Official Telegram Hub</span>
+                  <Send className="h-4 w-4 text-white" />
+                  <span>Join Official Telegram Hub</span>
                 </a>
               </div>
             </div>

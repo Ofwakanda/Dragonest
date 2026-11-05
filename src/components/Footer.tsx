@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Send } from "lucide-react";
 import { legalDocs, nav, site } from "@/config/site";
 import { Logo } from "./Logo";
 import { CookieSettingsButton } from "./CookieConsent";
@@ -47,7 +48,7 @@ export function Footer() {
                 target="_blank" 
                 rel="noopener noreferrer"
               >
-                <span className="text-[#24A1DE]">✈</span> Telegram Hub
+                <Send className="h-3.5 w-3.5 text-[#24A1DE]" /> Telegram Hub
               </a>
               <span className="text-xs text-muted block ml-5">Live Agents & Admins</span>
             </li>

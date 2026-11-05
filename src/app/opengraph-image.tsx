@@ -3,7 +3,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { site } from "@/config/site";
 
-export const alt = `${site.name} — Your AI training account, professionally staffed`;
+export const alt = `${site.name} : Your AI training account, professionally staffed`;
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 

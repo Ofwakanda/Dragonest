@@ -79,9 +79,12 @@ export default function AccountOwners() {
         intro="You do not need to do any tasks yourself. We handle the hard part and you collect your weekly share."
       >
         <div className="grid gap-8 lg:grid-cols-3">
-          <div className="card space-y-4 border-line bg-surface shadow-xl">
-            <div className="h-14 w-14 rounded-2xl bg-gradient-to-b from-amber-500/20 via-slate-900 to-slate-950 border border-amber-500/40 flex items-center justify-center text-amber-400 font-mono font-black text-xl shadow-lg">
-              01
+          <div className="group card space-y-4 border-line hover:border-accent/60 bg-surface shadow-xl transition-all hover:-translate-y-1">
+            <div className="relative inline-block">
+              <div className="absolute -inset-1.5 rounded-2xl bg-gradient-to-r from-amber-500/30 to-yellow-500/20 blur-md opacity-40 group-hover:opacity-100 transition-opacity" />
+              <div className="relative inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-b from-slate-800 via-slate-900 to-slate-950 border border-t-amber-400/50 border-amber-500/30 text-amber-400 font-mono font-black text-xl shadow-[inset_0_1px_2px_rgba(255,255,255,0.25),0_8px_16px_rgba(0,0,0,0.5)]">
+                01
+              </div>
             </div>
             <h3 className="text-xl font-bold text-ink">Tell Us About Your Account</h3>
             <p className="text-sm text-muted leading-relaxed">
@@ -89,9 +92,12 @@ export default function AccountOwners() {
             </p>
           </div>
 
-          <div className="card space-y-4 border-line bg-surface shadow-xl">
-            <div className="h-14 w-14 rounded-2xl bg-gradient-to-b from-cyan-500/20 via-slate-900 to-slate-950 border border-cyan-500/40 flex items-center justify-center text-cyan-400 font-mono font-black text-xl shadow-lg">
-              02
+          <div className="group card space-y-4 border-line hover:border-accent/60 bg-surface shadow-xl transition-all hover:-translate-y-1">
+            <div className="relative inline-block">
+              <div className="absolute -inset-1.5 rounded-2xl bg-gradient-to-r from-cyan-500/30 to-blue-500/20 blur-md opacity-40 group-hover:opacity-100 transition-opacity" />
+              <div className="relative inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-b from-slate-800 via-slate-900 to-slate-950 border border-t-cyan-400/50 border-cyan-500/30 text-cyan-400 font-mono font-black text-xl shadow-[inset_0_1px_2px_rgba(255,255,255,0.25),0_8px_16px_rgba(0,0,0,0.5)]">
+                02
+              </div>
             </div>
             <h3 className="text-xl font-bold text-ink">We Assign Vetted Specialists</h3>
             <p className="text-sm text-muted leading-relaxed">
@@ -99,9 +105,12 @@ export default function AccountOwners() {
             </p>
           </div>
 
-          <div className="card space-y-4 border-accent/50 bg-surface shadow-xl">
-            <div className="h-14 w-14 rounded-2xl bg-gradient-to-b from-emerald-500/20 via-slate-900 to-slate-950 border border-emerald-500/40 flex items-center justify-center text-emerald-400 font-mono font-black text-xl shadow-lg">
-              03
+          <div className="group card space-y-4 border-line hover:border-accent/60 bg-surface shadow-xl transition-all hover:-translate-y-1">
+            <div className="relative inline-block">
+              <div className="absolute -inset-1.5 rounded-2xl bg-gradient-to-r from-emerald-500/30 to-teal-500/20 blur-md opacity-40 group-hover:opacity-100 transition-opacity" />
+              <div className="relative inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-b from-slate-800 via-slate-900 to-slate-950 border border-t-emerald-400/50 border-emerald-500/30 text-emerald-400 font-mono font-black text-xl shadow-[inset_0_1px_2px_rgba(255,255,255,0.25),0_8px_16px_rgba(0,0,0,0.5)]">
+                03
+              </div>
             </div>
             <h3 className="text-xl font-bold text-ink">You Collect 55% Every Week</h3>
             <p className="text-sm text-muted leading-relaxed">
@@ -201,17 +210,20 @@ export default function AccountOwners() {
       <Section id="safety" eyebrow="Zero Worry" title="Why Your Account Is Always Safe With Us" intro="We treat your account with extreme care because keeping it healthy is how everyone makes money.">
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
           {[
-            { icon: Lock, title: "No Passwords on Web", desc: "You never type passwords into any website form. All setup happens via Telegram end to end encrypted secret chats with leadership admins." },
-            { icon: Scale, title: "100% Your Account", desc: "You retain full legal ownership. You can pause work, change taskers, or disconnect service at any moment with no penalties." },
-            { icon: ShieldCheck, title: "Quality Protection", desc: "We sample and review tasks weekly to keep your platform quality rating above 4.8 out of 5.0, preventing bans or strikes." },
-            { icon: RefreshCcw, title: "Free Replacement", desc: "If a tasker ever falls ill or fails to meet our quality benchmark, we replace them immediately at zero cost to you." },
+            { icon: Lock, title: "No Passwords on Web", desc: "You never type passwords into any website form. All setup happens via Telegram end to end encrypted secret chats with leadership admins.", color: "text-amber-400", border: "border-t-amber-400/40 border-amber-500/30", halo: "from-amber-500/25 to-yellow-500/10" },
+            { icon: Scale, title: "100% Your Account", desc: "You retain full legal ownership. You can pause work, change taskers, or disconnect service at any moment with no penalties.", color: "text-cyan-400", border: "border-t-cyan-400/40 border-cyan-500/30", halo: "from-cyan-500/25 to-blue-500/10" },
+            { icon: ShieldCheck, title: "Quality Protection", desc: "We sample and review tasks weekly to keep your platform quality rating above 4.8 out of 5.0, preventing bans or strikes.", color: "text-emerald-400", border: "border-t-emerald-400/40 border-emerald-500/30", halo: "from-emerald-500/25 to-teal-500/10" },
+            { icon: RefreshCcw, title: "Free Replacement", desc: "If a tasker ever falls ill or fails to meet our quality benchmark, we replace them immediately at zero cost to you.", color: "text-purple-400", border: "border-t-purple-400/40 border-purple-500/30", halo: "from-purple-500/25 to-indigo-500/10" },
           ].map((item) => {
             const IconComp = item.icon;
             return (
-              <div key={item.title} className="card border-line bg-surface flex flex-col justify-between">
+              <div key={item.title} className="group card border-line hover:border-accent/60 bg-surface flex flex-col justify-between transition-all hover:shadow-xl hover:-translate-y-1">
                 <div>
-                  <div className="h-12 w-12 rounded-xl bg-gradient-to-b from-accent/20 via-slate-900 to-slate-950 border border-accent/40 flex items-center justify-center text-accent mb-4 shadow-md">
-                    <IconComp className="h-6 w-6" strokeWidth={2.2} />
+                  <div className="relative mb-4 inline-block">
+                    <div className={`absolute -inset-1 rounded-xl bg-gradient-to-r ${item.halo} blur-sm opacity-40 group-hover:opacity-100 transition-opacity`} />
+                    <div className={`relative h-12 w-12 rounded-xl bg-gradient-to-b from-slate-800 via-slate-900 to-slate-950 border ${item.border} flex items-center justify-center shadow-[inset_0_1px_1px_rgba(255,255,255,0.2),0_6px_12px_rgba(0,0,0,0.5)]`}>
+                      <IconComp className={`h-6 w-6 ${item.color} drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)] transform group-hover:scale-110 transition-transform`} strokeWidth={2.2} />
+                    </div>
                   </div>
                   <h3 className="text-base font-bold text-ink">{item.title}</h3>
                   <p className="text-xs text-muted mt-2 leading-relaxed">{item.desc}</p>

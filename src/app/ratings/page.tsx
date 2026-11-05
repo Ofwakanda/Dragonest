@@ -72,7 +72,7 @@ export default function Ratings() {
 
       <Section id="disputes" title="Disputes and appeals" intro="If you think a rating or a QA decision is wrong, you can ask for it to be reviewed.">
         <Steps steps={[
-          { title: "Open an appeal", body: "From your dashboard, within 30 days. Say what you think is wrong. Written, voice or video — whichever is easiest for you." },
+          { title: "Open an appeal", body: "From your dashboard, within 30 days. Say what you think is wrong. Written, voice or video, whichever is easiest for you." },
           { title: "Independent review", body: "A staff member who wasn't involved looks at session records, QA notes and both sides' messages. Usually within 5 business days." },
           { title: "Decision and second appeal", body: "You get a written decision with reasons. If you still disagree, a senior reviewer makes a final decision within 10 business days." },
         ]} />

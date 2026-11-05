@@ -97,8 +97,8 @@ export function CustomerCareModal() {
                 className="flex items-center justify-between rounded-xl border-2 border-[#24A1DE]/40 bg-[#24A1DE]/10 p-3 hover:border-[#24A1DE] hover:bg-[#24A1DE]/20 transition-all group"
               >
                 <div className="flex items-center gap-3">
-                  <span className="h-9 w-9 rounded-lg bg-[#24A1DE] text-white flex items-center justify-center font-bold text-base shadow-sm">
-                    ✈
+                  <span className="h-9 w-9 rounded-lg bg-[#24A1DE] text-white flex items-center justify-center shadow-sm">
+                    <Send className="h-4 w-4" />
                   </span>
                   <div>
                     <div className="flex items-center gap-1.5">

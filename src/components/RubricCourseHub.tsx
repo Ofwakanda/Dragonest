@@ -187,7 +187,10 @@ export function RubricCourseHub() {
           <div className="pt-4 border-t border-line">
             {enrolled ? (
               <div className="rounded-xl border-2 border-accent bg-accent/15 p-4 text-center space-y-1 font-mono">
-                <span className="text-sm font-bold text-ink block">✓ Enrolled in {selectedModule.title}</span>
+                <span className="text-sm font-bold text-ink flex items-center justify-center gap-1.5">
+                  <CheckCircle className="h-4 w-4 text-accent" />
+                  Enrolled in {selectedModule.title}
+                </span>
                 <p className="text-xs text-muted">Course materials and rubric exercises unlocked on your dashboard.</p>
               </div>
             ) : (
