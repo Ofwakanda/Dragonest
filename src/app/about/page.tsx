@@ -92,24 +92,54 @@ export default function About() {
     <>
       {/* HERO */}
       <PageHero 
-        eyebrow="About Us · The Opportunity" 
-        title="Get Paid by AI Companies — Starting This Week."
+        eyebrow="Real Money. No Boss. No Degree. No Office." 
+        title="AI Is Paying People Like You — Right Now."
         backgroundImage="/images/about-bold-mission.jpg"
-        subhead="AI companies are paying real money for real human judgment. We connect everyday people with vetted AI training accounts so you can start earning — no special degree required."
+        subhead="If you're tired of being broke, working a job that doesn't pay enough, or just sitting at home with nothing to show for it — this is your way in. AI companies are desperate for real humans to help them. We connect you to the accounts and you get paid every week."
       >
         <div className="flex flex-wrap items-center gap-3">
-          <a href="#opportunity" className="btn-accent">See the Opportunity</a>
-          <a href="#who" className="btn-secondary">Is This for Me?</a>
+          <a href="#who" className="btn-accent">See If You Qualify</a>
+          <a href="#opportunity" className="btn-secondary">How the Money Works</a>
           <a 
             href={site.telegram.hub} 
             target="_blank" 
             rel="noopener noreferrer"
             className="inline-flex items-center gap-1.5 rounded-control border border-[#24A1DE]/40 bg-[#24A1DE]/10 hover:bg-[#24A1DE]/25 px-4 py-3 text-xs font-bold uppercase tracking-wider text-ink transition-colors"
           >
-            <span className="text-[#24A1DE]">✈</span> Join Telegram Hub
+            <span className="text-[#24A1DE]">✈</span> Join Telegram Now
           </a>
         </div>
       </PageHero>
+
+      {/* RELATABLE HOOK — speak to broke/stuck people */}
+      <section className="border-b border-line bg-surface-2/60 py-14">
+        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center space-y-5">
+          <span className="inline-block rounded-full border border-line bg-surface px-4 py-1 font-mono text-xs font-bold uppercase tracking-wider text-accent">
+            Sound familiar?
+          </span>
+          <h2 className="text-2xl sm:text-3xl font-black text-ink leading-snug">
+            &ldquo;I need money but I don&apos;t have a degree, I&apos;m not a programmer, and I can&apos;t afford to wait months to get started.&rdquo;
+          </h2>
+          <p className="text-muted text-base max-w-2xl mx-auto leading-relaxed">
+            We hear this every day. And every day we onboard people in that exact situation and get them earning within 48 hours. 
+            You do not need experience. You do not need to be smart in a traditional way. 
+            You just need a phone or laptop, an internet connection, and the ability to follow simple instructions.
+          </p>
+          <div className="pt-2 grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-2xl mx-auto text-center">
+            {[
+              { emoji: "💸", label: "Weekly payouts" },
+              { emoji: "📱", label: "Phone or laptop only" },
+              { emoji: "🌍", label: "Any country" },
+              { emoji: "⏰", label: "Your own hours" },
+            ].map((item) => (
+              <div key={item.label} className="rounded-xl border border-line bg-surface p-3 flex flex-col items-center gap-1">
+                <span className="text-2xl">{item.emoji}</span>
+                <span className="text-xs font-semibold text-ink">{item.label}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* THE OPPORTUNITY */}
       <Section 
@@ -164,16 +194,42 @@ export default function About() {
         </div>
       </Section>
 
-      {/* WHO IS THIS FOR */}
-      <Section id="who" tone="tint" title="Who Is This For?" eyebrow="You Qualify If...">
-        <FeatureGrid items={[
-          { icon: Scale, title: "You Have a Smartphone or Laptop", body: "All tasks are done online. As long as you have internet access and a device, you can participate from anywhere in the world." },
-          { icon: GraduationCap, title: "You Have a Skill or Specialty", body: "Math, coding, writing, translating, science — any real knowledge pays more. But even general reasoning skills are valued on many tasks." },
-          { icon: HandCoins, title: "You Want Weekly Pay", body: "Perfect if you need steady side income or want to replace your main job over time. Payouts happen every week — not monthly." },
-          { icon: Accessibility, title: "You Work at Your Own Pace", body: "Tasks are flexible and async. Work at 2am or during your lunch break. No boss, no schedule, no commute." },
-          { icon: Users, title: "You Speak Multiple Languages", body: "Multilingual evaluators are in extremely high demand. If you speak Arabic, French, Spanish, Swahili, or any other language — you have an edge." },
-          { icon: Sparkles, title: "You Are New to AI Work", body: "We train you from scratch. You don't need any AI experience. If you can read, think, and follow instructions — you can do this." },
-        ]} />
+      {/* WHO IS THIS FOR — real people, real situations */}
+      <Section id="who" tone="tint" title="This Is for You — Yes, You." eyebrow="Who Can Do This?">
+        <p className="text-base text-muted max-w-2xl mb-8 -mt-4">
+          You don&apos;t need to be special. You don&apos;t need a degree. Here are real types of people who are earning right now through Middlemen:
+        </p>
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {[
+            { emoji: "🎓", who: "University Students", situation: "Broke between semesters, classes only 3 days a week, need money for rent and data.", howItHelps: "Work during free periods. Earn while you study. No boss to ask permission from." },
+            { emoji: "🏠", who: "Stay-at-Home Parents", situation: "Taking care of kids all day, can't do a 9–5, but need income.", howItHelps: "Work during nap times, evenings, or whenever you get 30 free minutes. Weekly payout." },
+            { emoji: "📉", who: "Unemployed & Job Hunting", situation: "Sending CVs every day with no response, bills piling up, dignity running low.", howItHelps: "Start earning this week — no interview, no waiting. AI doesn't care about your CV." },
+            { emoji: "🚕", who: "Ride-Hail & Delivery Workers", situation: "Long hours, bad weather, low pay, no benefits, no security.", howItHelps: "AI tasks pay more per hour than driving. Work from home. Keep your sanity." },
+            { emoji: "🌍", who: "People in Developing Countries", situation: "Local salary is too low, exchange rate makes international income life-changing.", howItHelps: "Paid in USD equivalent. Even $5–$10/hour is transformational in many countries." },
+            { emoji: "💤", who: "People Who Say They're Lazy", situation: "Don't want a demanding job. Want easy, flexible income they can do at their own pace.", howItHelps: "Rate AI responses from your couch. Some tasks take 2 minutes. You just need consistency." },
+            { emoji: "🖥️", who: "Remote Work Seekers", situation: "Tried Upwork, Fiverr, and other platforms — no clients, too much competition.", howItHelps: "We already have the accounts and task queues. You just show up and do the work." },
+            { emoji: "👴", who: "Older Adults & Retirees", situation: "Pension not enough, don't want physical work, need something they can do from home.", howItHelps: "Simple tasks. No physical activity. Just reading, judging, and writing at your own speed." },
+            { emoji: "✍️", who: "Writers, Bloggers & Creatives", situation: "Passion doesn't always pay. Need consistent income while building your craft.", howItHelps: "AI writing and prompt tasks are perfect for your skill set. And they pay weekly." },
+          ].map((item) => (
+            <div key={item.who} className="card flex flex-col border-line bg-surface hover:border-accent transition-colors">
+              <div className="flex items-center gap-3 mb-3">
+                <span className="text-3xl">{item.emoji}</span>
+                <h3 className="text-base font-extrabold text-ink">{item.who}</h3>
+              </div>
+              <p className="text-xs text-muted mb-3 leading-relaxed italic">&ldquo;{item.situation}&rdquo;</p>
+              <div className="mt-auto pt-3 border-t border-line">
+                <p className="text-xs font-semibold text-accent leading-relaxed">✓ {item.howItHelps}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+        <div className="mt-10 p-6 rounded-card border-2 border-accent/40 bg-accent-soft/20 text-center">
+          <p className="text-lg font-black text-ink mb-1">If you recognise yourself in any of the above — you&apos;re already qualified.</p>
+          <p className="text-sm text-muted mb-4">The only thing standing between you and your first payout is filling out a 2-minute application.</p>
+          <Link href="/taskers#apply" className="btn-accent text-sm px-6 py-3">
+            Apply Free — Takes 2 Minutes →
+          </Link>
+        </div>
       </Section>
 
       {/* HOW TO GET ACCEPTED */}
