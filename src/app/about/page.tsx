@@ -1,18 +1,9 @@
 import { 
   Accessibility, 
-  Award, 
-  BookOpen, 
-  Bot, 
-  CheckCircle2, 
-  Compass, 
-  Cpu, 
-  ExternalLink, 
   Eye, 
   GraduationCap, 
   HandCoins, 
-  Network, 
   Scale, 
-  Send, 
   ShieldCheck, 
   Sparkles, 
   Users 
@@ -24,8 +15,8 @@ import { site } from "@/config/site";
 import { pageMeta } from "@/lib/seo";
 
 export const metadata = pageMeta({
-  title: "About Our Mission, Vision & Team",
-  description: "Ushering in a new wave of competent AI trainers to work for you. Meet our leadership team and explore our ecosystem alignment with pioneering AI creators and research collectives.",
+  title: "Get Paid by AI — The Opportunity Explained",
+  description: "AI companies pay real people to review and improve AI responses. Middlemen connects you with vetted accounts and weekly payouts. No experience needed — we train you.",
   path: "/about",
 });
 
@@ -93,113 +84,22 @@ const team: TeamMember[] = [
   },
 ];
 
-interface EcosystemOrg {
-  name: string;
-  category: "Research Collective" | "AI Creator" | "Alignment Lab";
-  handle: string;
-  url: string;
-  description: string;
-  methodology: string;
-  tag: string;
-}
 
-const ecosystemOrgs: EcosystemOrg[] = [
-  {
-    name: "Nous Research",
-    category: "Research Collective",
-    handle: "nousresearch.com",
-    url: "https://nousresearch.com",
-    tag: "Synthetic Data & Reasoning",
-    description: "Renowned creators of the open Hermes-series models, world-class synthetic reasoning datasets, and agentic benchmark datasets.",
-    methodology: "We calibrate our taskers on multi-step reasoning validation and chain-of-thought error verification standards established by Nous Research architectures.",
-  },
-  {
-    name: "EleutherAI",
-    category: "Research Collective",
-    handle: "eleuther.ai",
-    url: "https://www.eleuther.ai",
-    tag: "Evaluation Harness & Ethics",
-    description: "Pioneering non-profit AI research lab behind the standard LM Evaluation Harness, Pythia interpretability suite, and open alignment studies.",
-    methodology: "Our internal QA scoring rubrics incorporate standardized bias metrics and adversarial prompt testing frameworks inspired by EleutherAI research.",
-  },
-  {
-    name: "CarperAI (LAION Ecosystem)",
-    category: "Alignment Lab",
-    handle: "carper.ai",
-    url: "https://carper.ai",
-    tag: "Open RLHF & Reward Models",
-    description: "Grassroots research lab dedicated to advancing open-source Reinforcement Learning from Human Feedback (RLHF) and fine-tuning datasets.",
-    methodology: "Taskers are trained directly on multi-attribute preference ranking, pairwise comparison matrices, and reward model verification protocols.",
-  },
-  {
-    name: "Matthew Berman",
-    category: "AI Creator",
-    handle: "youtube.com/@MatthewBerman",
-    url: "https://www.youtube.com/@MatthewBerman",
-    tag: "Model Benchmarks & Agentic Workflows",
-    description: "One of the most trusted independent AI educators and technical evaluators analyzing local LLM performance, open weights, and autonomous tools.",
-    methodology: "We integrate weekly stress-test analyses and practical agent evaluation frameworks highlighted in Matthew Berman's research into our continuing education briefings.",
-  },
-  {
-    name: "Yannic Kilcher / AI Pub",
-    category: "AI Creator",
-    handle: "youtube.com/@YannicKilcher",
-    url: "https://www.youtube.com/@YannicKilcher",
-    tag: "Paper Audits & Red Teaming",
-    description: "Influential machine learning researcher and creator known for deep-dive paper critiques, adversarial prompt testing, and AI safety verification.",
-    methodology: "Our senior quality reviewers adopt red-teaming methodologies and critical paper breakdown rubrics popularized by Yannic Kilcher's technical breakdowns.",
-  },
-];
 
-interface Enabler {
-  name: string;
-  category: string;
-  role: string;
-  description: string;
-  badge: string;
-  url: string;
-}
-
-const enablers: Enabler[] = [
-  {
-    name: "Google",
-    category: "Cloud Infrastructure & Global Translation",
-    role: "Multilingual Infrastructure Enabler",
-    badge: "Infrastructure & Translation",
-    url: "https://translate.google.com",
-    description: "Powers our real-time 30+ language interface translation, cross-border contributor accessibility, and low-latency cloud model benchmarking pipelines.",
-  },
-  {
-    name: "Telegram Open Network",
-    category: "Cryptographic Privacy Protocol",
-    role: "Zero-Knowledge Communication Enabler",
-    badge: "Encrypted Custody & Chat",
-    url: "https://telegram.org",
-    description: "Enables end-to-end encrypted secret chats for host credential handover, real-time admin dispatch, and 24/7 technical customer support.",
-  },
-  {
-    name: "Cloudflare",
-    category: "Zero-Trust Edge & DDoS Defense",
-    role: "Session Isolation & Security Enabler",
-    badge: "Edge Confinement",
-    url: "https://cloudflare.com",
-    description: "Secures intake endpoints against malicious bots and wraps remote desktop tasker sessions in strict zero-trust perimeter policies.",
-  },
-];
 
 export default function About() {
   return (
     <>
       {/* HERO */}
       <PageHero 
-        eyebrow="About Us · Mission & Vision" 
-        title="Ushering in a new wave of competent AI trainers to work for you."
+        eyebrow="About Us · The Opportunity" 
+        title="Get Paid by AI Companies — Starting This Week."
         backgroundImage="/images/about-bold-mission.jpg"
-        subhead="AI models learn from human judgment. We think human evaluators deserve dignified pay, accessible tooling, and rigorous calibration — giving account owners and AI labs a verified, high-performance fleet."
+        subhead="AI companies are paying real money for real human judgment. We connect everyday people with vetted AI training accounts so you can start earning — no special degree required."
       >
         <div className="flex flex-wrap items-center gap-3">
-          <a href="#vision" className="btn-accent">Our Vision</a>
-          <a href="#team" className="btn-secondary">Meet Our Leadership</a>
+          <a href="#opportunity" className="btn-accent">See the Opportunity</a>
+          <a href="#who" className="btn-secondary">Is This for Me?</a>
           <a 
             href={site.telegram.hub} 
             target="_blank" 
@@ -211,21 +111,21 @@ export default function About() {
         </div>
       </PageHero>
 
-      {/* OUR VISION */}
+      {/* THE OPPORTUNITY */}
       <Section 
-        id="vision" 
-        eyebrow="Strategic Horizon"
-        title="Our Vision" 
-        intro="To help usher in a new wave of competent, rigorously vetted, and specialized AI trainers to work for you."
+        id="opportunity" 
+        eyebrow="The AI Training Opportunity"
+        title="Here's How You Earn Money" 
+        intro="AI companies like Outlier, Scale AI, and Alignerr pay people to review and improve AI responses. The work is done online, from your phone or laptop, on your own schedule."
       >
         <div className="grid gap-8 lg:grid-cols-3">
           <div className="card space-y-3 border-accent/40 bg-surface">
             <div className="inline-flex h-12 w-12 items-center justify-center rounded-control bg-accent text-bg font-extrabold text-xl">
               01
             </div>
-            <h3 className="text-xl font-bold text-ink">Elite Domain Competency</h3>
+            <h3 className="text-xl font-bold text-ink">You Get a Verified Account</h3>
             <p className="text-sm text-muted leading-relaxed">
-              Crowdwork and low-quality data scraping have hit a ceiling. Frontier reasoning models demand subject-matter specialists — mathematicians, software engineers, linguists, and legal scholars — calibrated to evaluate subtle chain-of-thought arguments without hallucination.
+              We give you access to a fully approved, active account on AI training platforms like Outlier.ai, Alignerr, or Scale AI. These accounts are pre-cleared and ready to earn. You don&apos;t need to apply or pass any entry tests — we handle that.
             </p>
           </div>
 
@@ -233,9 +133,9 @@ export default function About() {
             <div className="inline-flex h-12 w-12 items-center justify-center rounded-control bg-surface-2 text-ink font-mono font-bold text-xl">
               02
             </div>
-            <h3 className="text-xl font-bold text-ink">Radical Economic Transparency</h3>
+            <h3 className="text-xl font-bold text-ink">You Do the Tasks, We Handle the Rest</h3>
             <p className="text-sm text-muted leading-relaxed">
-              Taskers receive at least 30% of gross earnings directly with zero hidden kickbacks. Account owners retain 100% legal ownership and receive clean monthly balance sheets. We take a transparent 15% operational fee. No surprises, ever.
+              Log in and complete tasks — rating AI responses, writing prompts, reviewing code, or evaluating answers. Our team trains and supports you so your quality scores stay high and your account stays active.
             </p>
           </div>
 
@@ -243,9 +143,9 @@ export default function About() {
             <div className="inline-flex h-12 w-12 items-center justify-center rounded-control bg-surface-2 text-ink font-mono font-bold text-xl">
               03
             </div>
-            <h3 className="text-xl font-bold text-ink">Zero-Trust Operational Armor</h3>
-            <p className="text-sm text-muted leading-relaxed">
-              No passwords sent over web forms. All credentials route via Telegram&apos;s end-to-end encrypted secret chats. Tasking occurs exclusively in locked-down remote desktop environments with clipboard isolation and dedicated residential proxies.
+            <h3 className="text-xl font-bold text-ink">You Get Paid Every Week</h3>
+            <p className="text-muted leading-relaxed text-sm">
+              Earnings go straight to your pocket weekly. You keep at least <strong className="text-ink">30% of everything the account earns</strong>. No hidden deductions. No delays. Just consistent income for the work you put in.
             </p>
           </div>
         </div>
@@ -253,35 +153,78 @@ export default function About() {
         <div className="mt-8 rounded-card border-2 border-line bg-surface-2/40 p-6 sm:p-8">
           <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
             <div className="space-y-1">
-              <span className="text-xs font-mono font-bold uppercase tracking-wider text-accent">Active Fleet Health Index</span>
-              <h4 className="text-2xl font-black text-ink">611 Managed Accounts · 99.4% Platform Health · 4.9/5.0 QA Score</h4>
-              <p className="text-sm text-muted">Operated strictly within terms on platforms that explicitly authorize managed contracting.</p>
+              <span className="text-xs font-mono font-bold uppercase tracking-wider text-accent">Live Network Stats</span>
+              <h4 className="text-2xl font-black text-ink">611 Active Accounts · 99.4% Account Health · 4.9/5.0 Average Score</h4>
+              <p className="text-sm text-muted">Real people earning real income from AI training platforms right now.</p>
             </div>
             <Link href="/ratings" className="btn-accent shrink-0">
-              View Live Telemetry
+              View Live Stats
             </Link>
           </div>
         </div>
       </Section>
 
-      {/* CORE VALUES */}
-      <Section id="values" tone="tint" title="Our Operating Values" eyebrow="Guiding Principles">
+      {/* WHO IS THIS FOR */}
+      <Section id="who" tone="tint" title="Who Is This For?" eyebrow="You Qualify If...">
         <FeatureGrid items={[
-          { icon: Scale, title: "Compliance first", body: "If a platform does not allow subcontracting, we turn the account away. Zero gray-hat workarounds." },
-          { icon: Eye, title: "Open ledger pricing", body: "Every split is published. Account owners and taskers see the exact math before any work begins." },
-          { icon: HandCoins, title: "Guaranteed pay floor", body: "Taskers always receive at least 30% of task earnings, paid weekly without delays." },
-          { icon: Accessibility, title: "Universal accessibility", body: "Asynchronous tasking designed for disabled, neurodivergent, and remote workers from day one." },
-          { icon: ShieldCheck, title: "Cryptographic privacy", body: "Passcodes and sensitive logins are handled strictly through Telegram's encrypted channels." },
-          { icon: Users, title: "Human dignity", body: "We replace high-churn crowdwork with long-term specialist careers and direct admin support." },
+          { icon: Scale, title: "You Have a Smartphone or Laptop", body: "All tasks are done online. As long as you have internet access and a device, you can participate from anywhere in the world." },
+          { icon: GraduationCap, title: "You Have a Skill or Specialty", body: "Math, coding, writing, translating, science — any real knowledge pays more. But even general reasoning skills are valued on many tasks." },
+          { icon: HandCoins, title: "You Want Weekly Pay", body: "Perfect if you need steady side income or want to replace your main job over time. Payouts happen every week — not monthly." },
+          { icon: Accessibility, title: "You Work at Your Own Pace", body: "Tasks are flexible and async. Work at 2am or during your lunch break. No boss, no schedule, no commute." },
+          { icon: Users, title: "You Speak Multiple Languages", body: "Multilingual evaluators are in extremely high demand. If you speak Arabic, French, Spanish, Swahili, or any other language — you have an edge." },
+          { icon: Sparkles, title: "You Are New to AI Work", body: "We train you from scratch. You don't need any AI experience. If you can read, think, and follow instructions — you can do this." },
+        ]} />
+      </Section>
+
+      {/* HOW TO GET ACCEPTED */}
+      <Section
+        id="apply"
+        title="How to Get Accepted & Start Earning"
+        eyebrow="Getting Started"
+        intro="The process is simple. Most people are matched and earning within a few days."
+      >
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+          {[
+            { step: "01", title: "Apply as a Tasker", body: "Fill out a short form telling us your skills, timezone, and how many hours you can work per week. It takes less than 5 minutes.", color: "bg-accent text-bg" },
+            { step: "02", title: "We Review & Match You", body: "Our team reviews your application within 24 hours and matches you to the best platform and account for your skills and location.", color: "bg-surface-2 text-ink" },
+            { step: "03", title: "Get Onboarded via Telegram", body: "We send you everything you need via Telegram — your account access, task guides, quality tips, and a direct line to your support manager.", color: "bg-surface-2 text-ink" },
+            { step: "04", title: "Start Earning Immediately", body: "Log in, complete tasks, and get paid weekly. The more consistent and high-quality your work, the more tasks — and earnings — come your way.", color: "bg-surface-2 text-ink" },
+          ].map((item) => (
+            <div key={item.step} className="card space-y-3 border-line bg-surface">
+              <div className={`inline-flex h-12 w-12 items-center justify-center rounded-control font-extrabold text-xl ${item.color}`}>
+                {item.step}
+              </div>
+              <h3 className="text-lg font-bold text-ink">{item.title}</h3>
+              <p className="text-sm text-muted leading-relaxed">{item.body}</p>
+            </div>
+          ))}
+        </div>
+        <div className="mt-10 text-center">
+          <Link href="/taskers#apply" className="btn-accent text-base px-8 py-4">
+            Apply as a Tasker Now →
+          </Link>
+          <p className="mt-3 text-xs text-muted">Free to apply. No upfront fees. Weekly payouts guaranteed.</p>
+        </div>
+      </Section>
+
+      {/* CORE VALUES */}
+      <Section id="values" tone="tint" title="Our Promises to You" eyebrow="How We Operate">
+        <FeatureGrid items={[
+          { icon: Scale, title: "Platforms That Allow This", body: "We only work with platforms that explicitly permit managed contracting. Your account is always safe and compliant." },
+          { icon: Eye, title: "No Hidden Fees", body: "Every split is published upfront. You see exactly what you earn and exactly what we take — before you sign anything." },
+          { icon: HandCoins, title: "30%+ Pay Floor — Always", body: "No matter what, you receive at least 30% of task earnings, paid weekly. This is non-negotiable and written into every agreement." },
+          { icon: Accessibility, title: "Built for Everyone", body: "Flexible async tasks — designed from day one to be accessible for disabled, neurodivergent, and workers across all time zones." },
+          { icon: ShieldCheck, title: "Your Login Stays Private", body: "Account credentials are never entered into web forms. All sensitive access is handled via Telegram's encrypted channels only." },
+          { icon: Users, title: "Real Support, Real People", body: "You get a real manager on Telegram who responds within hours — not a chatbot, not a ticket system. A person who knows your account." },
         ]} />
       </Section>
 
       {/* LEADERSHIP TEAM */}
       <Section 
         id="team" 
-        title="Our Leadership Team" 
-        eyebrow="Specialized Operations"
-        intro="Domain specialists across data annotation, quality assurance, offensive security, and inclusive digital labor."
+        title="The Team Behind Middlemen™" 
+        eyebrow="Who Runs This"
+        intro="Real people managing real operations. Here's who you'll be working with."
         backgroundImage="/images/telegram-ops-hub.jpg"
       >
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -339,111 +282,74 @@ export default function About() {
         </div>
       </Section>
 
-      {/* ECOSYSTEM ALIGNMENT: 5 KNOWN AI CREATORS & ORGANIZATIONS */}
+      {/* WHAT ARE AI COMPANIES PAYING FOR */}
       <Section 
         id="ecosystem" 
         tone="tint" 
-        title="Industry Ecosystem & Benchmark Alignment" 
-        eyebrow="Frontier Methodologies"
-        intro="We actively track, benchmark, and align our human evaluation rubrics with the open research, datasets, and critique published by leading independent AI creators and research collectives."
+        title="What Are AI Companies Actually Paying For?" 
+        eyebrow="The Work Explained Simply"
+        intro="Big AI companies like OpenAI, Google, and Meta need humans to teach their AI how to think better. They pay people like you to help them."
       >
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {ecosystemOrgs.map((org) => (
-            <div key={org.name} className="card flex flex-col justify-between border-line bg-surface hover:shadow-md transition-shadow">
-              <div className="space-y-3">
-                <div className="flex items-center justify-between">
-                  <span className="rounded border border-line bg-surface-2 px-2 py-0.5 font-mono text-[10px] font-bold uppercase tracking-wider text-muted">
-                    {org.category}
-                  </span>
-                  <span className="text-xs font-mono text-accent font-semibold">{org.tag}</span>
-                </div>
-
-                <div>
-                  <h3 className="text-xl font-bold text-ink">{org.name}</h3>
-                  <a 
-                    href={org.url} 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    className="inline-flex items-center gap-1 font-mono text-xs text-muted hover:text-accent transition-colors"
-                  >
-                    <span>{org.handle}</span>
-                    <ExternalLink className="h-3 w-3" />
-                  </a>
-                </div>
-
-                <p className="text-sm text-muted leading-relaxed">
-                  {org.description}
-                </p>
-
-                <div className="rounded border border-line bg-surface-2/60 p-3 text-xs">
-                  <span className="font-mono font-bold text-ink uppercase tracking-wide block mb-1">Our Training Alignment:</span>
-                  <p className="text-muted leading-normal">{org.methodology}</p>
-                </div>
-              </div>
-
-              <div className="mt-5 pt-3 border-t border-line text-xs font-mono text-muted flex items-center justify-between">
-                <span>Verified Benchmark Source</span>
-                <CheckCircle2 className="h-4 w-4 text-accent" />
-              </div>
+          {[
+            { icon: "💬", title: "Rating AI Responses", body: "You read two AI answers to the same question and pick which one is better. That's it. Simple comparisons that help AI learn faster." },
+            { icon: "✍️", title: "Writing Prompts & Instructions", body: "You write questions or tasks for the AI to try to answer. The harder and more creative your prompts, the better the AI gets — and the more you earn." },
+            { icon: "🔢", title: "Checking Math & Reasoning", body: "AI often makes subtle logic errors. If you're good at math or science, you can earn top rates reviewing step-by-step reasoning for mistakes." },
+            { icon: "💻", title: "Reviewing Code", body: "If you know any programming language — Python, JavaScript, SQL — companies will pay you to verify that AI-generated code actually works correctly." },
+            { icon: "🌍", title: "Translating & Localizing", body: "AI needs to work in every language. If you speak a second language fluently, you can earn by translating or reviewing AI content in that language." },
+            { icon: "📖", title: "Fact-Checking & Research", body: "You verify that AI answers are accurate, up-to-date, and not making things up. Great for people who enjoy researching and reading critically." },
+          ].map((item) => (
+            <div key={item.title} className="card flex flex-col border-line bg-surface hover:border-accent transition-colors">
+              <div className="text-3xl mb-3">{item.icon}</div>
+              <h3 className="text-lg font-bold text-ink mb-2">{item.title}</h3>
+              <p className="text-sm text-muted leading-relaxed">{item.body}</p>
             </div>
           ))}
-
-          {/* STANDARDS CARD */}
-          <div className="card flex flex-col justify-between border-line bg-surface-2/30">
-            <div className="space-y-3">
-              <div className="inline-flex h-10 w-10 items-center justify-center rounded-control bg-accent/20 text-accent font-mono font-bold">
-                <Sparkles className="h-5 w-5" />
-              </div>
-              <h3 className="text-lg font-bold text-ink">Continuous Rubric Evolution</h3>
-              <p className="text-xs text-muted leading-relaxed">
-                As reasoning models (o1, R1, Hermes, Claude 3.7) introduce extended test-time compute, our taskers receive weekly briefings on emerging hallucination vectors, prompt drifts, and synthetic dataset decontamination.
-              </p>
-            </div>
-            <div className="mt-4 pt-3 border-t border-line">
-              <Link href="/ai-study" className="link text-xs font-mono font-bold flex items-center gap-1 text-ink">
-                Explore AI Study Lab &rarr;
-              </Link>
-            </div>
-          </div>
+        </div>
+        <div className="mt-8 p-6 rounded-card border border-accent/30 bg-accent-soft/20 text-center">
+          <p className="text-base font-semibold text-ink">
+            💡 You don&apos;t need to know AI. You just need to think clearly, follow instructions, and be consistent.
+          </p>
+          <p className="text-sm text-muted mt-1">Our team trains you on the specific tasks before you start. Most people are earning within 48 hours of joining.</p>
         </div>
       </Section>
 
-      {/* SUPPORTERS & TECHNOLOGY ENABLERS */}
+      {/* TOOLS WE USE */}
       <Section
         id="enablers"
-        title="Our Supporters & Technology Enablers"
-        eyebrow="Infrastructure & Tooling"
-        intro="The global platforms and cloud services that enable our high-availability operations, multilingual accessibility, and zero-trust security."
+        title="Tools That Keep You Safe & Connected"
+        eyebrow="How We Protect You"
+        intro="We use trusted global platforms to keep your work secure, your earnings trackable, and your support team reachable 24/7."
       >
         <div className="grid gap-6 md:grid-cols-3">
-          {enablers.map((item) => (
-            <div key={item.name} className="card flex flex-col justify-between border-line bg-surface hover:border-accent transition-colors">
-              <div className="space-y-3">
-                <div className="flex items-center justify-between">
-                  <span className="rounded border border-line bg-surface-2 px-2 py-0.5 font-mono text-[10px] font-bold uppercase tracking-wider text-muted">
-                    {item.badge}
-                  </span>
-                  <CheckCircle2 className="h-4 w-4 text-accent" />
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold text-ink">{item.name}</h3>
-                  <p className="text-xs font-mono text-accent font-semibold">{item.role}</p>
-                </div>
-                <p className="text-sm text-muted leading-relaxed">
-                  {item.description}
-                </p>
-              </div>
-              <div className="mt-5 pt-3 border-t border-line text-xs font-mono">
-                <a
-                  href={item.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 text-muted hover:text-ink font-semibold"
-                >
-                  <span>Learn more</span>
-                  <ExternalLink className="h-3 w-3" />
-                </a>
-              </div>
+          {[
+            {
+              emoji: "🌐",
+              name: "Google Translate",
+              role: "30+ Languages Supported",
+              description: "Our platform works in over 30 languages so anyone, anywhere can read, understand, and use the site in their own language.",
+              url: "https://translate.google.com",
+            },
+            {
+              emoji: "✈️",
+              name: "Telegram",
+              role: "Your Support & Payment Channel",
+              description: "All communication, account access, support, and weekly payment confirmations happen through Telegram. It's encrypted, fast, and free.",
+              url: "https://telegram.org",
+            },
+            {
+              emoji: "🛡️",
+              name: "Cloudflare",
+              role: "Site Security & Speed",
+              description: "Our website is protected and accelerated by Cloudflare — keeping your data safe and the site fast no matter where you're accessing from.",
+              url: "https://cloudflare.com",
+            },
+          ].map((item) => (
+            <div key={item.name} className="card flex flex-col border-line bg-surface hover:border-accent transition-colors">
+              <div className="text-3xl mb-3">{item.emoji}</div>
+              <h3 className="text-xl font-bold text-ink">{item.name}</h3>
+              <p className="text-xs font-mono text-accent font-semibold mb-2">{item.role}</p>
+              <p className="text-sm text-muted leading-relaxed flex-1">{item.description}</p>
             </div>
           ))}
         </div>
@@ -452,13 +358,13 @@ export default function About() {
       {/* CONTACT US */}
       <Section 
         id="contact" 
-        title="Contact Us & Direct Leadership Directory" 
-        eyebrow="24/7 Response Desk"
-        intro="Have an account to submit, want to apply as a tasker, or need an enterprise staffing quote? A real person reads every inquiry within 2 business days."
+        title="Have Questions? We're Here." 
+        eyebrow="Talk to a Real Person"
+        intro="Whether you want to apply, have questions about how the money works, or just want to understand what we do — message us and a real person will reply within 24 hours."
       >
         <div className="grid gap-10 lg:grid-cols-[1.8fr_1.2fr]">
           <div>
-            <h3 className="text-xl font-bold text-ink mb-4">Send an Encrypted Inquiry</h3>
+            <h3 className="text-xl font-bold text-ink mb-4">Send Us a Message</h3>
             <ContactForm />
           </div>
 
