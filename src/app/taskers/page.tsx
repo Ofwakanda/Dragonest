@@ -30,8 +30,8 @@ import { photos, pricing, site } from "@/config/site";
 import { pageMeta } from "@/lib/seo";
 
 export const metadata = pageMeta({
-  title: "For Taskers & Assessment Takers",
-  description: "Flexible, remote AI-training work and specialized project qualification opportunities. Weekly pay, at least 30% of task earnings, free accommodations, and certified assessment matching.",
+  title: "For Taskers & Assessment Takers : Work on Top AI Accounts",
+  description: "Flexible, remote AI training work and specialized project qualification opportunities. Weekly pay, at least 30% guaranteed share, and direct account matching.",
   path: "/taskers",
 });
 
@@ -40,35 +40,35 @@ const assessmentTracks = [
     icon: Code2,
     domain: "Software Engineering & Algorithms",
     tags: ["Python", "Rust", "C++", "TypeScript", "System Design"],
-    rate: "$45 – $85/hr",
-    description: "Multi-language code generation, complex refactoring, unit test authoring, and algorithmic evaluation rubrics.",
+    rate: "$45 to $85/hr",
+    description: "Multi language code generation, complex refactoring, unit test authoring, and algorithmic evaluation rubrics.",
   },
   {
     icon: Binary,
     domain: "Hard STEM & Mathematics",
     tags: ["Calculus", "Olympiad Math", "Physics", "Proof Verification"],
-    rate: "$40 – $75/hr",
-    description: "Formal mathematical proofs, step-by-step calculus reasoning, LaTeX formatting, and scientific validation.",
+    rate: "$40 to $75/hr",
+    description: "Formal mathematical proofs, step by step calculus reasoning, LaTeX formatting, and scientific validation.",
   },
   {
     icon: Cpu,
     domain: "Frontier Reasoning & RLHF",
-    tags: ["Chain-of-Thought", "Hallucination Audit", "Drift Detection"],
-    rate: "$30 – $55/hr",
-    description: "Multi-turn agentic evaluation, pairwise response ranking, and nuanced reward model preference calibration.",
+    tags: ["Chain of Thought", "Hallucination Audit", "Drift Detection"],
+    rate: "$30 to $55/hr",
+    description: "Multi turn agentic evaluation, pairwise response ranking, and nuanced reward model preference calibration.",
   },
   {
     icon: Languages,
     domain: "Multilingual & Cultural Localization",
     tags: ["30+ Languages", "Dialect Nuance", "Idiomatic QA"],
-    rate: "$28 – $50/hr",
+    rate: "$28 to $50/hr",
     description: "Deep cultural translation, dialect accuracy, slang interpretation, and linguistic boundary testing.",
   },
   {
     icon: Stethoscope,
     domain: "Professional & Expert Domains",
     tags: ["Clinical Medicine", "Statutory Law", "Financial Modeling"],
-    rate: "$50 – $95/hr",
+    rate: "$50 to $95/hr",
     description: "Specialized evaluations requiring professional credentials, statutory compliance, or clinical reasoning.",
   },
 ];
@@ -78,9 +78,9 @@ export default function Taskers() {
     <>
       <PageHero 
         eyebrow="For Taskers &amp; Assessment Takers" 
-        title="Flexible AI-training work. No account needed."
+        title="Work on Top AI Accounts. No Personal Account Needed."
         backgroundImage="/images/tasker-focus-flow.jpg"
-        subhead={`We match you with accounts that fit your skills and schedule. You work in a secure remote session, get paid every week and receive at least ${pricing.taskerShare}% of what your tasks earn.`}
+        subhead={`We match you with verified AI training accounts that fit your skills and schedule. You work in a secure remote session, get paid every single week, and keep at least ${pricing.taskerShare}% of what your tasks earn.`}
       >
         <div className="flex flex-wrap items-center gap-3">
           <Link href="#apply" className="btn-accent">Apply as a General Tasker</Link>
@@ -89,15 +89,15 @@ export default function Taskers() {
           </a>
           <Link href="/accessibility" className="btn-secondary">See Accommodations</Link>
         </div>
-        <p className="mt-5 text-[0.95rem] text-muted">Applying, training and testing are always free. Anyone asking you to pay to join is not us.</p>
+        <p className="mt-5 text-[0.95rem] text-muted">Applying, training, and testing are always 100% free. Anyone asking you to pay to join is not us.</p>
       </PageHero>
 
       {/* DEDICATED ASSESSMENT TAKERS SECTION */}
       <Section 
         id="assessment-takers" 
         eyebrow="Specialist Qualification Track"
-        title="Assessment Takers: Project Qualification Opportunities" 
-        intro="Think you're able to handle a particular project? We can take the assessment and give you the opportunity to try."
+        title="Assessment Takers : Project Qualification Opportunities" 
+        intro="Think you can handle a particular project? We run you through simulated evaluations and place you onto accounts with immediate queues."
         backgroundImage="/images/ai-study-lab.jpg"
       >
         <div className="max-w-4xl space-y-6">
@@ -107,21 +107,21 @@ export default function Taskers() {
                 <Trophy className="h-6 w-6" />
               </div>
               <div className="space-y-2">
-                <span className="font-mono text-xs font-bold uppercase tracking-wider text-accent">High-Earning Tier Projects</span>
+                <span className="font-mono text-xs font-bold uppercase tracking-wider text-accent">High Earning Tier Projects</span>
                 <h3 className="text-2xl sm:text-3xl font-extrabold text-ink leading-tight">
-                  Don&apos;t wait for platform luck. Test into top-tier projects with verified support.
+                  Do not wait for platform luck. Test into top tier projects with verified support.
                 </h3>
                 <p className="text-base text-muted leading-relaxed">
-                  The highest-paying AI training workflows ($40–$85/hr) across platforms like Outlier, Alignerr, DataAnnotation, Remotasks, and Mindrift are locked behind rigorous qualification assessments. 
-                  If you believe your skills match a specific project, our Curriculum team (led by Dr. Elena Rostova and Aris Thorne) runs you through simulated rubric sandboxes, calibrates your scoring, and places you onto active host accounts holding immediate queues.
+                  The highest paying AI training workflows ($40 to $85/hr) across platforms like Outlier, Alignerr, DataAnnotation, and Mindrift are locked behind rigorous qualification assessments. 
+                  If your skills match a specific project, our team calibrates your scoring and places you onto active host accounts holding immediate queues.
                 </p>
               </div>
             </div>
 
             <div className="mt-8 grid gap-4 sm:grid-cols-3 border-t border-line pt-6">
               <div className="space-y-1">
-                <span className="text-xs font-mono font-bold text-accent">01. Zero-Burn Calibration</span>
-                <p className="text-xs text-muted">Pre-test simulation ensures you understand tricky grading edge cases before risking an official attempt.</p>
+                <span className="text-xs font-mono font-bold text-accent">01. Calibration Sandbox</span>
+                <p className="text-xs text-muted">Pre test preparation ensures you understand tricky grading edge cases before taking official tests.</p>
               </div>
               <div className="space-y-1">
                 <span className="text-xs font-mono font-bold text-accent">02. Direct Account Access</span>
@@ -185,7 +185,7 @@ export default function Taskers() {
                 </span>
                 <h4 className="text-lg font-bold text-ink">Have an Account Stuck on an Assessment?</h4>
                 <p className="text-xs text-muted leading-relaxed">
-                  Are you an account owner whose account is stalled at the qualification stage? Our certified Assessment Takers can step in, tackle the benchmarks, and unlock your earning queue.
+                  Are you an account owner whose account is stalled at the qualification stage? Our certified Assessment Takers step in, tackle the benchmarks, and unlock your earning queue.
                 </p>
               </div>
               <div className="mt-4 pt-3 border-t border-line">
@@ -213,101 +213,43 @@ export default function Taskers() {
       </Section>
 
       {/* HOW JOINING WORKS */}
-      <Section id="how" title="How joining works">
+      <Section id="how" title="How Joining Works">
         <Steps steps={[
-          { title: "Apply", body: "Tell us your skills, hours and anything that helps you work well. About 8 minutes." },
-          { title: "Verify and test", body: "A one-time ID check, then short skills tests in the areas you chose. Extra time is available on request." },
-          { title: "Get matched", body: "We assign you to accounts that fit. You see the project, schedule and expected pay before you accept." },
+          { title: "Apply", body: "Tell us your skills, hours, and timezone. It takes about 5 minutes." },
+          { title: "Verify and calibrate", body: "A quick ID check, then short skills calibrations in your selected areas." },
+          { title: "Get matched", body: "We assign you to host accounts that fit your skills. You see the project and expected pay before you accept." },
         ]} />
       </Section>
 
-      {/* ID VERIFICATION & SKILLS TESTS */}
-      <Section id="verification" tone="tint" eyebrow="ID verification and skills tests" title="Fair checks, done once">
+      {/* ID VERIFICATION */}
+      <Section id="verification" tone="tint" eyebrow="Verification &amp; Skills" title="Simple Checks, Done Once">
         <FeatureGrid items={[
-          { icon: Fingerprint, title: "Identity check", body: "A trusted verification partner confirms your identity with a photo ID and a quick selfie or video check. We keep the result, not the ID image. Can't do the selfie step? Ask for a live video call instead." },
-          { icon: ClipboardList, title: "Skills tests", body: "Short, practical tests in rating, writing, coding, STEM, multimodal or language work. You can retake a test once after 14 days." },
-          { icon: BadgeCheck, title: "NDA and training", body: "A plain-language NDA and a 30-minute security course. Available as text, captioned video or a guided call." },
+          { icon: Fingerprint, title: "Identity check", body: "A trusted verification partner confirms your identity with a photo ID and quick check. We keep the confirmation result, not your private documents." },
+          { icon: ClipboardList, title: "Skills tests", body: "Short practical calibrations in rating, writing, coding, STEM, or language work. You can retake a test after 14 days." },
+          { icon: BadgeCheck, title: "Security agreement", body: "A plain language NDA and brief security overview. Available as text or guided walk through." },
         ]} />
-      </Section>
-
-      {/* SETTINGS */}
-      <Section id="settings" eyebrow="Accommodations and availability" title="Set it up the way you work" intro="You control your availability. Accommodations are private and never lower your pay rate or ratings." backgroundImage="/images/taskers-review.jpg">
-        <div className="grid gap-5 md:grid-cols-2">
-          <div className="card">
-            <CalendarClock aria-hidden="true" className="h-8 w-8 text-primary" />
-            <h3 className="mt-3 text-xl font-bold">Availability settings</h3>
-            <div className="mt-4"><CheckList items={["Set weekly hours from 5 to 40", "Choose preferred time blocks, or set them week by week", "Mark rest days and flare-up days without explanation", "Pause for up to 4 weeks and keep your assignments"]} /></div>
-          </div>
-          <div className="card">
-            <HeartHandshake aria-hidden="true" className="h-8 w-8 text-accent-ink" />
-            <h3 className="mt-3 text-xl font-bold">Accommodation settings</h3>
-            <div className="mt-4"><CheckList items={["Extra time on tests and timed tasks (where the platform allows)", "Tasks split into smaller steps", "Break reminders at intervals you choose", "Screen reader, voice control and keyboard-only setups", "Written-only communication"]} /></div>
-          </div>
-        </div>
-      </Section>
-
-      {/* ASSIGNED ACCOUNTS */}
-      <Section id="assigned" tone="tint" eyebrow="Assigned accounts" title="Know what you're saying yes to">
-        <p className="max-w-3xl text-lg text-muted leading-relaxed">
-          Before you accept an assignment, you see the platform, project type, expected hours, pay share, QA requirements and the owner&apos;s public rating. You can decline without penalty. We only assign accounts on platforms that allow managed work, and only where your country is permitted.
-        </p>
-      </Section>
-
-      {/* SESSION RULES */}
-      <Section id="rules" eyebrow="Remote session rules" title="Clear rules that protect everyone">
-        <div className="grid gap-5 md:grid-cols-2">
-          <div className="card">
-            <MonitorCheck aria-hidden="true" className="h-8 w-8 text-primary" />
-            <h3 className="mt-3 text-xl font-bold">In every session</h3>
-            <div className="mt-4"><CheckList items={[
-              "Work only inside the secure remote session we provide",
-              "Sessions are recorded for quality checks, security and disputes",
-              "Clipboard, file transfer and USB are turned off",
-              "You never see or handle the owner's password",
-              "Follow the platform's own guidelines exactly",
-              "Don't use AI tools to complete tasks unless the project allows it",
-            ]} /></div>
-          </div>
-          <div className="card">
-            <Coffee aria-hidden="true" className="h-8 w-8 text-accent-ink" />
-            <h3 className="mt-3 text-xl font-bold">Your side of the deal</h3>
-            <div className="mt-4"><CheckList items={[
-              "Take breaks whenever you need; sessions pause safely",
-              "Recordings are deleted after 90 days unless a dispute is open",
-              "You can ask to see recordings of your own sessions",
-              "Only QA staff and dispute reviewers can view recordings",
-            ]} /></div>
-          </div>
-        </div>
       </Section>
 
       {/* PAY */}
-      <Section id="pay" tone="tint" eyebrow="Weekly pay" title="Paid every Friday">
+      <Section id="pay" tone="tint" eyebrow="Weekly Pay" title="Paid Every Friday">
         <FeatureGrid cols={2} items={[
-          { icon: Wallet, title: `At least ${pricing.taskerShare}% of task earnings`, body: "Your share is shown before you accept work and on every payslip. We pay for approved work even if the owner pays us late." },
-          { icon: CalendarClock, title: "Weekly, on time", body: "Payment goes out every Friday for the previous Monday–Sunday. Bank transfer, mobile money or supported payout services, depending on your country." },
+          { icon: Wallet, title: `At least ${pricing.taskerShare}% guaranteed share`, body: "Your share is shown before you accept work and on every weekly statement. We pay for approved work on time." },
+          { icon: CalendarClock, title: "Weekly, on time", body: "Payment goes out every Friday for the previous week. Bank transfer, mobile money, or supported payout services depending on your country." },
         ]} />
-        <div className="mt-6"><Note title="No income guarantee">How much you earn depends on how much work platforms release, and that changes week to week. We&apos;ll always tell you when work is slowing down.</Note></div>
-      </Section>
-
-      {/* RATINGS */}
-      <Section id="ratings" eyebrow="Ratings and reputation" title="Build a reputation that follows you">
-        <FeatureGrid items={[
-          { icon: Star, title: "Six fair measures", body: "Quality, reliability, communication, compliance, pay timeliness and accessibility — the same measures used to rate owners and us." },
-          { icon: BadgeCheck, title: "Verified only", body: "Only people who finished work with you can rate you. One rating per assignment." },
-          { icon: HeartHandshake, title: "Appeal anything", body: "Disagree with a rating? Ask for a review within 30 days. A different staff member looks at the session records." },
-        ]} />
-        <p className="mt-6"><Link className="link" href="/ratings#disputes">How disputes and appeals work</Link></p>
       </Section>
 
       {/* GENERAL APPLICATION FORM */}
-      <Section id="apply" tone="tint" title="Apply as a General Tasker" intro="Want steady, general annotation hours across writing, rating, or multimodal work? Apply here.">
-        <div className="max-w-3xl"><TaskerApplyForm /></div>
-        <div className="mt-8 max-w-3xl"><ComplianceNotice compact /></div>
+      <Section id="apply" title="Apply as a General Tasker" intro="Want steady annotation hours across writing, rating, or multimodal work? Apply here.">
+        <div className="max-w-3xl mx-auto"><TaskerApplyForm /></div>
+        <div className="mt-8 max-w-3xl mx-auto"><ComplianceNotice compact /></div>
       </Section>
 
-      <FinalCta title="Need help applying or qualifying?" body="If a form, test or setup doesn't work for you, a person will help — by email, chat or a call."
-        primary={{ href: "#assessment-takers", label: "Target a Specific Project" }} secondary={{ href: "/accessibility#request", label: "Request an accommodation" }} />
+      <FinalCta 
+        title="Ready to Start Earning from AI Training?" 
+        body="Join hundreds of active taskers. We provide the accounts, queues, and guaranteed weekly payouts."
+        primary={{ href: "#apply", label: "Apply as a Tasker Now" }} 
+        secondary={{ href: site.telegram.hub, label: "Chat on Telegram" }} 
+      />
     </>
   );
 }

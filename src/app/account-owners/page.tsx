@@ -1,17 +1,31 @@
 import Link from "next/link";
-import { ClipboardCheck, FileSearch, GraduationCap, ListChecks, RefreshCcw, Scale } from "lucide-react";
+import { 
+  ClipboardCheck, 
+  FileSearch, 
+  GraduationCap, 
+  ListChecks, 
+  RefreshCcw, 
+  Scale, 
+  ShieldCheck, 
+  Wallet, 
+  Sparkles, 
+  Lock, 
+  CheckCircle2, 
+  Clock, 
+  ArrowRight,
+  TrendingUp,
+  KeyRound
+} from "lucide-react";
 import { AccountSubmitForm } from "@/components/forms/AccountSubmitForm";
 import { DashboardPreview } from "@/components/DashboardPreview";
-import { CheckList, ComplianceNotice, FeatureGrid, FinalCta, Note, PageHero, Section } from "@/components/ui";
+import { CheckList, ComplianceNotice, FeatureGrid, FinalCta, PageHero, Section } from "@/components/ui";
 import { PriceTable } from "@/components/PriceTable";
-import { money, photos, pricing } from "@/config/site";
-import { Media } from "@/components/Media";
-import { OfficeScene } from "@/components/illustrations/Scenes";
+import { money, pricing, site } from "@/config/site";
 import { pageMeta } from "@/lib/seo";
 
 export const metadata = pageMeta({
-  title: "For account owners",
-  description: "Submit your AI-training account for a compliance audit. We classify it as Needs Onboarding or Needs Tasking, staff it with vetted taskers, and send transparent invoices. You keep ownership.",
+  title: "For Account Owners : Turn Idle Accounts into Weekly Income",
+  description: "Have an Outlier, Alignerr, or Scale AI account sitting unused? We pair it with vetted specialists who do the work. You keep 55% of all earnings.",
   path: "/account-owners",
 });
 
@@ -19,103 +33,214 @@ export default function AccountOwners() {
   return (
     <>
       <PageHero 
-        eyebrow="For account owners" 
-        title="Keep your account. Let a vetted team do the work."
+        eyebrow="For Account Owners : 100% Hands Off Income" 
+        title="Your AI Account Is Worth Money. Let Us Work It For You."
         backgroundImage="/images/account-owners.jpg"
-        subhead="If your AI-training account sits idle or underused, we audit it, staff it with qualified taskers and check the quality every week. It stays yours, and every fee is visible."
+        subhead="If your AI training account on Outlier, Alignerr, Scale AI, or DataAnnotation is sitting idle, you are leaving thousands on the table every month. We pair your account with verified specialists who do the work every day. You keep 55% of all earnings. Zero effort required."
       >
-        <div className="flex flex-col gap-3 sm:flex-row">
-          <Link href="#submit" className="btn-accent">Submit your account</Link>
-          <Link href="/pricing" className="btn-secondary">See pricing</Link>
+        <div className="flex flex-col gap-3.5 sm:flex-row">
+          <Link href="#submit" className="btn-accent text-sm uppercase tracking-wider !py-3.5 !px-7 shadow-md">
+            Connect Your Account Now
+          </Link>
+          <Link href="#how-it-works" className="btn-secondary text-sm uppercase tracking-wider !py-3.5 !px-7">
+            See How You Get Paid
+          </Link>
         </div>
       </PageHero>
 
-      <div className="container mt-10"><ComplianceNotice /></div>
+      {/* THREE BIG STATS */}
+      <section className="border-b border-line bg-surface-2/60 py-12">
+        <div className="container">
+          <div className="grid gap-6 sm:grid-cols-3 max-w-4xl mx-auto text-center">
+            <div className="rounded-2xl border border-line bg-surface p-6 shadow-md">
+              <span className="text-4xl font-black text-accent font-mono">55%</span>
+              <p className="mt-2 text-sm font-bold text-ink">Kept by You : The Owner</p>
+              <p className="mt-1 text-xs text-muted">Weekly direct payout with zero deductions</p>
+            </div>
+            <div className="rounded-2xl border border-line bg-surface p-6 shadow-md">
+              <span className="text-4xl font-black text-cyan-400 font-mono">100%</span>
+              <p className="mt-2 text-sm font-bold text-ink">Your Legal Ownership</p>
+              <p className="mt-1 text-xs text-muted">Account stays in your name. Pause anytime</p>
+            </div>
+            <div className="rounded-2xl border border-line bg-surface p-6 shadow-md">
+              <span className="text-4xl font-black text-emerald-400 font-mono">0 Hours</span>
+              <p className="mt-2 text-sm font-bold text-ink">Effort Required From You</p>
+              <p className="mt-1 text-xs text-muted">Our specialists complete all tasks and reviews</p>
+            </div>
+          </div>
+        </div>
+      </section>
 
-      <Section id="audit" eyebrow="Step 1" title="The account audit" intro={`A one-time ${money(pricing.audit.price)} review, finished within 3 business days. You get a written report whether or not we take the account on.`}>
-        <FeatureGrid items={[
-          { icon: Scale, title: "Platform rules", body: "We read the platform's current terms, contributor agreement and help pages to confirm that subcontracting, remote access or agency-managed work is explicitly allowed — and for which countries." },
-          { icon: FileSearch, title: "Account health", body: "Qualifications, quality scores, open assessments, project access, payment setup and whether two-factor sign-in is on." },
-          { icon: ListChecks, title: "Work available", body: "Which projects and task types the account can reach, and roughly how steady that work has been. This is an estimate, not a promise." },
-        ]} />
-        <div className="mt-6"><Note title="If the platform doesn't allow it">We stop there. You get a short written explanation and a full refund of the audit fee. We never work around a platform&apos;s rules.</Note></div>
+      {/* HOW ACCOUNT OWNERS GET PAID */}
+      <Section 
+        id="how-it-works" 
+        eyebrow="Simple 3 Step System" 
+        title="How You Start Making Money This Week" 
+        intro="You do not need to do any tasks yourself. We handle the hard part and you collect your weekly share."
+      >
+        <div className="grid gap-8 lg:grid-cols-3">
+          <div className="card space-y-4 border-line bg-surface shadow-xl">
+            <div className="h-14 w-14 rounded-2xl bg-gradient-to-b from-amber-500/20 via-slate-900 to-slate-950 border border-amber-500/40 flex items-center justify-center text-amber-400 font-mono font-black text-xl shadow-lg">
+              01
+            </div>
+            <h3 className="text-xl font-bold text-ink">Tell Us About Your Account</h3>
+            <p className="text-sm text-muted leading-relaxed">
+              Submit your platform name (Outlier, Alignerr, Scale AI, or DataAnnotation) and tell us whether your account is fully active or stuck on an entry assessment. No passwords are ever entered on web forms.
+            </p>
+          </div>
+
+          <div className="card space-y-4 border-line bg-surface shadow-xl">
+            <div className="h-14 w-14 rounded-2xl bg-gradient-to-b from-cyan-500/20 via-slate-900 to-slate-950 border border-cyan-500/40 flex items-center justify-center text-cyan-400 font-mono font-black text-xl shadow-lg">
+              02
+            </div>
+            <h3 className="text-xl font-bold text-ink">We Assign Vetted Specialists</h3>
+            <p className="text-sm text-muted leading-relaxed">
+              We match your account with top domain specialists who work your queue daily. If you are stuck on an assessment, our certified test takers clear it first to unlock high paying tasks.
+            </p>
+          </div>
+
+          <div className="card space-y-4 border-accent/50 bg-surface shadow-xl">
+            <div className="h-14 w-14 rounded-2xl bg-gradient-to-b from-emerald-500/20 via-slate-900 to-slate-950 border border-emerald-500/40 flex items-center justify-center text-emerald-400 font-mono font-black text-xl shadow-lg">
+              03
+            </div>
+            <h3 className="text-xl font-bold text-ink">You Collect 55% Every Week</h3>
+            <p className="text-sm text-muted leading-relaxed">
+              Earnings flow directly to your designated bank or payout channel every week. You receive a clear settlement statement showing total account earnings, tasker pay, and our small management fee.
+            </p>
+          </div>
+        </div>
+
+        {/* WORKED EXAMPLE */}
+        <div className="mt-12 rounded-3xl border-2 border-accent/40 bg-accent-soft/20 p-6 sm:p-8">
+          <h4 className="text-lg font-black text-ink mb-2">Example Monthly Math on an Active Queue</h4>
+          <p className="text-sm text-muted mb-6">Here is how a typical Python or STEM queue performing at $2,000 monthly breaks down:</p>
+          <div className="grid gap-4 sm:grid-cols-3 text-center">
+            <div className="rounded-xl border border-line bg-surface p-4">
+              <span className="text-xs font-mono text-muted uppercase">Gross Account Earnings</span>
+              <p className="text-2xl font-black text-ink mt-1 font-mono">$2,000</p>
+              <p className="text-xs text-muted mt-1">Generated by our specialist</p>
+            </div>
+            <div className="rounded-xl border border-line bg-surface p-4">
+              <span className="text-xs font-mono text-muted uppercase">Tasker &amp; Middlemen Share</span>
+              <p className="text-2xl font-black text-ink mt-1 font-mono">$900</p>
+              <p className="text-xs text-muted mt-1">30% tasker + 15% management</p>
+            </div>
+            <div className="rounded-xl border-2 border-accent bg-accent/10 p-4">
+              <span className="text-xs font-mono text-accent font-bold uppercase">Your 55% Net Profit</span>
+              <p className="text-2xl font-black text-accent mt-1 font-mono">$1,100</p>
+              <p className="text-xs text-accent font-bold mt-1">Direct to you without working</p>
+            </div>
+          </div>
+        </div>
       </Section>
 
-      <Section id="classification" tone="tint" eyebrow="Step 2" title="Needs Onboarding or Needs Tasking?" intro="Every account we accept gets one of two labels. The label decides the plan and the price.">
-        <div className="grid gap-5 md:grid-cols-2">
-          <article className="card border-t-4 border-t-primary">
-            <GraduationCap aria-hidden="true" className="h-8 w-8 text-primary" />
-            <h3 className="mt-3 text-2xl font-bold">Needs Onboarding</h3>
-            <p className="mt-2 text-muted">The account isn&apos;t ready for regular work yet.</p>
-            <div className="mt-4"><CheckList items={["Unfinished assessments or training modules", "Qualification tests not yet passed", "Profile, skills or payment setup incomplete"]} /></div>
-            <p className="mt-3 text-xs text-muted">
-              Stuck on a tricky benchmark? Our <Link href="/taskers#assessment-takers" className="link font-bold text-accent">Certified Assessment Takers</Link> can step in, tackle the assessment, and unlock your earning queue.
-            </p>
-            <p className="mt-4 font-semibold">Onboarding package: {pricing.onboarding.percent}% of the first month&apos;s earnings or {money(pricing.onboarding.flat)} flat, whichever is lower.</p>
+      {/* THE TWO OPTIONS FOR ACCOUNT OWNERS */}
+      <Section id="services" tone="tint" eyebrow="Choose Your Path" title="What Does Your Account Need?" intro="Whether your account is brand new or already active, we have a fast path to start earning.">
+        <div className="grid gap-6 md:grid-cols-2">
+          {/* OPTION 1: PASS ASSESSMENT */}
+          <article className="card border-t-4 border-t-amber-400 flex flex-col justify-between">
+            <div>
+              <div className="flex items-center justify-between mb-4">
+                <span className="rounded-full border border-amber-500/40 bg-amber-500/10 px-3 py-1 font-mono text-xs font-bold text-amber-400">
+                  Option 1 : Entry Gate
+                </span>
+                <GraduationCap className="h-6 w-6 text-amber-400" />
+              </div>
+              <h3 className="text-2xl font-bold text-ink">Unlock My Account : Pass Assessments</h3>
+              <p className="mt-2 text-sm text-muted leading-relaxed">
+                Stuck on a tricky Outlier coding benchmark, Alignerr math test, or language evaluation? Our certified assessment specialists take the tests with guaranteed pass rates to unlock your account.
+              </p>
+              <div className="mt-5">
+                <CheckList items={[
+                  "Pass complex coding, STEM, and reasoning benchmark tests",
+                  "Clear account onboarding and unlock active project queues",
+                  "Fast turnaround : most tests completed in under 24 hours",
+                  "Pay flat rate or small percentage of first month earnings"
+                ]} />
+              </div>
+            </div>
+            <div className="mt-6 pt-4 border-t border-line">
+              <Link href="#submit" className="btn-accent w-full text-center text-sm">
+                Unlock My Account Now →
+              </Link>
+            </div>
           </article>
-          <article className="card border-t-4 border-t-accent">
-            <ClipboardCheck aria-hidden="true" className="h-8 w-8 text-accent-ink" />
-            <h3 className="mt-3 text-2xl">Needs Tasking</h3>
-            <p className="mt-2 text-muted">The account is qualified but underused.</p>
-            <div className="mt-4"><CheckList items={["Has project access and can receive tasks", "Needs steady, skilled hours", "Would benefit from QA to protect its quality score"]} /></div>
-            <p className="mt-4 font-semibold">Tasking: {pricing.tasking.percent}% of task earnings to us; at least {pricing.taskerShare}% to the tasker.</p>
+
+          {/* OPTION 2: FULLY MANAGED TASKING */}
+          <article className="card border-t-4 border-t-emerald-400 flex flex-col justify-between">
+            <div>
+              <div className="flex items-center justify-between mb-4">
+                <span className="rounded-full border border-emerald-500/40 bg-emerald-500/10 px-3 py-1 font-mono text-xs font-bold text-emerald-400">
+                  Option 2 : Hands Off Income
+                </span>
+                <ClipboardCheck className="h-6 w-6 text-emerald-400" />
+              </div>
+              <h3 className="text-2xl font-bold text-ink">Fully Managed Daily Tasking</h3>
+              <p className="mt-2 text-sm text-muted leading-relaxed">
+                Your account is already approved and has tasks available, but you do not have the time or skill to sit and work 30 hours a week. We assign a dedicated specialist who tasks every single day.
+              </p>
+              <div className="mt-5">
+                <CheckList items={[
+                  "Daily task completion with strict quality score protection",
+                  "Verified domain specialists matched to your project queue",
+                  "Weekly payouts sent directly to you every Friday",
+                  "55% owner share : no hidden cuts or surprise fees"
+                ]} />
+              </div>
+            </div>
+            <div className="mt-6 pt-4 border-t border-line">
+              <Link href="#submit" className="btn-accent w-full text-center text-sm">
+                Staff My Account Now →
+              </Link>
+            </div>
           </article>
         </div>
       </Section>
 
-      <Section id="dashboard" eyebrow="Step 3" title="See everything in your dashboard" intro="Earnings, tasker hours, QA scores and invoices in one place. You can pause work or remove a tasker from here at any time.">
+      {/* SAFETY & ACCOUNT SECURITY */}
+      <Section id="safety" eyebrow="Zero Worry" title="Why Your Account Is Always Safe With Us" intro="We treat your account with extreme care because keeping it healthy is how everyone makes money.">
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+          {[
+            { icon: Lock, title: "No Passwords on Web", desc: "You never type passwords into any website form. All setup happens via Telegram end to end encrypted secret chats with leadership admins." },
+            { icon: Scale, title: "100% Your Account", desc: "You retain full legal ownership. You can pause work, change taskers, or disconnect service at any moment with no penalties." },
+            { icon: ShieldCheck, title: "Quality Protection", desc: "We sample and review tasks weekly to keep your platform quality rating above 4.8 out of 5.0, preventing bans or strikes." },
+            { icon: RefreshCcw, title: "Free Replacement", desc: "If a tasker ever falls ill or fails to meet our quality benchmark, we replace them immediately at zero cost to you." },
+          ].map((item) => {
+            const IconComp = item.icon;
+            return (
+              <div key={item.title} className="card border-line bg-surface flex flex-col justify-between">
+                <div>
+                  <div className="h-12 w-12 rounded-xl bg-gradient-to-b from-accent/20 via-slate-900 to-slate-950 border border-accent/40 flex items-center justify-center text-accent mb-4 shadow-md">
+                    <IconComp className="h-6 w-6" strokeWidth={2.2} />
+                  </div>
+                  <h3 className="text-base font-bold text-ink">{item.title}</h3>
+                  <p className="text-xs text-muted mt-2 leading-relaxed">{item.desc}</p>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </Section>
+
+      {/* DASHBOARD PREVIEW */}
+      <Section id="dashboard" tone="tint" eyebrow="Live Tracking" title="See Everything in Your Dashboard" intro="Track your earnings, active tasker hours, and weekly payout receipts in one clean place.">
         <DashboardPreview />
       </Section>
 
-      <Section id="pricing" tone="tint" eyebrow="Pricing" title="What it costs" intro="Percentages are of gross platform earnings on the account in that month.">
-        <PriceTable />
-        <p className="mt-6"><Link className="link" href="/pricing#calculator">Try the pricing calculator</Link></p>
-      </Section>
-
-      <Section id="compliance" eyebrow="Compliance and security" title="What we do, and what stays with you">
-        <div className="grid gap-5 md:grid-cols-2">
-          <div className="card">
-            <h3 className="text-xl">We handle</h3>
-            <div className="mt-4"><CheckList items={[
-              "Tasker identity checks, skills tests and NDAs",
-              "Paying taskers weekly, including their accommodations",
-              "Telegram encrypted credential coordination and 2FA enforcement",
-              "Recorded, isolated work sessions with audit logs",
-              "Quality checks and handling disputes",
-              "Stopping work if a platform changes its rules",
-            ]} /></div>
-          </div>
-          <div className="card">
-            <h3 className="text-xl">You keep</h3>
-            <div className="mt-4"><CheckList items={[
-              "Ownership of the account",
-              "Responsibility for platform taxes and reporting",
-              "Responsibility for legal compliance in your country",
-              "The right to pause or end service at any time",
-              "Approval of any new tasker before they start",
-            ]} /></div>
-          </div>
-        </div>
-        <p className="mt-6"><Link className="link" href="/trust-safety">See all trust and safety controls</Link></p>
-      </Section>
-
-      <Section id="guarantee" tone="tint" eyebrow="Replacement guarantee" title="If a tasker isn't a good fit, we replace them">
-        <div className="card flex flex-col gap-5 md:flex-row md:items-start">
-          <RefreshCcw aria-hidden="true" className="h-10 w-10 shrink-0 text-accent-ink" />
-          <div>
-            <p className="text-lg">If a tasker&apos;s QA score falls below our standard, or you have a reasonable concern, we assign a replacement within <strong>{pricing.replacementDays} business days</strong> at no extra cost.</p>
-            <p className="mt-3 text-muted">While we find a replacement, we don&apos;t charge the tasking fee for hours that aren&apos;t worked. If a tasker&apos;s mistake causes a platform quality penalty, we credit that month&apos;s fee. We can&apos;t reverse platform decisions, but we&apos;ll give you our session records to support any appeal.</p>
-            <p className="mt-3"><Link className="link" href="/pricing#refunds">Read the refund and replacement policy</Link></p>
-          </div>
+      {/* SUBMISSION FORM */}
+      <Section id="submit" title="Connect Your Account Today" intro="Tell us which platform you have. We will review your account status within 24 hours and get you matched with a specialist.">
+        <div className="max-w-3xl mx-auto">
+          <AccountSubmitForm />
         </div>
       </Section>
 
-      <Section id="submit" title="Submit your account" intro="We'll reply within 2 business days with next steps.">
-        <div className="max-w-3xl"><AccountSubmitForm /></div>
-      </Section>
-
-      <FinalCta title="Questions before you submit?" body="Talk to a person. We'll tell you honestly whether your platform is likely to qualify."
-        primary={{ href: "#submit", label: "Submit your account" }} secondary={{ href: "/about#contact", label: "Contact us" }} />
+      {/* FINAL CTA */}
+      <FinalCta 
+        title="Stop Leaving Money on the Table" 
+        body="If you have an account on Outlier, Alignerr, Scale AI, or DataAnnotation that is sitting unused, connect with us today and turn it into consistent weekly income."
+        primary={{ href: "#submit", label: "Submit Your Account Now" }} 
+        secondary={{ href: site.telegram.hub, label: "Chat on Telegram" }} 
+      />
     </>
   );
 }
