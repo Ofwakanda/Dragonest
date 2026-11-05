@@ -6,7 +6,28 @@ import {
   Scale, 
   ShieldCheck, 
   Sparkles, 
-  Users 
+  Users,
+  Wallet,
+  Smartphone,
+  Globe2,
+  Clock,
+  BookOpen,
+  Home,
+  TrendingDown,
+  Car,
+  Armchair,
+  Laptop,
+  Coffee,
+  PenTool,
+  MessageSquare,
+  Binary,
+  Code2,
+  Languages,
+  SearchCheck,
+  Send,
+  Lock,
+  Layers,
+  ArrowRight
 } from "lucide-react";
 import Link from "next/link";
 import { ContactForm } from "@/components/forms/ContactForm";
@@ -122,20 +143,23 @@ export default function About() {
             You do not need prior experience. You do not need to be smart in a traditional way. 
             You just need a phone or laptop, an internet connection, and the ability to follow simple instructions.
           </p>
-          <div className="pt-2 grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-2xl mx-auto text-center">
+          <div className="pt-4 grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-2xl mx-auto text-center">
             {[
-              { emoji: "💸", label: "Weekly payouts", bg: "from-emerald-500/20 to-emerald-900/40 border-emerald-500/40" },
-              { emoji: "📱", label: "Phone or laptop only", bg: "from-sky-500/20 to-sky-900/40 border-sky-500/40" },
-              { emoji: "🌍", label: "Any country", bg: "from-amber-500/20 to-amber-900/40 border-amber-500/40" },
-              { emoji: "⏰", label: "Your own hours", bg: "from-purple-500/20 to-purple-900/40 border-purple-500/40" },
-            ].map((item) => (
-              <div key={item.label} className="group rounded-2xl border border-line bg-surface p-4 flex flex-col items-center gap-2 shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all">
-                <div className={`h-12 w-12 rounded-xl bg-gradient-to-b ${item.bg} border flex items-center justify-center shadow-[inset_0_2px_4px_rgba(255,255,255,0.2),0_4px_8px_rgba(0,0,0,0.4)]`}>
-                  <span className="text-2xl drop-shadow-[0_4px_6px_rgba(0,0,0,0.5)] transform group-hover:scale-110 transition-transform">{item.emoji}</span>
+              { icon: Wallet, label: "Weekly payouts", color: "text-emerald-400", border: "border-emerald-500/30", bg: "from-emerald-500/10 via-slate-900 to-slate-950" },
+              { icon: Smartphone, label: "Phone or laptop only", color: "text-cyan-400", border: "border-cyan-500/30", bg: "from-cyan-500/10 via-slate-900 to-slate-950" },
+              { icon: Globe2, label: "Any country", color: "text-amber-400", border: "border-amber-500/30", bg: "from-amber-500/10 via-slate-900 to-slate-950" },
+              { icon: Clock, label: "Your own hours", color: "text-purple-400", border: "border-purple-500/30", bg: "from-purple-500/10 via-slate-900 to-slate-950" },
+            ].map((item) => {
+              const IconComp = item.icon;
+              return (
+                <div key={item.label} className="group rounded-2xl border border-line bg-surface p-4 flex flex-col items-center gap-3 shadow-md hover:border-accent/50 transition-all hover:-translate-y-1">
+                  <div className={`h-14 w-14 rounded-2xl bg-gradient-to-b ${item.bg} border ${item.border} flex items-center justify-center shadow-[inset_0_1px_1px_rgba(255,255,255,0.15),0_8px_16px_rgba(0,0,0,0.5)]`}>
+                    <IconComp className={`h-6 w-6 ${item.color} drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)]`} strokeWidth={2.2} />
+                  </div>
+                  <span className="text-xs font-bold text-ink">{item.label}</span>
                 </div>
-                <span className="text-xs font-bold text-ink">{item.label}</span>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
@@ -149,7 +173,7 @@ export default function About() {
       >
         <div className="grid gap-8 lg:grid-cols-3">
           <div className="card space-y-4 border-accent/40 bg-surface shadow-xl">
-            <div className="inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-amber-400 via-amber-500 to-amber-600 text-slate-950 font-black text-2xl shadow-[inset_0_2px_4px_rgba(255,255,255,0.4),0_8px_16px_rgba(245,158,11,0.35)]">
+            <div className="inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-b from-amber-400/20 via-slate-900 to-slate-950 border border-amber-500/40 text-amber-400 font-mono font-black text-xl shadow-[inset_0_1px_2px_rgba(255,255,255,0.2),0_8px_16px_rgba(0,0,0,0.6)]">
               01
             </div>
             <h3 className="text-xl font-bold text-ink">You Get a Verified Account</h3>
@@ -159,7 +183,7 @@ export default function About() {
           </div>
 
           <div className="card space-y-4 border-line bg-surface shadow-xl">
-            <div className="inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-cyan-400 via-cyan-500 to-cyan-600 text-slate-950 font-black text-2xl shadow-[inset_0_2px_4px_rgba(255,255,255,0.4),0_8px_16px_rgba(6,182,212,0.35)]">
+            <div className="inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-b from-cyan-400/20 via-slate-900 to-slate-950 border border-cyan-500/40 text-cyan-400 font-mono font-black text-xl shadow-[inset_0_1px_2px_rgba(255,255,255,0.2),0_8px_16px_rgba(0,0,0,0.6)]">
               02
             </div>
             <h3 className="text-xl font-bold text-ink">You Do the Tasks, We Handle the Rest</h3>
@@ -169,7 +193,7 @@ export default function About() {
           </div>
 
           <div className="card space-y-4 border-line bg-surface shadow-xl">
-            <div className="inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-emerald-400 via-emerald-500 to-emerald-600 text-slate-950 font-black text-2xl shadow-[inset_0_2px_4px_rgba(255,255,255,0.4),0_8px_16px_rgba(16,185,129,0.35)]">
+            <div className="inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-b from-emerald-400/20 via-slate-900 to-slate-950 border border-emerald-500/40 text-emerald-400 font-mono font-black text-xl shadow-[inset_0_1px_2px_rgba(255,255,255,0.2),0_8px_16px_rgba(0,0,0,0.6)]">
               03
             </div>
             <h3 className="text-xl font-bold text-ink">You Get Paid Every Week</h3>
@@ -200,29 +224,32 @@ export default function About() {
         </p>
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {[
-            { emoji: "🎓", who: "University Students", situation: "Broke between semesters, classes only 3 days a week, need money for rent and data.", howItHelps: "Work during free periods. Earn while you study. No boss to ask permission from.", glow: "from-blue-500/20 to-indigo-900/40 border-blue-500/40" },
-            { emoji: "🏠", who: "Stay at Home Parents", situation: "Taking care of kids all day, cannot do a 9 to 5, but need income.", howItHelps: "Work during nap times, evenings, or whenever you get 30 free minutes. Weekly payout.", glow: "from-rose-500/20 to-pink-900/40 border-rose-500/40" },
-            { emoji: "📉", who: "Unemployed & Job Hunting", situation: "Sending CVs every day with no response, bills piling up, dignity running low.", howItHelps: "Start earning this week with no interview and no waiting. AI does not care about your CV.", glow: "from-amber-500/20 to-amber-900/40 border-amber-500/40" },
-            { emoji: "🚕", who: "Ride Hail & Delivery Workers", situation: "Long hours, bad weather, low pay, no benefits, no security.", howItHelps: "AI tasks pay more per hour than driving. Work from home. Keep your sanity.", glow: "from-yellow-500/20 to-amber-900/40 border-yellow-500/40" },
-            { emoji: "🌍", who: "People in Developing Countries", situation: "Local salary is too low, exchange rate makes international income life changing.", howItHelps: "Paid in USD equivalent. Even $5 to $10 an hour is transformational in many countries.", glow: "from-emerald-500/20 to-emerald-900/40 border-emerald-500/40" },
-            { emoji: "🛋️", who: "People Who Say They Are Lazy", situation: "Do not want a demanding job. Want easy, flexible income they can do at their own pace.", howItHelps: "Rate AI responses from your couch. Some tasks take 2 minutes. You just need consistency.", glow: "from-purple-500/20 to-violet-900/40 border-purple-500/40" },
-            { emoji: "💻", who: "Remote Work Seekers", situation: "Tried Upwork, Fiverr, and other platforms with no clients and too much competition.", howItHelps: "We already have the accounts and task queues. You just show up and do the work.", glow: "from-cyan-500/20 to-sky-900/40 border-cyan-500/40" },
-            { emoji: "☕", who: "Older Adults & Retirees", situation: "Pension not enough, do not want physical work, need something they can do from home.", howItHelps: "Simple tasks. No physical activity. Just reading, judging, and writing at your own speed.", glow: "from-orange-500/20 to-amber-900/40 border-orange-500/40" },
-            { emoji: "✍️", who: "Writers, Bloggers & Creatives", situation: "Passion does not always pay. Need consistent income while building your craft.", howItHelps: "AI writing and prompt tasks are perfect for your skill set. And they pay weekly.", glow: "from-teal-500/20 to-emerald-900/40 border-teal-500/40" },
-          ].map((item) => (
-            <div key={item.who} className="group card flex flex-col border-line bg-surface hover:border-accent transition-all hover:shadow-xl hover:-translate-y-1">
-              <div className="flex items-center gap-3.5 mb-3">
-                <div className={`h-12 w-12 rounded-xl bg-gradient-to-b ${item.glow} border flex items-center justify-center shrink-0 shadow-[inset_0_2px_4px_rgba(255,255,255,0.25),0_6px_12px_rgba(0,0,0,0.35)]`}>
-                  <span className="text-2xl drop-shadow-[0_4px_6px_rgba(0,0,0,0.5)] transform group-hover:scale-110 transition-transform">{item.emoji}</span>
+            { icon: BookOpen, who: "University Students", situation: "Broke between semesters, classes only 3 days a week, need money for rent and data.", howItHelps: "Work during free periods. Earn while you study. No boss to ask permission from.", color: "text-blue-400", border: "border-blue-500/30", bg: "from-blue-500/10 via-slate-900 to-slate-950" },
+            { icon: Home, who: "Stay at Home Parents", situation: "Taking care of kids all day, cannot do a 9 to 5, but need income.", howItHelps: "Work during nap times, evenings, or whenever you get 30 free minutes. Weekly payout.", color: "text-rose-400", border: "border-rose-500/30", bg: "from-rose-500/10 via-slate-900 to-slate-950" },
+            { icon: TrendingDown, who: "Unemployed & Job Hunting", situation: "Sending CVs every day with no response, bills piling up, dignity running low.", howItHelps: "Start earning this week with no interview and no waiting. AI does not care about your CV.", color: "text-amber-400", border: "border-amber-500/30", bg: "from-amber-500/10 via-slate-900 to-slate-950" },
+            { icon: Car, who: "Ride Hail & Delivery Workers", situation: "Long hours, bad weather, low pay, no benefits, no security.", howItHelps: "AI tasks pay more per hour than driving. Work from home. Keep your sanity.", color: "text-emerald-400", border: "border-emerald-500/30", bg: "from-emerald-500/10 via-slate-900 to-slate-950" },
+            { icon: Globe2, who: "People in Developing Countries", situation: "Local salary is too low, exchange rate makes international income life changing.", howItHelps: "Paid in USD equivalent. Even $5 to $10 an hour is transformational in many countries.", color: "text-teal-400", border: "border-teal-500/30", bg: "from-teal-500/10 via-slate-900 to-slate-950" },
+            { icon: Armchair, who: "People Who Say They Are Lazy", situation: "Do not want a demanding job. Want easy, flexible income they can do at their own pace.", howItHelps: "Rate AI responses from your couch. Some tasks take 2 minutes. You just need consistency.", color: "text-purple-400", border: "border-purple-500/30", bg: "from-purple-500/10 via-slate-900 to-slate-950" },
+            { icon: Laptop, who: "Remote Work Seekers", situation: "Tried Upwork, Fiverr, and other platforms with no clients and too much competition.", howItHelps: "We already have the accounts and task queues. You just show up and do the work.", color: "text-cyan-400", border: "border-cyan-500/30", bg: "from-cyan-500/10 via-slate-900 to-slate-950" },
+            { icon: Coffee, who: "Older Adults & Retirees", situation: "Pension not enough, do not want physical work, need something they can do from home.", howItHelps: "Simple tasks. No physical activity. Just reading, judging, and writing at your own speed.", color: "text-orange-400", border: "border-orange-500/30", bg: "from-orange-500/10 via-slate-900 to-slate-950" },
+            { icon: PenTool, who: "Writers, Bloggers & Creatives", situation: "Passion does not always pay. Need consistent income while building your craft.", howItHelps: "AI writing and prompt tasks are perfect for your skill set. And they pay weekly.", color: "text-fuchsia-400", border: "border-fuchsia-500/30", bg: "from-fuchsia-500/10 via-slate-900 to-slate-950" },
+          ].map((item) => {
+            const IconComp = item.icon;
+            return (
+              <div key={item.who} className="group card flex flex-col border-line bg-surface hover:border-accent transition-all hover:shadow-xl hover:-translate-y-1">
+                <div className="flex items-center gap-3.5 mb-3">
+                  <div className={`h-12 w-12 rounded-xl bg-gradient-to-b ${item.bg} border ${item.border} flex items-center justify-center shrink-0 shadow-[inset_0_1px_1px_rgba(255,255,255,0.2),0_6px_12px_rgba(0,0,0,0.5)]`}>
+                    <IconComp className={`h-5 w-5 ${item.color} drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)]`} strokeWidth={2.2} />
+                  </div>
+                  <h3 className="text-base font-extrabold text-ink">{item.who}</h3>
                 </div>
-                <h3 className="text-base font-extrabold text-ink">{item.who}</h3>
+                <p className="text-xs text-muted mb-3 leading-relaxed italic">&ldquo;{item.situation}&rdquo;</p>
+                <div className="mt-auto pt-3 border-t border-line">
+                  <p className="text-xs font-semibold text-accent leading-relaxed">✓ {item.howItHelps}</p>
+                </div>
               </div>
-              <p className="text-xs text-muted mb-3 leading-relaxed italic">&ldquo;{item.situation}&rdquo;</p>
-              <div className="mt-auto pt-3 border-t border-line">
-                <p className="text-xs font-semibold text-accent leading-relaxed">✓ {item.howItHelps}</p>
-              </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
         <div className="mt-10 p-6 rounded-card border-2 border-accent/40 bg-accent-soft/20 text-center">
           <p className="text-lg font-black text-ink mb-1">If you recognise yourself in any of the above, you are already qualified.</p>
@@ -242,13 +269,13 @@ export default function About() {
       >
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
           {[
-            { step: "01", title: "Apply as a Tasker", body: "Fill out a short form telling us your skills, timezone, and how many hours you can work per week. It takes less than 5 minutes.", grad: "from-amber-400 to-amber-600 text-slate-950" },
-            { step: "02", title: "We Review & Match You", body: "Our team reviews your application within 24 hours and matches you to the best platform and account for your skills and location.", grad: "from-cyan-400 to-cyan-600 text-slate-950" },
-            { step: "03", title: "Get Onboarded via Telegram", body: "We send you everything you need via Telegram including your account access, task guides, quality tips, and a direct line to your support manager.", grad: "from-purple-400 to-purple-600 text-white" },
-            { step: "04", title: "Start Earning Immediately", body: "Log in, complete tasks, and get paid weekly. The more consistent and high quality your work, the more tasks and earnings come your way.", grad: "from-emerald-400 to-emerald-600 text-slate-950" },
+            { step: "01", title: "Apply as a Tasker", body: "Fill out a short form telling us your skills, timezone, and how many hours you can work per week. It takes less than 5 minutes.", color: "text-amber-400", border: "border-amber-500/40", bg: "from-amber-500/10 via-slate-900 to-slate-950" },
+            { step: "02", title: "We Review & Match You", body: "Our team reviews your application within 24 hours and matches you to the best platform and account for your skills and location.", color: "text-cyan-400", border: "border-cyan-500/40", bg: "from-cyan-500/10 via-slate-900 to-slate-950" },
+            { step: "03", title: "Get Onboarded via Telegram", body: "We send you everything you need via Telegram including your account access, task guides, quality tips, and a direct line to your support manager.", color: "text-purple-400", border: "border-purple-500/40", bg: "from-purple-500/10 via-slate-900 to-slate-950" },
+            { step: "04", title: "Start Earning Immediately", body: "Log in, complete tasks, and get paid weekly. The more consistent and high quality your work, the more tasks and earnings come your way.", color: "text-emerald-400", border: "border-emerald-500/40", bg: "from-emerald-500/10 via-slate-900 to-slate-950" },
           ].map((item) => (
             <div key={item.step} className="card space-y-3 border-line bg-surface hover:shadow-xl transition-shadow">
-              <div className={`inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br ${item.grad} font-black text-xl shadow-[inset_0_2px_4px_rgba(255,255,255,0.4),0_6px_12px_rgba(0,0,0,0.3)]`}>
+              <div className={`inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-b ${item.bg} border ${item.border} ${item.color} font-mono font-black text-xl shadow-[inset_0_1px_2px_rgba(255,255,255,0.2),0_6px_12px_rgba(0,0,0,0.5)]`}>
                 {item.step}
               </div>
               <h3 className="text-lg font-bold text-ink">{item.title}</h3>
@@ -289,7 +316,7 @@ export default function About() {
             <div key={member.name} className="card relative flex flex-col justify-between border-line bg-surface/95 backdrop-blur hover:border-accent transition-colors">
               <div>
                 <div className="flex items-start justify-between gap-3">
-                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-accent/30 via-accent/20 to-surface-2 font-mono text-xl font-black text-ink border border-accent/40 shadow-[inset_0_2px_4px_rgba(255,255,255,0.2),0_4px_8px_rgba(0,0,0,0.3)]">
+                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-accent/20 via-slate-900 to-slate-950 font-mono text-xl font-black text-ink border border-accent/40 shadow-[inset_0_1px_2px_rgba(255,255,255,0.2),0_6px_12px_rgba(0,0,0,0.5)]">
                     {member.initials}
                   </div>
                   <span className="rounded-full border border-line bg-surface-2 px-2.5 py-1 font-mono text-[11px] font-semibold tracking-wider text-muted uppercase">
@@ -322,7 +349,7 @@ export default function About() {
           {/* JOIN THE TEAM CARD */}
           <div className="card flex flex-col justify-between border-dashed border-2 border-accent/60 bg-accent-soft/30 p-6">
             <div className="space-y-3">
-              <span className="inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-accent to-amber-500 text-bg font-black text-2xl shadow-[inset_0_2px_4px_rgba(255,255,255,0.4),0_6px_12px_rgba(0,0,0,0.3)]">
+              <span className="inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-accent via-amber-500 to-amber-600 text-bg font-black text-2xl shadow-[inset_0_2px_4px_rgba(255,255,255,0.3),0_6px_12px_rgba(0,0,0,0.4)]">
                 +
               </span>
               <h3 className="text-xl font-extrabold text-ink">Join Our Trainer Fleet</h3>
@@ -349,25 +376,28 @@ export default function About() {
       >
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {[
-            { emoji: "💬", title: "Rating AI Responses", body: "You read two AI answers to the same question and pick which one is better. Simple comparisons that help AI learn faster.", glow: "from-sky-500/25 to-blue-900/50 border-sky-400/40" },
-            { emoji: "✍️", title: "Writing Prompts & Instructions", body: "You write questions or tasks for the AI to try to answer. The more creative your prompts, the better the AI gets and the more you earn.", glow: "from-emerald-500/25 to-teal-900/50 border-emerald-400/40" },
-            { emoji: "🔢", title: "Checking Math & Reasoning", body: "AI often makes subtle logic errors. If you are good at math or science, you can earn top rates reviewing step by step reasoning for mistakes.", glow: "from-purple-500/25 to-indigo-900/50 border-purple-400/40" },
-            { emoji: "💻", title: "Reviewing Code", body: "If you know any programming language like Python, JavaScript, or SQL, companies will pay you to verify that AI generated code actually works correctly.", glow: "from-amber-500/25 to-orange-900/50 border-amber-400/40" },
-            { emoji: "🌍", title: "Translating & Localizing", body: "AI needs to work in every language. If you speak a second language fluently, you can earn by translating or reviewing AI content in that language.", glow: "from-teal-500/25 to-cyan-900/50 border-teal-400/40" },
-            { emoji: "📖", title: "Fact Checking & Research", body: "You verify that AI answers are accurate, up to date, and not making things up. Great for people who enjoy researching and reading critically.", glow: "from-rose-500/25 to-pink-900/50 border-rose-400/40" },
-          ].map((item) => (
-            <div key={item.title} className="group card flex flex-col border-line bg-surface hover:border-accent transition-all hover:shadow-xl hover:-translate-y-1">
-              <div className={`h-14 w-14 rounded-2xl bg-gradient-to-b ${item.glow} border flex items-center justify-center mb-4 shadow-[inset_0_2px_4px_rgba(255,255,255,0.25),0_8px_16px_rgba(0,0,0,0.35)]`}>
-                <span className="text-3xl drop-shadow-[0_4px_6px_rgba(0,0,0,0.5)] transform group-hover:scale-110 transition-transform">{item.emoji}</span>
+            { icon: MessageSquare, title: "Rating AI Responses", body: "You read two AI answers to the same question and pick which one is better. Simple comparisons that help AI learn faster.", color: "text-sky-400", border: "border-sky-500/30", bg: "from-sky-500/10 via-slate-900 to-slate-950" },
+            { icon: PenTool, title: "Writing Prompts & Instructions", body: "You write questions or tasks for the AI to try to answer. The more creative your prompts, the better the AI gets and the more you earn.", color: "text-emerald-400", border: "border-emerald-500/30", bg: "from-emerald-500/10 via-slate-900 to-slate-950" },
+            { icon: Binary, title: "Checking Math & Reasoning", body: "AI often makes subtle logic errors. If you are good at math or science, you can earn top rates reviewing step by step reasoning for mistakes.", color: "text-purple-400", border: "border-purple-500/30", bg: "from-purple-500/10 via-slate-900 to-slate-950" },
+            { icon: Code2, title: "Reviewing Code", body: "If you know any programming language like Python, JavaScript, or SQL, companies will pay you to verify that AI generated code actually works correctly.", color: "text-amber-400", border: "border-amber-500/30", bg: "from-amber-500/10 via-slate-900 to-slate-950" },
+            { icon: Languages, title: "Translating & Localizing", body: "AI needs to work in every language. If you speak a second language fluently, you can earn by translating or reviewing AI content in that language.", color: "text-teal-400", border: "border-teal-500/30", bg: "from-teal-500/10 via-slate-900 to-slate-950" },
+            { icon: SearchCheck, title: "Fact Checking & Research", body: "You verify that AI answers are accurate, up to date, and not making things up. Great for people who enjoy researching and reading critically.", color: "text-rose-400", border: "border-rose-500/30", bg: "from-rose-500/10 via-slate-900 to-slate-950" },
+          ].map((item) => {
+            const IconComp = item.icon;
+            return (
+              <div key={item.title} className="group card flex flex-col border-line bg-surface hover:border-accent transition-all hover:shadow-xl hover:-translate-y-1">
+                <div className={`h-14 w-14 rounded-2xl bg-gradient-to-b ${item.bg} border ${item.border} flex items-center justify-center mb-4 shadow-[inset_0_1px_1px_rgba(255,255,255,0.2),0_8px_16px_rgba(0,0,0,0.5)]`}>
+                  <IconComp className={`h-6 w-6 ${item.color} drop-shadow-[0_2px_6px_rgba(0,0,0,0.6)]`} strokeWidth={2.2} />
+                </div>
+                <h3 className="text-lg font-bold text-ink mb-2">{item.title}</h3>
+                <p className="text-sm text-muted leading-relaxed">{item.body}</p>
               </div>
-              <h3 className="text-lg font-bold text-ink mb-2">{item.title}</h3>
-              <p className="text-sm text-muted leading-relaxed">{item.body}</p>
-            </div>
-          ))}
+            );
+          })}
         </div>
         <div className="mt-8 p-6 rounded-card border border-accent/30 bg-accent-soft/20 text-center">
           <p className="text-base font-semibold text-ink">
-            💡 You do not need to know AI. You just need to think clearly, follow instructions, and be consistent.
+            You do not need to know AI. You just need to think clearly, follow instructions, and be consistent.
           </p>
           <p className="text-sm text-muted mt-1">Our team trains you on the specific tasks before you start. Most people are earning within 48 hours of joining.</p>
         </div>
@@ -383,39 +413,48 @@ export default function About() {
         <div className="grid gap-6 md:grid-cols-3">
           {[
             {
-              emoji: "🌐",
+              icon: Globe2,
               name: "Google Translate",
               role: "30+ Languages Supported",
               description: "Our platform works in over 30 languages so anyone, anywhere can read, understand, and use the site in their own language.",
               url: "https://translate.google.com",
-              glow: "from-blue-500/20 to-indigo-900/40 border-blue-500/40",
+              color: "text-blue-400",
+              border: "border-blue-500/30",
+              bg: "from-blue-500/10 via-slate-900 to-slate-950",
             },
             {
-              emoji: "✈️",
+              icon: Send,
               name: "Telegram",
               role: "Your Support & Payment Channel",
               description: "All communication, account access, support, and weekly payment confirmations happen through Telegram. It is encrypted, fast, and free.",
               url: "https://telegram.org",
-              glow: "from-sky-500/20 to-cyan-900/40 border-sky-500/40",
+              color: "text-sky-400",
+              border: "border-sky-500/30",
+              bg: "from-sky-500/10 via-slate-900 to-slate-950",
             },
             {
-              emoji: "🛡️",
+              icon: ShieldCheck,
               name: "Cloudflare",
               role: "Site Security & Speed",
               description: "Our website is protected and accelerated by Cloudflare, keeping your data safe and the site fast no matter where you access from.",
               url: "https://cloudflare.com",
-              glow: "from-amber-500/20 to-orange-900/40 border-amber-500/40",
+              color: "text-amber-400",
+              border: "border-amber-500/30",
+              bg: "from-amber-500/10 via-slate-900 to-slate-950",
             },
-          ].map((item) => (
-            <div key={item.name} className="group card flex flex-col border-line bg-surface hover:border-accent transition-all hover:shadow-xl hover:-translate-y-1">
-              <div className={`h-14 w-14 rounded-2xl bg-gradient-to-b ${item.glow} border flex items-center justify-center mb-4 shadow-[inset_0_2px_4px_rgba(255,255,255,0.25),0_8px_16px_rgba(0,0,0,0.35)]`}>
-                <span className="text-3xl drop-shadow-[0_4px_6px_rgba(0,0,0,0.5)] transform group-hover:scale-110 transition-transform">{item.emoji}</span>
+          ].map((item) => {
+            const IconComp = item.icon;
+            return (
+              <div key={item.name} className="group card flex flex-col border-line bg-surface hover:border-accent transition-all hover:shadow-xl hover:-translate-y-1">
+                <div className={`h-14 w-14 rounded-2xl bg-gradient-to-b ${item.bg} border ${item.border} flex items-center justify-center mb-4 shadow-[inset_0_1px_1px_rgba(255,255,255,0.2),0_8px_16px_rgba(0,0,0,0.5)]`}>
+                  <IconComp className={`h-6 w-6 ${item.color} drop-shadow-[0_2px_6px_rgba(0,0,0,0.6)]`} strokeWidth={2.2} />
+                </div>
+                <h3 className="text-xl font-bold text-ink">{item.name}</h3>
+                <p className="text-xs font-mono text-accent font-semibold mb-2">{item.role}</p>
+                <p className="text-sm text-muted leading-relaxed flex-1">{item.description}</p>
               </div>
-              <h3 className="text-xl font-bold text-ink">{item.name}</h3>
-              <p className="text-xs font-mono text-accent font-semibold mb-2">{item.role}</p>
-              <p className="text-sm text-muted leading-relaxed flex-1">{item.description}</p>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </Section>
 
