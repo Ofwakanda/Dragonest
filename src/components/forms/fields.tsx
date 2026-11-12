@@ -41,15 +41,15 @@ function Described({ id, hint, error }: { id: string; hint?: string; error?: str
 const describedBy = (id: string, hint?: string, error?: string) =>
   [hint && `${id}-hint`, error && `${id}-error`].filter(Boolean).join(" ") || undefined;
 
-export function TextField({ name, label, hint, error, required, optional, type = "text", autoComplete, inputMode, defaultValue }: Base & {
-  type?: string; autoComplete?: string; inputMode?: React.HTMLAttributes<HTMLInputElement>["inputMode"]; defaultValue?: string;
+export function TextField({ name, label, hint, error, required, optional, type = "text", autoComplete, inputMode, defaultValue, placeholder }: Base & {
+  type?: string; autoComplete?: string; inputMode?: React.HTMLAttributes<HTMLInputElement>["inputMode"]; defaultValue?: string; placeholder?: string;
 }) {
   const id = useId();
   return (
     <div>
       <Label htmlFor={id} label={label} required={required} optional={optional} />
       <input
-        id={id} name={name} type={type} required={required} autoComplete={autoComplete} inputMode={inputMode} defaultValue={defaultValue}
+        id={id} name={name} type={type} required={required} autoComplete={autoComplete} inputMode={inputMode} defaultValue={defaultValue} placeholder={placeholder}
         aria-invalid={error ? true : undefined} aria-describedby={describedBy(id, hint, error)} className={control}
       />
       <Described id={id} hint={hint} error={error} />
@@ -57,13 +57,13 @@ export function TextField({ name, label, hint, error, required, optional, type =
   );
 }
 
-export function TextArea({ name, label, hint, error, required, optional, rows = 4 }: Base & { rows?: number }) {
+export function TextArea({ name, label, hint, error, required, optional, rows = 4, placeholder }: Base & { rows?: number; placeholder?: string; }) {
   const id = useId();
   return (
     <div>
       <Label htmlFor={id} label={label} required={required} optional={optional} />
       <textarea
-        id={id} name={name} rows={rows} required={required}
+        id={id} name={name} rows={rows} required={required} placeholder={placeholder}
         aria-invalid={error ? true : undefined} aria-describedby={describedBy(id, hint, error)} className={control}
       />
       <Described id={id} hint={hint} error={error} />
