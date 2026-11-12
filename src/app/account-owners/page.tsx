@@ -1,115 +1,70 @@
 import Link from "next/link";
-import { 
-  ClipboardCheck, 
-  FileSearch, 
-  GraduationCap, 
-  ListChecks, 
-  RefreshCcw, 
-  Scale, 
-  ShieldCheck, 
-  Wallet, 
-  Sparkles, 
-  Lock, 
-  CheckCircle2, 
-  Clock, 
-  ArrowRight,
-  TrendingUp,
-  KeyRound,
-  Send
-} from "lucide-react";
 import Image from "next/image";
-import { photos } from "@/config/site";
+import { Send, ArrowRight, CheckCircle2, GraduationCap, ClipboardCheck } from "lucide-react";
 import { AccountSubmitForm } from "@/components/forms/AccountSubmitForm";
 import { DashboardPreview } from "@/components/DashboardPreview";
-import { CheckList, ComplianceNotice, FeatureGrid, FinalCta, PageHero, Section } from "@/components/ui";
-import { PriceTable } from "@/components/PriceTable";
-import { money, pricing, site } from "@/config/site";
+import { Section, PageHero } from "@/components/ui";
+import { photos, site } from "@/config/site";
 import { pageMeta } from "@/lib/seo";
 
 export const metadata = pageMeta({
-  title: "For Account Owners : Turn Idle Accounts into Weekly Income",
-  description: "Have an Outlier, Alignerr, or Scale AI account sitting unused? We pair it with vetted specialists who do the work. You keep 55% of all earnings.",
+  title: "For Account Owners : Your AI Account is Worth Money",
+  description: "Do you have an account on Outlier, Alignerr, Scale AI or DataAnnotation that is sitting idle? We pair it with trained specialists. You keep 55% of what it earns.",
   path: "/account-owners",
 });
 
 export default function AccountOwners() {
   return (
     <>
+      {/* 1. TOP SECTION */}
       <PageHero 
-        eyebrow="Account Owner Operations" 
-        title="Your AI training account is valuable. We manage and operate it for you."
-        subhead="If your account on Outlier, Alignerr, Scale AI, or DataAnnotation is sitting idle, we match it with verified domain specialists who work your queue every day. Initial audit and setup are completely free. You keep 55% of all client payouts with zero daily effort."
+        eyebrow="FOR ACCOUNT OWNERS" 
+        title="Your AI account is worth money. Let us work it for you."
+        subhead="Do you have an account on Outlier, Alignerr, Scale AI or DataAnnotation that is sitting idle? We pair it with trained specialists who do the work every day. You keep 55% of what it earns, and you do not have to do any tasks yourself."
         media={
-          <div className="relative rounded-2xl overflow-hidden border border-line bg-surface shadow-[0_20px_50px_-15px_rgba(0,0,0,0.2)] dark:shadow-[0_20px_50px_-15px_rgba(0,0,0,0.6)]">
-            <div className="relative aspect-[4/3] w-full overflow-hidden">
-              <Image
-                src={photos.accountOwners.src!}
-                alt={photos.accountOwners.alt!}
-                fill
-                priority
-                sizes="(min-width: 1024px) 560px, 100vw"
-                className="object-cover"
-              />
-            </div>
-            <div className="p-3.5 border-t border-line bg-surface flex items-center justify-between text-xs font-mono text-muted">
-              <span>SECURE ACCESS GATEWAY</span>
-              <span className="text-ink font-medium">ZERO CREDENTIAL SHARING</span>
-            </div>
+          <div className="relative aspect-[4/3] w-full max-w-xl mx-auto overflow-hidden rounded-2xl shadow-[0_25px_60px_-15px_rgba(0,0,0,0.3)]">
+            <Image
+              src={photos.accountOwners.src!}
+              alt={photos.accountOwners.alt!}
+              fill
+              priority
+              sizes="(min-width: 1024px) 560px, 100vw"
+              className="object-cover"
+            />
           </div>
         }
       >
-        <div className="flex flex-col sm:flex-row sm:items-center gap-4">
-          <Link href="#submit" className="btn-accent">
-            Connect Your Account
-          </Link>
-          <Link
-            href="#how-it-works"
-            className="inline-flex items-center gap-1 text-sm font-medium text-muted hover:text-ink transition-colors px-2 py-1"
-          >
-            See how it works <ArrowRight className="h-4 w-4" />
-          </Link>
+        <div className="space-y-3">
+          <div className="flex flex-col sm:flex-row sm:items-center gap-4">
+            <Link href="#submit" className="btn-accent text-center">
+              Connect my account
+            </Link>
+            <Link
+              href="#how-it-works"
+              className="inline-flex items-center gap-1 text-sm font-medium text-muted hover:text-ink transition-colors px-2 py-1"
+            >
+              See how I get paid <ArrowRight className="h-4 w-4" />
+            </Link>
+          </div>
+          <p className="text-xs text-muted">Checking your account is free. No obligation.</p>
         </div>
       </PageHero>
 
-      {/* THREE BIG STATS */}
-      <section className="border-b border-line bg-surface py-12">
-        <div className="container">
-          <div className="grid gap-4 sm:grid-cols-3 max-w-4xl mx-auto text-center font-mono">
-            <div className="card">
-              <span className="text-3xl font-semibold text-ink">55%</span>
-              <p className="mt-2 text-sm font-sans font-semibold text-ink">Account Owner Share</p>
-              <p className="mt-1 text-xs text-muted font-sans">Direct weekly deposit with transparent accounting</p>
-            </div>
-            <div className="card">
-              <span className="text-3xl font-semibold text-ink">100%</span>
-              <p className="mt-2 text-sm font-sans font-semibold text-ink">Legal Account Ownership</p>
-              <p className="mt-1 text-xs text-muted font-sans">Account stays in your name. Pause or revoke access anytime</p>
-            </div>
-            <div className="card">
-              <span className="text-3xl font-semibold text-ink">0 Hours</span>
-              <p className="mt-2 text-sm font-sans font-semibold text-ink">Daily Effort Required</p>
-              <p className="mt-1 text-xs text-muted font-sans">Vetted specialists execute tasks and pass queue reviews</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* HOW ACCOUNT OWNERS GET PAID */}
-      <Section 
-        id="how-it-works" 
-        eyebrow="Simple 3 Step System" 
-        title="How You Start Making Money This Week" 
-        intro="You do not need to do any tasks yourself. We handle the hard part and you collect your weekly share."
+      {/* 2. HOW IT WORKS */}
+      <Section
+        id="how-it-works"
+        title="How you start earning"
+        intro="You do not need to do the work. We handle that part and you collect your weekly share."
       >
         <div className="grid gap-4 md:grid-cols-3">
           <div className="card flex flex-col justify-between">
             <div>
               <div className="mb-4 inline-flex h-9 w-9 items-center justify-center rounded border border-line bg-surface-2 font-mono text-xs font-semibold text-muted">
-                01
+                1
               </div>
-              <h3 className="text-lg font-semibold text-ink">Tell Us About Your Account</h3>
+              <h3 className="text-lg font-semibold text-ink">Tell us about your account</h3>
               <p className="mt-2 text-sm text-muted leading-relaxed">
-                Submit your platform (Outlier, Alignerr, Scale AI, or DataAnnotation) and specify whether your account is active or waiting on qualification.
+                Share which platform it is on and whether it is active or stuck at a test. It takes about two minutes. We never ask for your password on this site.
               </p>
             </div>
           </div>
@@ -117,11 +72,11 @@ export default function AccountOwners() {
           <div className="card flex flex-col justify-between">
             <div>
               <div className="mb-4 inline-flex h-9 w-9 items-center justify-center rounded border border-line bg-surface-2 font-mono text-xs font-semibold text-muted">
-                02
+                2
               </div>
-              <h3 className="text-lg font-semibold text-ink">We Assign Vetted Specialists</h3>
+              <h3 className="text-lg font-semibold text-ink">We match you with a specialist</h3>
               <p className="mt-2 text-sm text-muted leading-relaxed">
-                We pair your account with certified domain specialists who work your queue daily. If tests are pending, assessment evaluators clear them first.
+                A trained person with the right skills works your queue every day. If your account is stuck at an entry test, our qualification specialists help with that first.
               </p>
             </div>
           </div>
@@ -129,176 +84,180 @@ export default function AccountOwners() {
           <div className="card flex flex-col justify-between">
             <div>
               <div className="mb-4 inline-flex h-9 w-9 items-center justify-center rounded border border-line bg-surface-2 font-mono text-xs font-semibold text-muted">
-                03
+                3
               </div>
-              <h3 className="text-lg font-semibold text-ink">You Collect 55% Every Week</h3>
+              <h3 className="text-lg font-semibold text-ink">You get paid every week</h3>
               <p className="mt-2 text-sm text-muted leading-relaxed">
-                Earnings deposit directly to you. Every Friday, you receive a detailed settlement statement showing total payouts, tasker share, and the 15% management fee.
+                Earnings go straight to your bank or payout channel. Every Friday you get a statement showing what came in, what the specialist earned, and our fee.
               </p>
             </div>
-          </div>
-        </div>
-
-        {/* WORKED EXAMPLE */}
-        <div className="mt-10 rounded-card border border-line bg-surface p-6 sm:p-8">
-          <h4 className="text-base font-semibold text-ink mb-1">Example Monthly Return on an Active Queue</h4>
-          <p className="text-sm text-muted mb-6">How a typical technical queue generating $2,000 monthly settles:</p>
-          <div className="grid gap-4 sm:grid-cols-3 text-center">
-            <div className="rounded border border-line bg-bg p-4">
-              <span className="text-xs font-mono text-muted uppercase">Gross Account Earnings</span>
-              <p className="text-2xl font-semibold text-ink mt-1 font-mono">$2,000</p>
-              <p className="text-xs text-muted mt-1">Generated by specialist tasks</p>
-            </div>
-            <div className="rounded border border-line bg-bg p-4">
-              <span className="text-xs font-mono text-muted uppercase">Tasker &amp; Operations</span>
-              <p className="text-2xl font-semibold text-ink mt-1 font-mono">$900</p>
-              <p className="text-xs text-muted mt-1">30% tasker + 15% management</p>
-            </div>
-            <div className="rounded border border-line bg-surface-2 p-4">
-              <span className="text-xs font-mono text-ink font-semibold uppercase">Your 55% Net Share</span>
-              <p className="text-2xl font-semibold text-ink mt-1 font-mono">$1,100</p>
-              <p className="text-xs text-muted mt-1">Deposited directly to you</p>
-            </div>
-          </div>
-        </div>
-
-        {/* FAST RESPONSE ACTION BAR */}
-        <div className="mt-8 flex flex-col sm:flex-row items-center justify-between gap-4 rounded-card border border-line bg-surface p-5">
-          <div className="flex items-center gap-3">
-            <div className="h-9 w-9 rounded border border-line bg-surface-2 flex items-center justify-center shrink-0">
-              <Send className="h-4 w-4 text-muted" />
-            </div>
-            <div>
-              <p className="text-sm font-semibold text-ink">Free Account Review &amp; Onboarding</p>
-              <p className="text-xs text-muted">No upfront fees or obligation. Coordinate directly with our 24/7 operations team.</p>
-            </div>
-          </div>
-          <div className="flex items-center gap-3 w-full sm:w-auto">
-            <a
-              href="https://t.me/MiddlemenHub"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-accent text-xs uppercase tracking-wider font-semibold !py-2.5 !px-5 whitespace-nowrap text-center flex items-center justify-center gap-1.5 flex-1 sm:flex-none"
-            >
-              <Send className="h-3.5 w-3.5" /> 24/7 Telegram Desk
-            </a>
-            <Link
-              href="#submit"
-              className="btn-secondary text-xs uppercase tracking-wider font-semibold !py-2.5 !px-5 whitespace-nowrap text-center flex-1 sm:flex-none"
-            >
-              Start Free Review
-            </Link>
           </div>
         </div>
       </Section>
 
-      {/* THE TWO OPTIONS FOR ACCOUNT OWNERS */}
-      <Section id="services" tone="tint" eyebrow="Choose Your Path" title="What Does Your Account Need?" intro="Whether your account is brand new or already active, we have a fast path to start earning.">
+      {/* 3. EXAMPLE MONTH */}
+      <Section
+        id="example-month"
+        tone="tint"
+        title="What a month can look like"
+        intro="Here is a simple example. Say your account earns $2,000 in a month."
+      >
+        <div className="max-w-2xl space-y-4">
+          <div className="card p-6 space-y-3 font-mono text-sm">
+            <div className="flex justify-between py-1 border-b border-line">
+              <span className="text-muted">Your account earns:</span>
+              <span className="font-semibold text-ink">$2,000</span>
+            </div>
+            <div className="flex justify-between py-1 border-b border-line">
+              <span className="text-muted">Specialist and MIDDLEMEN:</span>
+              <span className="font-semibold text-ink">$900 <span className="text-xs text-muted font-normal">(30% to the specialist, 15% to run the service)</span></span>
+            </div>
+            <div className="flex justify-between py-2 text-base">
+              <span className="font-bold text-ink">You keep (55%):</span>
+              <span className="font-bold text-ink">$1,100</span>
+            </div>
+          </div>
+          <p className="text-xs text-muted">
+            This is an example, not a promise. What you really earn depends on how much work your platform gives out.
+          </p>
+        </div>
+      </Section>
+
+      {/* 4. PICK YOUR PATH */}
+      <Section
+        id="pick-your-path"
+        title="What does your account need?"
+        intro="Some accounts are brand new. Some are active and just need someone to do the work. We have a simple path for each."
+      >
         <div className="grid gap-6 md:grid-cols-2">
-          {/* OPTION 1: PASS ASSESSMENT */}
-          <article className="card flex flex-col justify-between">
-            <div>
-              <div className="flex items-center justify-between mb-4">
-                <span className="badge">
-                  Option 1 · Entry Qualification
-                </span>
+          {/* OPTION 1 */}
+          <div className="card flex flex-col justify-between p-6 sm:p-8">
+            <div className="space-y-4">
+              <div className="flex items-center justify-between">
+                <span className="badge">Option 1</span>
                 <GraduationCap className="h-5 w-5 text-muted" />
               </div>
-              <h3 className="text-xl font-semibold text-ink">Unlock Account · Pass Assessments</h3>
-              <p className="mt-2 text-sm text-muted leading-relaxed">
-                Stuck on a challenging Outlier coding benchmark, Alignerr math test, or reasoning evaluation? Certified assessment specialists assist with clearing benchmarks to unlock your queue.
+              <h3 className="text-xl font-semibold text-ink">Get my account unlocked</h3>
+              <p className="text-sm text-muted leading-relaxed">
+                Stuck at an entry test? Our specialists help you get through qualification so your queue can open up.
               </p>
-              <div className="mt-5">
-                <CheckList items={[
-                  "Pass complex coding, STEM, and reasoning benchmark tests",
-                  "Unlock active project queues with clear qualification",
-                  "Fast turnaround, typically completed in under 24 hours",
-                  "Zero upfront charges · compensated only through active earnings"
-                ]} />
-              </div>
+              <ul className="space-y-2 pt-2 border-t border-line text-sm text-muted">
+                <li className="flex items-center gap-2">
+                  <CheckCircle2 className="h-4 w-4 text-ink shrink-0" />
+                  <span>Help with coding, maths and reasoning tests</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <CheckCircle2 className="h-4 w-4 text-ink shrink-0" />
+                  <span>Clear steps from start to finish</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <CheckCircle2 className="h-4 w-4 text-ink shrink-0" />
+                  <span>Usually done in under 24 hours</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <CheckCircle2 className="h-4 w-4 text-ink shrink-0" />
+                  <span>No upfront cost. We are paid only from the account&apos;s earnings.</span>
+                </li>
+              </ul>
             </div>
-            <div className="mt-6 pt-4 border-t border-line">
-              <Link href="#submit" className="btn-accent w-full text-center text-sm">
-                Unlock Account
+            <div className="pt-6 mt-6 border-t border-line">
+              <Link href="#submit" className="btn-accent w-full text-center">
+                Unlock my account
               </Link>
             </div>
-          </article>
+          </div>
 
-          {/* OPTION 2: FULLY MANAGED TASKING */}
-          <article className="card flex flex-col justify-between">
-            <div>
-              <div className="flex items-center justify-between mb-4">
-                <span className="badge">
-                  Option 2 · Managed Operations
-                </span>
+          {/* OPTION 2 */}
+          <div className="card flex flex-col justify-between p-6 sm:p-8">
+            <div className="space-y-4">
+              <div className="flex items-center justify-between">
+                <span className="badge">Option 2</span>
                 <ClipboardCheck className="h-5 w-5 text-muted" />
               </div>
-              <h3 className="text-xl font-semibold text-ink">Fully Managed Daily Tasking</h3>
-              <p className="mt-2 text-sm text-muted leading-relaxed">
-                Your account is approved and has active tasks, but you prefer not to task yourself. We assign dedicated domain specialists who task daily while you retain ownership.
+              <h3 className="text-xl font-semibold text-ink">Have it worked for me every day</h3>
+              <p className="text-sm text-muted leading-relaxed">
+                Your account is already active and you would rather not do the tasks yourself.
               </p>
-              <div className="mt-5">
-                <CheckList items={[
-                  "Daily task completion with strict quality score protection",
-                  "Verified domain specialists matched to your project queue",
-                  "Weekly payouts sent directly to you every Friday",
-                  "55% owner share with transparent settlement statements"
-                ]} />
-              </div>
+              <ul className="space-y-2 pt-2 border-t border-line text-sm text-muted">
+                <li className="flex items-center gap-2">
+                  <CheckCircle2 className="h-4 w-4 text-ink shrink-0" />
+                  <span>A specialist is matched to your project queue</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <CheckCircle2 className="h-4 w-4 text-ink shrink-0" />
+                  <span>Daily work with quality checks</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <CheckCircle2 className="h-4 w-4 text-ink shrink-0" />
+                  <span>Weekly payouts straight to you</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <CheckCircle2 className="h-4 w-4 text-ink shrink-0" />
+                  <span>You keep 55%, with a clear statement every Friday</span>
+                </li>
+              </ul>
             </div>
-            <div className="mt-6 pt-4 border-t border-line">
-              <Link href="#submit" className="btn-accent w-full text-center text-sm">
-                Connect Account
+            <div className="pt-6 mt-6 border-t border-line">
+              <Link href="#submit" className="btn-accent w-full text-center">
+                Connect my account
               </Link>
             </div>
-          </article>
+          </div>
         </div>
       </Section>
 
-      {/* SAFETY & ACCOUNT SECURITY */}
-      <Section id="safety" eyebrow="Operational Standards" title="Account Protection &amp; Governance" intro="Every account is safeguarded with strict protocols to maintain continuous standing and earnings.">
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {[
-            { icon: Lock, title: "Credential Protection", desc: "No passwords are typed into public web forms. Account access is provisioned securely through end-to-end encrypted administrative channels." },
-            { icon: Scale, title: "100% Legal Ownership", desc: "You retain full administrative control. You can pause work, reassign specialists, or revoke access at any time." },
-            { icon: ShieldCheck, title: "Quality Benchmarks", desc: "Weekly review sampling maintains quality scores above 4.8 out of 5.0 to prevent platform flags or score degradation." },
-            { icon: RefreshCcw, title: "Immediate Replacement", desc: "If an evaluator is unavailable or fails quality standards, we reassign a qualified specialist within 3 business days." },
-          ].map((item) => {
-            const IconComp = item.icon;
-            return (
-              <div key={item.title} className="card flex flex-col justify-between">
-                <div>
-                  <div className="mb-4 inline-flex h-9 w-9 items-center justify-center rounded border border-line bg-surface-2 text-ink">
-                    <IconComp className="h-4 w-4 text-muted" strokeWidth={1.75} />
-                  </div>
-                  <h3 className="text-base font-semibold text-ink">{item.title}</h3>
-                  <p className="text-xs text-muted mt-2 leading-relaxed">{item.desc}</p>
-                </div>
-              </div>
-            );
-          })}
+      {/* 5. DASHBOARD */}
+      <Section
+        id="dashboard"
+        tone="tint"
+        title="See everything in one place"
+        intro="Your dashboard shows what your account earned, how many hours the specialist worked, your quality score, and every weekly payout."
+      >
+        <div className="relative rounded-2xl overflow-hidden shadow-[0_25px_60px_-15px_rgba(0,0,0,0.3)]">
+          <DashboardPreview />
         </div>
       </Section>
 
-      {/* DASHBOARD PREVIEW */}
-      <Section id="dashboard" tone="tint" eyebrow="Live Tracking" title="See Everything in Your Dashboard" intro="Track your earnings, active tasker hours, and weekly payout receipts in one clean place.">
-        <DashboardPreview />
-      </Section>
+      {/* 6. CONTACT STRIP */}
+      <section className="border-b border-line bg-surface py-12">
+        <div className="container">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-6 max-w-4xl mx-auto rounded-card border border-line bg-bg p-6 sm:p-8">
+            <div className="space-y-1">
+              <h3 className="text-xl font-semibold text-ink">Not sure yet? Ask us first.</h3>
+              <p className="text-sm text-muted">
+                Chat with us on Telegram. A real person replies. Checking your account is free and there is no pressure.
+              </p>
+            </div>
+            <div className="flex items-center gap-3 w-full sm:w-auto shrink-0">
+              <a
+                href={site.telegram.hub}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-accent text-xs uppercase tracking-wider font-semibold !py-2.5 !px-5 whitespace-nowrap text-center flex items-center justify-center gap-1.5 flex-1 sm:flex-none"
+              >
+                <Send className="h-3.5 w-3.5" /> Chat on Telegram
+              </a>
+              <Link
+                href="#submit"
+                className="inline-flex items-center gap-1 text-sm font-medium text-muted hover:text-ink transition-colors px-3 py-2"
+              >
+                Start my free check &rarr;
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
 
-      {/* SUBMISSION FORM */}
-      <Section id="submit" title="Connect Your Account Today" intro="Tell us which platform you have. We will review your account status within 24 hours and get you matched with a specialist.">
-        <div className="max-w-3xl mx-auto">
+      {/* 7. CLOSING / INTAKE FORM */}
+      <Section
+        id="submit"
+        title="Ready when you are."
+        intro="Send your details and we will tell you what your account can do. It is free and takes about two minutes."
+      >
+        <div className="max-w-2xl mx-auto">
           <AccountSubmitForm />
         </div>
       </Section>
-
-      {/* FINAL CTA */}
-      <FinalCta 
-        title="Stop Leaving Money on the Table" 
-        body="If you have an account on Outlier, Alignerr, Scale AI, or DataAnnotation that is sitting unused, connect with us today and turn it into consistent weekly income."
-        primary={{ href: "#submit", label: "Submit Your Account Now" }} 
-        secondary={{ href: site.telegram.hub, label: "Chat on Telegram" }} 
-      />
     </>
   );
 }
