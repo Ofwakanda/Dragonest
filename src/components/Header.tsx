@@ -6,6 +6,7 @@ import { Menu, X, Send } from "lucide-react";
 import { nav, site } from "@/config/site";
 import { ThemeToggle } from "./ThemeToggle";
 import { LanguageSelector } from "./LanguageSelector";
+import { Monogram3D } from "./Monogram3D";
 
 export function Header() {
   const pathname = usePathname();
@@ -26,7 +27,8 @@ export function Header() {
     <header className="sticky top-0 z-40 border-b border-line bg-bg/95 backdrop-blur">
       <div className="container flex h-16 items-center justify-between gap-4 overflow-x-hidden">
         {/* Logo */}
-        <Link href="/" className="group inline-flex items-center rounded no-underline py-1 shrink-0" aria-label={`${site.name} home`}>
+        <Link href="/" className="group inline-flex items-center gap-2.5 rounded no-underline py-1 shrink-0" aria-label={`${site.name} home`}>
+          <Monogram3D size={26} />
           <span className="text-xl font-bold tracking-tight text-ink">
             {site.name}
           </span>

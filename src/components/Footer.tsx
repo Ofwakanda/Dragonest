@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Send } from "lucide-react";
 import { legalDocs, nav, site } from "@/config/site";
-import { Logo } from "./Logo";
+import { Monogram3D } from "./Monogram3D";
 import { CookieSettingsButton } from "./CookieConsent";
 import { DigestForm } from "./forms/DigestForm";
 
@@ -28,8 +28,8 @@ export function Footer() {
 
       <div className="container grid gap-10 py-14 md:grid-cols-4">
         <div className="md:col-span-1">
-          <div className="flex items-center gap-2">
-            <Logo />
+          <div className="flex items-center gap-2.5">
+            <Monogram3D size={26} />
             <span className="font-bold">{site.name}</span>
           </div>
           <p className="mt-3 text-[0.95rem] text-muted">

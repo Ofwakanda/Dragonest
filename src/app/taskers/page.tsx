@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import {
   ArrowRight,
   BadgeCheck,
@@ -80,6 +81,24 @@ export default function Taskers() {
         eyebrow="For Evaluators &amp; Domain Specialists" 
         title="Work on Top AI Accounts"
         subhead={`We match your skills with verified AI training accounts holding active project queues. You work in secure virtual sessions and receive guaranteed weekly payouts of at least ${pricing.taskerShare}% of earnings.`}
+        media={
+          <div className="relative rounded-2xl overflow-hidden border border-line bg-surface shadow-[0_20px_50px_-15px_rgba(0,0,0,0.2)] dark:shadow-[0_20px_50px_-15px_rgba(0,0,0,0.6)]">
+            <div className="relative aspect-[3/2] w-full overflow-hidden">
+              <Image
+                src={photos.taskers.src!}
+                alt={photos.taskers.alt!}
+                fill
+                priority
+                sizes="(min-width: 1024px) 560px, 100vw"
+                className="object-cover"
+              />
+            </div>
+            <div className="p-3.5 border-t border-line bg-surface flex items-center justify-between text-xs font-mono text-muted">
+              <span>DOMAIN SPECIALIST WORKSPACE</span>
+              <span className="text-ink font-medium">30%+ WEEKLY PAY FLOOR</span>
+            </div>
+          </div>
+        }
       >
         <div className="flex flex-col sm:flex-row sm:items-center gap-3">
           <Link href="#apply" className="btn-accent">Apply as an Evaluator</Link>

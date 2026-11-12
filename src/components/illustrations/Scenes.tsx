@@ -175,84 +175,187 @@ export function RemoteScene({ className }: { className?: string }) {
 }
 
 /* ---------------- Trust & safety: secure session diagram ---------------- */
-function Node({ x, y, w, title, sub, icon }: { x: number; y: number; w: number; title: string; sub: string; icon: React.ReactNode }) {
+function CleanNode({ x, y, w, title, sub, icon }: { x: number; y: number; w: number; title: string; sub: string; icon: React.ReactNode }) {
   return (
     <g transform={`translate(${x} ${y})`}>
-      <rect width={w} height="92" rx="14" fill={T.bg} stroke={T.line} strokeWidth="2" />
-      <g transform="translate(16 18)">{icon}</g>
-      <text x="16" y="70" fontSize="14" fontWeight="700" fill={T.ink}>{title}</text>
-      <text x="16" y="86" fontSize="12" fill={T.muted}>{sub}</text>
+      <rect width={w} height="88" rx="8" fill={T.bg} stroke={T.line} strokeWidth="1" />
+      <g transform="translate(16 16)">{icon}</g>
+      <text x="16" y="62" fontSize="13" fontWeight="600" fill={T.ink}>{title}</text>
+      <text x="16" y="78" fontSize="11" fill={T.muted}>{sub}</text>
     </g>
   );
 }
-const PersonIcon = <g><circle cx="14" cy="12" r="8" fill={T.primary} /><path d="M0 34a14 12 0 0 1 28 0z" fill={T.primary} /></g>;
-const LockIcon = <g><path d="M6 16v-5a8 8 0 0 1 16 0v5" stroke={T.primary} strokeWidth="3.5" fill="none" /><rect x="2" y="16" width="24" height="18" rx="4" fill={T.primary} /></g>;
-function Blocked({ x, y, label }: { x: number; y: number; label: string }) {
+
+function EngravedBlockedTile({ x, y, w = 125, h = 32, label }: { x: number; y: number; w?: number; h?: number; label: string }) {
   return (
     <g transform={`translate(${x} ${y})`}>
-      <circle cx="10" cy="10" r="10" fill="none" stroke={T.danger} strokeWidth="2.5" /><line x1="3" y1="17" x2="17" y2="3" stroke={T.danger} strokeWidth="2.5" />
-      <text x="26" y="14" fontSize="12" fill={T.ink}>{label}</text>
+      <rect width={w} height={h} rx="4" fill={T.s2} stroke={T.line} strokeWidth="1" />
+      {/* Engraved plain blocked ring symbol */}
+      <circle cx="16" cy={h / 2} r="6.5" fill="none" stroke={T.muted} strokeWidth="1.25" />
+      <line x1="11.5" y1={h / 2 + 4.5} x2="20.5" y2={h / 2 - 4.5} stroke={T.muted} strokeWidth="1.25" />
+      <text x="28" y={h / 2 + 3.5} fontSize="10.5" fontFamily="monospace" fill={T.ink}>{label}</text>
     </g>
   );
 }
-function Arrow({ x1, x2, y, label, dir = 1 }: { x1: number; x2: number; y: number; label: string; dir?: 1 | -1 }) {
-  const tip = dir === 1 ? x2 : x1;
+
+function FlowConnector({ x1, x2, y, label, reverse = false }: { x1: number; x2: number; y: number; label: string; reverse?: boolean }) {
+  const tip = reverse ? x1 : x2;
+  const dir = reverse ? -1 : 1;
   return (
     <g>
-      <line x1={x1} y1={y} x2={x2} y2={y} stroke={T.muted} strokeWidth="2.5" />
-      <path d={`M${tip} ${y} l${-8 * dir} -6 v12z`} fill={T.muted} />
-      <text x={(x1 + x2) / 2} y={y - 10} textAnchor="middle" fontSize="11" fill={T.muted}>{label}</text>
+      <line x1={x1} y1={y} x2={x2} y2={y} stroke={T.muted} strokeWidth="1" strokeDasharray="3 3" />
+      <path d={`M${tip} ${y} l${-6 * dir} -4 v8z`} fill={T.muted} />
+      <text x={(x1 + x2) / 2} y={y - 8} textAnchor="middle" fontSize="9.5" fontFamily="monospace" fill={T.muted}>{label}</text>
     </g>
   );
 }
 
 export function SecureSessionDiagram({ className }: { className?: string }) {
-  const desc = "Diagram of how a work session is protected. The account owner coordinates login via Telegram's end-to-end encrypted secret chat. Verified admins sign in to an isolated virtual machine, which is recorded and has clipboard, USB and file transfer blocked. The tasker sees only the screen of that machine and never the password. Every step is written to the audit log.";
+  const desc = "Layered virtual isolation diagram. Account owner coordinates credentials via Telegram encrypted channel. Isolated VM runs with clipboard, USB, file transfer and printing disabled. Single lime dot indicates encrypted active core. Tasker views pixel stream only and never touches passwords.";
+
   return (
-    <>
-      {/* wide layout */}
-      <svg viewBox="0 0 900 330" className={`hidden md:block ${className ?? ""}`} role="img" aria-label={desc}>
-        <Node x={0} y={40} w={150} title="Account owner" sub="Coordinates login" icon={PersonIcon} />
-        <Arrow x1={152} x2={218} y={86} label="encrypted" />
-        <Node x={220} y={40} w={150} title="Telegram Encrypted" sub="End-to-end secret chat" icon={LockIcon} />
-        <Arrow x1={372} x2={426} y={86} label="logs in" />
-        <g transform="translate(428 10)">
-          <rect width="250" height="210" rx="16" fill={T.surface} stroke={T.primary} strokeWidth="2.5" strokeDasharray="7 5" />
-          <text x="16" y="26" fontSize="14" fontWeight="700" fill={T.ink}>Isolated virtual machine</text>
-          <circle cx="222" cy="21" r="5" fill={T.danger} /><text x="212" y="25" textAnchor="end" fontSize="10" fontWeight="700" fill={T.ink}>REC</text>
-          <rect x="16" y="40" width="218" height="80" rx="8" fill={T.bg} stroke={T.line} strokeWidth="2" />
-          <rect x="16" y="40" width="218" height="16" rx="8" fill={T.s2} />
-          <rect x="28" y="66" width="92" height="42" rx="4" fill={T.s2} /><rect x="130" y="66" width="92" height="42" rx="4" fill={T.s2} stroke={T.primary} strokeWidth="2" />
-          <Blocked x={16} y={134} label="No clipboard" />
-          <Blocked x={134} y={134} label="No USB" />
-          <Blocked x={16} y={170} label="No file transfer" />
-          <Blocked x={134} y={170} label="No printing" />
+    <div className="w-full select-none">
+      {/* Desktop wide diagram */}
+      <svg viewBox="0 0 920 340" className={`hidden md:block w-full ${className ?? ""}`} role="img" aria-label={desc}>
+        {/* Node 1: Account Owner */}
+        <CleanNode
+          x={10}
+          y={40}
+          w={160}
+          title="Account Owner"
+          sub="Retains 100% legal control"
+          icon={
+            <g>
+              <rect width="24" height="24" rx="4" fill={T.s2} stroke={T.line} strokeWidth="1" />
+              <circle cx="12" cy="9.5" r="4" fill={T.muted} />
+              <path d="M5 20a7 6 0 0 1 14 0z" fill={T.muted} />
+            </g>
+          }
+        />
+
+        <FlowConnector x1={172} x2={238} y={84} label="E2EE SECRET CHAT" />
+
+        {/* Node 2: Authentication Handshake */}
+        <CleanNode
+          x={240}
+          y={40}
+          w={160}
+          title="Admin Gate"
+          sub="Encrypted Credential Injection"
+          icon={
+            <g>
+              <rect width="24" height="24" rx="4" fill={T.s2} stroke={T.line} strokeWidth="1" />
+              <path d="M7 11V8a5 5 0 0 1 10 0v3" stroke={T.muted} strokeWidth="2" fill="none" />
+              <rect x="5" y="11" width="14" height="10" rx="2" fill={T.muted} />
+            </g>
+          }
+        />
+
+        <FlowConnector x1={402} x2={458} y={84} label="2FA VERIFIED" />
+
+        {/* Centerpiece: Layered Virtual Isolation Chamber (The Sandbox) */}
+        <g transform="translate(460 16)">
+          {/* Outer outline enclosure */}
+          <rect width="280" height="236" rx="10" fill={T.surface} stroke={T.line} strokeWidth="1" />
+          
+          {/* Top header bar */}
+          <rect width="280" height="32" rx="10" fill={T.s2} />
+          <path d="M0 32 h280" stroke={T.line} strokeWidth="1" />
+          <text x="14" y="20" fontSize="11" fontFamily="monospace" fontWeight="600" fill={T.ink}>
+            ISOLATED SANDBOX // VM-8491
+          </text>
+          
+          {/* Active session lime indicator dot */}
+          <circle cx="260" cy="16" r="4" fill="#C6FF3D" />
+
+          {/* Inner frosted VM frame */}
+          <rect x="14" y="44" width="252" height="96" rx="6" fill={T.bg} stroke={T.line} strokeWidth="1" />
+          
+          {/* Terminal prompt bars */}
+          <rect x="26" y="56" width="120" height="8" rx="2" fill={T.line} />
+          <rect x="26" y="70" width="228" height="6" rx="2" fill={T.s2} />
+          <rect x="26" y="82" width="180" height="6" rx="2" fill={T.s2} />
+          <rect x="26" y="94" width="200" height="6" rx="2" fill={T.s2} />
+          
+          <g transform="translate(26 112)">
+            <rect width="76" height="16" rx="3" fill={T.s2} />
+            <text x="38" y="11.5" textAnchor="middle" fontSize="9" fontFamily="monospace" fill={T.muted}>
+              REC · AUDITED
+            </text>
+          </g>
+
+          {/* 4 Engraved Blocked Base Tiles */}
+          <EngravedBlockedTile x={14} y={152} w={120} label="NO CLIPBOARD" />
+          <EngravedBlockedTile x={146} y={152} w={120} label="NO STORAGE / USB" />
+          <EngravedBlockedTile x={14} y={192} w={120} label="NO FILE TRANSFER" />
+          <EngravedBlockedTile x={146} y={192} w={120} label="NO PRINTING" />
         </g>
-        <Arrow x1={680} x2={748} y={86} label="screen only" dir={-1} />
-        <Node x={750} y={40} w={150} title="Tasker" sub="Never sees password" icon={PersonIcon} />
-        <rect x="0" y="262" width="900" height="50" rx="12" fill={T.accentSoft} />
-        <text x="450" y="292" textAnchor="middle" fontSize="14" fontWeight="600" fill={T.ink}>Every admin login, session start and stop is written to a tamper-evident audit log</text>
-      </svg>
-      {/* narrow layout */}
-      <svg viewBox="0 0 340 700" className={`md:hidden ${className ?? ""}`} role="img" aria-label={desc}>
-        <Node x={20} y={0} w={300} title="Account owner" sub="Coordinates login" icon={PersonIcon} />
-        <line x1="170" y1="94" x2="170" y2="130" stroke={T.muted} strokeWidth="2.5" /><path d="M170 138 l-6 -9 h12z" fill={T.muted} />
-        <Node x={20} y={140} w={300} title="Telegram Encrypted Chat" sub="End-to-end secret chat" icon={LockIcon} />
-        <line x1="170" y1="234" x2="170" y2="270" stroke={T.muted} strokeWidth="2.5" /><path d="M170 278 l-6 -9 h12z" fill={T.muted} />
-        <g transform="translate(20 280)">
-          <rect width="300" height="170" rx="16" fill={T.surface} stroke={T.primary} strokeWidth="2.5" strokeDasharray="7 5" />
-          <text x="16" y="28" fontSize="15" fontWeight="700" fill={T.ink}>Isolated virtual machine</text>
-          <circle cx="272" cy="23" r="5" fill={T.danger} /><text x="262" y="27" textAnchor="end" fontSize="11" fontWeight="700" fill={T.ink}>REC</text>
-          <Blocked x={16} y={52} label="No clipboard" /><Blocked x={160} y={52} label="No USB" />
-          <Blocked x={16} y={92} label="No file transfer" /><Blocked x={160} y={92} label="No printing" />
-          <text x="16" y="148" fontSize="12" fill={T.muted}>Recorded for QA and disputes</text>
+
+        <FlowConnector x1={742} x2={788} y={84} label="PIXEL STREAM" reverse />
+
+        {/* Node 3: Specialist Tasker */}
+        <CleanNode
+          x={790}
+          y={40}
+          w={120}
+          title="Tasker"
+          sub="No password access"
+          icon={
+            <g>
+              <rect width="24" height="24" rx="4" fill={T.s2} stroke={T.line} strokeWidth="1" />
+              <rect x="4" y="5" width="16" height="11" rx="2" stroke={T.muted} strokeWidth="1.5" fill="none" />
+              <line x1="8" y1="19" x2="16" y2="19" stroke={T.muted} strokeWidth="1.5" />
+            </g>
+          }
+        />
+
+        {/* Base Audit Footer Trail */}
+        <rect x="10" y="274" width="900" height="44" rx="6" fill={T.s2} stroke={T.line} strokeWidth="1" />
+        <g transform="translate(24 290)">
+          <circle cx="6" cy="6" r="3" fill="#C6FF3D" />
+          <text x="18" y="9.5" fontSize="11" fontFamily="monospace" fill={T.ink}>
+            TAMPER-EVIDENT AUDIT TRAIL // ALL ACCESS EVENTS DIGITALLY SIGNED &amp; EXPORTABLE FOR 24 MONTHS
+          </text>
         </g>
-        <line x1="170" y1="460" x2="170" y2="496" stroke={T.muted} strokeWidth="2.5" /><path d="M170 452 l-6 9 h12z" fill={T.muted} />
-        <Node x={20} y={500} w={300} title="Tasker" sub="Sees the screen, never the password" icon={PersonIcon} />
-        <rect x="20" y="614" width="300" height="72" rx="12" fill={T.accentSoft} />
-        <text x="170" y="644" textAnchor="middle" fontSize="13" fontWeight="600" fill={T.ink}>Every step is written to a</text>
-        <text x="170" y="664" textAnchor="middle" fontSize="13" fontWeight="600" fill={T.ink}>tamper-evident audit log</text>
       </svg>
-    </>
+
+      {/* Mobile stacked diagram */}
+      <svg viewBox="0 0 340 560" className={`md:hidden w-full ${className ?? ""}`} role="img" aria-label={desc}>
+        <CleanNode x={20} y={10} w={300} title="Account Owner" sub="Retains 100% legal ownership" icon={<circle cx="12" cy="12" r="6" fill={T.muted} />} />
+        
+        <line x1="170" y1="100" x2="170" y2="136" stroke={T.muted} strokeWidth="1" strokeDasharray="3 3" />
+        <path d="M170 140 l-4 -6 h8z" fill={T.muted} />
+        <text x="178" y="122" fontSize="9" fontFamily="monospace" fill={T.muted}>ENCRYPTED HANDSHAKE</text>
+
+        <CleanNode x={20} y={144} w={300} title="Admin Authentication Gate" sub="Credential injected to sandbox" icon={<rect x="6" y="6" width="12" height="12" rx="2" fill={T.muted} />} />
+
+        <line x1="170" y1="234" x2="170" y2="268" stroke={T.muted} strokeWidth="1" strokeDasharray="3 3" />
+        <path d="M170 272 l-4 -6 h8z" fill={T.muted} />
+
+        {/* Sandbox */}
+        <g transform="translate(20 276)">
+          <rect width="300" height="136" rx="8" fill={T.surface} stroke={T.line} strokeWidth="1" />
+          <rect width="300" height="26" rx="8" fill={T.s2} />
+          <path d="M0 26 h300" stroke={T.line} strokeWidth="1" />
+          <text x="12" y="17" fontSize="10" fontFamily="monospace" fontWeight="600" fill={T.ink}>
+            LAYERED ISOLATION // VM CORE
+          </text>
+          <circle cx="284" cy="13" r="3.5" fill="#C6FF3D" />
+
+          <EngravedBlockedTile x={12} y={38} w={132} label="NO CLIPBOARD" />
+          <EngravedBlockedTile x={156} y={38} w={132} label="NO USB / STORAGE" />
+          <EngravedBlockedTile x={12} y={78} w={132} label="NO FILE TRANSFER" />
+          <EngravedBlockedTile x={156} y={78} w={132} label="NO PRINTING" />
+          <text x="12" y="124" fontSize="9.5" fontFamily="monospace" fill={T.muted}>
+            Display-only pixel stream. Recorded session.
+          </text>
+        </g>
+
+        <line x1="170" y1="414" x2="170" y2="444" stroke={T.muted} strokeWidth="1" strokeDasharray="3 3" />
+        <path d="M170 412 l-4 6 h8z" fill={T.muted} />
+
+        <CleanNode x={20} y={448} w={300} title="Specialist Tasker" sub="Interacts with screen · never credentials" icon={<rect x="6" y="6" width="12" height="12" rx="2" fill={T.muted} />} />
+      </svg>
+    </div>
   );
 }

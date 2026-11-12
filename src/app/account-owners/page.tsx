@@ -17,6 +17,8 @@ import {
   KeyRound,
   Send
 } from "lucide-react";
+import Image from "next/image";
+import { photos } from "@/config/site";
 import { AccountSubmitForm } from "@/components/forms/AccountSubmitForm";
 import { DashboardPreview } from "@/components/DashboardPreview";
 import { CheckList, ComplianceNotice, FeatureGrid, FinalCta, PageHero, Section } from "@/components/ui";
@@ -34,39 +36,59 @@ export default function AccountOwners() {
   return (
     <>
       <PageHero 
-        eyebrow="For Account Owners : 100% Hands Off Income" 
-        title="Your AI Account Is Worth Money. Let Us Work It For You."
-        backgroundImage="/images/account-owners.jpg"
-        subhead="If your AI training account on Outlier, Alignerr, Scale AI, or DataAnnotation is sitting idle, you are leaving thousands on the table every month. Checking and auditing your account is absolutely free. We pair your account with verified specialists who do the work every day. You keep 55% of all earnings. Zero effort required."
+        eyebrow="Account Owner Operations" 
+        title="Your AI training account is valuable. We manage and operate it for you."
+        subhead="If your account on Outlier, Alignerr, Scale AI, or DataAnnotation is sitting idle, we match it with verified domain specialists who work your queue every day. Initial audit and setup are completely free. You keep 55% of all client payouts with zero daily effort."
+        media={
+          <div className="relative rounded-2xl overflow-hidden border border-line bg-surface shadow-[0_20px_50px_-15px_rgba(0,0,0,0.2)] dark:shadow-[0_20px_50px_-15px_rgba(0,0,0,0.6)]">
+            <div className="relative aspect-[4/3] w-full overflow-hidden">
+              <Image
+                src={photos.accountOwners.src!}
+                alt={photos.accountOwners.alt!}
+                fill
+                priority
+                sizes="(min-width: 1024px) 560px, 100vw"
+                className="object-cover"
+              />
+            </div>
+            <div className="p-3.5 border-t border-line bg-surface flex items-center justify-between text-xs font-mono text-muted">
+              <span>SECURE ACCESS GATEWAY</span>
+              <span className="text-ink font-medium">ZERO CREDENTIAL SHARING</span>
+            </div>
+          </div>
+        }
       >
-        <div className="flex flex-col gap-3.5 sm:flex-row">
-          <Link href="#submit" className="btn-accent text-sm uppercase tracking-wider !py-3.5 !px-7 shadow-md">
-            Connect Your Account Now
+        <div className="flex flex-col sm:flex-row sm:items-center gap-4">
+          <Link href="#submit" className="btn-accent">
+            Connect Your Account
           </Link>
-          <Link href="#how-it-works" className="btn-secondary text-sm uppercase tracking-wider !py-3.5 !px-7">
-            See How You Get Paid
+          <Link
+            href="#how-it-works"
+            className="inline-flex items-center gap-1 text-sm font-medium text-muted hover:text-ink transition-colors px-2 py-1"
+          >
+            See how it works <ArrowRight className="h-4 w-4" />
           </Link>
         </div>
       </PageHero>
 
       {/* THREE BIG STATS */}
-      <section className="border-b border-line bg-surface-2/60 py-12">
+      <section className="border-b border-line bg-surface py-12">
         <div className="container">
-          <div className="grid gap-6 sm:grid-cols-3 max-w-4xl mx-auto text-center">
-            <div className="rounded-2xl border border-line bg-surface p-6 shadow-md">
-              <span className="text-4xl font-black text-accent font-mono">55%</span>
-              <p className="mt-2 text-sm font-bold text-ink">Kept by You : The Owner</p>
-              <p className="mt-1 text-xs text-muted">Weekly direct payout with zero deductions</p>
+          <div className="grid gap-4 sm:grid-cols-3 max-w-4xl mx-auto text-center font-mono">
+            <div className="card">
+              <span className="text-3xl font-semibold text-ink">55%</span>
+              <p className="mt-2 text-sm font-sans font-semibold text-ink">Account Owner Share</p>
+              <p className="mt-1 text-xs text-muted font-sans">Direct weekly deposit with transparent accounting</p>
             </div>
-            <div className="rounded-2xl border border-line bg-surface p-6 shadow-md">
-              <span className="text-4xl font-black text-cyan-400 font-mono">100%</span>
-              <p className="mt-2 text-sm font-bold text-ink">Your Legal Ownership</p>
-              <p className="mt-1 text-xs text-muted">Account stays in your name. Pause anytime</p>
+            <div className="card">
+              <span className="text-3xl font-semibold text-ink">100%</span>
+              <p className="mt-2 text-sm font-sans font-semibold text-ink">Legal Account Ownership</p>
+              <p className="mt-1 text-xs text-muted font-sans">Account stays in your name. Pause or revoke access anytime</p>
             </div>
-            <div className="rounded-2xl border border-line bg-surface p-6 shadow-md">
-              <span className="text-4xl font-black text-emerald-400 font-mono">0 Hours</span>
-              <p className="mt-2 text-sm font-bold text-ink">Effort Required From You</p>
-              <p className="mt-1 text-xs text-muted">Our specialists complete all tasks and reviews</p>
+            <div className="card">
+              <span className="text-3xl font-semibold text-ink">0 Hours</span>
+              <p className="mt-2 text-sm font-sans font-semibold text-ink">Daily Effort Required</p>
+              <p className="mt-1 text-xs text-muted font-sans">Vetted specialists execute tasks and pass queue reviews</p>
             </div>
           </div>
         </div>

@@ -1,10 +1,11 @@
 import Link from "next/link";
+import Image from "next/image";
 import { PriceTable } from "@/components/PriceTable";
 import { PricingCalculator } from "@/components/PricingCalculator";
 import { ContactForm } from "@/components/forms/ContactForm";
 import { Accordion } from "@/components/Accordion";
 import { ComplianceNotice, PageHero, Section } from "@/components/ui";
-import { money, pricing } from "@/config/site";
+import { money, photos, pricing } from "@/config/site";
 import { pageMeta } from "@/lib/seo";
 
 export const metadata = pageMeta({
@@ -20,10 +21,28 @@ export default function Pricing() {
         eyebrow="Pricing &amp; Revenue Splits" 
         title="Predictable Payout Splits"
         subhead="We operate with complete financial transparency. You keep 55% of gross earnings. Specialist taskers receive at least 30%. We take a 15% operational fee for staffing, security, and weekly quality assurance."
+        media={
+          <div className="relative rounded-2xl overflow-hidden border border-line bg-surface shadow-[0_20px_50px_-15px_rgba(0,0,0,0.2)] dark:shadow-[0_20px_50px_-15px_rgba(0,0,0,0.6)]">
+            <div className="relative aspect-[16/9] w-full overflow-hidden">
+              <Image
+                src={photos.pricing.src!}
+                alt={photos.pricing.alt!}
+                fill
+                priority
+                sizes="(min-width: 1024px) 560px, 100vw"
+                className="object-cover"
+              />
+            </div>
+            <div className="p-3.5 border-t border-line bg-surface flex items-center justify-between text-xs font-mono text-muted">
+              <span>55 / 30 / 15 DISTRIBUTION ARCHITECTURE</span>
+              <span className="text-ink font-medium">SETTLED WEEKLY</span>
+            </div>
+          </div>
+        }
       >
         <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
           <Link href="/account-owners#submit" className="btn-accent">Submit Your Account</Link>
-          <Link href="#calculator" className="inline-flex items-center gap-1 text-sm font-medium text-muted hover:text-ink transition-colors px-3 py-2">Try the Calculator →</Link>
+          <Link href="#calculator" className="inline-flex items-center gap-1 text-sm font-medium text-muted hover:text-ink transition-colors px-3 py-2">Try the Calculator &rarr;</Link>
         </div>
       </PageHero>
 

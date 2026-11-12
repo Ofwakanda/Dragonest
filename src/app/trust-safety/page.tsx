@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { FileLock2, FileSignature, Fingerprint, HardDrive, KeyRound, ListTree, MonitorX, ScanSearch, ShieldCheck, Smartphone, Video } from "lucide-react";
 import { ComplianceNotice, FeatureGrid, FinalCta, Note, PageHero, Section } from "@/components/ui";
 import { photos, site } from "@/config/site";
@@ -7,8 +8,8 @@ import { SecureSessionDiagram } from "@/components/illustrations/Scenes";
 import { pageMeta } from "@/lib/seo";
 
 export const metadata = pageMeta({
-  title: "Trust & safety",
-  description: "Telegram encrypted secret chat, enforced 2FA, recorded isolated VMs with no clipboard or USB, NDAs, data-processing agreements, audit logs and anti-fraud checks.",
+  title: "Trust & Safety : Enterprise Protection for Managed Accounts",
+  description: "End-to-end credential protection, isolated virtual machines with disabled clipboards, NDAs, data processing agreements, and continuous QA telemetry.",
   path: "/trust-safety",
 });
 
@@ -18,9 +19,32 @@ export default function TrustSafety() {
       <PageHero 
         eyebrow="Trust &amp; Safety" 
         title="Security Built into Every Session"
-        subhead="Account owners trust us with access. Taskers trust us with their identity and pay. Here is exactly how we protect both."
+        subhead="Account owners trust us with access. Domain specialists trust us with identity and fair compensation. Here is the layered infrastructure protecting both."
+        media={
+          <div className="relative rounded-2xl overflow-hidden border border-line bg-surface shadow-[0_20px_50px_-15px_rgba(0,0,0,0.2)] dark:shadow-[0_20px_50px_-15px_rgba(0,0,0,0.6)]">
+            <div className="relative aspect-square w-full max-w-md mx-auto overflow-hidden">
+              <Image
+                src={photos.trust.src!}
+                alt={photos.trust.alt!}
+                fill
+                priority
+                sizes="(min-width: 1024px) 460px, 100vw"
+                className="object-cover"
+              />
+            </div>
+            <div className="p-3.5 border-t border-line bg-surface flex items-center justify-between text-xs font-mono text-muted">
+              <span>LAYERED SANDBOX ARCHITECTURE</span>
+              <span className="text-ink font-medium">ISOLATED VM CORES</span>
+            </div>
+          </div>
+        }
       >
-        <Link href="#session" className="btn-accent">Review Security Controls</Link>
+        <div className="flex flex-col sm:flex-row sm:items-center gap-3">
+          <Link href="#session" className="btn-accent">Review Security Controls</Link>
+          <Link href="/account-owners#submit" className="inline-flex items-center gap-1 text-sm font-medium text-muted hover:text-ink transition-colors px-3 py-2">
+            Connect Your Account &rarr;
+          </Link>
+        </div>
       </PageHero>
 
       <Section id="session" title="How a work session is protected" intro="Your login is coordinated via Telegram's end-to-end encrypted chat with verified admins. From then on, taskers only ever see the screen of a locked-down, recorded machine.">

@@ -12,6 +12,7 @@ import { Accordion } from "@/components/Accordion";
 import { Section, FinalCta } from "@/components/ui";
 import { DashboardPreview } from "@/components/DashboardPreview";
 import { PaymentReceiptLedger } from "@/components/PaymentReceiptLedger";
+import { PayoutStatementCard } from "@/components/PayoutStatementCard";
 import { PricingCalculator } from "@/components/PricingCalculator";
 import { pageMeta } from "@/lib/seo";
 import { reviews } from "@/data/sample";
@@ -149,9 +150,23 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Credible real product visual: Dashboard Preview */}
-            <div className="w-full">
-              <DashboardPreview />
+            {/* 3D Layered Managed Work Hero Composition */}
+            <div className="relative w-full">
+              {/* Back frosted-glass slab offset */}
+              <div
+                aria-hidden="true"
+                className="hidden sm:block absolute inset-0 rounded-2xl border border-line bg-surface/20 backdrop-blur-md transform translate-x-4 -translate-y-4 pointer-events-none"
+              />
+              {/* Middle frosted-glass slab offset */}
+              <div
+                aria-hidden="true"
+                className="hidden sm:block absolute inset-0 rounded-2xl border border-line bg-surface/50 backdrop-blur-sm transform translate-x-2 -translate-y-2 pointer-events-none"
+              />
+              {/* Front matte slab with thin electric lime light-strip along top edge */}
+              <div className="relative rounded-2xl overflow-hidden shadow-[0_30px_70px_-15px_rgba(0,0,0,0.18)] dark:shadow-[0_35px_80px_-15px_rgba(0,0,0,0.65)]">
+                <div className="h-[2px] w-full bg-[#C6FF3D]" />
+                <DashboardPreview />
+              </div>
             </div>
           </div>
         </div>
@@ -200,9 +215,36 @@ export default function Home() {
         id="proof"
         eyebrow="Financial Proof"
         title="Transparent settlements and verified track record"
-        intro="Payouts deposit directly into your bank or platform wallet. Here is how settlements are accounted for each week."
+        intro="Payouts deposit directly into your bank or platform wallet. Here is an itemized settlement statement and weekly accounting receipts."
         tone="tint"
       >
+        <div className="grid gap-8 lg:grid-cols-[1.1fr_1.3fr] items-center mb-10">
+          <div>
+            <PayoutStatementCard />
+          </div>
+          <div className="space-y-4">
+            <div className="inline-flex items-center gap-2 rounded border border-line bg-surface-2 px-2.5 py-1 text-xs font-mono text-muted">
+              <span>AUTOMATED FRIDAY DISBURSEMENT</span>
+            </div>
+            <h3 className="text-2xl font-semibold tracking-tight text-ink">
+              Itemized settlement statements delivered weekly
+            </h3>
+            <p className="text-sm text-muted leading-relaxed">
+              Every Friday at 17:00 UTC, a digitally signed reconciliation statement is issued. Gross platform earnings deposit directly into your bank or payout channel, with itemized allocations for your 55% share, tasker pay, and operational management.
+            </p>
+            <div className="grid grid-cols-2 gap-3 pt-2 text-xs font-mono">
+              <div className="rounded border border-line bg-surface p-3">
+                <span className="text-muted uppercase">Distribution Cadence</span>
+                <p className="text-sm font-semibold text-ink mt-0.5">Every Friday</p>
+              </div>
+              <div className="rounded border border-line bg-surface p-3">
+                <span className="text-muted uppercase">Payout Channels</span>
+                <p className="text-sm font-semibold text-ink mt-0.5">ACH · Wire · SEPA</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <PaymentReceiptLedger />
 
         {/* Real testimonials with names and roles */}

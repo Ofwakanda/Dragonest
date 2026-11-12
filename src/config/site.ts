@@ -78,25 +78,30 @@ export const money = (n: number) =>
  * stock models as your real team or real customers.
  */
 export type PhotoSlot = { src?: string; alt?: string; credit?: string };
-export const photos: Record<"homeHero" | "accountOwners" | "taskers" | "trust", PhotoSlot> = {
+export const photos: Record<"homeHero" | "accountOwners" | "taskers" | "trust" | "pricing", PhotoSlot> = {
   homeHero: {
     src: "/images/hero-nightshift.jpg",
-    alt: "Remote AI evaluator working deep into the night across dual displays evaluating code and prompt benchmarks",
-    credit: "Monochrome Photography · Deep Work Night Shift",
+    alt: "Layered managed work composition with active dashboard telemetry and subtle lime light strip",
+    credit: "Coded 3D Interface · Real-Time Dispatch",
   },
   accountOwners: {
-    src: "/images/account-owners.jpg",
-    alt: "Clean minimal desk with laptop showing transparent accounting splits and fresh coffee by window",
-    credit: "Monochrome Photography · Remote Host Oversight",
+    src: "/images/account-owners-render.jpg",
+    alt: "Brushed-steel key card passing through a narrow frosted-glass gate with a subtle lime dot on the chip, representing access without sharing passwords",
+    credit: "3D Matte Render · Secure Access Gate",
   },
   taskers: {
-    src: "/images/taskers-review.jpg",
-    alt: "Focused technical specialist wearing headphones reviewing complex domain evaluation rubrics",
-    credit: "Monochrome Photography · Specialist in Flow",
+    src: "/images/taskers-doc-render.jpg",
+    alt: "Over-the-shoulder view of a specialist working at a clean laptop workspace under soft natural window light",
+    credit: "Documentary Photography · Specialist Workplace",
   },
   trust: {
-    src: "/images/trust-security.jpg",
-    alt: "High-security data center hardware aisle with brushed aluminum chassis and organized cabling",
-    credit: "Monochrome Photography · Infrastructure Security",
+    src: "/images/trust-sandbox-render.jpg",
+    alt: "Isometric view of a graphite cube floating inside layered frosted-glass isolation enclosures with engraved blocked tiles and a lime status indicator",
+    credit: "3D Sandbox Architecture · Layered Isolation",
+  },
+  pricing: {
+    src: "/images/pricing-split-render.jpg",
+    alt: "Three stacked monochrome rectangular slabs in 55 : 30 : 15 proportion with a lime top surface representing transparent revenue distribution",
+    credit: "3D Mathematical Render · 55/30/15 Revenue Split",
   },
 };
