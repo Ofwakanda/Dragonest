@@ -1,12 +1,11 @@
 import { money, pricing } from "@/config/site";
 
 export const priceRows = [
-  { item: "Account audit", price: `${money(pricing.audit.price)} one-time`, detail: "Platform-rule check, account health report and work estimate. Refunded if we decline the account." },
-  { item: "Onboarding package", price: `${pricing.onboarding.percent}% of first month, or ${money(pricing.onboarding.flat)} flat`, detail: `Whichever is lower (${pricing.onboarding.percent}% of first month, or $150 flat). Covers qualification tests, training modules and setup by a vetted tasker.` },
-  { item: "Tasking", price: `${pricing.tasking.percent}% of task earnings`, detail: `Ongoing staffing, scheduling and support. The tasker receives at least ${pricing.taskerShare}%.` },
-  { item: "QA add-on", price: `+${pricing.qaAddon.percent}%`, detail: "A second reviewer checks a weekly sample of every tasker's work. Recommended for accounts with strict quality thresholds." },
-  { item: "Rush delivery", price: `+${pricing.rush.percent}%`, detail: "Tasker assigned within 4 hours instead of 48hrs. Charged for the first month only." },
-  { item: "Minimum monthly volume", price: `${money(pricing.minimumMonthly)}`, detail: "Ongoing tasking needs at least this much available work per month. We'll pause, not charge, if work drops below it." },
+  { item: "Account onboarding", price: "Free : $0", detail: "Complete queue inspection, account health review and specialist matching. 100% free with zero upfront fees." },
+  { item: "Tasking & Managed Shifts", price: `${pricing.tasking.percent}% of client earnings`, detail: `Ongoing staffing, queue execution and daily tasking. The specialist receives ${pricing.taskerShare}% and the account owner keeps 55%.` },
+  { item: "QA & Rating Protection", price: "Included Free", detail: "A senior evaluation lead checks weekly samples of all work to keep client quality scores above 4.8 out of 5.0." },
+  { item: "Fast Track Staffing", price: "Included Free", detail: "Specialist matched and assigned within 24 hours of onboarding." },
+  { item: "Minimum monthly volume", price: `${money(pricing.minimumMonthly)}`, detail: "Ongoing tasking needs available work on the platform. We pause safely with zero charges if queues run dry." },
 ];
 
 export function PriceTable() {

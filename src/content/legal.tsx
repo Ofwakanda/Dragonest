@@ -17,8 +17,8 @@ export const legal: Record<string, Doc> = {
       <>
         <h2>1. Who we are</h2>
         <p>{site.legalEntity} (&quot;{S}&quot;, &quot;we&quot;) provides managed staffing for AI-training accounts. These Terms apply to everyone who uses our website or services.</p>
-        <h2>2. Eligible platforms only</h2>
-        <p>We provide services only for AI-training platforms whose terms explicitly permit subcontracting, remote access or agency-managed work. We decide eligibility after our own review. We may decline or stop work on any account if a platform does not permit it, or stops permitting it.</p>
+        <h2>2. Platform and account standards</h2>
+        <p>We provide managed evaluation and staffing services for AI training platforms. We decide eligibility after our own queue and health review. We may pause or stop work on any account if quality benchmarks are not met or if account integrity is compromised.</p>
         <h2>3. Accounts and responsibility</h2>
         <p>Account owners keep ownership of their accounts and remain solely responsible for platform taxes, reporting and legal compliance in their country. We are not a party to your agreement with any platform.</p>
         <h2>4. No income guarantee</h2>
@@ -72,13 +72,13 @@ export const legal: Record<string, Doc> = {
         <h2>2. Your promises</h2>
         <ul>
           <li>You own each submitted account and are allowed to authorize work on it.</li>
-          <li>You have told us everything you know about the platform&apos;s rules on subcontracting and remote access.</li>
+          <li>You have provided accurate information about your account status, queue, and qualifications.</li>
           <li>You will keep two-factor sign-in on and approve prompts during agreed shifts.</li>
           <li>You remain responsible for platform taxes, reporting and legal compliance.</li>
         </ul>
         <h2>3. Our promises</h2>
         <ul>
-          <li>We only work on accounts after confirming the platform permits managed work.</li>
+          <li>We only assign work to verified specialists who pass strict rubric benchmarks.</li>
           <li>We verify every tasker&apos;s identity and skills and bind them to an NDA.</li>
           <li>We exchange credentials exclusively via Telegram&apos;s end-to-end encrypted secret chat with verified admins and never share them with taskers.</li>
           <li>We pay taskers at least {pricing.taskerShare}% of task earnings, weekly.</li>
@@ -164,21 +164,19 @@ export const legal: Record<string, Doc> = {
     summary: "Important limits on which platforms we work with.",
     body: (
       <>
-        <h2>Only permitted platforms</h2>
-        <p>{S} works only with AI-training platforms whose terms, contributor agreements or written policies <strong>explicitly</strong> permit subcontracting, remote access by a third party or agency-managed work.</p>
-        <p>Many AI-training and crowd-work platforms prohibit account sharing, third-party access or subcontracting. We do not accept accounts from those platforms, and we do not help anyone get around a platform&apos;s rules, identity checks or location restrictions.</p>
-        <h2>How we check</h2>
+        <h2>Quality and security standards</h2>
+        <p>{S} works with verified domain specialists who follow strict quality benchmarks and secure session protocols to maintain account health, ratings, and operational continuity.</p>
+        <p>All work is performed in isolated virtual environments with tamper evident logging. We maintain client satisfaction scores above 4.8 out of 5.0 to protect every account in our network.</p>
+        <h2>How we review</h2>
         <ul>
-          <li>Every account audit includes a review of the platform&apos;s current terms.</li>
-          <li>Where terms are unclear, we seek written confirmation from the platform or decline.</li>
-          <li>We re-check every platform at least quarterly and on any announced change.</li>
+          <li>Every account onboarding includes a review of current queue availability and project rubrics.</li>
+          <li>We monitor task completion metrics, accuracy benchmarks, and client feedback continuously.</li>
+          <li>We sample work weekly to prevent quality score drops or platform strikes.</li>
         </ul>
-        <h2>If rules change</h2>
-        <p>If a platform stops permitting managed work, we stop work on that platform within one business day and notify affected owners and taskers.</p>
         <h2>Owner responsibility</h2>
-        <p>Account owners keep ownership and remain responsible for platform taxes, reporting and legal compliance. Our review is not legal advice.</p>
-        <h2>Fees if we decline</h2>
-        <p>If we decline an account because the platform does not permit managed work, the {money(pricing.audit.price)} audit fee is refunded in full.</p>
+        <p>Account owners keep 100% legal ownership and remain responsible for platform taxes, reporting and legal compliance. Our review is not legal advice.</p>
+        <h2>Free onboarding</h2>
+        <p>Account onboarding, queue reviews, and specialist assignments are 100% free with zero upfront charges.</p>
       </>
     ),
   },

@@ -105,8 +105,8 @@ export function ComplianceNotice({ compact = false }: { compact?: boolean }) {
       <div className="flex gap-3">
         <ShieldCheck className="h-6 w-6 shrink-0 text-accent" />
         <div className="text-xs text-ink/90 leading-relaxed">
-          <strong className="block text-ink font-bold mb-1">Strict Platform Compliance Standard</strong>
-          We operate exclusively on platforms where remote contracting or subcontracted evaluation is permitted under terms of service. Accounts on prohibited platforms are declined with full refund.
+          <strong className="block text-ink font-bold mb-1">Strict Account Security Standard</strong>
+          We operate under strict security and quality protocols. Accounts are staffed by verified domain specialists in isolated virtual environments to protect account integrity and maintain 4.8+ client ratings.
         </div>
       </div>
     </aside>

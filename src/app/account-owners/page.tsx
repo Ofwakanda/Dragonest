@@ -14,7 +14,8 @@ import {
   Clock, 
   ArrowRight,
   TrendingUp,
-  KeyRound
+  KeyRound,
+  MessageSquare
 } from "lucide-react";
 import { AccountSubmitForm } from "@/components/forms/AccountSubmitForm";
 import { DashboardPreview } from "@/components/DashboardPreview";
@@ -139,6 +140,35 @@ export default function AccountOwners() {
               <p className="text-2xl font-black text-accent mt-1 font-mono">$1,100</p>
               <p className="text-xs text-accent font-bold mt-1">Direct to you without working</p>
             </div>
+          </div>
+        </div>
+
+        {/* FAST RESPONSE ACTION BAR */}
+        <div className="mt-8 flex flex-col sm:flex-row items-center justify-between gap-4 rounded-2xl border border-line bg-surface p-5 shadow-sm">
+          <div className="flex items-center gap-3">
+            <span className="h-10 w-10 rounded-xl bg-accent text-accent-ink flex items-center justify-center font-bold shrink-0">
+              <MessageSquare className="h-5 w-5" />
+            </span>
+            <div>
+              <p className="text-sm font-bold text-ink">Have Questions About Your Specific Account?</p>
+              <p className="text-xs text-muted">Text our operations team directly for a fast response in under 15 minutes.</p>
+            </div>
+          </div>
+          <div className="flex items-center gap-3 w-full sm:w-auto">
+            <a
+              href="sms:+18004197204"
+              className="btn-accent text-xs uppercase tracking-wider font-bold !py-2.5 !px-5 whitespace-nowrap text-center flex-1 sm:flex-none"
+            >
+              Text Us Directly (SMS)
+            </a>
+            <a
+              href={site.telegram.hub}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-secondary text-xs uppercase tracking-wider font-bold !py-2.5 !px-5 whitespace-nowrap text-center flex-1 sm:flex-none"
+            >
+              Telegram 24/7
+            </a>
           </div>
         </div>
       </Section>

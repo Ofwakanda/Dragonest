@@ -72,7 +72,7 @@ export default function Pricing() {
       <Section id="refunds" tone="tint" title="Refund and Replacement Policy">
         <div className="max-w-3xl">
           <Accordion items={[
-            { q: "When is the audit fee refunded?", a: <p>In full if we decline the account for any reason, including when the platform does not permit managed work. Also in full if we do not deliver the audit report within 3 business days.</p> },
+            { q: "Are there any audit fees or upfront setup costs?", a: <p>No. Account onboarding, queue review, and specialist matching are 100% free. We never charge upfront audit fees. We only earn our 15% share when your account actively generates client payouts.</p> },
             { q: "Can I get a refund on an assessment package?", a: <p>If our specialists do not pass the agreed onboarding or qualification test within the agreed timeline, you receive a complete refund. No questions asked.</p> },
             { q: "What if I am unhappy with a tasker?", a: <p>We assign a replacement specialist within 3 business days at zero extra cost. We do not bill the tasking fee for unworked hours during the transition.</p> },
             { q: "Can I cancel at any time?", a: <p>Yes. You can cancel at any time with no exit fee. We remove tasker access the same day and send a final statement for work already completed.</p> },

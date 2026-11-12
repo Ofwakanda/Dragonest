@@ -11,7 +11,7 @@ export const site = {
   tagline: "",
   url: "https://www.middlemen.ai",
   description:
-    "Managed staffing for AI-training accounts. We audit, onboard, task and QA with vetted taskers. You keep ownership. We take a transparent percentage. Only for platforms that allow subcontracting.",
+    "Managed staffing for AI training accounts. We onboard, task and QA with vetted specialists. You keep 100% legal ownership and collect 55% of all earnings weekly with zero upfront fees.",
   email: {
     hello: "hello@middlemen.ai",
     support: "support@middlemen.ai",
@@ -20,10 +20,13 @@ export const site = {
     legal: "legal@middlemen.ai",
     privacy: "privacy@middlemen.ai",
   },
+  phone: "+1 (800) 419-7204",
+  sms: "sms:+18004197204",
+  howItWorksUrl: "https://middlemen.online/account-owners#how-it-works",
   legalEntity: "Middlemen (MM) Ltd.",
   jurisdiction: "[Your governing jurisdiction]",
   lastUpdated: "28 September 2026",
-  trustLine: "Only for platforms that explicitly allow subcontracting and remote access.",
+  trustLine: "100% legal ownership retained with zero upfront fees.",
   telegram: {
     hub: "https://t.me/+bQPz0nzK-cI4MTBh",
     handle: "Join Telegram Community",
@@ -35,8 +38,8 @@ export const site = {
 
 export const pricing = {
   currency: "USD",
-  audit: { price: 49, label: "Account audit", unit: "one-time" },
-  onboarding: { percent: 15, flat: 150, label: "Onboarding package" },
+  audit: { price: 0, label: "Account onboarding", unit: "free" },
+  onboarding: { percent: 15, flat: 0, label: "Onboarding package" },
   tasking: { percent: 15, label: "Tasking fee" },
   /** Minimum share of gross task earnings paid to the tasker. */
   taskerShare: 30,

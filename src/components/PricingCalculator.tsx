@@ -66,7 +66,7 @@ export function PricingCalculator() {
         )}
         <p className="mt-4 text-[0.95rem] text-muted">
           Estimate only. Real earnings depend on how much work the platform offers, and we can&apos;t guarantee any amount.
-          The one-time {money(pricing.audit.price)} audit is not included. You remain responsible for tax on the full platform payout.
+          Account onboarding is 100% free with zero upfront fees. You remain responsible for tax on the full platform payout.
         </p>
       </div>
     </div>

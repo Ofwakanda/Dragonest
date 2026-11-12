@@ -232,7 +232,7 @@ export default function Home() {
             <div className="mt-4">
               <CheckList items={[
                 "Daily policy tracker : Terms of Service changes across major AI training platforms",
-                "Subcontracting radar : Alerts on which platforms permit managed contracting",
+                "Queue radar : Real time alerts on high paying task batches and active projects",
                 "Work availability alerts : Which queues are actively adding contributors right now",
                 "Market rate benchmarks : Real earnings data across coding, math, and reasoning",
                 "Compliance advisories : Practical guidance to keep accounts in top standing",

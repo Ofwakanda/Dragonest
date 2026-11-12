@@ -2,10 +2,11 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
-import { Menu, X, Send } from "lucide-react";
+import { Menu, X, Send, MessageSquare } from "lucide-react";
 import { nav, site } from "@/config/site";
 import { ThemeToggle } from "./ThemeToggle";
 import { LanguageSelector } from "./LanguageSelector";
+import { openCustomerCare } from "./CustomerCareModal";
 
 export function Header() {
   const pathname = usePathname();
@@ -59,6 +60,14 @@ export function Header() {
         </nav>
 
         <div className="flex items-center gap-2.5">
+          <button
+            type="button"
+            onClick={openCustomerCare}
+            className="hidden lg:inline-flex items-center gap-1.5 rounded-control border border-line bg-surface hover:bg-surface-2 px-3 py-1.5 text-xs font-bold text-ink transition-colors whitespace-nowrap"
+            title="Text Us Directly : 24/7 Customer Care"
+          >
+            <MessageSquare className="h-3.5 w-3.5 text-accent" /> Text Us 24/7
+          </button>
           <a
             href={site.telegram.hub}
             target="_blank"
