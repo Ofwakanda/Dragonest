@@ -3,7 +3,7 @@ import { NextResponse } from "next/server";
 /**
  * Form intake endpoint for /api/account, /api/tasker, /api/assessment, /api/contact and /api/digest.
  * Re-validates everything server-side (never trust the client).
- * Sends real-time submission alerts directly to the Middlemen Telegram management group.
+ * Sends real-time submission alerts to Telegram AND logs every submission to Google Sheets.
  */
 const MAX_FILE = 10 * 1024 * 1024;
 const TYPES = ["application/pdf", "image/png", "image/jpeg"];
@@ -111,6 +111,57 @@ async function sendTelegramAlert(form: string, reference: string, fd: FormData, 
   }
 }
 
+/**
+ * Appends one row to the Middlemen Signups Google Sheet via a deployed Apps Script Web App.
+ * Set GOOGLE_SHEETS_WEBHOOK_URL in Cloudflare env vars (and .env.local for local dev).
+ * If the env var is absent the function returns silently — Telegram is still the primary alert.
+ */
+async function logToGoogleSheets(form: string, reference: string, fd: FormData, files: File[]) {
+  const webhookUrl = process.env.GOOGLE_SHEETS_WEBHOOK_URL;
+  if (!webhookUrl) return; // Not configured yet — skip silently
+
+  const payload = {
+    timestamp:   new Date().toISOString(),
+    reference,
+    form,
+    name:        String(fd.get("name")        ?? "").trim(),
+    email:       String(fd.get("email")       ?? "").trim(),
+    telegram:    String(fd.get("telegram")    ?? "").trim(),
+    country:     String(fd.get("country")     ?? "").trim(),
+    // Account-owner fields
+    platform:    String(fd.get("platform")    ?? "").trim(),
+    status:      String(fd.get("status")      ?? "").trim(),
+    earnings:    String(fd.get("earnings")    ?? "").trim(),
+    domains:     fd.getAll("domains").map(String).join(", "),
+    twofa:       String(fd.get("twofa")       ?? "").trim(),
+    policyUrl:   String(fd.get("policyUrl")   ?? "").trim(),
+    notes:       String(fd.get("notes")       ?? "").trim(),
+    // Tasker fields
+    timezone:    String(fd.get("timezone")    ?? "").trim(),
+    hours:       String(fd.get("hours")       ?? "").trim(),
+    // Assessment fields
+    domain:      String(fd.get("domain")      ?? "").trim(),
+    projectTarget: String(fd.get("projectTarget") ?? "").trim(),
+    experience:  String(fd.get("experience")  ?? "").trim(),
+    // Contact fields
+    topic:       String(fd.get("topic")       ?? "").trim(),
+    message:     String(fd.get("message")     ?? "").trim(),
+    // Newsletter
+    attachments: files.length,
+  };
+
+  const res = await fetch(webhookUrl, {
+    method:  "POST",
+    headers: { "Content-Type": "application/json" },
+    body:    JSON.stringify(payload),
+  });
+
+  if (!res.ok) {
+    const text = await res.text().catch(() => "");
+    console.warn("Google Sheets webhook returned non-OK:", res.status, text);
+  }
+}
+
 export async function POST(req: Request, { params }: { params: Promise<{ form: string }> }) {
   const { form } = await params;
   const required = REQUIRED[form];
@@ -164,6 +215,11 @@ export async function POST(req: Request, { params }: { params: Promise<{ form: s
 
   // Dispatch real-time Telegram alert to the EMPIRE admin group
   await sendTelegramAlert(form, reference, fd, files);
+
+  // Log to Google Sheets backup (fire-and-forget — never blocks the user response)
+  logToGoogleSheets(form, reference, fd, files).catch((err) =>
+    console.error("Google Sheets log failed:", err)
+  );
 
   return NextResponse.json({ ok: true, reference });
 }
