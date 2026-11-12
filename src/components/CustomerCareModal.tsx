@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Headphones, MessageSquare, PhoneCall, Mail, Clock, ShieldCheck, X, Send, CheckCircle2, ArrowRight } from "lucide-react";
+import { Headphones, Clock, ShieldCheck, X, Send, CheckCircle2, ArrowRight } from "lucide-react";
 
 export function openCustomerCare() {
   if (typeof window !== "undefined") {
@@ -12,7 +12,7 @@ export function openCustomerCare() {
 export function CustomerCareModal() {
   const [isOpen, setIsOpen] = useState(false);
   const [status, setStatus] = useState<"idle" | "sending" | "sent">("idle");
-  const [formData, setFormData] = useState({ name: "", email: "", phone: "", topic: "account-onboarding", message: "" });
+  const [formData, setFormData] = useState({ name: "", email: "", telegram: "", topic: "account-audit", message: "" });
 
   useEffect(() => {
     function handleOpen() {
@@ -30,8 +30,8 @@ export function CustomerCareModal() {
       fd.append("name", formData.name);
       fd.append("email", formData.email);
       fd.append("topic", formData.topic);
-      const msg = formData.phone
-        ? `[Direct Text Request: ${formData.phone}]\n${formData.message}`
+      const msg = formData.telegram
+        ? `[Telegram Handle: ${formData.telegram}]\n${formData.message}`
         : formData.message;
       fd.append("message", msg);
 
@@ -40,7 +40,7 @@ export function CustomerCareModal() {
         body: fd,
       });
       setStatus("sent");
-      setFormData({ name: "", email: "", phone: "", topic: "account-onboarding", message: "" });
+      setFormData({ name: "", email: "", telegram: "", topic: "account-audit", message: "" });
     } catch {
       setStatus("sent");
     }
@@ -102,6 +102,36 @@ export function CustomerCareModal() {
               </button>
             </div>
 
+            {/* 24/7 Telegram Contact Hub */}
+            <a
+              href="https://t.me/MiddlemenHub"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-between rounded-xl border-2 border-[#24A1DE]/40 bg-[#24A1DE]/10 p-4 hover:border-[#24A1DE] hover:bg-[#24A1DE]/20 transition-all group shadow-sm"
+            >
+              <div className="flex items-center gap-3.5">
+                <span className="h-10 w-10 rounded-xl bg-[#24A1DE] text-white flex items-center justify-center shadow-md shrink-0">
+                  <Send className="h-5 w-5" />
+                </span>
+                <div>
+                  <div className="flex items-center gap-2">
+                    <span className="font-black text-ink text-sm group-hover:text-accent-ink transition-colors">
+                      24/7 Telegram Contact Hub
+                    </span>
+                    <span className="rounded bg-[#24A1DE]/25 text-[#24A1DE] dark:text-[#64B5F6] text-[10px] font-mono px-1.5 py-0.5 font-bold">
+                      Live 24/7
+                    </span>
+                  </div>
+                  <p className="text-xs text-muted font-mono mt-0.5">
+                    <strong className="text-[#24A1DE]">t.me/MiddlemenHub</strong> &bull; Chat live with operators
+                  </p>
+                </div>
+              </div>
+              <span className="font-mono text-xs font-bold text-[#24A1DE] dark:text-[#64B5F6] group-hover:translate-x-1 transition-transform shrink-0">
+                Open Telegram →
+              </span>
+            </a>
+
             {/* Link to 24hr Customer Care How It Works Guide */}
             <a
               href="https://middlemen.online/account-owners#how-it-works"
@@ -125,34 +155,12 @@ export function CustomerCareModal() {
               </span>
             </a>
 
-            {/* Quick Contact & Direct Text Channels */}
-            <div className="space-y-2">
-              <div className="grid grid-cols-2 gap-2 text-xs font-mono">
-                {/* Text Us Directly */}
-                <a
-                  href="sms:+18004197204"
-                  className="rounded-xl border-2 border-accent/40 bg-accent/10 p-3 hover:border-accent hover:bg-accent/20 transition-all group block"
-                >
-                  <span className="text-ink font-bold flex items-center gap-1.5">
-                    <MessageSquare className="h-4 w-4 text-accent" /> Text Us Directly
-                  </span>
-                  <p className="text-ink font-black text-sm mt-1">+1 (800) 419-7204</p>
-                  <span className="text-[10px] text-accent font-semibold block mt-0.5">Click to text for fast SMS reply</span>
-                </a>
-
-                {/* Telegram Hub */}
-                <a
-                  href="https://t.me/+bQPz0nzK-cI4MTBh"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="rounded-xl border-2 border-[#24A1DE]/40 bg-[#24A1DE]/10 p-3 hover:border-[#24A1DE] hover:bg-[#24A1DE]/20 transition-all group block"
-                >
-                  <span className="text-ink font-bold flex items-center gap-1.5">
-                    <Send className="h-4 w-4 text-[#24A1DE]" /> Telegram Live Hub
-                  </span>
-                  <p className="text-ink font-black text-sm mt-1">Official Hub</p>
-                  <span className="text-[10px] text-[#24A1DE] font-semibold block mt-0.5">Chat with live 24/7 admins</span>
-                </a>
+            {/* FREE AUDIT & ACCOUNT CHECK CALLOUT */}
+            <div className="rounded-xl border border-accent/40 bg-accent-soft/20 p-3.5 flex items-start gap-3">
+              <ShieldCheck className="h-5 w-5 text-accent shrink-0 mt-0.5" />
+              <div className="text-xs text-ink/90 leading-relaxed">
+                <strong className="block text-ink font-bold">Checking and Auditing Your Account Is Absolutely Free</strong>
+                Zero upfront fees, zero evaluation charges, zero obligation. We only earn a 15% share when your account actively generates payouts.
               </div>
             </div>
 
@@ -162,7 +170,7 @@ export function CustomerCareModal() {
                 <CheckCircle2 className="h-10 w-10 text-accent mx-auto" />
                 <h4 className="font-bold text-ink text-lg">Message Dispatched</h4>
                 <p className="text-xs text-muted leading-relaxed">
-                  Your inquiry has been routed directly to our operations group. Our customer care team will reply via text message and email within minutes.
+                  Your inquiry has been routed directly to our operations group. Our customer care team will reply on Telegram and email within minutes.
                 </p>
                 <button
                   type="button"
@@ -201,13 +209,13 @@ export function CustomerCareModal() {
 
                 <div>
                   <label className="block text-[11px] font-mono font-semibold text-muted uppercase mb-1">
-                    Mobile Phone (For direct text reply)
+                    Telegram Username (Optional)
                   </label>
                   <input
-                    type="tel"
-                    value={formData.phone}
-                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                    placeholder="+1 (555) 000-0000"
+                    type="text"
+                    value={formData.telegram}
+                    onChange={(e) => setFormData({ ...formData, telegram: e.target.value })}
+                    placeholder="@username"
                     className="w-full rounded-control border-2 border-line bg-bg px-3 py-2 text-sm text-ink placeholder:text-muted focus:border-ink focus:outline-none"
                   />
                 </div>
@@ -219,7 +227,7 @@ export function CustomerCareModal() {
                     onChange={(e) => setFormData({ ...formData, topic: e.target.value })}
                     className="w-full rounded-control border-2 border-line bg-bg px-3 py-2 text-sm text-ink focus:border-ink focus:outline-none"
                   >
-                    <option value="account-onboarding">Account Onboarding &amp; Staffing (Free)</option>
+                    <option value="account-audit">Account Onboarding &amp; Free Audit</option>
                     <option value="tasker-support">Tasker Application &amp; Shifts</option>
                     <option value="payouts">Weekly 55% Payouts &amp; Invoicing</option>
                     <option value="general">General Fast Track Inquiry</option>
@@ -244,7 +252,7 @@ export function CustomerCareModal() {
                   className="btn-accent w-full text-xs font-bold uppercase tracking-wider !py-3 shadow-md flex items-center justify-center gap-2"
                 >
                   <Send className="h-4 w-4" />
-                  {status === "sending" ? "Routing Message..." : "Text Us Directly / Send Inquiry"}
+                  {status === "sending" ? "Routing Message..." : "Dispatch to Support Desk"}
                 </button>
 
                 <p className="text-[11px] text-muted text-center flex items-center justify-center gap-1.5">

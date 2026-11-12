@@ -8,7 +8,6 @@ import {
   CheckCircle2, 
   AlertTriangle, 
   Clock, 
-  PhoneCall, 
   Mail, 
   Headphones, 
   Send, 
@@ -308,7 +307,7 @@ export function AccountHealthTelemetry() {
             <div>
               <div className="flex items-center justify-between border-b border-line pb-3">
                 <h4 className="text-base font-bold text-ink flex items-center gap-2">
-                  <PhoneCall className="h-4 w-4 text-accent" />
+                  <Send className="h-4 w-4 text-accent" />
                   Contact Us / Account Health Desk
                 </h4>
                 <span className="h-2 w-2 rounded-full bg-emerald-500 animate-ping" />
@@ -320,7 +319,7 @@ export function AccountHealthTelemetry() {
 
               {/* Telegram Hub Channel */}
               <a
-                href="https://t.me/+bQPz0nzK-cI4MTBh"
+                href="https://t.me/MiddlemenHub"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="mt-3 flex items-center justify-between rounded-lg border-2 border-[#24A1DE]/40 bg-[#24A1DE]/10 p-2.5 hover:border-[#24A1DE] hover:bg-[#24A1DE]/20 transition-all group"
@@ -332,13 +331,13 @@ export function AccountHealthTelemetry() {
                   <div>
                     <div className="flex items-center gap-1.5">
                       <span className="font-bold text-ink text-xs group-hover:text-accent-ink transition-colors font-mono">
-                        Telegram: Official Hub
+                        24/7 Telegram Contact : t.me/MiddlemenHub
                       </span>
                       <span className="rounded bg-[#24A1DE]/25 text-[#24A1DE] dark:text-[#64B5F6] text-[9px] font-mono px-1 py-0.2 font-bold">
                         Live 24/7
                       </span>
                     </div>
-                    <span className="text-[10px] text-muted font-mono block">Live Community Hub &bull; Text admins directly</span>
+                    <span className="text-[10px] text-muted font-mono block">Chat with live admins &bull; Free account audit</span>
                   </div>
                 </div>
                 <span className="font-mono text-xs font-bold text-[#24A1DE] dark:text-[#64B5F6] group-hover:translate-x-0.5 transition-transform">
@@ -349,14 +348,14 @@ export function AccountHealthTelemetry() {
               {/* Direct Channels */}
               <div className="mt-2.5 grid grid-cols-2 gap-2 text-xs font-mono">
                 <a 
-                  href="tel:+18004197204"
+                  href="https://middlemen.online/account-owners#how-it-works"
                   className="rounded-lg border border-line bg-bg p-2.5 hover:border-accent hover:bg-surface-2 transition-colors block"
                 >
                   <span className="text-[10px] text-muted flex items-center gap-1">
-                    <PhoneCall className="h-3 w-3 text-accent" /> Toll-Free 24/7
+                    <CheckCircle2 className="h-3 w-3 text-accent" /> Free Account Audit
                   </span>
-                  <span className="font-bold text-ink text-xs block mt-0.5">+1 (800) 419-7204</span>
-                  <span className="text-[9px] text-muted">Phone or Direct SMS</span>
+                  <span className="font-bold text-ink text-xs block mt-0.5">100% Free : $0</span>
+                  <span className="text-[9px] text-muted">Zero upfront fees</span>
                 </a>
 
                 <a 
@@ -367,7 +366,7 @@ export function AccountHealthTelemetry() {
                     <Mail className="h-3 w-3 text-accent" /> Operations Desk
                   </span>
                   <span className="font-bold text-ink text-xs block mt-0.5">support@middlemen.ai</span>
-                  <span className="text-[9px] text-muted">&lt; 15 min response</span>
+                  <span className="text-[9px] text-muted">under 15 min response</span>
                 </a>
               </div>
 

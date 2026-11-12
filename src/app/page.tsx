@@ -47,6 +47,10 @@ const faq = [
     q: "How much money can an account owner make?", 
     a: <p>Account owners keep <strong className="text-ink">55% of all earnings</strong> generated on their account. A typical active queue producing $1,500 to $3,000 monthly puts $825 to $1,650 directly into your pocket every month without doing any of the task work yourself.</p> 
   },
+  {
+    q: "Does it cost anything to check or audit my account?",
+    a: <p>No. Checking and auditing your account is absolutely free. There are zero upfront fees, zero evaluation charges, and zero obligation. We only earn our 15% management fee when your account actively generates client payouts.</p>
+  },
   { 
     q: "Do I still own my account?", 
     a: <p>Yes. The account remains in your name 100% of the time. You can pause work, inspect task logs, or remove tasker access at any moment with no penalties.</p> 

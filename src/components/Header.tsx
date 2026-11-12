@@ -60,22 +60,14 @@ export function Header() {
         </nav>
 
         <div className="flex items-center gap-2.5">
-          <button
-            type="button"
-            onClick={openCustomerCare}
-            className="hidden lg:inline-flex items-center gap-1.5 rounded-control border border-line bg-surface hover:bg-surface-2 px-3 py-1.5 text-xs font-bold text-ink transition-colors whitespace-nowrap"
-            title="Text Us Directly : 24/7 Customer Care"
-          >
-            <MessageSquare className="h-3.5 w-3.5 text-accent" /> Text Us 24/7
-          </button>
           <a
             href={site.telegram.hub}
             target="_blank"
             rel="noopener noreferrer"
             className="hidden md:inline-flex items-center gap-1.5 rounded-control border border-[#24A1DE]/40 bg-[#24A1DE]/10 hover:bg-[#24A1DE]/20 px-3 py-1.5 text-xs font-bold text-ink transition-colors whitespace-nowrap"
-            title="Join Telegram Hub"
+            title="24/7 Telegram Contact : t.me/MiddlemenHub"
           >
-            <Send className="h-3.5 w-3.5 text-[#24A1DE]" /> Telegram
+            <Send className="h-3.5 w-3.5 text-[#24A1DE]" /> 24/7 Telegram Contact
           </a>
           <LanguageSelector />
           <Link href="/account-owners#submit" className="btn-accent hidden whitespace-nowrap !min-h-[40px] !py-2 !px-4 text-xs tracking-wide uppercase sm:inline-flex">

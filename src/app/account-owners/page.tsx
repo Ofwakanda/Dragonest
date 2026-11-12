@@ -15,7 +15,7 @@ import {
   ArrowRight,
   TrendingUp,
   KeyRound,
-  MessageSquare
+  Send
 } from "lucide-react";
 import { AccountSubmitForm } from "@/components/forms/AccountSubmitForm";
 import { DashboardPreview } from "@/components/DashboardPreview";
@@ -37,7 +37,7 @@ export default function AccountOwners() {
         eyebrow="For Account Owners : 100% Hands Off Income" 
         title="Your AI Account Is Worth Money. Let Us Work It For You."
         backgroundImage="/images/account-owners.jpg"
-        subhead="If your AI training account on Outlier, Alignerr, Scale AI, or DataAnnotation is sitting idle, you are leaving thousands on the table every month. We pair your account with verified specialists who do the work every day. You keep 55% of all earnings. Zero effort required."
+        subhead="If your AI training account on Outlier, Alignerr, Scale AI, or DataAnnotation is sitting idle, you are leaving thousands on the table every month. Checking and auditing your account is absolutely free. We pair your account with verified specialists who do the work every day. You keep 55% of all earnings. Zero effort required."
       >
         <div className="flex flex-col gap-3.5 sm:flex-row">
           <Link href="#submit" className="btn-accent text-sm uppercase tracking-wider !py-3.5 !px-7 shadow-md">
@@ -144,31 +144,31 @@ export default function AccountOwners() {
         </div>
 
         {/* FAST RESPONSE ACTION BAR */}
-        <div className="mt-8 flex flex-col sm:flex-row items-center justify-between gap-4 rounded-2xl border border-line bg-surface p-5 shadow-sm">
+        <div className="mt-8 flex flex-col sm:flex-row items-center justify-between gap-4 rounded-2xl border-2 border-accent/40 bg-accent-soft/20 p-5 shadow-sm">
           <div className="flex items-center gap-3">
             <span className="h-10 w-10 rounded-xl bg-accent text-accent-ink flex items-center justify-center font-bold shrink-0">
-              <MessageSquare className="h-5 w-5" />
+              <Send className="h-5 w-5" />
             </span>
             <div>
-              <p className="text-sm font-bold text-ink">Have Questions About Your Specific Account?</p>
-              <p className="text-xs text-muted">Text our operations team directly for a fast response in under 15 minutes.</p>
+              <p className="text-sm font-bold text-ink">Checking and Auditing Your Account Is Absolutely Free</p>
+              <p className="text-xs text-muted">Zero upfront fees, zero obligation. Chat directly with our 24hr Telegram desk for an instant response.</p>
             </div>
           </div>
           <div className="flex items-center gap-3 w-full sm:w-auto">
             <a
-              href="sms:+18004197204"
-              className="btn-accent text-xs uppercase tracking-wider font-bold !py-2.5 !px-5 whitespace-nowrap text-center flex-1 sm:flex-none"
-            >
-              Text Us Directly (SMS)
-            </a>
-            <a
-              href={site.telegram.hub}
+              href="https://t.me/MiddlemenHub"
               target="_blank"
               rel="noopener noreferrer"
+              className="btn-accent text-xs uppercase tracking-wider font-bold !py-2.5 !px-5 whitespace-nowrap text-center flex items-center justify-center gap-1.5 flex-1 sm:flex-none"
+            >
+              <Send className="h-3.5 w-3.5" /> 24/7 Telegram : t.me/MiddlemenHub
+            </a>
+            <Link
+              href="#submit"
               className="btn-secondary text-xs uppercase tracking-wider font-bold !py-2.5 !px-5 whitespace-nowrap text-center flex-1 sm:flex-none"
             >
-              Telegram 24/7
-            </a>
+              Start Free Audit
+            </Link>
           </div>
         </div>
       </Section>

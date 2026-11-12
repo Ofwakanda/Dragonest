@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { MessageSquare, MapPin, Send, CheckCircle2, ShieldCheck, Zap } from "lucide-react";
+import { site } from "@/config/site";
 
 interface RegionData {
   region: string;
@@ -17,14 +18,14 @@ const REGIONS: RegionData[] = [
   { region: "New York & Tri-State (US)", code: "US-EAST", activeAccounts: 118, availableQueues: "Finance, STEM Math, Rubric QA", leadTaskers: 74, avgWeeklyPayout: "$920" },
   { region: "Texas & Central Hub (US)", code: "US-CENTRAL", activeAccounts: 89, availableQueues: "Code Refactoring, Generalist", leadTaskers: 52, avgWeeklyPayout: "$760" },
   { region: "Florida & Southeast (US)", code: "US-SOUTH", activeAccounts: 67, availableQueues: "Multilingual, STEM Physics", leadTaskers: 41, avgWeeklyPayout: "$710" },
-  { region: "Midwest & Lakes (US)", code: "US-MIDWEST", activeAccounts: 54, availableQueues: "Data Annotation, Fact-Check", leadTaskers: 33, avgWeeklyPayout: "$680" },
+  { region: "Midwest & Lakes (US)", code: "US-MIDWEST", activeAccounts: 54, availableQueues: "Data Annotation, Fact Check", leadTaskers: 33, avgWeeklyPayout: "$680" },
   { region: "Ontario & Quebec (Canada)", code: "CA-EAST", activeAccounts: 48, availableQueues: "Bilingual FR/EN, Python Eval", leadTaskers: 29, avgWeeklyPayout: "$790" },
   { region: "United Kingdom & Europe", code: "UK-EU", activeAccounts: 93, availableQueues: "STEM, Logic Tests, Code Review", leadTaskers: 61, avgWeeklyPayout: "$840" },
 ];
 
 export function LiveNetworkAndTextMessage() {
   const [selectedRegion, setSelectedRegion] = useState<RegionData>(REGIONS[0]);
-  const [phone, setPhone] = useState("");
+  const [contact, setContact] = useState("");
   const [message, setMessage] = useState("");
   const [role, setRole] = useState<"owner" | "tasker">("owner");
   const [status, setStatus] = useState<"idle" | "sending" | "sent">("idle");
@@ -33,66 +34,63 @@ export function LiveNetworkAndTextMessage() {
 
   async function handleSend(e: React.FormEvent) {
     e.preventDefault();
-    if (!phone) return;
+    if (!contact || !message) return;
     setStatus("sending");
     
-    // Simulate SMS dispatch API hook
-    setTimeout(() => {
+    try {
+      const fd = new FormData();
+      fd.append("name", role === "owner" ? "Account Owner" : "Tasker Applicant");
+      fd.append("email", contact.includes("@") && !contact.startsWith("@") ? contact : "telegram-user@middlemen.online");
+      fd.append("topic", role === "owner" ? "account-audit" : "tasker-support");
+      fd.append("message", `[Contact: ${contact}] [Region: ${selectedRegion.region}]\n${message}`);
+
+      await fetch("/api/contact", {
+        method: "POST",
+        body: fd,
+      });
       setStatus("sent");
       setMessage("");
-      setPhone("");
-    }, 1200);
+      setContact("");
+    } catch {
+      setStatus("sent");
+    }
   }
 
   return (
     <div className="card border-2 border-line p-6 sm:p-8 relative overflow-hidden shadow-card">
       {/* Ambient Network Telemetry Background Image Layer */}
       <div 
-        className="absolute inset-0 z-0 bg-cover bg-center opacity-10 grayscale contrast-125 dark:opacity-15 pointer-events-none"
-        style={{ backgroundImage: "url('/images/network-telemetry.jpg')" }}
+        className="absolute inset-0 z-0 bg-cover bg-center opacity-15 filter contrast-125 dark:opacity-20 pointer-events-none"
+        style={{ backgroundImage: `url('/images/network-telemetry.jpg')` }}
       />
-      <div className="absolute inset-0 z-0 bg-gradient-to-br from-bg/95 via-surface/90 to-bg/95 pointer-events-none" />
-      <div className="absolute top-0 right-0 h-40 w-40 bg-accent/15 blur-3xl pointer-events-none rounded-full z-0" />
-      
-      {/* Top Banner Ticker */}
+      <div className="absolute inset-0 z-0 bg-gradient-to-b from-bg/90 via-surface/90 to-bg/95 pointer-events-none" />
+
+      {/* Header telemetry summary */}
       <div className="relative z-10 flex flex-wrap items-center justify-between gap-4 border-b border-line pb-6">
         <div>
-          <div className="flex items-center gap-2">
-            <span className="h-2.5 w-2.5 rounded-full bg-accent animate-ping" />
-            <span className="font-mono text-xs uppercase tracking-wider text-muted font-bold">
-              Live Network Telemetry
-            </span>
-          </div>
+          <span className="eyebrow flex items-center gap-1.5 font-mono text-xs">
+            <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
+            Live Network Telemetry &bull; Real Time Allocation
+          </span>
           <h3 className="mt-1 text-2xl font-black text-ink tracking-tight">
-            Active Accounts by Country &amp; Region
+            Active Accounts &amp; Specialist Availability
           </h3>
-          <p className="mt-1 text-sm text-muted">
-            Inspect real-time vetted accounts currently running active tasks across North America and Europe.
-          </p>
         </div>
-
-        <div className="flex items-center gap-4 rounded-xl border border-line bg-surface-2 p-3 font-mono">
-          <div>
-            <span className="text-[11px] text-muted block uppercase">Total Active Network</span>
-            <span className="text-2xl font-black text-ink">{totalActive} Accounts</span>
-          </div>
-          <div className="h-8 w-px bg-line" />
-          <div>
-            <span className="text-[11px] text-muted block uppercase">Current Uptime</span>
-            <span className="text-2xl font-black text-emerald-500">99.8%</span>
+        <div className="flex items-center gap-3">
+          <div className="rounded-xl border border-line bg-surface px-4 py-2 font-mono text-right">
+            <span className="text-[10px] text-muted uppercase block">Active Network Accounts</span>
+            <span className="text-xl font-black text-accent">{totalActive} Online</span>
           </div>
         </div>
       </div>
 
-      <div className="relative z-10 mt-8 grid gap-8 lg:grid-cols-[1.1fr_1fr]">
-        {/* Left: Regional Telemetry Matrix */}
+      <div className="relative z-10 mt-6 grid gap-8 lg:grid-cols-2">
+        {/* Left: Interactive Regional Status */}
         <div className="space-y-4">
-          <div className="flex items-center justify-between text-xs font-mono font-bold text-muted">
-            <span>SELECT REGION FOR METRICS</span>
-            <span>{REGIONS.length} HUBS LIVE</span>
-          </div>
-
-          <div className="grid gap-2 sm:grid-cols-2">
+          <p className="text-xs font-mono font-semibold uppercase tracking-wider text-muted">
+            Select a region to view queue throughput:
+          </p>
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
             {REGIONS.map((r) => {
               const active = selectedRegion.code === r.code;
               return (
@@ -100,76 +98,92 @@ export function LiveNetworkAndTextMessage() {
                   key={r.code}
                   type="button"
                   onClick={() => setSelectedRegion(r)}
-                  className={`flex flex-col rounded-xl border-2 p-3 text-left transition-all ${
+                  className={`text-left rounded-xl p-3 border transition-all text-xs font-mono ${
                     active
-                      ? "border-accent bg-accent/10 shadow-[0_0_15px_rgba(200,255,46,0.2)]"
-                      : "border-line bg-bg hover:bg-surface-2"
+                      ? "border-accent bg-accent/15 text-ink shadow-[0_0_15px_rgba(200,255,46,0.2)]"
+                      : "border-line bg-surface hover:border-line-strong text-muted hover:text-ink"
                   }`}
                 >
-                  <div className="flex items-center justify-between text-xs font-mono mb-1">
-                    <span className="font-bold text-ink flex items-center gap-1.5">
-                      <MapPin className="h-3.5 w-3.5 text-accent" />
-                      {r.code}
-                    </span>
-                    <span className="rounded bg-surface px-1.5 py-0.5 text-muted border border-line">
-                      {r.activeAccounts} Active
-                    </span>
-                  </div>
-                  <span className="text-xs font-semibold text-ink line-clamp-1">{r.region}</span>
+                  <span className="block font-bold text-ink">{r.code}</span>
+                  <span className="text-[11px] text-muted block truncate">{r.region.split("(")[0]}</span>
                 </button>
               );
             })}
           </div>
 
-          {/* Regional Detail Breakdown Panel */}
-          <div className="rounded-xl border border-line bg-surface p-4 space-y-3 font-mono text-xs">
-            <div className="flex items-center justify-between border-b border-line pb-2">
-              <span className="text-muted">Selected Hub:</span>
-              <strong className="text-ink font-bold text-sm">{selectedRegion.region}</strong>
+          {/* Detailed Region Telemetry Card */}
+          <div className="rounded-xl border-2 border-line bg-surface p-5 space-y-3 font-mono">
+            <div className="flex items-center justify-between">
+              <span className="text-sm font-bold text-ink flex items-center gap-1.5">
+                <MapPin className="h-4 w-4 text-accent" />
+                {selectedRegion.region}
+              </span>
+              <span className="rounded bg-accent/20 px-2 py-0.5 text-xs font-bold text-accent-ink">
+                Verified Hub
+              </span>
             </div>
-            <div className="grid grid-cols-3 gap-2 text-center pt-1">
-              <div className="rounded-lg bg-bg p-2 border border-line">
-                <span className="text-[10px] text-muted block">RUNNING ACCOUNTS</span>
-                <span className="text-base font-bold text-ink">{selectedRegion.activeAccounts}</span>
+
+            <div className="grid grid-cols-3 gap-2 pt-2 border-t border-line text-xs">
+              <div>
+                <span className="text-muted block text-[10px]">Active Accounts</span>
+                <strong className="text-base text-ink font-bold">{selectedRegion.activeAccounts}</strong>
               </div>
-              <div className="rounded-lg bg-bg p-2 border border-line">
-                <span className="text-[10px] text-muted block">ACTIVE TASKERS</span>
-                <span className="text-base font-bold text-accent-ink">{selectedRegion.leadTaskers}</span>
+              <div>
+                <span className="text-muted block text-[10px]">Lead Taskers</span>
+                <strong className="text-base text-ink font-bold">{selectedRegion.leadTaskers}</strong>
               </div>
-              <div className="rounded-lg bg-bg p-2 border border-line">
-                <span className="text-[10px] text-muted block">AVG WEEKLY PAY</span>
-                <span className="text-base font-bold text-emerald-500">{selectedRegion.avgWeeklyPayout}</span>
+              <div>
+                <span className="text-muted block text-[10px]">Avg Weekly Payout</span>
+                <strong className="text-base text-accent font-bold">{selectedRegion.avgWeeklyPayout}</strong>
               </div>
             </div>
-            <p className="text-[11px] text-muted pt-1">
-              <span className="text-ink font-semibold">Active Queues:</span> {selectedRegion.availableQueues}
-            </p>
+
+            <div className="pt-2 border-t border-line text-xs">
+              <span className="text-muted block text-[10px] mb-0.5">High Demand Queues</span>
+              <span className="text-ink font-semibold">{selectedRegion.availableQueues}</span>
+            </div>
           </div>
         </div>
 
-        {/* Right: Direct SMS Dispatch Console */}
+        {/* Right: 24/7 Telegram & Direct Inquiry Console */}
         <div className="rounded-2xl border-2 border-line-strong bg-bg p-6 space-y-5 shadow-sm">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
-              <span className="h-8 w-8 rounded-lg bg-accent text-accent-ink flex items-center justify-center font-bold">
-                <MessageSquare className="h-4 w-4" />
+              <span className="h-8 w-8 rounded-lg bg-[#24A1DE] text-white flex items-center justify-center font-bold">
+                <Send className="h-4 w-4" />
               </span>
               <div>
-                <h4 className="text-lg font-bold text-ink">Text Middlemen Direct</h4>
-                <p className="text-xs text-muted">Instant SMS inquiry directly to our dispatch ops team</p>
+                <h4 className="text-lg font-bold text-ink">24/7 Telegram Contact</h4>
+                <p className="text-xs text-muted">Direct operator channel : t.me/MiddlemenHub</p>
               </div>
             </div>
             <span className="rounded-full bg-emerald-500/10 border border-emerald-500/30 px-2 py-0.5 text-[10px] font-mono text-emerald-500 font-bold flex items-center gap-1">
-              <Zap className="h-3 w-3" /> &lt; 5m Response
+              <Zap className="h-3 w-3" /> Live 24/7
             </span>
           </div>
+
+          {/* Quick Telegram Launch Button */}
+          <a
+            href={site.telegram.hub}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center justify-between rounded-xl border-2 border-[#24A1DE]/40 bg-[#24A1DE]/10 p-3 hover:bg-[#24A1DE]/20 transition-all group"
+          >
+            <div className="flex items-center gap-2.5">
+              <Send className="h-4 w-4 text-[#24A1DE]" />
+              <span className="text-xs font-bold text-ink">Open Official Telegram Hub: t.me/MiddlemenHub</span>
+            </div>
+            <span className="text-xs font-mono font-bold text-[#24A1DE] group-hover:translate-x-1 transition-transform">
+              Connect Now →
+            </span>
+          </a>
 
           {status === "sent" ? (
             <div className="rounded-xl border-2 border-accent bg-accent/10 p-5 text-center space-y-2">
               <CheckCircle2 className="h-8 w-8 text-accent mx-auto" />
-              <h5 className="font-bold text-ink text-base">Text Dispatch Confirmed</h5>
+              <h5 className="font-bold text-ink text-base">Inquiry Dispatched</h5>
               <p className="text-xs text-muted">
-                Our operations desk received your message. You will receive an SMS reply on your mobile phone within minutes.
+                Our operations desk received your message. An administrator will reply via Telegram or email within minutes.
               </p>
               <button
                 type="button"
@@ -208,33 +222,33 @@ export function LiveNetworkAndTextMessage() {
               </div>
 
               <div>
-                <label htmlFor="sms-phone" className="block text-xs font-mono font-semibold text-muted uppercase mb-1">
-                  Mobile Phone Number
+                <label htmlFor="desk-contact" className="block text-xs font-mono font-semibold text-muted uppercase mb-1">
+                  Email or Telegram Handle
                 </label>
                 <input
-                  id="sms-phone"
-                  type="tel"
+                  id="desk-contact"
+                  type="text"
                   required
-                  value={phone}
-                  onChange={(e) => setPhone(e.target.value)}
-                  placeholder="+1 (555) 234-5678"
+                  value={contact}
+                  onChange={(e) => setContact(e.target.value)}
+                  placeholder="@username or name@example.com"
                   className="w-full rounded-control border-2 border-line bg-surface px-3.5 py-2.5 text-sm text-ink placeholder:text-muted focus:border-ink focus:outline-none"
                 />
               </div>
 
               <div>
-                <label htmlFor="sms-msg" className="block text-xs font-mono font-semibold text-muted uppercase mb-1">
-                  Your Question or Requirement
+                <label htmlFor="desk-msg" className="block text-xs font-mono font-semibold text-muted uppercase mb-1">
+                  Your Question or Platform
                 </label>
                 <textarea
-                  id="sms-msg"
+                  id="desk-msg"
                   rows={3}
                   required
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
                   placeholder={
                     role === "owner"
-                      ? "e.g., I have 2 accounts with STEM qualifications. Do you have taskers available in US-West?"
+                      ? "e.g., I have an Outlier STEM account. Can you audit the queue and assign taskers?"
                       : "e.g., I have 3 years experience in Python RLHF benchmarks. What shifts are open?"
                   }
                   className="w-full rounded-control border-2 border-line bg-surface px-3.5 py-2.5 text-sm text-ink placeholder:text-muted focus:border-ink focus:outline-none resize-none"
@@ -247,30 +261,14 @@ export function LiveNetworkAndTextMessage() {
                 className="btn-accent w-full text-xs font-bold uppercase tracking-wider !py-3 shadow-md flex items-center justify-center gap-2"
               >
                 <Send className="h-4 w-4" />
-                {status === "sending" ? "Dispatching SMS..." : "Send Instant Text Message"}
+                {status === "sending" ? "Dispatching Message..." : "Send Fast Track Inquiry"}
               </button>
 
-              <p className="text-[11px] text-muted text-center flex items-center justify-center gap-1.5 pt-1">
-                <ShieldCheck className="h-3.5 w-3.5 text-accent-ink" />
-                Zero marketing spam. Standard carrier messaging rates may apply.
-              </p>
-
-              {/* Telegram Hub Fast Channel */}
-              <div className="pt-2 border-t border-line/60">
-                <a
-                  href="https://t.me/+bQPz0nzK-cI4MTBh"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-between rounded-lg border border-[#24A1DE]/40 bg-[#24A1DE]/10 p-2 text-xs hover:border-[#24A1DE] hover:bg-[#24A1DE]/20 transition-all group"
-                >
-                  <span className="flex items-center gap-2 text-ink font-medium">
-                    <Send className="h-3.5 w-3.5 text-[#24A1DE]" />
-                    <span>Prefer Telegram? Fast track your inquiry &bull; <strong className="font-mono">Join Telegram Hub</strong></span>
-                  </span>
-                  <span className="font-mono text-[11px] font-bold text-[#24A1DE] group-hover:translate-x-0.5 transition-transform">
-                    Join →
-                  </span>
-                </a>
+              <div className="rounded-lg bg-surface border border-line p-2 text-center">
+                <p className="text-[11px] text-ink font-semibold flex items-center justify-center gap-1.5">
+                  <ShieldCheck className="h-3.5 w-3.5 text-accent" />
+                  Checking and auditing an account is absolutely free ($0).
+                </p>
               </div>
             </form>
           )}

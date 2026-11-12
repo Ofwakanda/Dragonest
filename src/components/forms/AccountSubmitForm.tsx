@@ -78,7 +78,7 @@ export function AccountSubmitForm() {
 
   return (
     <form noValidate onSubmit={onSubmit} className="space-y-8" aria-describedby="acct-form-intro">
-      <p id="acct-form-intro" className="text-muted">It takes about 2 minutes. Free setup with zero upfront fees.</p>
+      <p id="acct-form-intro" className="text-muted font-medium text-ink/80">Checking and auditing your account is absolutely free. Takes about 2 minutes with zero upfront fees.</p>
 
       <div className="flex gap-3 rounded-card border-2 border-primary bg-surface p-5">
         <Lock aria-hidden="true" className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
