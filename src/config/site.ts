@@ -21,10 +21,10 @@ export const site = {
     privacy: "privacy@middlemen.ai",
   },
   howItWorksUrl: "https://middlemen.online/account-owners#how-it-works",
-  legalEntity: "Middlemen (MM) Ltd.",
-  jurisdiction: "[Your governing jurisdiction]",
+  legalEntity: "Middlemen Operations Ltd.",
+  jurisdiction: "United Kingdom",
   lastUpdated: "28 September 2026",
-  trustLine: "Checking and auditing your account is absolutely free. 100% legal ownership retained with zero upfront fees.",
+  trustLine: "Transparent managed staffing with guaranteed weekly settlements and full owner control.",
   telegram: {
     hub: "https://t.me/MiddlemenHub",
     handle: "@MiddlemenHub",
@@ -52,8 +52,6 @@ export const nav = [
   { href: "/account-owners", label: "Account owners" },
   { href: "/taskers", label: "Taskers" },
   { href: "/pricing", label: "Pricing" },
-  { href: "/ai-study", label: "AI Study & Automations" },
-  { href: "/ratings", label: "Ratings" },
   { href: "/trust-safety", label: "Trust & safety" },
   { href: "/about", label: "About" },
 ] as const;

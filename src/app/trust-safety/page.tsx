@@ -16,15 +16,14 @@ export default function TrustSafety() {
   return (
     <>
       <PageHero 
-        eyebrow="Trust and safety" 
-        title="Security built into every session"
-        backgroundImage="/images/trust-security.jpg"
+        eyebrow="Trust &amp; Safety" 
+        title="Security Built into Every Session"
         subhead="Account owners trust us with access. Taskers trust us with their identity and pay. Here is exactly how we protect both."
       >
-        <Link href="#policy" className="btn-accent">Read our security policy</Link>
+        <Link href="#session" className="btn-accent">Review Security Controls</Link>
       </PageHero>
 
-      <Section id="session" title="How a work session is protected" intro="Your login is coordinated via Telegram's end-to-end encrypted chat with verified admins. From then on, taskers only ever see the screen of a locked-down, recorded machine." backgroundImage="/images/proxy-rdp-session.jpg">
+      <Section id="session" title="How a work session is protected" intro="Your login is coordinated via Telegram's end-to-end encrypted chat with verified admins. From then on, taskers only ever see the screen of a locked-down, recorded machine.">
         <div className="card"><SecureSessionDiagram className="h-auto w-full" /></div>
       </Section>
 

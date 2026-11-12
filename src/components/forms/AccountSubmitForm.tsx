@@ -78,12 +78,12 @@ export function AccountSubmitForm() {
 
   return (
     <form noValidate onSubmit={onSubmit} className="space-y-8" aria-describedby="acct-form-intro">
-      <p id="acct-form-intro" className="text-muted font-medium text-ink/80">Checking and auditing your account is absolutely free. Takes about 2 minutes with zero upfront fees.</p>
+      <p id="acct-form-intro" className="text-sm text-muted">Complete the intake below to evaluate your account queue. Takes about 2 minutes.</p>
 
-      <div className="flex gap-3 rounded-card border-2 border-primary bg-surface p-5">
-        <Lock aria-hidden="true" className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
-        <p className="text-sm">
-          <strong>Do not type your password here.</strong> We never ask for passwords on public web forms or email. All setup and coordination happens directly through Telegram end to end encrypted secret chats with our verified administrators.
+      <div className="flex items-center gap-3 rounded border border-line bg-surface p-4 text-xs text-muted">
+        <Lock aria-hidden="true" className="h-4 w-4 shrink-0 text-muted" />
+        <p>
+          We never request passwords or banking credentials on public web forms. All access coordination occurs securely via authenticated administrative channels.
         </p>
       </div>
 

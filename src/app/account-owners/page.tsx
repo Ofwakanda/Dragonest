@@ -79,79 +79,76 @@ export default function AccountOwners() {
         title="How You Start Making Money This Week" 
         intro="You do not need to do any tasks yourself. We handle the hard part and you collect your weekly share."
       >
-        <div className="grid gap-8 lg:grid-cols-3">
-          <div className="group card space-y-4 border-line hover:border-accent/60 bg-surface shadow-xl transition-all hover:-translate-y-1">
-            <div className="relative inline-block">
-              <div className="absolute -inset-1.5 rounded-2xl bg-gradient-to-r from-amber-500/30 to-yellow-500/20 blur-md opacity-40 group-hover:opacity-100 transition-opacity" />
-              <div className="relative inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-b from-slate-800 via-slate-900 to-slate-950 border border-t-amber-400/50 border-amber-500/30 text-amber-400 font-mono font-black text-xl shadow-[inset_0_1px_2px_rgba(255,255,255,0.25),0_8px_16px_rgba(0,0,0,0.5)]">
+        <div className="grid gap-4 md:grid-cols-3">
+          <div className="card flex flex-col justify-between">
+            <div>
+              <div className="mb-4 inline-flex h-9 w-9 items-center justify-center rounded border border-line bg-surface-2 font-mono text-xs font-semibold text-muted">
                 01
               </div>
+              <h3 className="text-lg font-semibold text-ink">Tell Us About Your Account</h3>
+              <p className="mt-2 text-sm text-muted leading-relaxed">
+                Submit your platform (Outlier, Alignerr, Scale AI, or DataAnnotation) and specify whether your account is active or waiting on qualification.
+              </p>
             </div>
-            <h3 className="text-xl font-bold text-ink">Tell Us About Your Account</h3>
-            <p className="text-sm text-muted leading-relaxed">
-              Submit your platform name (Outlier, Alignerr, Scale AI, or DataAnnotation) and tell us whether your account is fully active or stuck on an entry assessment. No passwords are ever entered on web forms.
-            </p>
           </div>
 
-          <div className="group card space-y-4 border-line hover:border-accent/60 bg-surface shadow-xl transition-all hover:-translate-y-1">
-            <div className="relative inline-block">
-              <div className="absolute -inset-1.5 rounded-2xl bg-gradient-to-r from-cyan-500/30 to-blue-500/20 blur-md opacity-40 group-hover:opacity-100 transition-opacity" />
-              <div className="relative inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-b from-slate-800 via-slate-900 to-slate-950 border border-t-cyan-400/50 border-cyan-500/30 text-cyan-400 font-mono font-black text-xl shadow-[inset_0_1px_2px_rgba(255,255,255,0.25),0_8px_16px_rgba(0,0,0,0.5)]">
+          <div className="card flex flex-col justify-between">
+            <div>
+              <div className="mb-4 inline-flex h-9 w-9 items-center justify-center rounded border border-line bg-surface-2 font-mono text-xs font-semibold text-muted">
                 02
               </div>
+              <h3 className="text-lg font-semibold text-ink">We Assign Vetted Specialists</h3>
+              <p className="mt-2 text-sm text-muted leading-relaxed">
+                We pair your account with certified domain specialists who work your queue daily. If tests are pending, assessment evaluators clear them first.
+              </p>
             </div>
-            <h3 className="text-xl font-bold text-ink">We Assign Vetted Specialists</h3>
-            <p className="text-sm text-muted leading-relaxed">
-              We match your account with top domain specialists who work your queue daily. If you are stuck on an assessment, our certified test takers clear it first to unlock high paying tasks.
-            </p>
           </div>
 
-          <div className="group card space-y-4 border-line hover:border-accent/60 bg-surface shadow-xl transition-all hover:-translate-y-1">
-            <div className="relative inline-block">
-              <div className="absolute -inset-1.5 rounded-2xl bg-gradient-to-r from-emerald-500/30 to-teal-500/20 blur-md opacity-40 group-hover:opacity-100 transition-opacity" />
-              <div className="relative inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-b from-slate-800 via-slate-900 to-slate-950 border border-t-emerald-400/50 border-emerald-500/30 text-emerald-400 font-mono font-black text-xl shadow-[inset_0_1px_2px_rgba(255,255,255,0.25),0_8px_16px_rgba(0,0,0,0.5)]">
+          <div className="card flex flex-col justify-between">
+            <div>
+              <div className="mb-4 inline-flex h-9 w-9 items-center justify-center rounded border border-line bg-surface-2 font-mono text-xs font-semibold text-muted">
                 03
               </div>
+              <h3 className="text-lg font-semibold text-ink">You Collect 55% Every Week</h3>
+              <p className="mt-2 text-sm text-muted leading-relaxed">
+                Earnings deposit directly to you. Every Friday, you receive a detailed settlement statement showing total payouts, tasker share, and the 15% management fee.
+              </p>
             </div>
-            <h3 className="text-xl font-bold text-ink">You Collect 55% Every Week</h3>
-            <p className="text-sm text-muted leading-relaxed">
-              Earnings flow directly to your designated bank or payout channel every week. You receive a clear settlement statement showing total account earnings, tasker pay, and our small management fee.
-            </p>
           </div>
         </div>
 
         {/* WORKED EXAMPLE */}
-        <div className="mt-12 rounded-3xl border-2 border-accent/40 bg-accent-soft/20 p-6 sm:p-8">
-          <h4 className="text-lg font-black text-ink mb-2">Example Monthly Math on an Active Queue</h4>
-          <p className="text-sm text-muted mb-6">Here is how a typical Python or STEM queue performing at $2,000 monthly breaks down:</p>
+        <div className="mt-10 rounded-card border border-line bg-surface p-6 sm:p-8">
+          <h4 className="text-base font-semibold text-ink mb-1">Example Monthly Return on an Active Queue</h4>
+          <p className="text-sm text-muted mb-6">How a typical technical queue generating $2,000 monthly settles:</p>
           <div className="grid gap-4 sm:grid-cols-3 text-center">
-            <div className="rounded-xl border border-line bg-surface p-4">
+            <div className="rounded border border-line bg-bg p-4">
               <span className="text-xs font-mono text-muted uppercase">Gross Account Earnings</span>
-              <p className="text-2xl font-black text-ink mt-1 font-mono">$2,000</p>
-              <p className="text-xs text-muted mt-1">Generated by our specialist</p>
+              <p className="text-2xl font-semibold text-ink mt-1 font-mono">$2,000</p>
+              <p className="text-xs text-muted mt-1">Generated by specialist tasks</p>
             </div>
-            <div className="rounded-xl border border-line bg-surface p-4">
-              <span className="text-xs font-mono text-muted uppercase">Tasker &amp; Middlemen Share</span>
-              <p className="text-2xl font-black text-ink mt-1 font-mono">$900</p>
+            <div className="rounded border border-line bg-bg p-4">
+              <span className="text-xs font-mono text-muted uppercase">Tasker &amp; Operations</span>
+              <p className="text-2xl font-semibold text-ink mt-1 font-mono">$900</p>
               <p className="text-xs text-muted mt-1">30% tasker + 15% management</p>
             </div>
-            <div className="rounded-xl border-2 border-accent bg-accent/10 p-4">
-              <span className="text-xs font-mono text-accent font-bold uppercase">Your 55% Net Profit</span>
-              <p className="text-2xl font-black text-accent mt-1 font-mono">$1,100</p>
-              <p className="text-xs text-accent font-bold mt-1">Direct to you without working</p>
+            <div className="rounded border border-line bg-surface-2 p-4">
+              <span className="text-xs font-mono text-ink font-semibold uppercase">Your 55% Net Share</span>
+              <p className="text-2xl font-semibold text-ink mt-1 font-mono">$1,100</p>
+              <p className="text-xs text-muted mt-1">Deposited directly to you</p>
             </div>
           </div>
         </div>
 
         {/* FAST RESPONSE ACTION BAR */}
-        <div className="mt-8 flex flex-col sm:flex-row items-center justify-between gap-4 rounded-2xl border-2 border-accent/40 bg-accent-soft/20 p-5 shadow-sm">
+        <div className="mt-8 flex flex-col sm:flex-row items-center justify-between gap-4 rounded-card border border-line bg-surface p-5">
           <div className="flex items-center gap-3">
-            <span className="h-10 w-10 rounded-xl bg-accent text-accent-ink flex items-center justify-center font-bold shrink-0">
-              <Send className="h-5 w-5" />
-            </span>
+            <div className="h-9 w-9 rounded border border-line bg-surface-2 flex items-center justify-center shrink-0">
+              <Send className="h-4 w-4 text-muted" />
+            </div>
             <div>
-              <p className="text-sm font-bold text-ink">Checking and Auditing Your Account Is Absolutely Free</p>
-              <p className="text-xs text-muted">Zero upfront fees, zero obligation. Chat directly with our 24hr Telegram desk for an instant response.</p>
+              <p className="text-sm font-semibold text-ink">Free Account Review &amp; Onboarding</p>
+              <p className="text-xs text-muted">No upfront fees or obligation. Coordinate directly with our 24/7 operations team.</p>
             </div>
           </div>
           <div className="flex items-center gap-3 w-full sm:w-auto">
@@ -159,15 +156,15 @@ export default function AccountOwners() {
               href="https://t.me/MiddlemenHub"
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-accent text-xs uppercase tracking-wider font-bold !py-2.5 !px-5 whitespace-nowrap text-center flex items-center justify-center gap-1.5 flex-1 sm:flex-none"
+              className="btn-accent text-xs uppercase tracking-wider font-semibold !py-2.5 !px-5 whitespace-nowrap text-center flex items-center justify-center gap-1.5 flex-1 sm:flex-none"
             >
-              <Send className="h-3.5 w-3.5" /> 24/7 Telegram : t.me/MiddlemenHub
+              <Send className="h-3.5 w-3.5" /> 24/7 Telegram Desk
             </a>
             <Link
               href="#submit"
-              className="btn-secondary text-xs uppercase tracking-wider font-bold !py-2.5 !px-5 whitespace-nowrap text-center flex-1 sm:flex-none"
+              className="btn-secondary text-xs uppercase tracking-wider font-semibold !py-2.5 !px-5 whitespace-nowrap text-center flex-1 sm:flex-none"
             >
-              Start Free Audit
+              Start Free Review
             </Link>
           </div>
         </div>
@@ -177,59 +174,59 @@ export default function AccountOwners() {
       <Section id="services" tone="tint" eyebrow="Choose Your Path" title="What Does Your Account Need?" intro="Whether your account is brand new or already active, we have a fast path to start earning.">
         <div className="grid gap-6 md:grid-cols-2">
           {/* OPTION 1: PASS ASSESSMENT */}
-          <article className="card border-t-4 border-t-amber-400 flex flex-col justify-between">
+          <article className="card flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between mb-4">
-                <span className="rounded-full border border-amber-500/40 bg-amber-500/10 px-3 py-1 font-mono text-xs font-bold text-amber-400">
-                  Option 1 : Entry Gate
+                <span className="badge">
+                  Option 1 · Entry Qualification
                 </span>
-                <GraduationCap className="h-6 w-6 text-amber-400" />
+                <GraduationCap className="h-5 w-5 text-muted" />
               </div>
-              <h3 className="text-2xl font-bold text-ink">Unlock My Account : Pass Assessments</h3>
+              <h3 className="text-xl font-semibold text-ink">Unlock Account · Pass Assessments</h3>
               <p className="mt-2 text-sm text-muted leading-relaxed">
-                Stuck on a tricky Outlier coding benchmark, Alignerr math test, or language evaluation? Our certified assessment specialists take the tests with guaranteed pass rates to unlock your account.
+                Stuck on a challenging Outlier coding benchmark, Alignerr math test, or reasoning evaluation? Certified assessment specialists assist with clearing benchmarks to unlock your queue.
               </p>
               <div className="mt-5">
                 <CheckList items={[
                   "Pass complex coding, STEM, and reasoning benchmark tests",
-                  "Clear account onboarding and unlock active project queues",
-                  "Fast turnaround : most tests completed in under 24 hours",
-                  "Pay flat rate or small percentage of first month earnings"
+                  "Unlock active project queues with clear qualification",
+                  "Fast turnaround, typically completed in under 24 hours",
+                  "Zero upfront charges · compensated only through active earnings"
                 ]} />
               </div>
             </div>
             <div className="mt-6 pt-4 border-t border-line">
               <Link href="#submit" className="btn-accent w-full text-center text-sm">
-                Unlock My Account Now →
+                Unlock Account
               </Link>
             </div>
           </article>
 
           {/* OPTION 2: FULLY MANAGED TASKING */}
-          <article className="card border-t-4 border-t-emerald-400 flex flex-col justify-between">
+          <article className="card flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between mb-4">
-                <span className="rounded-full border border-emerald-500/40 bg-emerald-500/10 px-3 py-1 font-mono text-xs font-bold text-emerald-400">
-                  Option 2 : Hands Off Income
+                <span className="badge">
+                  Option 2 · Managed Operations
                 </span>
-                <ClipboardCheck className="h-6 w-6 text-emerald-400" />
+                <ClipboardCheck className="h-5 w-5 text-muted" />
               </div>
-              <h3 className="text-2xl font-bold text-ink">Fully Managed Daily Tasking</h3>
+              <h3 className="text-xl font-semibold text-ink">Fully Managed Daily Tasking</h3>
               <p className="mt-2 text-sm text-muted leading-relaxed">
-                Your account is already approved and has tasks available, but you do not have the time or skill to sit and work 30 hours a week. We assign a dedicated specialist who tasks every single day.
+                Your account is approved and has active tasks, but you prefer not to task yourself. We assign dedicated domain specialists who task daily while you retain ownership.
               </p>
               <div className="mt-5">
                 <CheckList items={[
                   "Daily task completion with strict quality score protection",
                   "Verified domain specialists matched to your project queue",
                   "Weekly payouts sent directly to you every Friday",
-                  "55% owner share : no hidden cuts or surprise fees"
+                  "55% owner share with transparent settlement statements"
                 ]} />
               </div>
             </div>
             <div className="mt-6 pt-4 border-t border-line">
               <Link href="#submit" className="btn-accent w-full text-center text-sm">
-                Staff My Account Now →
+                Connect Account
               </Link>
             </div>
           </article>
@@ -237,25 +234,22 @@ export default function AccountOwners() {
       </Section>
 
       {/* SAFETY & ACCOUNT SECURITY */}
-      <Section id="safety" eyebrow="Zero Worry" title="Why Your Account Is Always Safe With Us" intro="We treat your account with extreme care because keeping it healthy is how everyone makes money.">
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+      <Section id="safety" eyebrow="Operational Standards" title="Account Protection &amp; Governance" intro="Every account is safeguarded with strict protocols to maintain continuous standing and earnings.">
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {[
-            { icon: Lock, title: "No Passwords on Web", desc: "You never type passwords into any website form. All setup happens via Telegram end to end encrypted secret chats with leadership admins.", color: "text-amber-400", border: "border-t-amber-400/40 border-amber-500/30", halo: "from-amber-500/25 to-yellow-500/10" },
-            { icon: Scale, title: "100% Your Account", desc: "You retain full legal ownership. You can pause work, change taskers, or disconnect service at any moment with no penalties.", color: "text-cyan-400", border: "border-t-cyan-400/40 border-cyan-500/30", halo: "from-cyan-500/25 to-blue-500/10" },
-            { icon: ShieldCheck, title: "Quality Protection", desc: "We sample and review tasks weekly to keep your platform quality rating above 4.8 out of 5.0, preventing bans or strikes.", color: "text-emerald-400", border: "border-t-emerald-400/40 border-emerald-500/30", halo: "from-emerald-500/25 to-teal-500/10" },
-            { icon: RefreshCcw, title: "Free Replacement", desc: "If a tasker ever falls ill or fails to meet our quality benchmark, we replace them immediately at zero cost to you.", color: "text-purple-400", border: "border-t-purple-400/40 border-purple-500/30", halo: "from-purple-500/25 to-indigo-500/10" },
+            { icon: Lock, title: "Credential Protection", desc: "No passwords are typed into public web forms. Account access is provisioned securely through end-to-end encrypted administrative channels." },
+            { icon: Scale, title: "100% Legal Ownership", desc: "You retain full administrative control. You can pause work, reassign specialists, or revoke access at any time." },
+            { icon: ShieldCheck, title: "Quality Benchmarks", desc: "Weekly review sampling maintains quality scores above 4.8 out of 5.0 to prevent platform flags or score degradation." },
+            { icon: RefreshCcw, title: "Immediate Replacement", desc: "If an evaluator is unavailable or fails quality standards, we reassign a qualified specialist within 3 business days." },
           ].map((item) => {
             const IconComp = item.icon;
             return (
-              <div key={item.title} className="group card border-line hover:border-accent/60 bg-surface flex flex-col justify-between transition-all hover:shadow-xl hover:-translate-y-1">
+              <div key={item.title} className="card flex flex-col justify-between">
                 <div>
-                  <div className="relative mb-4 inline-block">
-                    <div className={`absolute -inset-1 rounded-xl bg-gradient-to-r ${item.halo} blur-sm opacity-40 group-hover:opacity-100 transition-opacity`} />
-                    <div className={`relative h-12 w-12 rounded-xl bg-gradient-to-b from-slate-800 via-slate-900 to-slate-950 border ${item.border} flex items-center justify-center shadow-[inset_0_1px_1px_rgba(255,255,255,0.2),0_6px_12px_rgba(0,0,0,0.5)]`}>
-                      <IconComp className={`h-6 w-6 ${item.color} drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)] transform group-hover:scale-110 transition-transform`} strokeWidth={2.2} />
-                    </div>
+                  <div className="mb-4 inline-flex h-9 w-9 items-center justify-center rounded border border-line bg-surface-2 text-ink">
+                    <IconComp className="h-4 w-4 text-muted" strokeWidth={1.75} />
                   </div>
-                  <h3 className="text-base font-bold text-ink">{item.title}</h3>
+                  <h3 className="text-base font-semibold text-ink">{item.title}</h3>
                   <p className="text-xs text-muted mt-2 leading-relaxed">{item.desc}</p>
                 </div>
               </div>

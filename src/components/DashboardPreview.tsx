@@ -48,7 +48,7 @@ export function DashboardPreview() {
                 return (
                   <g key={w.week}>
                     <title>{`${w.week}: ${w.hours} hours`}</title>
-                    <path d={`M${x},${H + 4} v${-h + 4} q0,-4 4,-4 h32 q4,0 4,4 v${h - 4} z`} fill="rgb(var(--primary))" />
+                    <path d={`M${x},${H + 4} v${-h + 4} q0,-4 4,-4 h32 q4,0 4,4 v${h - 4} z`} fill="rgb(var(--muted))" fillOpacity="0.45" />
                     <text x={x + 20} y={H + 4 - h - 6} textAnchor="middle" fontSize="12" fill="rgb(var(--ink))">{w.hours}</text>
                     <text x={x + 20} y={H + 22} textAnchor="middle" fontSize="12" fill="rgb(var(--muted))">{w.week.replace("Week ", "Wk ")}</text>
                   </g>

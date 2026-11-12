@@ -77,59 +77,54 @@ export default function Taskers() {
   return (
     <>
       <PageHero 
-        eyebrow="For Taskers &amp; Assessment Takers" 
-        title="Work on Top AI Accounts. No Personal Account Needed."
-        backgroundImage="/images/tasker-focus-flow.jpg"
-        subhead={`We match you with verified AI training accounts that fit your skills and schedule. You work in a secure remote session, get paid every single week, and keep at least ${pricing.taskerShare}% of what your tasks earn.`}
+        eyebrow="For Evaluators &amp; Domain Specialists" 
+        title="Work on Top AI Accounts"
+        subhead={`We match your skills with verified AI training accounts holding active project queues. You work in secure virtual sessions and receive guaranteed weekly payouts of at least ${pricing.taskerShare}% of earnings.`}
       >
-        <div className="flex flex-wrap items-center gap-3">
-          <Link href="#apply" className="btn-accent">Apply as a General Tasker</Link>
-          <a href="#assessment-takers" className="btn-secondary !border-accent/40 bg-accent-soft/30 hover:bg-accent-soft/60">
-            Target a Project (Assessment Takers) &rarr;
+        <div className="flex flex-col sm:flex-row sm:items-center gap-3">
+          <Link href="#apply" className="btn-accent">Apply as an Evaluator</Link>
+          <a href="#assessment-takers" className="inline-flex items-center gap-1 text-sm font-medium text-muted hover:text-ink transition-colors px-3 py-2">
+            View Assessment Tracks <ArrowRight className="h-4 w-4" />
           </a>
-          <Link href="/accessibility" className="btn-secondary">See Accommodations</Link>
         </div>
-        <p className="mt-5 text-[0.95rem] text-muted">Applying, training, and testing are always 100% free. Anyone asking you to pay to join is not us.</p>
       </PageHero>
 
       {/* DEDICATED ASSESSMENT TAKERS SECTION */}
       <Section 
         id="assessment-takers" 
         eyebrow="Specialist Qualification Track"
-        title="Assessment Takers : Project Qualification Opportunities" 
-        intro="Think you can handle a particular project? We run you through simulated evaluations and place you onto accounts with immediate queues."
-        backgroundImage="/images/ai-study-lab.jpg"
+        title="Project Qualification Opportunities" 
+        intro="Experienced in a technical discipline? We guide you through simulated rubrics and match you directly with active project queues."
       >
         <div className="max-w-4xl space-y-6">
-          <div className="rounded-card border-2 border-accent bg-surface/95 p-6 sm:p-8 backdrop-blur shadow-lg">
+          <div className="card p-6 sm:p-8">
             <div className="flex items-start gap-4">
-              <div className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-control bg-accent text-bg font-black">
-                <Trophy className="h-6 w-6" />
+              <div className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded border border-line bg-surface-2 text-ink">
+                <Trophy className="h-5 w-5 text-muted" strokeWidth={1.75} />
               </div>
               <div className="space-y-2">
-                <span className="font-mono text-xs font-bold uppercase tracking-wider text-accent">High Earning Tier Projects</span>
-                <h3 className="text-2xl sm:text-3xl font-extrabold text-ink leading-tight">
-                  Do not wait for platform luck. Test into top tier projects with verified support.
+                <span className="font-mono text-xs font-semibold uppercase tracking-wider text-muted">High-Yield Technical Tracks</span>
+                <h3 className="text-xl sm:text-2xl font-semibold text-ink leading-tight">
+                  Qualify for specialized queues with structured rubric preparation.
                 </h3>
-                <p className="text-base text-muted leading-relaxed">
-                  The highest paying AI training workflows ($40 to $85/hr) across platforms like Outlier, Alignerr, DataAnnotation, and Mindrift are locked behind rigorous qualification assessments. 
-                  If your skills match a specific project, our team calibrates your scoring and places you onto active host accounts holding immediate queues.
+                <p className="text-sm text-muted leading-relaxed">
+                  The highest-paying AI training workflows ($40 to $85/hr) across platforms like Outlier, Alignerr, and DataAnnotation require domain-specific qualification tests. If your background matches, we provide guidance on grading edge cases and place you directly onto active accounts.
                 </p>
               </div>
             </div>
 
             <div className="mt-8 grid gap-4 sm:grid-cols-3 border-t border-line pt-6">
               <div className="space-y-1">
-                <span className="text-xs font-mono font-bold text-accent">01. Calibration Sandbox</span>
-                <p className="text-xs text-muted">Pre test preparation ensures you understand tricky grading edge cases before taking official tests.</p>
+                <span className="text-xs font-mono font-semibold text-ink">01. Calibration Sandbox</span>
+                <p className="text-xs text-muted">Review practice tasks to master subtle rubric criteria before taking official platform benchmarks.</p>
               </div>
               <div className="space-y-1">
-                <span className="text-xs font-mono font-bold text-accent">02. Direct Account Access</span>
-                <p className="text-xs text-muted">No waiting weeks for project allocation. Once passed, you are placed directly into active host queues.</p>
+                <span className="text-xs font-mono font-semibold text-ink">02. Direct Account Access</span>
+                <p className="text-xs text-muted">Once qualified, you are assigned immediately to verified host accounts holding active project queues.</p>
               </div>
               <div className="space-y-1">
-                <span className="text-xs font-mono font-bold text-accent">03. Weekly Pay Floor</span>
-                <p className="text-xs text-muted">You receive at least 30% of gross task earnings every Friday with transparent settlement statements.</p>
+                <span className="text-xs font-mono font-semibold text-ink">03. Weekly Pay Floor</span>
+                <p className="text-xs text-muted">Receive at least 30% of gross task earnings every Friday with itemized reconciliation statements.</p>
               </div>
             </div>
           </div>

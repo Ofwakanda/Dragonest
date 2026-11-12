@@ -36,7 +36,7 @@ export function Footer() {
             Managed staffing for AI-training accounts. {site.trustLine}
           </p>
         </div>
-        <FooterList title="Company" links={[...nav.map((n) => ({ href: n.href, label: n.label })), { href: "/#digest", label: "Daily Digest" }, { href: "/about#contact", label: "Contact" }]} />
+        <FooterList title="Company" links={[...nav.map((n) => ({ href: n.href, label: n.label })), { href: "/#faq", label: "FAQ" }, { href: "/about#contact", label: "Contact" }]} />
         <FooterList title="Legal" links={legalDocs.map((d) => ({ href: `/legal/${d.slug}`, label: d.title }))} />
         <div>
           <h3 className="text-base font-semibold">Get in touch</h3>

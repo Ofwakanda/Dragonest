@@ -18,40 +18,39 @@ export default function Pricing() {
     <>
       <PageHero 
         eyebrow="Pricing &amp; Revenue Splits" 
-        title="Clear Payout Splits : No Hidden Fees Ever"
-        backgroundImage="/images/hero-nightshift.jpg"
+        title="Predictable Payout Splits"
         subhead="We operate with complete financial transparency. You keep 55% of gross earnings. Specialist taskers receive at least 30%. We take a 15% operational fee for staffing, security, and weekly quality assurance."
       >
-        <div className="flex flex-col gap-3 sm:flex-row">
+        <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
           <Link href="/account-owners#submit" className="btn-accent">Submit Your Account</Link>
-          <Link href="#calculator" className="btn-secondary">Try the Calculator</Link>
+          <Link href="#calculator" className="inline-flex items-center gap-1 text-sm font-medium text-muted hover:text-ink transition-colors px-3 py-2">Try the Calculator →</Link>
         </div>
       </PageHero>
 
       {/* THREE PILLAR SPLIT */}
-      <Section id="split" tone="tint" title="Where Each Dollar Goes" intro="A clear worked example on a $3,000 monthly queue volume:" backgroundImage="/images/ledger-settlement.jpg">
+      <Section id="split" tone="tint" title="Where Each Dollar Goes" intro="A clear worked example on a $3,000 monthly queue volume:">
         <div className="mb-6 grid gap-4 sm:grid-cols-3">
-          <div className="card border-2 border-line-strong">
+          <div className="card">
             <span className="eyebrow">Tasker Receives</span>
-            <p className="mt-1 font-mono text-3xl font-bold text-ink">$900</p>
+            <p className="mt-1 font-mono text-3xl font-semibold text-ink">$900</p>
             <p className="mt-1 text-sm text-muted">30% minimum guaranteed specialist share</p>
           </div>
-          <div className="card border-2 border-line-strong">
+          <div className="card">
             <span className="eyebrow">Middlemen Fee</span>
             <p className="mt-1 font-mono text-3xl font-bold text-ink">$450</p>
             <p className="mt-1 text-sm text-muted">15% staffing, QA reviews and management</p>
           </div>
-          <div className="card border-2 border-accent bg-accent/10">
-            <span className="eyebrow text-accent font-bold">You Keep (Owner)</span>
-            <p className="mt-1 font-mono text-3xl font-bold text-accent">$1,650</p>
-            <p className="mt-1 text-sm text-accent font-medium">55% net share to account owner</p>
+          <div className="card bg-surface-2 border-line-strong">
+            <span className="eyebrow text-ink font-semibold">You Keep (Owner)</span>
+            <p className="mt-1 font-mono text-3xl font-semibold text-ink">$1,650</p>
+            <p className="mt-1 text-sm text-muted">55% net share to account owner</p>
           </div>
         </div>
 
-        <div aria-hidden="true" className="flex h-12 overflow-hidden rounded-card text-sm font-bold border border-line-strong">
-          <div className="flex items-center justify-center bg-primary text-on-primary" style={{ width: `${pricing.taskerShare}%` }}>Tasker {pricing.taskerShare}%</div>
-          <div className="flex items-center justify-center bg-muted text-bg" style={{ width: `${pricing.tasking.percent}%` }}>MM {pricing.tasking.percent}%</div>
-          <div className="flex flex-1 items-center justify-center bg-accent text-slate-950 font-black">Owner 55%</div>
+        <div aria-hidden="true" className="flex h-10 overflow-hidden rounded border border-line text-xs font-semibold">
+          <div className="flex items-center justify-center bg-surface-2 text-muted border-r border-line" style={{ width: `${pricing.taskerShare}%` }}>Tasker {pricing.taskerShare}%</div>
+          <div className="flex items-center justify-center bg-surface text-muted border-r border-line" style={{ width: `${pricing.tasking.percent}%` }}>MM {pricing.tasking.percent}%</div>
+          <div className="flex flex-1 items-center justify-center bg-ink text-bg font-semibold">Owner 55%</div>
         </div>
         <p className="mt-4 text-sm text-muted">
           Payouts are confirmed every week on Friday with line by line accounting statements delivered directly to you.

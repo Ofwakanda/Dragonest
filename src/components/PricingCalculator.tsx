@@ -32,10 +32,10 @@ export function PricingCalculator() {
         <div>
           <label htmlFor={`${id}-gross`} className="block font-semibold">Expected gross platform earnings this month (USD)</label>
           <p id={`${id}-gross-hint`} className="mt-1 text-[0.95rem] text-muted">What the platform pays into the account before any split. This is your estimate, not ours.</p>
-          <div className="mt-2 flex items-center rounded-control border-2 border-line-strong bg-bg focus-within:outline focus-within:outline-[3px] focus-within:outline-offset-2 focus-within:outline-[rgb(var(--focus))]">
+          <div className="mt-2 flex items-center rounded border border-line bg-surface-2 focus-within:border-ink">
             <span aria-hidden="true" className="pl-4 text-muted">$</span>
             <input id={`${id}-gross`} inputMode="decimal" value={gross} onChange={(e) => setGross(e.target.value)}
-              aria-describedby={`${id}-gross-hint`} className="w-full bg-transparent px-2 py-3 text-lg text-ink focus:outline-none" />
+              aria-describedby={`${id}-gross-hint`} className="w-full bg-transparent px-2 py-2.5 text-base text-ink focus:outline-none" />
           </div>
         </div>
         <fieldset className="space-y-3">

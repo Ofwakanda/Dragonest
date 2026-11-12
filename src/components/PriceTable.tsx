@@ -1,7 +1,7 @@
 import { money, pricing } from "@/config/site";
 
 export const priceRows = [
-  { item: "Account onboarding", price: "Free : $0", detail: "Complete queue inspection, account health review and specialist matching. 100% free with zero upfront fees." },
+  { item: "Account onboarding", price: "Free ($0)", detail: "Complete queue inspection, account health review and specialist matching. 100% free with zero upfront fees." },
   { item: "Tasking & Managed Shifts", price: `${pricing.tasking.percent}% of client earnings`, detail: `Ongoing staffing, queue execution and daily tasking. The specialist receives ${pricing.taskerShare}% and the account owner keeps 55%.` },
   { item: "QA & Rating Protection", price: "Included Free", detail: "A senior evaluation lead checks weekly samples of all work to keep client quality scores above 4.8 out of 5.0." },
   { item: "Fast Track Staffing", price: "Included Free", detail: "Specialist matched and assigned within 24 hours of onboarding." },

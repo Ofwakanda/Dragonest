@@ -48,22 +48,16 @@ export function CustomerCareModal() {
 
   return (
     <>
-      {/* High-Visibility Floating Customer Care Trigger Button */}
-      <aside aria-label="Customer Support Desk" className="fixed bottom-6 right-6 z-50 pointer-events-auto">
+      {/* Minimal support link — small, dark, non-overlapping */}
+      <aside aria-label="Customer Support" className="fixed bottom-5 right-5 z-50 pointer-events-auto">
         <button
           type="button"
           onClick={() => setIsOpen(true)}
-          className="group flex items-center gap-2.5 rounded-full border-2 border-line-strong bg-ink px-4 py-3.5 text-bg shadow-[0_6px_30px_rgba(200,255,46,0.45)] hover:scale-105 active:scale-95 transition-all duration-200"
-          aria-label="Open 24/7 Customer Care Desk"
+          className="flex items-center gap-1.5 rounded border border-line bg-surface px-3 py-2 text-xs font-medium text-muted shadow-sm hover:border-line-strong hover:text-ink transition-colors"
+          aria-label="Open support"
         >
-          <span className="relative flex h-3 w-3">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75" />
-            <span className="relative inline-flex rounded-full h-3 w-3 bg-accent" />
-          </span>
-          <Headphones className="h-5 w-5 text-accent group-hover:rotate-12 transition-transform" aria-hidden="true" />
-          <span className="font-mono text-xs font-bold uppercase tracking-wider text-bg">
-            Customer Care (24/7)
-          </span>
+          <Headphones className="h-3.5 w-3.5" aria-hidden="true" />
+          Support
         </button>
       </aside>
 

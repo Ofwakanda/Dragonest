@@ -232,38 +232,34 @@ export default function About() {
       </Section>
 
       {/* WHO IS THIS FOR */}
-      <Section id="who" tone="tint" title="This Is for You : Yes, You." eyebrow="Who Can Do This?">
+      <Section id="who" tone="tint" title="Built for Dedicated Domain Evaluators" eyebrow="Contributor Profiles">
         <p className="text-base text-muted max-w-2xl mb-8 -mt-4">
-          You do not need to be special. You do not need a degree. Here are real types of people who are earning right now through Middlemen:
+          Middlemen matches verified AI training accounts with specialized contributors across diverse fields:
         </p>
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {[
-            { icon: BookOpen, who: "University Students", situation: "Broke between semesters, classes only 3 days a week, need money for rent and data.", howItHelps: "Work during free periods. Earn while you study. No boss to ask permission from.", color: "text-blue-400", border: "border-t-blue-400/40 border-blue-500/30", halo: "from-blue-500/25 to-indigo-500/10" },
-            { icon: Home, who: "Stay at Home Parents", situation: "Taking care of kids all day, cannot do a 9 to 5, but need income.", howItHelps: "Work during nap times, evenings, or whenever you get 30 free minutes. Weekly payout.", color: "text-rose-400", border: "border-t-rose-400/40 border-rose-500/30", halo: "from-rose-500/25 to-pink-500/10" },
-            { icon: TrendingDown, who: "Unemployed & Job Hunting", situation: "Sending CVs every day with no response, bills piling up, dignity running low.", howItHelps: "Start earning this week with no interview and no waiting. AI does not care about your CV.", color: "text-amber-400", border: "border-t-amber-400/40 border-amber-500/30", halo: "from-amber-500/25 to-orange-500/10" },
-            { icon: Car, who: "Ride Hail & Delivery Workers", situation: "Long hours, bad weather, low pay, no benefits, no security.", howItHelps: "AI tasks pay more per hour than driving. Work from home. Keep your sanity.", color: "text-emerald-400", border: "border-t-emerald-400/40 border-emerald-500/30", halo: "from-emerald-500/25 to-teal-500/10" },
-            { icon: Globe2, who: "People in Developing Countries", situation: "Local salary is too low, exchange rate makes international income life changing.", howItHelps: "Paid in USD equivalent. Even $5 to $10 an hour is transformational in many countries.", color: "text-teal-400", border: "border-t-teal-400/40 border-teal-500/30", halo: "from-teal-500/25 to-cyan-500/10" },
-            { icon: Armchair, who: "People Who Say They Are Lazy", situation: "Do not want a demanding job. Want easy, flexible income they can do at their own pace.", howItHelps: "Rate AI responses from your couch. Some tasks take 2 minutes. You just need consistency.", color: "text-purple-400", border: "border-t-purple-400/40 border-purple-500/30", halo: "from-purple-500/25 to-fuchsia-500/10" },
-            { icon: Laptop, who: "Remote Work Seekers", situation: "Tried Upwork, Fiverr, and other platforms with no clients and too much competition.", howItHelps: "We already have the accounts and task queues. You just show up and do the work.", color: "text-cyan-400", border: "border-t-cyan-400/40 border-cyan-500/30", halo: "from-cyan-500/25 to-sky-500/10" },
-            { icon: Coffee, who: "Older Adults & Retirees", situation: "Pension not enough, do not want physical work, need something they can do from home.", howItHelps: "Simple tasks. No physical activity. Just reading, judging, and writing at your own speed.", color: "text-orange-400", border: "border-t-orange-400/40 border-orange-500/30", halo: "from-orange-500/25 to-amber-500/10" },
-            { icon: PenTool, who: "Writers, Bloggers & Creatives", situation: "Passion does not always pay. Need consistent income while building your craft.", howItHelps: "AI writing and prompt tasks are perfect for your skill set. And they pay weekly.", color: "text-fuchsia-400", border: "border-t-fuchsia-400/40 border-fuchsia-500/30", halo: "from-fuchsia-500/25 to-pink-500/10" },
+            { icon: Laptop, who: "Software Engineers & Developers", situation: "Experienced developers evaluating Python, TypeScript, and systems code benchmarks.", howItHelps: "High hourly yields on coding queues with structured multi-turn test suites." },
+            { icon: BookOpen, who: "STEM & Quantitative Specialists", situation: "Math, physics, and data science graduates reviewing complex reasoning rubrics.", howItHelps: "Dedicated queues with high task density and guaranteed weekly payouts." },
+            { icon: Globe2, who: "Linguists & Translators", situation: "Native speakers in non-English locales evaluating localization, tone, and cultural nuances.", howItHelps: "Direct USD payouts for bilingual reasoning and translation verification." },
+            { icon: PenTool, who: "Technical Writers & Prompt Engineers", situation: "Writers testing factual accuracy, coherence, instruction-following, and stylistic tone.", howItHelps: "Flexible schedules with continuous prompt evaluation volume." },
+            { icon: Home, who: "Remote Research Professionals", situation: "Domain experts seeking flexible analytical work without administrative overhead.", howItHelps: "Pre-vetted accounts with active queues ready for immediate tasking." },
+            { icon: Coffee, who: "Subject Matter Consultants", situation: "Specialists in finance, legal, or sciences providing ground-truth feedback on model outputs.", howItHelps: "Structured rubrics, clear standards, and transparent 30%+ evaluator shares." },
           ].map((item) => {
             const IconComp = item.icon;
             return (
-              <div key={item.who} className="group card flex flex-col border-line bg-surface hover:border-accent/60 transition-all hover:shadow-xl hover:-translate-y-1">
-                <div className="flex items-center gap-3.5 mb-3">
-                  <div className="relative shrink-0">
-                    <div className={`absolute -inset-1 rounded-xl bg-gradient-to-r ${item.halo} blur-sm opacity-40 group-hover:opacity-100 transition-opacity`} />
-                    <div className={`relative h-12 w-12 rounded-xl bg-gradient-to-b from-slate-800 via-slate-900 to-slate-950 border ${item.border} flex items-center justify-center shadow-[inset_0_1px_1px_rgba(255,255,255,0.2),0_6px_12px_rgba(0,0,0,0.5)]`}>
-                      <IconComp className={`h-5 w-5 ${item.color} drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)] transform group-hover:scale-110 transition-transform`} strokeWidth={2.2} />
+              <div key={item.who} className="card flex flex-col justify-between">
+                <div>
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className="h-9 w-9 rounded border border-line bg-surface-2 flex items-center justify-center shrink-0">
+                      <IconComp className="h-4 w-4 text-ink/80" strokeWidth={1.75} />
                     </div>
+                    <h3 className="text-base font-semibold text-ink">{item.who}</h3>
                   </div>
-                  <h3 className="text-base font-extrabold text-ink">{item.who}</h3>
+                  <p className="text-xs text-muted mb-3 leading-relaxed">&ldquo;{item.situation}&rdquo;</p>
                 </div>
-                <p className="text-xs text-muted mb-3 leading-relaxed italic">&ldquo;{item.situation}&rdquo;</p>
-                <div className="mt-auto pt-3 border-t border-line">
-                  <p className="text-xs font-semibold text-accent leading-relaxed flex items-center gap-1.5">
-                    <Check className="h-3 w-3 shrink-0 stroke-[3]" />
+                <div className="pt-3 border-t border-line">
+                  <p className="text-xs text-muted leading-relaxed flex items-center gap-1.5">
+                    <Check className="h-3 w-3 shrink-0 text-ink" strokeWidth={2.5} />
                     <span>{item.howItHelps}</span>
                   </p>
                 </div>
@@ -271,11 +267,11 @@ export default function About() {
             );
           })}
         </div>
-        <div className="mt-10 p-6 rounded-card border-2 border-accent/40 bg-accent-soft/20 text-center">
-          <p className="text-lg font-black text-ink mb-1">If you recognise yourself in any of the above, you are already qualified.</p>
-          <p className="text-sm text-muted mb-4">The only thing standing between you and your first payout is filling out a 2 minute application.</p>
-          <Link href="/taskers#apply" className="btn-accent text-sm px-6 py-3">
-            Apply Free : Takes 2 Minutes →
+        <div className="mt-8 p-6 rounded-card border border-line bg-surface text-center">
+          <p className="text-base font-semibold text-ink mb-1">Looking to task on high-demand AI queues?</p>
+          <p className="text-sm text-muted mb-4">Complete an evaluation application to qualify for active developer, STEM, or reasoning queues.</p>
+          <Link href="/taskers#apply" className="btn-accent text-sm px-6 py-2.5">
+            Apply as an Evaluator
           </Link>
         </div>
       </Section>
