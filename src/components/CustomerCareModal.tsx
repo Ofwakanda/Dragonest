@@ -53,11 +53,11 @@ export function CustomerCareModal() {
         <button
           type="button"
           onClick={() => setIsOpen(true)}
-          className="flex items-center gap-1.5 rounded border border-line bg-surface px-3.5 py-2 text-xs font-medium text-muted shadow-sm hover:border-line-strong hover:text-ink transition-colors"
-          aria-label="Need help?"
+          className="flex items-center gap-1.5 rounded border border-line bg-surface px-3 py-2 text-xs font-medium text-muted shadow-sm hover:border-line-strong hover:text-ink transition-colors"
+          aria-label="Open support"
         >
           <Headphones className="h-3.5 w-3.5" aria-hidden="true" />
-          Need help?
+          Support
         </button>
       </aside>
 
@@ -73,22 +73,23 @@ export function CustomerCareModal() {
             {/* Header */}
             <div className="flex items-center justify-between border-b border-line pb-4">
               <div className="flex items-center gap-3">
-                <span className="h-10 w-10 rounded border border-line bg-surface-2 text-ink flex items-center justify-center font-bold">
-                  <Headphones className="h-5 w-5 text-muted" />
+                <span className="h-10 w-10 rounded-xl bg-accent text-accent-ink flex items-center justify-center font-bold">
+                  <Headphones className="h-5 w-5" />
                 </span>
                 <div>
-                  <h3 id="care-modal-title" className="text-lg font-semibold text-ink">
-                    Need help?
+                  <h3 id="care-modal-title" className="text-xl font-black text-ink tracking-tight">
+                    Customer Care &amp; Support Desk
                   </h3>
-                  <p className="text-xs text-muted">
-                    Message us on Telegram any time. We reply fast, usually within 15 minutes.
+                  <p className="text-xs text-muted font-mono flex items-center gap-1.5">
+                    <Clock className="h-3 w-3 text-emerald-500" />
+                    Dedicated Ops Response under 15 mins
                   </p>
                 </div>
               </div>
               <button
                 type="button"
                 onClick={() => { setIsOpen(false); setStatus("idle"); }}
-                className="h-8 w-8 rounded border border-line bg-bg flex items-center justify-center text-muted hover:text-ink hover:border-line-strong transition-colors"
+                className="h-8 w-8 rounded-lg border border-line bg-bg flex items-center justify-center text-muted hover:text-ink hover:border-line-strong transition-colors"
                 aria-label="Close modal"
               >
                 <X className="h-4 w-4" />

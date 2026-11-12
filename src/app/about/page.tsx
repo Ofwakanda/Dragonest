@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Send, ArrowRight, BookOpen, Home, Briefcase, Car, Globe2 } from "lucide-react";
+import { Send, ArrowRight, BookOpen, Home, Briefcase, Car, Globe2, ShieldCheck, Lock, Users, CheckCircle2 } from "lucide-react";
 import { Accordion } from "@/components/Accordion";
 import { ContactForm } from "@/components/forms/ContactForm";
 import { PageHero, Section } from "@/components/ui";
@@ -11,6 +11,70 @@ export const metadata = pageMeta({
   description: "AI companies need real people to check and improve their answers. You do not need a degree or coding skills to get started. We connect you with the work and you get paid every week.",
   path: "/about",
 });
+
+interface TeamMember {
+  name: string;
+  role: string;
+  focus: string;
+  bio: string;
+  badge: string;
+  telegram?: string;
+  email: string;
+  initials: string;
+}
+
+const team: TeamMember[] = [
+  {
+    name: "Marcus Vance",
+    role: "Founder & Managing Director",
+    badge: "Strategy & Ops",
+    initials: "MV",
+    focus: "Platform partnerships, regulatory compliance & enterprise staffing architectures",
+    bio: "Pioneered verified human-in-the-loop workflows across major AI training platforms. Dedicated to closing the gap between idle accounts and competent talent.",
+    telegram: site.telegram.hub,
+    email: site.email.hello,
+  },
+  {
+    name: "Dr. Elena Rostova",
+    role: "Head of Contributor Onboarding",
+    badge: "Curriculum & Training",
+    initials: "ER",
+    focus: "Specialist trainer onboarding, multi-turn reasoning rubrics & cognitive ergonomics",
+    bio: "Former researcher in educational technology. Builds simple, practical learning guides so contributors pass platform benchmarks and maintain top ratings.",
+    telegram: site.telegram.hub,
+    email: site.email.support,
+  },
+  {
+    name: "Aris Thorne",
+    role: "Head of AI Quality Assurance",
+    badge: "QA & Benchmarks",
+    initials: "AT",
+    focus: "Multi-modal scoring rubrics, automated audit sampling & fleet scorecards (4.9/5.0 target)",
+    bio: "Over 8 years designing evaluation pipelines for high-stakes ML systems. Manages independent blind sampling audits and quality appeal tribunals.",
+    telegram: site.telegram.hub,
+    email: site.email.support,
+  },
+  {
+    name: "Kaelen Diaz",
+    role: "Director of Systems & Security",
+    badge: "Zero Trust & Security",
+    initials: "KD",
+    focus: "Isolated VM sandboxes, zero clipboard confinement & Telegram encrypted dispatch",
+    bio: "Information security veteran. Ensures host account credentials never touch public internet forms or unmonitored endpoints.",
+    telegram: site.telegram.hub,
+    email: site.email.security,
+  },
+  {
+    name: "Sora Tanaka",
+    role: "VP of Contributor Care & Inclusion",
+    badge: "Community & Support",
+    initials: "ST",
+    focus: "24/7 Telegram customer care, assistive technology accommodations & fair pay floors",
+    bio: "Advocate for digital workers. Champions our non-negotiable 30%+ tasker pay floor and 24/7 real-time Telegram response desk.",
+    telegram: site.telegram.hub,
+    email: site.email.access,
+  },
+];
 
 const faqItems = [
   {
@@ -215,14 +279,103 @@ export default function About() {
         </div>
       </Section>
 
-      {/* 6. FAQ */}
-      <Section id="faq" tone="tint" title="FAQ">
+      {/* 6. ABOUT MM : PROFESSIONAL INFRASTRUCTURE & LEADERSHIP */}
+      <Section
+        id="about-mm"
+        tone="tint"
+        title="About MM"
+        eyebrow="Operations &amp; Infrastructure"
+        intro="Behind the simple interface is institutional infrastructure. We maintain rigorous session isolation, weekly quality audits, and transparent financial reconciliation."
+      >
+        <div className="grid gap-6 lg:grid-cols-3 mb-10">
+          <div className="card p-6 space-y-2">
+            <span className="text-xs font-mono font-semibold text-muted uppercase">Containment Architecture</span>
+            <h4 className="text-lg font-semibold text-ink">Isolated Virtual Sessions</h4>
+            <p className="text-sm text-muted leading-relaxed">
+              Taskers operate inside sandboxed remote virtual machines with disabled local clipboards and blocked file transfers. Credentials never touch unmonitored endpoints.
+            </p>
+          </div>
+
+          <div className="card p-6 space-y-2">
+            <span className="text-xs font-mono font-semibold text-muted uppercase">Quality Control</span>
+            <h4 className="text-lg font-semibold text-ink">Independent Blind Audits</h4>
+            <p className="text-sm text-muted leading-relaxed">
+              Continuous sampling audits ensure project tasks maintain a 4.9/5.0 target score, protecting account standing and unlocking higher-tier project queues.
+            </p>
+          </div>
+
+          <div className="card p-6 space-y-2">
+            <span className="text-xs font-mono font-semibold text-muted uppercase">Financial Transparency</span>
+            <h4 className="text-lg font-semibold text-ink">Weekly Friday Settlement</h4>
+            <p className="text-sm text-muted leading-relaxed">
+              Automated itemized accounting statements every Friday detail gross earnings, tasker pay floors (30%+), and operational fees for full auditability.
+            </p>
+          </div>
+        </div>
+
+        {/* LEADERSHIP TEAM */}
+        <h3 className="text-xl font-semibold text-ink mb-4">Operations Leadership</h3>
+        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 mb-10">
+          {team.map((member) => (
+            <div key={member.name} className="card p-6 flex flex-col justify-between">
+              <div>
+                <div className="flex items-start justify-between gap-3">
+                  <div className="flex h-11 w-11 items-center justify-center rounded border border-line bg-surface-2 font-mono text-sm font-semibold text-ink">
+                    {member.initials}
+                  </div>
+                  <span className="rounded border border-line bg-surface-2 px-2 py-0.5 font-mono text-[11px] font-medium text-muted">
+                    {member.badge}
+                  </span>
+                </div>
+
+                <h4 className="mt-4 text-base font-semibold text-ink">{member.name}</h4>
+                <p className="text-xs font-mono text-muted">{member.role}</p>
+                <p className="mt-3 text-xs font-mono text-ink/80">{member.focus}</p>
+                <p className="mt-2 text-sm text-muted leading-relaxed">{member.bio}</p>
+              </div>
+
+              <div className="mt-6 pt-3 border-t border-line flex items-center justify-between text-xs font-mono">
+                <a 
+                  href={member.telegram} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-muted hover:text-ink transition-colors flex items-center gap-1"
+                >
+                  <Send className="h-3 w-3" /> Telegram Hub
+                </a>
+                <a href={`mailto:${member.email}`} className="text-muted hover:text-ink transition-colors">
+                  {member.email}
+                </a>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* REGULATORY & ENTITY DISCLOSURE */}
+        <div className="grid gap-4 sm:grid-cols-3 rounded-card border border-line bg-surface p-5 text-xs font-mono">
+          <div>
+            <span className="text-muted uppercase">Governing Entity</span>
+            <p className="font-semibold text-ink mt-0.5">{site.legalEntity}</p>
+          </div>
+          <div>
+            <span className="text-muted uppercase">Jurisdiction</span>
+            <p className="font-semibold text-ink mt-0.5">{site.jurisdiction}</p>
+          </div>
+          <div>
+            <span className="text-muted uppercase">Security Coordination</span>
+            <p className="font-semibold text-ink mt-0.5">{site.email.security}</p>
+          </div>
+        </div>
+      </Section>
+
+      {/* 7. FAQ */}
+      <Section id="faq" title="FAQ">
         <div className="max-w-3xl">
           <Accordion items={faqItems} />
         </div>
       </Section>
 
-      {/* 7. CLOSING / CHECK IF YOU QUALIFY */}
+      {/* 8. CLOSING / CHECK IF YOU QUALIFY */}
       <section id="qualify" className="border-b border-line bg-surface py-16">
         <div className="container text-center max-w-2xl mx-auto space-y-4">
           <h2 className="text-3xl font-semibold text-ink">Check if you qualify.</h2>
@@ -237,8 +390,8 @@ export default function About() {
         </div>
       </section>
 
-      {/* 8. CONTACT FORM */}
-      <Section id="contact" title="Get in touch" intro="Send a message or reach us directly on Telegram.">
+      {/* 9. CONTACT FORM */}
+      <Section id="contact" tone="tint" title="Get in touch" intro="Send a message or reach us directly on Telegram.">
         <div className="max-w-2xl">
           <ContactForm />
         </div>
