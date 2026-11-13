@@ -1,9 +1,9 @@
-import { 
-  Accessibility, 
-  Eye, 
-  HandCoins, 
-  Scale, 
-  ShieldCheck, 
+import {
+  Accessibility,
+  Eye,
+  HandCoins,
+  Scale,
+  ShieldCheck,
   Users,
   Wallet,
   Globe2,
@@ -22,17 +22,21 @@ import {
   Layers,
   ArrowRight,
   MonitorCheck,
-  CheckCircle2
+  CheckCircle2,
+  Banknote,
+  CalendarCheck,
+  UserCheck,
 } from "lucide-react";
 import Link from "next/link";
 import { ContactForm } from "@/components/forms/ContactForm";
-import { FeatureGrid, PageHero, Section } from "@/components/ui";
+import { PageHero, Section } from "@/components/ui";
 import { site } from "@/config/site";
 import { pageMeta } from "@/lib/seo";
 
 export const metadata = pageMeta({
-  title: "About Middlemen : Infrastructure for Managed AI Training Accounts",
-  description: "Middlemen pairs enterprise AI training accounts with vetted domain specialists, providing strict session security, quality assurance, and weekly transparent financial settlements.",
+  title: "About MIDDLEMEN",
+  description:
+    "MIDDLEMEN connects AI training accounts with trained specialists who do the work every day. You keep 55% of what it earns — paid every Friday.",
   path: "/about",
 });
 
@@ -103,211 +107,303 @@ const team: TeamMember[] = [
 export default function About() {
   return (
     <>
-      {/* 1. PROFESSIONAL HERO */}
-      <PageHero 
-        eyebrow="Company &amp; Operations" 
-        title="Infrastructure for Managed AI Training Accounts"
-        subhead="Middlemen bridges underutilized AI training accounts with vetted domain specialists. We maintain strict session containment, continuous quality assurance, and weekly automated settlement statements."
+      {/* ── 1. SIMPLE HERO — speaks to everyone ── */}
+      <PageHero
+        eyebrow="About MIDDLEMEN"
+        title="We turn idle AI accounts into weekly income."
+        subhead="Got an account on Outlier, Alignerr, Scale AI or DataAnnotation that isn't earning? We connect it with trained specialists who do the work — and you get paid every Friday. No tasks. No stress. Just your share."
       >
         <div className="flex flex-col sm:flex-row sm:items-center gap-4">
           <Link href="/account-owners#submit" className="btn-accent">
-            Connect Your Account
+            Check my account — it&apos;s free
           </Link>
-          <Link href="#about-mm" className="inline-flex items-center gap-1 text-sm font-medium text-muted hover:text-ink transition-colors px-2 py-1">
-            About MM Operations <ArrowRight className="h-4 w-4" />
+          <Link
+            href="#about-mm"
+            className="inline-flex items-center gap-1 text-sm font-medium text-muted hover:text-ink transition-colors px-2 py-1"
+          >
+            About the company <ArrowRight className="h-4 w-4" />
           </Link>
         </div>
       </PageHero>
 
-      {/* 2. CORE OPERATIONAL METRICS */}
-      <section className="border-b border-line bg-surface py-12">
+      {/* ── 2. WHY IT EXISTS — the plain pitch ── */}
+      <section className="border-b border-line bg-surface py-16">
+        <div className="container max-w-3xl">
+          <p className="text-sm font-mono uppercase tracking-widest text-muted mb-6">
+            Why we exist
+          </p>
+          <h2 className="text-2xl font-semibold text-ink mb-5 leading-snug">
+            Thousands of AI accounts sit unused every day.
+          </h2>
+          <div className="space-y-4 text-base text-muted leading-relaxed">
+            <p>
+              AI platforms like Outlier and Scale AI pay well — but the work is demanding, the
+              tests are hard, and life gets in the way. Many accounts either never get through
+              the entry test, or they go quiet because the owner doesn&apos;t have the time.
+            </p>
+            <p>
+              That is where we come in. We act as the <strong className="text-ink">middlemen</strong> —
+              connecting your account with a trained specialist who does the tasks every day,
+              keeps the quality score high, and makes sure the account keeps earning.
+            </p>
+            <p>
+              You keep <strong className="text-ink">55% of everything it earns</strong>. The
+              specialist who does the work gets at least 30%. We take 15% to keep the lights on.
+              Every Friday you get a clear statement showing every number.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* ── 3. THREE SIMPLE FACTS ── */}
+      <section className="border-b border-line py-12">
         <div className="container">
-          <div className="grid gap-4 sm:grid-cols-4 max-w-4xl mx-auto text-center font-mono">
-            <div className="card">
-              <span className="text-3xl font-semibold text-ink">55%</span>
-              <p className="mt-2 text-sm font-sans font-semibold text-ink">Owner Distribution</p>
-              <p className="mt-1 text-xs text-muted font-sans">Direct weekly payout on all platform earnings</p>
+          <div className="grid gap-4 sm:grid-cols-3 max-w-3xl mx-auto">
+            <div className="card text-center">
+              <Banknote className="h-6 w-6 text-muted mx-auto mb-3" />
+              <span className="text-3xl font-semibold font-mono text-ink block">55%</span>
+              <p className="mt-2 text-sm font-semibold text-ink">You keep</p>
+              <p className="mt-1 text-xs text-muted">Of every dollar your account earns</p>
             </div>
-            <div className="card">
-              <span className="text-3xl font-semibold text-ink">30%+</span>
-              <p className="mt-2 text-sm font-sans font-semibold text-ink">Specialist Pay Floor</p>
-              <p className="mt-1 text-xs text-muted font-sans">Guaranteed base share for domain taskers</p>
+            <div className="card text-center">
+              <CalendarCheck className="h-6 w-6 text-muted mx-auto mb-3" />
+              <span className="text-3xl font-semibold font-mono text-ink block">Every Fri</span>
+              <p className="mt-2 text-sm font-semibold text-ink">You get paid</p>
+              <p className="mt-1 text-xs text-muted">With a full itemized statement</p>
             </div>
-            <div className="card">
-              <span className="text-3xl font-semibold text-ink">100%</span>
-              <p className="mt-2 text-sm font-sans font-semibold text-ink">Isolated Sessions</p>
-              <p className="mt-1 text-xs text-muted font-sans">Zero clipboard sharing or local credential storage</p>
-            </div>
-            <div className="card">
-              <span className="text-3xl font-semibold text-ink">Every Fri</span>
-              <p className="mt-2 text-sm font-sans font-semibold text-ink">Settlement Cadence</p>
-              <p className="mt-1 text-xs text-muted font-sans">Digital itemized statements delivered weekly</p>
+            <div className="card text-center">
+              <UserCheck className="h-6 w-6 text-muted mx-auto mb-3" />
+              <span className="text-3xl font-semibold font-mono text-ink block">0 hrs</span>
+              <p className="mt-2 text-sm font-semibold text-ink">Your time needed</p>
+              <p className="mt-1 text-xs text-muted">Specialists handle everything</p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 3. OPERATING MODEL */}
-      <Section 
-        id="model" 
-        eyebrow="Operating Model"
-        title="How Managed Work Is Executed" 
-        intro="Enterprise platforms such as Outlier, Scale AI, and Alignerr require consistent high-accuracy task execution. We coordinate the full lifecycle."
+      {/* ── 4. WHO IT IS FOR ── */}
+      <Section
+        id="who"
+        tone="tint"
+        eyebrow="Who this is for"
+        title="You don't need to be a tech expert."
       >
-        <div className="grid gap-4 lg:grid-cols-3">
-          <div className="card flex flex-col justify-between">
-            <div>
-              <div className="mb-4 inline-flex h-9 w-9 items-center justify-center rounded border border-line bg-surface-2 font-mono text-xs font-semibold text-muted">
-                01
-              </div>
-              <h3 className="text-lg font-semibold text-ink">Queue Verification &amp; Calibration</h3>
-              <p className="mt-2 text-sm text-muted leading-relaxed">
-                We review queue availability and assessment requirements on accounts across Outlier, Alignerr, and Scale AI. Setup and review are completely free.
-              </p>
-            </div>
-          </div>
-
-          <div className="card flex flex-col justify-between">
-            <div>
-              <div className="mb-4 inline-flex h-9 w-9 items-center justify-center rounded border border-line bg-surface-2 font-mono text-xs font-semibold text-muted">
-                02
-              </div>
-              <h3 className="text-lg font-semibold text-ink">Dedicated Specialist Assignment</h3>
-              <p className="mt-2 text-sm text-muted leading-relaxed">
-                Accounts are paired with certified domain evaluators who log into secure, isolated virtual sessions to complete queue tasks daily while maintaining 4.8+ QA scores.
-              </p>
-            </div>
-          </div>
-
-          <div className="card flex flex-col justify-between">
-            <div>
-              <div className="mb-4 inline-flex h-9 w-9 items-center justify-center rounded border border-line bg-surface-2 font-mono text-xs font-semibold text-muted">
-                03
-              </div>
-              <h3 className="text-lg font-semibold text-ink">Reconciliation &amp; Settlement</h3>
-              <p className="mt-2 text-sm text-muted leading-relaxed">
-                Platform funds deposit directly to the account owner. Every Friday, an itemized statement accounts for the 55% owner net, tasker compensation, and 15% management fee.
-              </p>
-            </div>
-          </div>
-        </div>
-      </Section>
-
-      {/* 4. CONTRIBUTOR PROFILES */}
-      <Section id="who" tone="tint" title="Built for Dedicated Domain Evaluators" eyebrow="Contributor Profiles">
-        <p className="text-base text-muted max-w-2xl mb-8 -mt-4">
-          Middlemen matches verified AI training accounts with specialized contributors across diverse fields:
+        <p className="text-base text-muted max-w-2xl -mt-4 mb-8 leading-relaxed">
+          If any of these sound like you, we can probably help.
         </p>
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {[
-            { icon: Code2, who: "Software Engineers", situation: "Full stack, backend, and algorithmic developers evaluating code generation, writing complex test suites, and performing multi-file refactoring." },
-            { icon: Binary, who: "STEM & Mathematics Specialists", situation: "Graduates and researchers in mathematics, physics, and statistics validating step-by-step reasoning and formal logic proofs." },
-            { icon: Globe2, who: "Linguists & Translators", situation: "Native speakers in non-English locales providing nuanced dialect localization, cultural validation, and translation QA." },
-            { icon: BookOpen, who: "Technical Writers & Editors", situation: "Clear communicators capable of grading tone, instruction-following fidelity, hallucination rates, and structural coherence." },
-            { icon: Home, who: "Remote Research Professionals", situation: "Domain experts seeking flexible asynchronous work with transparent weekly compensation and dedicated account matching." },
-            { icon: Laptop, who: "Subject Matter Consultants", situation: "Law, medicine, and finance specialists reviewing domain-specific edge cases, regulatory queries, and clinical reasoning." },
+            {
+              icon: Clock,
+              who: "Too busy to do the tasks",
+              body: "You have an account but work, family or life means you just don't have time to sit down and grind through AI tasks every day.",
+            },
+            {
+              icon: Lock,
+              who: "Stuck at the entry test",
+              body: "Your account is new and you haven't passed the qualification test yet. Our specialists help with that so your queue can open up.",
+            },
+            {
+              icon: Wallet,
+              who: "Account sitting idle",
+              body: "You qualified a while ago but haven't logged in for weeks. The account is there — it just isn't earning anything.",
+            },
+            {
+              icon: Globe2,
+              who: "Not in the right timezone",
+              body: "The best-paying tasks appear at odd hours. A specialist in the right timezone picks them up for you while you sleep.",
+            },
+            {
+              icon: Home,
+              who: "Looking for a passive income",
+              body: "You want your account to earn without you having to show up every day. This is exactly what we set up.",
+            },
+            {
+              icon: Laptop,
+              who: "Not sure where to start",
+              body: "You've heard about AI training work but don't know if your account qualifies or how much it could earn. We tell you for free.",
+            },
           ].map((item) => {
             const IconComp = item.icon;
             return (
-              <div key={item.who} className="card flex flex-col justify-between">
-                <div>
-                  <div className="mb-4 inline-flex h-9 w-9 items-center justify-center rounded border border-line bg-surface-2 text-ink">
-                    <IconComp className="h-4 w-4 text-muted" />
-                  </div>
-                  <h3 className="text-base font-semibold text-ink">{item.who}</h3>
-                  <p className="mt-2 text-sm text-muted leading-relaxed">{item.situation}</p>
+              <div key={item.who} className="card flex flex-col">
+                <div className="mb-4 inline-flex h-9 w-9 items-center justify-center rounded border border-line bg-surface-2 text-ink">
+                  <IconComp className="h-4 w-4 text-muted" />
                 </div>
+                <h3 className="text-base font-semibold text-ink">{item.who}</h3>
+                <p className="mt-2 text-sm text-muted leading-relaxed">{item.body}</p>
               </div>
             );
           })}
         </div>
-        <div className="mt-8 p-6 rounded-card border border-line bg-surface text-center">
-          <p className="text-base font-semibold text-ink mb-1">Looking to task on high-demand AI queues?</p>
-          <p className="text-sm text-muted mb-4">Complete an evaluation application to qualify for active developer, STEM, or reasoning queues.</p>
-          <Link href="/taskers#apply" className="btn-accent text-sm px-6 py-2.5">
-            Apply as an Evaluator
+
+        <div className="mt-10 p-6 rounded-card border border-line bg-surface text-center">
+          <p className="text-base font-semibold text-ink mb-1">Not sure if your account qualifies?</p>
+          <p className="text-sm text-muted mb-4">
+            Tell us which platform it is on and we will check it for free. No obligation, no pressure.
+          </p>
+          <Link href="/account-owners#submit" className="btn-accent text-sm px-6 py-2.5">
+            Check my account for free
           </Link>
         </div>
       </Section>
 
-      {/* 5. EVALUATION WORKFLOW */}
+      {/* ── 5. HOW IT WORKS — plain 3 steps ── */}
       <Section
-        id="apply"
-        title="Evaluation &amp; Matching Workflow"
-        eyebrow="Onboarding"
-        intro="Domain specialists undergo thorough rubric calibration before accessing live queue sessions."
+        id="how"
+        eyebrow="How it works"
+        title="Three steps. Then you just wait for Friday."
       >
-        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-4 lg:grid-cols-3">
           {[
-            { step: "01", title: "Domain Application", body: "Submit your domain background, technical proficiencies, timezone, and weekly availability." },
-            { step: "02", title: "Rubric Calibration", body: "Complete practice benchmarks to verify compliance with platform-specific grading rubrics." },
-            { step: "03", title: "Session Provisioning", body: "Access is granted via secure, isolated virtual environments with dedicated supervisor support." },
-            { step: "04", title: "Active Queue Work", body: "Execute tasks daily and receive transparent weekly disbursements with at least 30% revenue share." },
+            {
+              step: "01",
+              title: "Tell us about your account",
+              body: "Let us know which platform it is on and whether it is active or still at the test stage. Takes two minutes. We never ask for your password on this site.",
+            },
+            {
+              step: "02",
+              title: "We match a specialist",
+              body: "A trained person with the right skills is paired with your account. If it is stuck at an entry test, we sort that out first.",
+            },
+            {
+              step: "03",
+              title: "You get paid every Friday",
+              body: "Earnings go to your payout channel. Every Friday you get a statement: what came in, what the specialist earned, and our 15% fee.",
+            },
           ].map((item) => (
-            <div key={item.step} className="card flex flex-col justify-between">
-              <div>
-                <div className="mb-4 inline-flex h-9 w-9 items-center justify-center rounded border border-line bg-surface-2 font-mono text-xs font-semibold text-muted">
-                  {item.step}
+            <div key={item.step} className="card flex flex-col">
+              <div className="mb-4 inline-flex h-9 w-9 items-center justify-center rounded border border-line bg-surface-2 font-mono text-xs font-semibold text-muted">
+                {item.step}
+              </div>
+              <h3 className="text-lg font-semibold text-ink">{item.title}</h3>
+              <p className="mt-2 text-sm text-muted leading-relaxed">{item.body}</p>
+            </div>
+          ))}
+        </div>
+      </Section>
+
+      {/* ── 6. TRUST SIGNALS — plain language ── */}
+      <Section id="trust" tone="tint" eyebrow="Why people trust us" title="A few things worth knowing.">
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {[
+            {
+              icon: ShieldCheck,
+              title: "We never ask for your password",
+              body: "Specialists log in through secure remote sessions. Your credentials stay with you. We handle everything through an encrypted channel.",
+            },
+            {
+              icon: Eye,
+              title: "Every penny is accounted for",
+              body: "Your Friday statement shows exactly what the account earned, what went to the specialist, and what we kept. Nothing is hidden.",
+            },
+            {
+              icon: HandCoins,
+              title: "Specialists are paid fairly",
+              body: "The person doing the work always gets at least 30% of gross earnings. We believe if the work is good, the worker should earn well.",
+            },
+            {
+              icon: Scale,
+              title: "We work within the platform rules",
+              body: "We regularly review the terms of each partner platform and operate only within what is allowed.",
+            },
+            {
+              icon: Users,
+              title: "Real people answer your messages",
+              body: "You can reach us on Telegram any time. A real person replies — usually within a few hours.",
+            },
+            {
+              icon: Accessibility,
+              title: "Built for everyone",
+              body: "Whether you are a student, a parent, between jobs, or just curious — if you have an account, we can work with you.",
+            },
+          ].map((item) => {
+            const IconComp = item.icon;
+            return (
+              <div key={item.title} className="card flex flex-col">
+                <div className="mb-4 inline-flex h-9 w-9 items-center justify-center rounded border border-line bg-surface-2">
+                  <IconComp className="h-4 w-4 text-muted" />
                 </div>
                 <h3 className="text-base font-semibold text-ink">{item.title}</h3>
                 <p className="mt-2 text-sm text-muted leading-relaxed">{item.body}</p>
               </div>
-            </div>
-          ))}
-        </div>
-        <div className="mt-8 text-center">
-          <Link href="/taskers#apply" className="btn-accent">
-            Apply as an Evaluator
-          </Link>
+            );
+          })}
         </div>
       </Section>
 
-      {/* 6. OPERATIONAL PRINCIPLES */}
-      <Section id="values" tone="tint" title="Operational Principles" eyebrow="Governance">
-        <FeatureGrid items={[
-          { icon: Scale, title: "Platform Compliance", body: "We regularly review partner platform terms and operate strictly within allowable contractual boundaries." },
-          { icon: Eye, title: "Transparent Accounting", body: "Every percentage split and management fee is published upfront with line-by-line Friday statements." },
-          { icon: HandCoins, title: "Guaranteed Pay Floors", body: "Specialist contributors always receive at least 30% of gross earnings, distributed on a strict weekly schedule." },
-          { icon: Accessibility, title: "Universal Accessibility", body: "Flexible asynchronous workflows engineered to accommodate neurodivergent contributors and global schedules." },
-          { icon: ShieldCheck, title: "Credential Isolation", body: "Credentials are never requested through public forms. All access is handled via encrypted channels into sandboxed VMs." },
-          { icon: Users, title: "Dedicated Support Desk", body: "Direct access to operations leads via Telegram with continuous human-in-the-loop oversight." },
-        ]} />
-      </Section>
+      {/* ── 7. CHAT CTA STRIP ── */}
+      <section className="border-y border-line bg-surface py-14">
+        <div className="container text-center max-w-xl">
+          <p className="text-xl font-semibold text-ink mb-2">Still got questions?</p>
+          <p className="text-sm text-muted mb-6">
+            Chat with us on Telegram. A real person replies. Checking is free and there is no pressure.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-3 justify-center">
+            <a
+              href={site.telegram.hub}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-accent inline-flex items-center justify-center gap-2"
+            >
+              <Send className="h-4 w-4" /> Chat on Telegram
+            </a>
+            <Link
+              href="/account-owners#submit"
+              className="inline-flex items-center justify-center gap-1 rounded-card border border-line bg-surface px-5 py-2.5 text-sm font-medium text-ink hover:bg-surface-2 transition-colors"
+            >
+              Start my free check
+            </Link>
+          </div>
+        </div>
+      </section>
 
-      {/* 7. ABOUT MM : OPERATIONS, INFRASTRUCTURE & LEADERSHIP */}
+      {/* ═══════════════════════════════════════════════════════════
+          8. ABOUT MM — institutional / professional section
+      ═══════════════════════════════════════════════════════════ */}
       <Section
         id="about-mm"
         title="About MM"
-        eyebrow="Operations &amp; Infrastructure"
-        intro="Behind our simple interface is institutional infrastructure. We maintain rigorous session isolation, weekly quality audits, and transparent financial reconciliation."
+        eyebrow="Operations & Infrastructure"
+        intro="Behind our simple interface is institutional infrastructure. We maintain rigorous session isolation, weekly quality audits, and transparent financial reconciliation across every account we manage."
       >
+        {/* Infrastructure cards */}
         <div className="grid gap-6 lg:grid-cols-3 mb-10">
           <div className="card p-6 space-y-2">
-            <span className="text-xs font-mono font-semibold text-muted uppercase">Containment Architecture</span>
+            <span className="text-xs font-mono font-semibold text-muted uppercase">
+              Containment Architecture
+            </span>
             <h4 className="text-lg font-semibold text-ink">Isolated Virtual Sessions</h4>
             <p className="text-sm text-muted leading-relaxed">
-              Taskers operate inside sandboxed remote virtual machines with disabled local clipboards and blocked file transfers. Credentials never touch unmonitored endpoints.
+              Taskers operate inside sandboxed remote virtual machines with disabled local
+              clipboards and blocked file transfers. Credentials never touch unmonitored endpoints.
             </p>
           </div>
 
           <div className="card p-6 space-y-2">
-            <span className="text-xs font-mono font-semibold text-muted uppercase">Quality Control</span>
+            <span className="text-xs font-mono font-semibold text-muted uppercase">
+              Quality Control
+            </span>
             <h4 className="text-lg font-semibold text-ink">Independent Blind Audits</h4>
             <p className="text-sm text-muted leading-relaxed">
-              Continuous sampling audits ensure project tasks maintain a 4.9/5.0 target score, protecting account standing and unlocking higher-tier project queues.
+              Continuous sampling audits ensure project tasks maintain a 4.9/5.0 target score,
+              protecting account standing and unlocking higher-tier project queues.
             </p>
           </div>
 
           <div className="card p-6 space-y-2">
-            <span className="text-xs font-mono font-semibold text-muted uppercase">Financial Transparency</span>
+            <span className="text-xs font-mono font-semibold text-muted uppercase">
+              Financial Transparency
+            </span>
             <h4 className="text-lg font-semibold text-ink">Weekly Friday Settlement</h4>
             <p className="text-sm text-muted leading-relaxed">
-              Automated itemized accounting statements every Friday detail gross earnings, tasker pay floors (30%+), and operational fees for full auditability.
+              Automated itemized accounting statements every Friday detail gross earnings, tasker
+              pay floors (30%+), and operational fees for full auditability.
             </p>
           </div>
         </div>
 
-        {/* OPERATIONS LEADERSHIP TEAM */}
+        {/* Leadership team */}
         <h3 className="text-xl font-semibold text-ink mb-4">Operations Leadership</h3>
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 mb-10">
           {team.map((member) => (
@@ -329,22 +425,25 @@ export default function About() {
               </div>
 
               <div className="mt-6 pt-3 border-t border-line flex items-center justify-between text-xs font-mono">
-                <a 
-                  href={member.telegram} 
-                  target="_blank" 
+                <a
+                  href={member.telegram}
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="text-muted hover:text-ink transition-colors flex items-center gap-1"
                 >
                   <Send className="h-3 w-3" /> Telegram Hub
                 </a>
-                <a href={`mailto:${member.email}`} className="text-muted hover:text-ink transition-colors">
+                <a
+                  href={`mailto:${member.email}`}
+                  className="text-muted hover:text-ink transition-colors"
+                >
                   {member.email}
                 </a>
               </div>
             </div>
           ))}
 
-          {/* JOIN CARD */}
+          {/* Join card */}
           <div className="card p-6 flex flex-col justify-between border-dashed">
             <div>
               <span className="inline-flex h-11 w-11 items-center justify-center rounded border border-line bg-surface-2 font-mono text-sm font-semibold text-ink">
@@ -352,7 +451,8 @@ export default function About() {
               </span>
               <h4 className="mt-4 text-base font-semibold text-ink">Join the Specialist Fleet</h4>
               <p className="mt-2 text-sm text-muted leading-relaxed">
-                Engineers, mathematicians, and linguists: we match your expertise with active project queues with weekly compensation.
+                Engineers, mathematicians, and linguists: we match your expertise with active
+                project queues with weekly compensation.
               </p>
             </div>
             <div className="mt-6 pt-3 border-t border-line">
@@ -363,7 +463,7 @@ export default function About() {
           </div>
         </div>
 
-        {/* REGULATORY & ENTITY DISCLOSURE */}
+        {/* Regulatory disclosure */}
         <div className="grid gap-4 sm:grid-cols-3 rounded-card border border-line bg-surface p-5 text-xs font-mono">
           <div>
             <span className="text-muted uppercase">Governing Entity</span>
@@ -380,41 +480,11 @@ export default function About() {
         </div>
       </Section>
 
-      {/* 8. SUPPORTED DOMAIN WORKFLOWS */}
-      <Section 
-        id="ecosystem" 
-        tone="tint" 
-        title="Evaluated Domain Workflows" 
-        eyebrow="Specialization"
-        intro="Enterprise frontier models depend on high-fidelity human evaluation across specialized tracks."
-      >
-        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-          {[
-            { icon: MessageSquare, title: "Pairwise Preference Ranking", body: "Evaluating subtle response trade-offs, instruction fidelity, and structural alignment for RLHF reward models." },
-            { icon: PenTool, title: "Adversarial Prompt Engineering", body: "Authoring complex multi-turn edge prompts designed to test safety barriers and hallucination boundaries." },
-            { icon: Binary, title: "Mathematical & Formal Logic Proofs", body: "Validating step-by-step calculus proofs, algorithmic reasoning, and scientific reasoning rubrics." },
-            { icon: Code2, title: "Code Generation & Refactoring", body: "Authoring unit tests, reviewing pull requests, and verifying multi-language algorithmic implementations." },
-            { icon: Languages, title: "Multilingual Localization", body: "Deep cultural nuance, idiomatic accuracy, and non-English alignment across 30+ regional dialects." },
-            { icon: SearchCheck, title: "Factual Verification & Grounding", body: "Citation validation, grounding verification, and source cross-referencing against primary documentation." },
-          ].map((item) => {
-            const IconComp = item.icon;
-            return (
-              <div key={item.title} className="card p-6 flex flex-col">
-                <div className="mb-4 inline-flex h-9 w-9 items-center justify-center rounded border border-line bg-surface-2 text-ink">
-                  <IconComp className="h-4 w-4 text-muted" />
-                </div>
-                <h3 className="text-base font-semibold text-ink mb-1">{item.title}</h3>
-                <p className="text-sm text-muted leading-relaxed">{item.body}</p>
-              </div>
-            );
-          })}
-        </div>
-      </Section>
-
-      {/* 9. CONTACT OPERATIONS */}
-      <Section 
-        id="contact" 
-        title="Contact Operations" 
+      {/* ── 9. CONTACT ── */}
+      <Section
+        id="contact"
+        tone="tint"
+        title="Contact Operations"
         eyebrow="Inquiries"
         intro="Submit general questions, enterprise partnership requests, or security coordination."
       >
@@ -425,7 +495,6 @@ export default function About() {
           </div>
 
           <div className="space-y-4">
-            {/* TELEGRAM OPERATIONS DESK */}
             <div className="card p-5 font-mono">
               <div className="flex items-center justify-between">
                 <span className="flex items-center gap-2 font-sans font-semibold text-base text-ink">
@@ -436,13 +505,14 @@ export default function About() {
                 </span>
               </div>
               <p className="mt-2 text-xs text-muted font-sans leading-relaxed">
-                Connect directly with verified operations coordinators for onboarding, audit review, or credential coordination.
+                Connect directly with verified operations coordinators for onboarding, audit
+                review, or credential coordination.
               </p>
               <div className="mt-4">
-                <a 
+                <a
                   className="btn-accent w-full text-center text-xs flex items-center justify-center gap-2"
-                  href={site.telegram.hub} 
-                  target="_blank" 
+                  href={site.telegram.hub}
+                  target="_blank"
                   rel="noopener noreferrer"
                 >
                   <Send className="h-3.5 w-3.5" />
@@ -451,50 +521,34 @@ export default function About() {
               </div>
             </div>
 
-            {/* DIRECT TEAM DEPARTMENT INQUIRIES */}
             <div className="card p-5 space-y-3">
-              <h4 className="text-xs font-mono font-semibold uppercase tracking-wider text-muted">Department Channels</h4>
-              
+              <h4 className="text-xs font-mono font-semibold uppercase tracking-wider text-muted">
+                Department Channels
+              </h4>
               <ul className="space-y-2.5 text-xs font-mono">
-                <li className="flex items-center justify-between pb-2 border-b border-line">
-                  <div>
-                    <span className="font-semibold text-ink block">Marcus Vance</span>
-                    <span className="text-muted">Partnerships &amp; Accounts</span>
-                  </div>
-                  <a href={`mailto:${site.email.hello}`} className="text-muted hover:text-ink transition-colors">Email &rarr;</a>
-                </li>
-
-                <li className="flex items-center justify-between pb-2 border-b border-line">
-                  <div>
-                    <span className="font-semibold text-ink block">Dr. Elena Rostova</span>
-                    <span className="text-muted">Curriculum &amp; Training</span>
-                  </div>
-                  <a href={`mailto:${site.email.support}`} className="text-muted hover:text-ink transition-colors">Email &rarr;</a>
-                </li>
-
-                <li className="flex items-center justify-between pb-2 border-b border-line">
-                  <div>
-                    <span className="font-semibold text-ink block">Aris Thorne</span>
-                    <span className="text-muted">Quality Assurance</span>
-                  </div>
-                  <a href={`mailto:${site.email.support}`} className="text-muted hover:text-ink transition-colors">Email &rarr;</a>
-                </li>
-
-                <li className="flex items-center justify-between pb-2 border-b border-line">
-                  <div>
-                    <span className="font-semibold text-ink block">Kaelen Diaz</span>
-                    <span className="text-muted">Security &amp; Containment</span>
-                  </div>
-                  <a href={`mailto:${site.email.security}`} className="text-muted hover:text-ink transition-colors">Email &rarr;</a>
-                </li>
-
-                <li className="flex items-center justify-between">
-                  <div>
-                    <span className="font-semibold text-ink block">Sora Tanaka</span>
-                    <span className="text-muted">Contributor Relations</span>
-                  </div>
-                  <a href={`mailto:${site.email.access}`} className="text-muted hover:text-ink transition-colors">Email &rarr;</a>
-                </li>
+                {[
+                  { name: "Marcus Vance", dept: "Partnerships & Accounts", email: site.email.hello },
+                  { name: "Dr. Elena Rostova", dept: "Curriculum & Training", email: site.email.support },
+                  { name: "Aris Thorne", dept: "Quality Assurance", email: site.email.support },
+                  { name: "Kaelen Diaz", dept: "Security & Containment", email: site.email.security },
+                  { name: "Sora Tanaka", dept: "Contributor Relations", email: site.email.access },
+                ].map((person, i, arr) => (
+                  <li
+                    key={person.name}
+                    className={`flex items-center justify-between${i < arr.length - 1 ? " pb-2 border-b border-line" : ""}`}
+                  >
+                    <div>
+                      <span className="font-semibold text-ink block">{person.name}</span>
+                      <span className="text-muted">{person.dept}</span>
+                    </div>
+                    <a
+                      href={`mailto:${person.email}`}
+                      className="text-muted hover:text-ink transition-colors"
+                    >
+                      Email &rarr;
+                    </a>
+                  </li>
+                ))}
               </ul>
             </div>
           </div>
