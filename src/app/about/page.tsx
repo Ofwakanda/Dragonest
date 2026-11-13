@@ -1,14 +1,38 @@
+import { 
+  Accessibility, 
+  Eye, 
+  HandCoins, 
+  Scale, 
+  ShieldCheck, 
+  Users,
+  Wallet,
+  Globe2,
+  Clock,
+  BookOpen,
+  Home,
+  Laptop,
+  PenTool,
+  MessageSquare,
+  Binary,
+  Code2,
+  Languages,
+  SearchCheck,
+  Send,
+  Lock,
+  Layers,
+  ArrowRight,
+  MonitorCheck,
+  CheckCircle2
+} from "lucide-react";
 import Link from "next/link";
-import { Send, ArrowRight, BookOpen, Home, Briefcase, Car, Globe2, ShieldCheck, Lock, Users, CheckCircle2 } from "lucide-react";
-import { Accordion } from "@/components/Accordion";
 import { ContactForm } from "@/components/forms/ContactForm";
-import { PageHero, Section } from "@/components/ui";
+import { FeatureGrid, PageHero, Section } from "@/components/ui";
 import { site } from "@/config/site";
 import { pageMeta } from "@/lib/seo";
 
 export const metadata = pageMeta({
-  title: "About MIDDLEMEN : AI is Paying People Like You Right Now",
-  description: "AI companies need real people to check and improve their answers. You do not need a degree or coding skills to get started. We connect you with the work and you get paid every week.",
+  title: "About Middlemen : Infrastructure for Managed AI Training Accounts",
+  description: "Middlemen pairs enterprise AI training accounts with vetted domain specialists, providing strict session security, quality assurance, and weekly transparent financial settlements.",
   path: "/about",
 });
 
@@ -36,256 +60,226 @@ const team: TeamMember[] = [
   },
   {
     name: "Dr. Elena Rostova",
-    role: "Head of Contributor Onboarding",
-    badge: "Curriculum & Training",
+    role: "Chief Learning Officer & Head of Trainer Development",
+    badge: "Curriculum & RLHF",
     initials: "ER",
     focus: "Specialist trainer onboarding, multi-turn reasoning rubrics & cognitive ergonomics",
-    bio: "Former researcher in educational technology. Builds simple, practical learning guides so contributors pass platform benchmarks and maintain top ratings.",
+    bio: "Former researcher in computational linguistics and cognitive ergonomics. Authors our multi-step chain-of-thought training modules and domain qualification tracks.",
     telegram: site.telegram.hub,
     email: site.email.support,
   },
   {
     name: "Aris Thorne",
-    role: "Head of AI Quality Assurance",
+    role: "Head of AI Quality Assurance & Evaluation Fleet",
     badge: "QA & Benchmarks",
     initials: "AT",
     focus: "Multi-modal scoring rubrics, automated audit sampling & fleet scorecards (4.9/5.0 target)",
-    bio: "Over 8 years designing evaluation pipelines for high-stakes ML systems. Manages independent blind sampling audits and quality appeal tribunals.",
+    bio: "Over 8 years designing rigorous evaluation pipelines for high-stakes ML systems. Manages our independent blind sampling audits and quality appeal tribunals.",
     telegram: site.telegram.hub,
     email: site.email.support,
   },
   {
     name: "Kaelen Diaz",
-    role: "Director of Systems & Security",
-    badge: "Zero Trust & Security",
+    role: "Director of Systems & Security Engineering",
+    badge: "Zero Trust & Cryptography",
     initials: "KD",
     focus: "Isolated VM sandboxes, zero clipboard confinement & Telegram encrypted dispatch",
-    bio: "Information security veteran. Ensures host account credentials never touch public internet forms or unmonitored endpoints.",
+    bio: "Information security veteran with a focus on containment architecture. Ensures host account credentials never touch public internet forms or unmonitored endpoints.",
     telegram: site.telegram.hub,
     email: site.email.security,
   },
   {
     name: "Sora Tanaka",
-    role: "VP of Contributor Care & Inclusion",
-    badge: "Community & Support",
+    role: "VP of Contributor Relations & Accessibility",
+    badge: "Community & Inclusion",
     initials: "ST",
     focus: "24/7 Telegram customer care, assistive technology accommodations & fair pay floors",
-    bio: "Advocate for digital workers. Champions our non-negotiable 30%+ tasker pay floor and 24/7 real-time Telegram response desk.",
+    bio: "Advocate for neurodivergent and disabled digital workers. Champions our non-negotiable 30%+ tasker pay floor and 24/7 real-time Telegram response desk.",
     telegram: site.telegram.hub,
     email: site.email.access,
-  },
-];
-
-const faqItems = [
-  {
-    q: "Is it really free to start?",
-    a: <p>Yes. Checking your account, applying, training and testing cost nothing. Our share comes out of what your account earns.</p>,
-  },
-  {
-    q: "Do I need a degree or experience?",
-    a: <p>Account owners do not need any. Taskers need different skills depending on the track. Some need coding or maths, others just good English or your own language.</p>,
-  },
-  {
-    q: "How much can I earn?",
-    a: <p>It depends on the platform, the project and how much work is available. The pay ranges we show are typical, not promised. The calculator gives you an estimate.</p>,
-  },
-  {
-    q: "When do I get paid?",
-    a: <p>Every Friday, with a statement that shows exactly where the money came from.</p>,
-  },
-  {
-    q: "Do you need my password?",
-    a: <p>No. We never ask for a password on a web form. Access is set up in an encrypted chat with a verified admin.</p>,
-  },
-  {
-    q: "How do I know I can trust you?",
-    a: <p>You can see your dashboard, your weekly statements and your session records. Our ratings are public and our check is free. You can also reach us at {site.email.support} and {site.legalEntity}.</p>,
-  },
-  {
-    q: "What if something goes wrong with my account?",
-    a: <p>Tell us straight away on Telegram. We will look into what happened and explain it clearly.</p>,
-  },
-  {
-    q: "Which countries do you work with?",
-    a: <p>Most countries. Payout options depend on where you live: direct bank transfer, wire, SEPA, and local payout channels.</p>,
-  },
-  {
-    q: "Can I stop any time?",
-    a: <p>Yes. You can pause or stop managed work at any time. We settle what was earned up to that point and send your final statement.</p>,
   },
 ];
 
 export default function About() {
   return (
     <>
-      {/* 1. TOP SECTION */}
+      {/* 1. PROFESSIONAL HERO */}
       <PageHero 
-        eyebrow="ABOUT MIDDLEMEN" 
-        title="AI is paying people like you right now."
-        subhead="AI companies need real people to check and improve their answers. You do not need a degree or coding skills to get started. We connect you with the work, protect your account, and you get paid every week."
+        eyebrow="Company &amp; Operations" 
+        title="Infrastructure for Managed AI Training Accounts"
+        subhead="Middlemen bridges underutilized AI training accounts with vetted domain specialists. We maintain strict session containment, continuous quality assurance, and weekly automated settlement statements."
       >
-        <div className="space-y-4">
-          <div className="flex flex-wrap items-center gap-4">
-            <Link href="#qualify" className="btn-accent">See if I qualify</Link>
-            <a href="#how" className="inline-flex items-center gap-1 text-sm font-medium text-muted hover:text-ink transition-colors px-3 py-2">
-              How the money works &rarr;
-            </a>
-          </div>
-          <div>
-            <a 
-              href={site.telegram.hub} 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="text-xs font-mono text-muted hover:text-ink transition-colors inline-flex items-center gap-1"
-            >
-              <Send className="h-3 w-3" /> Join us on Telegram
-            </a>
-          </div>
+        <div className="flex flex-col sm:flex-row sm:items-center gap-4">
+          <Link href="/account-owners#submit" className="btn-accent">
+            Connect Your Account
+          </Link>
+          <Link href="#about-mm" className="inline-flex items-center gap-1 text-sm font-medium text-muted hover:text-ink transition-colors px-2 py-1">
+            About MM Operations <ArrowRight className="h-4 w-4" />
+          </Link>
         </div>
       </PageHero>
 
-      {/* 2. SOUND FAMILIAR? */}
-      <Section id="sound-familiar" tone="tint" title="Sound familiar?">
-        <div className="max-w-3xl space-y-6">
-          <blockquote className="text-xl sm:text-2xl font-medium text-ink italic border-l-2 border-line-strong pl-4">
-            &ldquo;I need money, but I do not have a degree. I am not a programmer. And I cannot afford to wait months to get started.&rdquo;
-          </blockquote>
+      {/* 2. CORE OPERATIONAL METRICS */}
+      <section className="border-b border-line bg-surface py-12">
+        <div className="container">
+          <div className="grid gap-4 sm:grid-cols-4 max-w-4xl mx-auto text-center font-mono">
+            <div className="card">
+              <span className="text-3xl font-semibold text-ink">55%</span>
+              <p className="mt-2 text-sm font-sans font-semibold text-ink">Owner Distribution</p>
+              <p className="mt-1 text-xs text-muted font-sans">Direct weekly payout on all platform earnings</p>
+            </div>
+            <div className="card">
+              <span className="text-3xl font-semibold text-ink">30%+</span>
+              <p className="mt-2 text-sm font-sans font-semibold text-ink">Specialist Pay Floor</p>
+              <p className="mt-1 text-xs text-muted font-sans">Guaranteed base share for domain taskers</p>
+            </div>
+            <div className="card">
+              <span className="text-3xl font-semibold text-ink">100%</span>
+              <p className="mt-2 text-sm font-sans font-semibold text-ink">Isolated Sessions</p>
+              <p className="mt-1 text-xs text-muted font-sans">Zero clipboard sharing or local credential storage</p>
+            </div>
+            <div className="card">
+              <span className="text-3xl font-semibold text-ink">Every Fri</span>
+              <p className="mt-2 text-sm font-sans font-semibold text-ink">Settlement Cadence</p>
+              <p className="mt-1 text-xs text-muted font-sans">Digital itemized statements delivered weekly</p>
+            </div>
+          </div>
+        </div>
+      </section>
 
-          <p className="text-base text-muted leading-relaxed">
-            We hear this every day. We help people in exactly that situation get started, and many begin earning within 48 hours. You do not need experience. You need a phone or laptop, an internet connection, and the ability to follow simple instructions.
-          </p>
+      {/* 3. OPERATING MODEL */}
+      <Section 
+        id="model" 
+        eyebrow="Operating Model"
+        title="How Managed Work Is Executed" 
+        intro="Enterprise platforms such as Outlier, Scale AI, and Alignerr require consistent high-accuracy task execution. We coordinate the full lifecycle."
+      >
+        <div className="grid gap-4 lg:grid-cols-3">
+          <div className="card flex flex-col justify-between">
+            <div>
+              <div className="mb-4 inline-flex h-9 w-9 items-center justify-center rounded border border-line bg-surface-2 font-mono text-xs font-semibold text-muted">
+                01
+              </div>
+              <h3 className="text-lg font-semibold text-ink">Queue Verification &amp; Calibration</h3>
+              <p className="mt-2 text-sm text-muted leading-relaxed">
+                We review queue availability and assessment requirements on accounts across Outlier, Alignerr, and Scale AI. Setup and review are completely free.
+              </p>
+            </div>
+          </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2 text-xs font-mono text-muted">
-            <div className="rounded border border-line bg-surface p-3 text-center">Weekly payouts</div>
-            <div className="rounded border border-line bg-surface p-3 text-center">Phone or laptop</div>
-            <div className="rounded border border-line bg-surface p-3 text-center">Most countries</div>
-            <div className="rounded border border-line bg-surface p-3 text-center">Your own hours</div>
+          <div className="card flex flex-col justify-between">
+            <div>
+              <div className="mb-4 inline-flex h-9 w-9 items-center justify-center rounded border border-line bg-surface-2 font-mono text-xs font-semibold text-muted">
+                02
+              </div>
+              <h3 className="text-lg font-semibold text-ink">Dedicated Specialist Assignment</h3>
+              <p className="mt-2 text-sm text-muted leading-relaxed">
+                Accounts are paired with certified domain evaluators who log into secure, isolated virtual sessions to complete queue tasks daily while maintaining 4.8+ QA scores.
+              </p>
+            </div>
+          </div>
+
+          <div className="card flex flex-col justify-between">
+            <div>
+              <div className="mb-4 inline-flex h-9 w-9 items-center justify-center rounded border border-line bg-surface-2 font-mono text-xs font-semibold text-muted">
+                03
+              </div>
+              <h3 className="text-lg font-semibold text-ink">Reconciliation &amp; Settlement</h3>
+              <p className="mt-2 text-sm text-muted leading-relaxed">
+                Platform funds deposit directly to the account owner. Every Friday, an itemized statement accounts for the 55% owner net, tasker compensation, and 15% management fee.
+              </p>
+            </div>
           </div>
         </div>
       </Section>
 
-      {/* 3. WHO THIS IS FOR */}
-      <Section id="who" title="This is for people like you.">
+      {/* 4. CONTRIBUTOR PROFILES */}
+      <Section id="who" tone="tint" title="Built for Dedicated Domain Evaluators" eyebrow="Contributor Profiles">
+        <p className="text-base text-muted max-w-2xl mb-8 -mt-4">
+          Middlemen matches verified AI training accounts with specialized contributors across diverse fields:
+        </p>
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {[
-            {
-              icon: BookOpen,
-              title: "Students",
-              body: "Classes only some days, rent to cover. Work in your free hours.",
-            },
-            {
-              icon: Home,
-              title: "Parents at home",
-              body: "Cannot do 9 to 5? Work around nap time and school runs.",
-            },
-            {
-              icon: Briefcase,
-              title: "Between jobs",
-              body: "Applications going nowhere? Start earning this week, no interview.",
-            },
-            {
-              icon: Car,
-              title: "Drivers and delivery riders",
-              body: "Long hours, low pay. Earn from home with a phone or laptop.",
-            },
-            {
-              icon: Globe2,
-              title: "Anywhere in the world",
-              body: "Paid in US dollars, so even a few hours a week adds up.",
-            },
+            { icon: Code2, who: "Software Engineers", situation: "Full stack, backend, and algorithmic developers evaluating code generation, writing complex test suites, and performing multi-file refactoring." },
+            { icon: Binary, who: "STEM & Mathematics Specialists", situation: "Graduates and researchers in mathematics, physics, and statistics validating step-by-step reasoning and formal logic proofs." },
+            { icon: Globe2, who: "Linguists & Translators", situation: "Native speakers in non-English locales providing nuanced dialect localization, cultural validation, and translation QA." },
+            { icon: BookOpen, who: "Technical Writers & Editors", situation: "Clear communicators capable of grading tone, instruction-following fidelity, hallucination rates, and structural coherence." },
+            { icon: Home, who: "Remote Research Professionals", situation: "Domain experts seeking flexible asynchronous work with transparent weekly compensation and dedicated account matching." },
+            { icon: Laptop, who: "Subject Matter Consultants", situation: "Law, medicine, and finance specialists reviewing domain-specific edge cases, regulatory queries, and clinical reasoning." },
           ].map((item) => {
             const IconComp = item.icon;
             return (
-              <div key={item.title} className="card p-6 flex flex-col justify-between">
+              <div key={item.who} className="card flex flex-col justify-between">
                 <div>
                   <div className="mb-4 inline-flex h-9 w-9 items-center justify-center rounded border border-line bg-surface-2 text-ink">
                     <IconComp className="h-4 w-4 text-muted" />
                   </div>
-                  <h3 className="text-base font-semibold text-ink">{item.title}</h3>
-                  <p className="mt-2 text-sm text-muted leading-relaxed">{item.body}</p>
+                  <h3 className="text-base font-semibold text-ink">{item.who}</h3>
+                  <p className="mt-2 text-sm text-muted leading-relaxed">{item.situation}</p>
                 </div>
               </div>
             );
           })}
         </div>
+        <div className="mt-8 p-6 rounded-card border border-line bg-surface text-center">
+          <p className="text-base font-semibold text-ink mb-1">Looking to task on high-demand AI queues?</p>
+          <p className="text-sm text-muted mb-4">Complete an evaluation application to qualify for active developer, STEM, or reasoning queues.</p>
+          <Link href="/taskers#apply" className="btn-accent text-sm px-6 py-2.5">
+            Apply as an Evaluator
+          </Link>
+        </div>
       </Section>
 
-      {/* 4. HOW IT WORKS */}
-      <Section 
-        id="how" 
-        tone="tint" 
-        title="Here is how you earn"
-        intro="AI companies pay people to review and improve AI answers. The work is done online, from your phone or laptop, on your own schedule."
+      {/* 5. EVALUATION WORKFLOW */}
+      <Section
+        id="apply"
+        title="Evaluation &amp; Matching Workflow"
+        eyebrow="Onboarding"
+        intro="Domain specialists undergo thorough rubric calibration before accessing live queue sessions."
       >
-        <div className="grid gap-4 md:grid-cols-3">
-          <div className="card p-6 flex flex-col justify-between">
-            <div>
-              <div className="mb-4 inline-flex h-9 w-9 items-center justify-center rounded border border-line bg-surface-2 font-mono text-xs font-semibold text-muted">
-                1
+        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+          {[
+            { step: "01", title: "Domain Application", body: "Submit your domain background, technical proficiencies, timezone, and weekly availability." },
+            { step: "02", title: "Rubric Calibration", body: "Complete practice benchmarks to verify compliance with platform-specific grading rubrics." },
+            { step: "03", title: "Session Provisioning", body: "Access is granted via secure, isolated virtual environments with dedicated supervisor support." },
+            { step: "04", title: "Active Queue Work", body: "Execute tasks daily and receive transparent weekly disbursements with at least 30% revenue share." },
+          ].map((item) => (
+            <div key={item.step} className="card flex flex-col justify-between">
+              <div>
+                <div className="mb-4 inline-flex h-9 w-9 items-center justify-center rounded border border-line bg-surface-2 font-mono text-xs font-semibold text-muted">
+                  {item.step}
+                </div>
+                <h3 className="text-base font-semibold text-ink">{item.title}</h3>
+                <p className="mt-2 text-sm text-muted leading-relaxed">{item.body}</p>
               </div>
-              <h3 className="text-lg font-semibold text-ink">You get a verified account</h3>
-              <p className="mt-2 text-sm text-muted leading-relaxed">
-                Use your own, or we match you with one.
-              </p>
             </div>
-          </div>
-
-          <div className="card p-6 flex flex-col justify-between">
-            <div>
-              <div className="mb-4 inline-flex h-9 w-9 items-center justify-center rounded border border-line bg-surface-2 font-mono text-xs font-semibold text-muted">
-                2
-              </div>
-              <h3 className="text-lg font-semibold text-ink">You do the tasks, or we do them</h3>
-              <p className="mt-2 text-sm text-muted leading-relaxed">
-                Pick what suits you: do the tasks yourself, or let our specialists work your queue.
-              </p>
-            </div>
-          </div>
-
-          <div className="card p-6 flex flex-col justify-between">
-            <div>
-              <div className="mb-4 inline-flex h-9 w-9 items-center justify-center rounded border border-line bg-surface-2 font-mono text-xs font-semibold text-muted">
-                3
-              </div>
-              <h3 className="text-lg font-semibold text-ink">You get paid every week</h3>
-              <p className="mt-2 text-sm text-muted leading-relaxed">
-                With a clear statement every Friday showing what came in and where it went.
-              </p>
-            </div>
-          </div>
+          ))}
+        </div>
+        <div className="mt-8 text-center">
+          <Link href="/taskers#apply" className="btn-accent">
+            Apply as an Evaluator
+          </Link>
         </div>
       </Section>
 
-      {/* 5. WHAT MIDDLEMEN IS & PROOF */}
-      <Section id="who-we-are" title="Who we are">
-        <div className="max-w-3xl space-y-6">
-          <p className="text-base sm:text-lg text-muted leading-relaxed">
-            MIDDLEMEN connects people with AI training work. Account owners keep 55%, specialists earn at least 30%, and 15% runs the service. Everything shows in your dashboard, payouts come weekly, and we never ask for your password on a web form.
-          </p>
-
-          <div className="rounded-card border border-line bg-surface p-6 space-y-2">
-            <p className="font-mono text-base font-semibold text-ink">
-              611 active accounts · 99.4% account health · 4.9 out of 5 average score
-            </p>
-            <p className="text-xs text-muted">
-              Real people earning real income from AI training work. Updated monthly.
-            </p>
-            <div className="pt-2">
-              <Link href="/ratings" className="inline-flex items-center gap-1 text-xs font-mono text-ink underline underline-offset-4 hover:text-muted">
-                See live stats &rarr;
-              </Link>
-            </div>
-          </div>
-        </div>
+      {/* 6. OPERATIONAL PRINCIPLES */}
+      <Section id="values" tone="tint" title="Operational Principles" eyebrow="Governance">
+        <FeatureGrid items={[
+          { icon: Scale, title: "Platform Compliance", body: "We regularly review partner platform terms and operate strictly within allowable contractual boundaries." },
+          { icon: Eye, title: "Transparent Accounting", body: "Every percentage split and management fee is published upfront with line-by-line Friday statements." },
+          { icon: HandCoins, title: "Guaranteed Pay Floors", body: "Specialist contributors always receive at least 30% of gross earnings, distributed on a strict weekly schedule." },
+          { icon: Accessibility, title: "Universal Accessibility", body: "Flexible asynchronous workflows engineered to accommodate neurodivergent contributors and global schedules." },
+          { icon: ShieldCheck, title: "Credential Isolation", body: "Credentials are never requested through public forms. All access is handled via encrypted channels into sandboxed VMs." },
+          { icon: Users, title: "Dedicated Support Desk", body: "Direct access to operations leads via Telegram with continuous human-in-the-loop oversight." },
+        ]} />
       </Section>
 
-      {/* 6. ABOUT MM : PROFESSIONAL INFRASTRUCTURE & LEADERSHIP */}
+      {/* 7. ABOUT MM : OPERATIONS, INFRASTRUCTURE & LEADERSHIP */}
       <Section
         id="about-mm"
-        tone="tint"
         title="About MM"
         eyebrow="Operations &amp; Infrastructure"
-        intro="Behind the simple interface is institutional infrastructure. We maintain rigorous session isolation, weekly quality audits, and transparent financial reconciliation."
+        intro="Behind our simple interface is institutional infrastructure. We maintain rigorous session isolation, weekly quality audits, and transparent financial reconciliation."
       >
         <div className="grid gap-6 lg:grid-cols-3 mb-10">
           <div className="card p-6 space-y-2">
@@ -313,7 +307,7 @@ export default function About() {
           </div>
         </div>
 
-        {/* LEADERSHIP TEAM */}
+        {/* OPERATIONS LEADERSHIP TEAM */}
         <h3 className="text-xl font-semibold text-ink mb-4">Operations Leadership</h3>
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 mb-10">
           {team.map((member) => (
@@ -349,6 +343,24 @@ export default function About() {
               </div>
             </div>
           ))}
+
+          {/* JOIN CARD */}
+          <div className="card p-6 flex flex-col justify-between border-dashed">
+            <div>
+              <span className="inline-flex h-11 w-11 items-center justify-center rounded border border-line bg-surface-2 font-mono text-sm font-semibold text-ink">
+                +
+              </span>
+              <h4 className="mt-4 text-base font-semibold text-ink">Join the Specialist Fleet</h4>
+              <p className="mt-2 text-sm text-muted leading-relaxed">
+                Engineers, mathematicians, and linguists: we match your expertise with active project queues with weekly compensation.
+              </p>
+            </div>
+            <div className="mt-6 pt-3 border-t border-line">
+              <Link href="/taskers#apply" className="btn-accent w-full text-center text-sm">
+                Apply as an Evaluator
+              </Link>
+            </div>
+          </div>
         </div>
 
         {/* REGULATORY & ENTITY DISCLOSURE */}
@@ -368,32 +380,124 @@ export default function About() {
         </div>
       </Section>
 
-      {/* 7. FAQ */}
-      <Section id="faq" title="FAQ">
-        <div className="max-w-3xl">
-          <Accordion items={faqItems} />
+      {/* 8. SUPPORTED DOMAIN WORKFLOWS */}
+      <Section 
+        id="ecosystem" 
+        tone="tint" 
+        title="Evaluated Domain Workflows" 
+        eyebrow="Specialization"
+        intro="Enterprise frontier models depend on high-fidelity human evaluation across specialized tracks."
+      >
+        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+          {[
+            { icon: MessageSquare, title: "Pairwise Preference Ranking", body: "Evaluating subtle response trade-offs, instruction fidelity, and structural alignment for RLHF reward models." },
+            { icon: PenTool, title: "Adversarial Prompt Engineering", body: "Authoring complex multi-turn edge prompts designed to test safety barriers and hallucination boundaries." },
+            { icon: Binary, title: "Mathematical & Formal Logic Proofs", body: "Validating step-by-step calculus proofs, algorithmic reasoning, and scientific reasoning rubrics." },
+            { icon: Code2, title: "Code Generation & Refactoring", body: "Authoring unit tests, reviewing pull requests, and verifying multi-language algorithmic implementations." },
+            { icon: Languages, title: "Multilingual Localization", body: "Deep cultural nuance, idiomatic accuracy, and non-English alignment across 30+ regional dialects." },
+            { icon: SearchCheck, title: "Factual Verification & Grounding", body: "Citation validation, grounding verification, and source cross-referencing against primary documentation." },
+          ].map((item) => {
+            const IconComp = item.icon;
+            return (
+              <div key={item.title} className="card p-6 flex flex-col">
+                <div className="mb-4 inline-flex h-9 w-9 items-center justify-center rounded border border-line bg-surface-2 text-ink">
+                  <IconComp className="h-4 w-4 text-muted" />
+                </div>
+                <h3 className="text-base font-semibold text-ink mb-1">{item.title}</h3>
+                <p className="text-sm text-muted leading-relaxed">{item.body}</p>
+              </div>
+            );
+          })}
         </div>
       </Section>
 
-      {/* 8. CLOSING / CHECK IF YOU QUALIFY */}
-      <section id="qualify" className="border-b border-line bg-surface py-16">
-        <div className="container text-center max-w-2xl mx-auto space-y-4">
-          <h2 className="text-3xl font-semibold text-ink">Check if you qualify.</h2>
-          <p className="text-base text-muted">
-            It is free, it takes about two minutes, and there is no obligation.
-          </p>
-          <div className="pt-2">
-            <Link href="/account-owners#submit" className="btn-accent inline-flex">
-              See if I qualify
-            </Link>
+      {/* 9. CONTACT OPERATIONS */}
+      <Section 
+        id="contact" 
+        title="Contact Operations" 
+        eyebrow="Inquiries"
+        intro="Submit general questions, enterprise partnership requests, or security coordination."
+      >
+        <div className="grid gap-10 lg:grid-cols-[1.8fr_1.2fr]">
+          <div>
+            <h3 className="text-lg font-semibold text-ink mb-4">Send a Message</h3>
+            <ContactForm />
           </div>
-        </div>
-      </section>
 
-      {/* 9. CONTACT FORM */}
-      <Section id="contact" tone="tint" title="Get in touch" intro="Send a message or reach us directly on Telegram.">
-        <div className="max-w-2xl">
-          <ContactForm />
+          <div className="space-y-4">
+            {/* TELEGRAM OPERATIONS DESK */}
+            <div className="card p-5 font-mono">
+              <div className="flex items-center justify-between">
+                <span className="flex items-center gap-2 font-sans font-semibold text-base text-ink">
+                  <Send className="text-muted h-4 w-4" /> Telegram Operations Desk
+                </span>
+                <span className="rounded border border-line bg-surface-2 text-muted text-xs px-2 py-0.5">
+                  24/7 Response
+                </span>
+              </div>
+              <p className="mt-2 text-xs text-muted font-sans leading-relaxed">
+                Connect directly with verified operations coordinators for onboarding, audit review, or credential coordination.
+              </p>
+              <div className="mt-4">
+                <a 
+                  className="btn-accent w-full text-center text-xs flex items-center justify-center gap-2"
+                  href={site.telegram.hub} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                >
+                  <Send className="h-3.5 w-3.5" />
+                  <span>Open Telegram Desk</span>
+                </a>
+              </div>
+            </div>
+
+            {/* DIRECT TEAM DEPARTMENT INQUIRIES */}
+            <div className="card p-5 space-y-3">
+              <h4 className="text-xs font-mono font-semibold uppercase tracking-wider text-muted">Department Channels</h4>
+              
+              <ul className="space-y-2.5 text-xs font-mono">
+                <li className="flex items-center justify-between pb-2 border-b border-line">
+                  <div>
+                    <span className="font-semibold text-ink block">Marcus Vance</span>
+                    <span className="text-muted">Partnerships &amp; Accounts</span>
+                  </div>
+                  <a href={`mailto:${site.email.hello}`} className="text-muted hover:text-ink transition-colors">Email &rarr;</a>
+                </li>
+
+                <li className="flex items-center justify-between pb-2 border-b border-line">
+                  <div>
+                    <span className="font-semibold text-ink block">Dr. Elena Rostova</span>
+                    <span className="text-muted">Curriculum &amp; Training</span>
+                  </div>
+                  <a href={`mailto:${site.email.support}`} className="text-muted hover:text-ink transition-colors">Email &rarr;</a>
+                </li>
+
+                <li className="flex items-center justify-between pb-2 border-b border-line">
+                  <div>
+                    <span className="font-semibold text-ink block">Aris Thorne</span>
+                    <span className="text-muted">Quality Assurance</span>
+                  </div>
+                  <a href={`mailto:${site.email.support}`} className="text-muted hover:text-ink transition-colors">Email &rarr;</a>
+                </li>
+
+                <li className="flex items-center justify-between pb-2 border-b border-line">
+                  <div>
+                    <span className="font-semibold text-ink block">Kaelen Diaz</span>
+                    <span className="text-muted">Security &amp; Containment</span>
+                  </div>
+                  <a href={`mailto:${site.email.security}`} className="text-muted hover:text-ink transition-colors">Email &rarr;</a>
+                </li>
+
+                <li className="flex items-center justify-between">
+                  <div>
+                    <span className="font-semibold text-ink block">Sora Tanaka</span>
+                    <span className="text-muted">Contributor Relations</span>
+                  </div>
+                  <a href={`mailto:${site.email.access}`} className="text-muted hover:text-ink transition-colors">Email &rarr;</a>
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
       </Section>
     </>

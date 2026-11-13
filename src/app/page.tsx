@@ -112,8 +112,8 @@ export default function Home() {
 
               <p className="max-w-xl text-base sm:text-lg text-muted leading-relaxed">
                 Have an Outlier, Alignerr, Scale AI, or DataAnnotation account sitting unused? We pair
-                it with vetted domain specialists who complete tasks daily so you keep 55% of all
-                earnings. Don&apos;t have an account yet? We help you get onboarded and start tasking from home.
+                it with vetted domain specialists who complete tasks daily. You keep 55% of all
+                earnings with zero daily effort.
               </p>
 
               {/* Strict button hierarchy: one primary accent button, one text link */}
@@ -122,10 +122,10 @@ export default function Home() {
                   Connect Your Account
                 </Link>
                 <Link
-                  href="/about"
+                  href="#how"
                   className="inline-flex items-center gap-1 text-sm font-medium text-muted hover:text-ink transition-colors px-2 py-1"
                 >
-                  New to AI training? See how it works <ArrowRight className="h-4 w-4" />
+                  How it works <ArrowRight className="h-4 w-4" />
                 </Link>
               </div>
 
@@ -337,10 +337,10 @@ export default function Home() {
 
       {/* 7. CLOSING CTA */}
       <FinalCta
-        title="Ready to monetize your idle account or start tasking?"
-        body="Submit your account details for a free queue review, or join our contributor team to work active tasks. We get you started in under 24 hours."
+        title="Ready to monetize your idle account?"
+        body="Submit your account details for a free review. We evaluate queue status and connect you with a qualified specialist in under 24 hours."
         primary={{ href: "/account-owners#submit", label: "Connect Your Account" }}
-        secondary={{ href: "/about#ways-to-earn", label: "See How Everyday People Earn" }}
+        secondary={{ href: "/taskers", label: "Explore Tasker Opportunities" }}
       />
     </>
   );
