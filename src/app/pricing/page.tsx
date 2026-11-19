@@ -4,7 +4,7 @@ import { PriceTable } from "@/components/PriceTable";
 import { PricingCalculator } from "@/components/PricingCalculator";
 import { ContactForm } from "@/components/forms/ContactForm";
 import { Accordion } from "@/components/Accordion";
-import { ComplianceNotice, PageHero, Section } from "@/components/ui";
+import { ComplianceNotice, PageHero, Section, NumberTicker, BorderBeam, Badge } from "@/components/ui";
 import { money, photos, pricing } from "@/config/site";
 import { pageMeta } from "@/lib/seo";
 
@@ -51,17 +51,27 @@ export default function Pricing() {
         <div className="mb-6 grid gap-4 sm:grid-cols-3">
           <div className="card">
             <span className="eyebrow">Tasker Receives</span>
-            <p className="mt-1 font-mono text-3xl font-semibold text-ink">$900</p>
+            <p className="mt-1 font-mono text-3xl font-semibold text-ink">
+              <NumberTicker value={900} prefix="$" />
+            </p>
             <p className="mt-1 text-sm text-muted">30% minimum guaranteed specialist share</p>
           </div>
           <div className="card">
             <span className="eyebrow">Middlemen Fee</span>
-            <p className="mt-1 font-mono text-3xl font-bold text-ink">$450</p>
+            <p className="mt-1 font-mono text-3xl font-bold text-ink">
+              <NumberTicker value={450} prefix="$" />
+            </p>
             <p className="mt-1 text-sm text-muted">15% staffing, QA reviews and management</p>
           </div>
-          <div className="card bg-surface-2 border-line-strong">
-            <span className="eyebrow text-ink font-semibold">You Keep (Owner)</span>
-            <p className="mt-1 font-mono text-3xl font-semibold text-ink">$1,650</p>
+          <div className="card relative overflow-hidden bg-surface-2 border-line-strong">
+            <BorderBeam size={180} duration={12} colorFrom="#C6FF3D" colorTo="transparent" />
+            <div className="flex items-center justify-between">
+              <span className="eyebrow text-ink font-semibold">You Keep (Owner)</span>
+              <Badge variant="discount">55% Share</Badge>
+            </div>
+            <p className="mt-1 font-mono text-3xl font-semibold text-ink">
+              <NumberTicker value={1650} prefix="$" />
+            </p>
             <p className="mt-1 text-sm text-muted">55% net share to account owner</p>
           </div>
         </div>
@@ -95,14 +105,6 @@ export default function Pricing() {
             { q: "What if I am unhappy with a tasker?", a: <p>We assign a replacement specialist within 3 business days at zero extra cost. We do not bill the tasking fee for unworked hours during the transition.</p> },
             { q: "Can I cancel at any time?", a: <p>Yes. You can cancel at any time with no exit fee. We remove tasker access the same day and send a final statement for work already completed.</p> },
           ]} />
-        </div>
-      </Section>
-
-      {/* QUOTE SECTION */}
-      <Section id="quote" title="Get a Custom Quote" intro="Managing several accounts or looking for dedicated enterprise queue capacity? Send us an inquiry.">
-        <div className="grid gap-10 lg:grid-cols-2">
-          <ContactForm defaultTopic="quote" />
-          <div><ComplianceNotice /></div>
         </div>
       </Section>
     </>

@@ -1,6 +1,7 @@
 "use client";
 import { useRef, useState } from "react";
 import { UPLOAD_RULES } from "./fields";
+import { toast } from "@/lib/toast";
 
 export type Validator = (fd: FormData) => Record<string, string>;
 
@@ -17,6 +18,7 @@ export function useSubmit(endpoint: string, validate: Validator) {
     const errs = validate(fd);
     setErrors(errs);
     if (Object.keys(errs).length) {
+      toast.error("Please review form entries", "Check highlighted fields to proceed.");
       requestAnimationFrame(() => summaryRef.current?.focus());
       return;
     }
@@ -27,14 +29,17 @@ export function useSubmit(endpoint: string, validate: Validator) {
       if (!res.ok) {
         setErrors(json.errors ?? { form: "Something went wrong on our side. Your answers are still here — please try again." });
         setStatus("failed");
+        toast.error("Submission could not be completed", "Please verify your details and retry.");
         requestAnimationFrame(() => summaryRef.current?.focus());
         return;
       }
       setReference(json.reference ?? "");
       setStatus("done");
+      toast.success("Details received successfully", json.reference ? `Reference: ${json.reference}` : "Our team has logged your submission.");
     } catch {
       setErrors({ form: "We couldn't reach the server. Check your connection and try again." });
       setStatus("failed");
+      toast.error("Network connection error", "Check your connection and try again.");
       requestAnimationFrame(() => summaryRef.current?.focus());
     }
   }

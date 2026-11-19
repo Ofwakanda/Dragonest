@@ -29,7 +29,7 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import { ContactForm } from "@/components/forms/ContactForm";
-import { PageHero, Section } from "@/components/ui";
+import { PageHero, Section, GenerativeAvatar, NumberTicker, Badge } from "@/components/ui";
 import { site } from "@/config/site";
 import { pageMeta } from "@/lib/seo";
 
@@ -410,9 +410,7 @@ export default function About() {
             <div key={member.name} className="card p-6 flex flex-col justify-between">
               <div>
                 <div className="flex items-start justify-between gap-3">
-                  <div className="flex h-11 w-11 items-center justify-center rounded border border-line bg-surface-2 font-mono text-sm font-semibold text-ink">
-                    {member.initials}
-                  </div>
+                  <GenerativeAvatar seed={member.name} size={44} />
                   <span className="rounded border border-line bg-surface-2 px-2 py-0.5 font-mono text-[11px] font-medium text-muted">
                     {member.badge}
                   </span>

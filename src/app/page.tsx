@@ -7,9 +7,18 @@ import {
   KeyRound,
   FileCheck2,
   CheckCircle2,
+  Sparkles,
 } from "lucide-react";
 import { Accordion } from "@/components/Accordion";
-import { Section, FinalCta } from "@/components/ui";
+import { 
+  Section, 
+  FinalCta, 
+  Marquee, 
+  BorderBeam, 
+  NumberTicker, 
+  Badge,
+  GenerativeAvatar 
+} from "@/components/ui";
 import { DashboardPreview } from "@/components/DashboardPreview";
 import { PaymentReceiptLedger } from "@/components/PaymentReceiptLedger";
 import { PayoutStatementCard } from "@/components/PayoutStatementCard";
@@ -23,6 +32,16 @@ export const metadata = pageMeta({
     "Have an Outlier, Alignerr, Scale AI, or DataAnnotation account? We match it with vetted specialists who work your queue every day. You keep 55% of all earnings.",
   path: "/",
 });
+
+const platforms = [
+  { name: "Outlier.ai", tier: "High Volume", status: "Active Queues" },
+  { name: "Scale AI", tier: "Enterprise", status: "Verified Sync" },
+  { name: "Alignerr", tier: "RLHF / Coding", status: "Fast-Track" },
+  { name: "DataAnnotation", tier: "STEM & Logic", status: "Open" },
+  { name: "Remotasks", tier: "Multimodal", status: "Supported" },
+  { name: "Mercor", tier: "Specialist", status: "Matching" },
+  { name: "Invisible Tech", tier: "Expert Reasoning", status: "Active" },
+];
 
 const faq = [
   {
@@ -97,13 +116,16 @@ const faq = [
 export default function Home() {
   return (
     <>
-      {/* 1. HERO WITH DASHBOARD PREVIEW */}
-      <section className="relative border-b border-line bg-bg py-16 sm:py-24">
+      {/* 1. HERO WITH DASHBOARD PREVIEW & BORDERBEAM */}
+      <section className="relative border-b border-line bg-bg py-16 sm:py-24 overflow-hidden">
         <div className="container">
           <div className="grid items-center gap-12 lg:grid-cols-[1.1fr_1fr]">
             <div className="space-y-6">
-              <div className="inline-flex items-center gap-2 rounded border border-line bg-surface px-3 py-1 text-xs font-mono font-medium text-muted">
-                <span>MANAGED AI TRAINING ACCOUNTS</span>
+              <div className="inline-flex items-center gap-2">
+                <Badge variant="status">
+                  <span className="h-1.5 w-1.5 rounded-full bg-accent animate-pulse" />
+                  MANAGED AI TRAINING ACCOUNTS
+                </Badge>
               </div>
 
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight text-ink leading-[1.1]">
@@ -129,28 +151,36 @@ export default function Home() {
                 </Link>
               </div>
 
-              {/* Clean proof numbers strip */}
+              {/* Clean proof numbers strip with NumberTicker */}
               <div className="pt-6 border-t border-line grid grid-cols-2 sm:grid-cols-4 gap-4 text-xs font-mono">
                 <div>
-                  <div className="text-lg font-semibold text-ink">55%</div>
+                  <div className="text-xl font-semibold text-ink">
+                    <NumberTicker value={55} suffix="%" />
+                  </div>
                   <div className="text-muted">Owner share</div>
                 </div>
                 <div>
-                  <div className="text-lg font-semibold text-ink">30%</div>
+                  <div className="text-xl font-semibold text-ink">
+                    <NumberTicker value={30} suffix="%" />
+                  </div>
                   <div className="text-muted">Tasker floor</div>
                 </div>
                 <div>
-                  <div className="text-lg font-semibold text-ink">15%</div>
+                  <div className="text-xl font-semibold text-ink">
+                    <NumberTicker value={15} suffix="%" />
+                  </div>
                   <div className="text-muted">Management fee</div>
                 </div>
                 <div>
-                  <div className="text-lg font-semibold text-ink">4.9 / 5.0</div>
+                  <div className="text-xl font-semibold text-ink">
+                    4.9<span className="text-xs text-muted font-normal"> / 5.0</span>
+                  </div>
                   <div className="text-muted">Avg QA rating</div>
                 </div>
               </div>
             </div>
 
-            {/* 3D Layered Managed Work Hero Composition */}
+            {/* 3D Layered Managed Work Hero Composition with Magic UI BorderBeam */}
             <div className="relative w-full">
               {/* Back frosted-glass slab offset */}
               <div
@@ -162,14 +192,42 @@ export default function Home() {
                 aria-hidden="true"
                 className="hidden sm:block absolute inset-0 rounded-2xl border border-line bg-surface/50 backdrop-blur-sm transform translate-x-2 -translate-y-2 pointer-events-none"
               />
-              {/* Front matte slab with thin electric lime light-strip along top edge */}
-              <div className="relative rounded-2xl overflow-hidden shadow-[0_30px_70px_-15px_rgba(0,0,0,0.18)] dark:shadow-[0_35px_80px_-15px_rgba(0,0,0,0.65)]">
+              {/* Front matte slab with thin electric lime light-strip and BorderBeam */}
+              <div className="relative rounded-2xl overflow-hidden shadow-[0_30px_70px_-15px_rgba(0,0,0,0.18)] dark:shadow-[0_35px_80px_-15px_rgba(0,0,0,0.65)] border border-line/60">
                 <div className="h-[2px] w-full bg-[#C6FF3D]" />
+                <BorderBeam size={220} duration={10} colorFrom="#C6FF3D" colorTo="transparent" />
                 <DashboardPreview />
               </div>
             </div>
           </div>
         </div>
+      </section>
+
+      {/* 1.5 MAGIC UI PLATFORMS MARQUEE */}
+      <section className="border-b border-line bg-surface py-6 overflow-hidden">
+        <div className="container mb-3 flex items-center justify-between">
+          <p className="text-xs font-mono uppercase tracking-wider text-muted">
+            Supported AI Training Ecosystems
+          </p>
+          <span className="text-[11px] font-mono text-muted">Zero Upfront Assessment Fees</span>
+        </div>
+        <Marquee pauseOnHover className="[--duration:30s]">
+          {platforms.map((p) => (
+            <div
+              key={p.name}
+              className="flex items-center gap-3 rounded-card border border-line bg-bg px-4 py-2.5 shadow-sm"
+            >
+              <GenerativeAvatar seed={p.name} size={24} />
+              <div className="flex flex-col">
+                <span className="text-xs font-semibold text-ink">{p.name}</span>
+                <span className="text-[10px] font-mono text-muted">{p.tier}</span>
+              </div>
+              <Badge variant="outline" className="text-[10px] py-0 px-1.5 ml-2">
+                {p.status}
+              </Badge>
+            </div>
+          ))}
+        </Marquee>
       </section>
 
       {/* 2. THREE-STEP HOW IT WORKS */}
@@ -223,8 +281,10 @@ export default function Home() {
             <PayoutStatementCard />
           </div>
           <div className="space-y-4">
-            <div className="inline-flex items-center gap-2 rounded border border-line bg-surface-2 px-2.5 py-1 text-xs font-mono text-muted">
-              <span>AUTOMATED FRIDAY DISBURSEMENT</span>
+            <div className="inline-flex items-center gap-2">
+              <Badge variant="status">
+                AUTOMATED FRIDAY DISBURSEMENT
+              </Badge>
             </div>
             <h3 className="text-2xl font-semibold tracking-tight text-ink">
               Itemized settlement statements delivered weekly
@@ -247,17 +307,19 @@ export default function Home() {
 
         <PaymentReceiptLedger />
 
-        {/* Real testimonials with names and roles */}
+        {/* Real testimonials with generative avatars */}
         <div className="mt-12 pt-12 border-t border-line">
           <p className="eyebrow mb-6">Verified Feedback</p>
           <div className="grid gap-4 md:grid-cols-3">
             {reviews.slice(0, 3).map((r) => (
               <div key={r.id} className="card bg-bg flex flex-col justify-between">
                 <div>
-                  <div className="flex items-center gap-1 text-xs text-muted mb-3 font-mono">
-                    <span className="font-semibold text-ink">{r.from}</span>
-                    <span>·</span>
-                    <span>{r.engagement}</span>
+                  <div className="flex items-center gap-2.5 text-xs text-muted mb-3 font-mono">
+                    <GenerativeAvatar seed={r.from} size={28} />
+                    <div className="flex-1 min-w-0">
+                      <span className="font-semibold text-ink block truncate">{r.from}</span>
+                      <span className="text-[11px] text-muted">{r.engagement}</span>
+                    </div>
                   </div>
                   <p className="text-sm text-muted leading-relaxed">&ldquo;{r.text}&rdquo;</p>
                 </div>
@@ -281,7 +343,7 @@ export default function Home() {
         <PricingCalculator />
       </Section>
 
-      {/* 5. ONE TRUST AND SAFETY SECTION */}
+      {/* 5. TRUST AND SAFETY SECTION */}
       <Section
         id="security"
         eyebrow="Trust & Security"

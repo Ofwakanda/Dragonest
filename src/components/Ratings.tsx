@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { BadgeCheck, Star } from "lucide-react";
 import { METRICS, reviews, scorecards, type Audience, type SocialPlatform } from "@/data/sample";
+import { GenerativeAvatar } from "@/components/ui/GenerativeAvatar";
 export { AccountHealthTelemetry } from "./AccountHealthTelemetry";
 
 export function SampleBadge() {
@@ -164,17 +165,20 @@ export function ReviewList({ limit }: { limit?: number }) {
 
                 <blockquote className="mt-3 text-sm text-ink leading-relaxed font-medium italic">&quot;{r.text}&quot;</blockquote>
                 
-                <div className="mt-4 pt-3 border-t border-line/60 flex flex-col gap-1 text-xs font-mono">
-                  <div className="flex items-center justify-between">
-                    <span className="font-bold text-ink">{r.from}</span>
-                    <span className="text-emerald-500 flex items-center gap-1 font-sans">
-                      <BadgeCheck className="h-3.5 w-3.5" /> Verified
-                    </span>
-                  </div>
-                  {r.handle && <span className="text-muted text-[11px]">{r.handle}</span>}
-                  <div className="flex items-center justify-between text-muted text-[11px] pt-1">
-                    <span>{r.engagement}</span>
-                    <time dateTime={r.date}>{new Date(r.date).toLocaleDateString("en-US", { month: "short", year: "numeric" })}</time>
+                <div className="mt-4 pt-3 border-t border-line/60 flex items-center gap-2.5 text-xs font-mono">
+                  <GenerativeAvatar seed={r.from} size={32} />
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center justify-between">
+                      <span className="font-bold text-ink truncate">{r.from}</span>
+                      <span className="text-emerald-500 flex items-center gap-1 font-sans shrink-0">
+                        <BadgeCheck className="h-3.5 w-3.5" /> Verified
+                      </span>
+                    </div>
+                    {r.handle && <span className="text-muted text-[11px] block truncate">{r.handle}</span>}
+                    <div className="flex items-center justify-between text-muted text-[11px] pt-0.5">
+                      <span>{r.engagement}</span>
+                      <time dateTime={r.date}>{new Date(r.date).toLocaleDateString("en-US", { month: "short", year: "numeric" })}</time>
+                    </div>
                   </div>
                 </div>
               </li>

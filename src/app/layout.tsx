@@ -8,6 +8,7 @@ import { CookieConsent } from "@/components/CookieConsent";
 import { themeScript } from "@/components/ThemeToggle";
 import { ScrollHeaderHighlighter } from "@/components/ScrollHeaderHighlighter";
 import { CustomerCareModal } from "@/components/CustomerCareModal";
+import { Toaster, ReadingProgress, ScrollToTop } from "@/components/ui";
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
@@ -57,6 +58,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Footer />
         <CookieConsent />
         <CustomerCareModal />
+        <ReadingProgress />
+        <ScrollToTop />
+        <Toaster />
       </body>
     </html>
   );

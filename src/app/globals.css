@@ -52,13 +52,27 @@
 }
 
 /* ============================================================
-   FADE-RISE SCROLL ANIMATION
-   Sections enter with a short 10px rise + fade.
-   Respects prefers-reduced-motion.
+   FADE-RISE SCROLL & MAGIC UI ANIMATIONS
    ============================================================ */
 @keyframes fade-rise {
   from { opacity: 0; transform: translateY(10px); }
   to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(calc(-100% - var(--gap))); }
+}
+
+@keyframes marquee-vertical {
+  from { transform: translateY(0); }
+  to   { transform: translateY(calc(-100% - var(--gap))); }
+}
+
+@keyframes border-beam {
+  100% {
+    offset-distance: 100%;
+  }
 }
 
 .reveal {

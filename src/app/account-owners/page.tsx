@@ -21,7 +21,17 @@ import Image from "next/image";
 import { photos } from "@/config/site";
 import { AccountSubmitForm } from "@/components/forms/AccountSubmitForm";
 import { DashboardPreview } from "@/components/DashboardPreview";
-import { CheckList, ComplianceNotice, FeatureGrid, FinalCta, PageHero, Section } from "@/components/ui";
+import { 
+  CheckList, 
+  ComplianceNotice, 
+  FeatureGrid, 
+  FinalCta, 
+  PageHero, 
+  Section, 
+  Badge, 
+  NumberTicker, 
+  BorderBeam 
+} from "@/components/ui";
 import { PriceTable } from "@/components/PriceTable";
 import { money, pricing, site } from "@/config/site";
 import { pageMeta } from "@/lib/seo";
@@ -71,17 +81,21 @@ export default function AccountOwners() {
         </div>
       </PageHero>
 
-      {/* THREE BIG STATS */}
+      {/* THREE BIG STATS WITH NUMBERTICKER */}
       <section className="border-b border-line bg-surface py-12">
         <div className="container">
           <div className="grid gap-4 sm:grid-cols-3 max-w-4xl mx-auto text-center font-mono">
             <div className="card">
-              <span className="text-3xl font-semibold text-ink">55%</span>
+              <span className="text-3xl font-semibold text-ink">
+                <NumberTicker value={55} suffix="%" />
+              </span>
               <p className="mt-2 text-sm font-sans font-semibold text-ink">Account Owner Share</p>
               <p className="mt-1 text-xs text-muted font-sans">Direct weekly deposit with transparent accounting</p>
             </div>
             <div className="card">
-              <span className="text-3xl font-semibold text-ink">100%</span>
+              <span className="text-3xl font-semibold text-ink">
+                <NumberTicker value={100} suffix="%" />
+              </span>
               <p className="mt-2 text-sm font-sans font-semibold text-ink">Legal Account Ownership</p>
               <p className="mt-1 text-xs text-muted font-sans">Account stays in your name. Pause or revoke access anytime</p>
             </div>
@@ -98,110 +112,89 @@ export default function AccountOwners() {
       <Section 
         id="how-it-works" 
         eyebrow="Simple 3 Step System" 
-        title="How You Start Making Money This Week" 
-        intro="You do not need to do any tasks yourself. We handle the hard part and you collect your weekly share."
+        title="How You Start Earning Weekly" 
+        intro="Zero daily work required from you. We handle full operations and send your payout every Friday."
       >
         <div className="grid gap-4 md:grid-cols-3">
-          <div className="card flex flex-col justify-between">
-            <div>
-              <div className="mb-4 inline-flex h-9 w-9 items-center justify-center rounded border border-line bg-surface-2 font-mono text-xs font-semibold text-muted">
-                01
+          {[
+            {
+              step: "01",
+              title: "Tell Us About Your Account",
+              body: "Share which platform your account is on and whether it is active or pending a test. Takes two minutes. We never ask for passwords on this website."
+            },
+            {
+              step: "02",
+              title: "We Match You With a Specialist",
+              body: "A certified specialist with the right domain skills works your queue daily in isolated sessions. If stuck on a qualification test, our assessment team clears it first."
+            },
+            {
+              step: "03",
+              title: "You Get Paid Every Friday",
+              body: "Earnings deposit directly into your bank account. Every Friday you receive an itemized statement showing total gross, specialist earnings, and our 15% management fee."
+            }
+          ].map((item) => (
+            <div key={item.step} className="card flex flex-col justify-between">
+              <div>
+                <div className="mb-4 inline-flex h-9 w-9 items-center justify-center rounded border border-line bg-surface-2 font-mono text-xs font-semibold text-muted">
+                  {item.step}
+                </div>
+                <h3 className="text-lg font-semibold text-ink">{item.title}</h3>
+                <p className="mt-2 text-sm text-muted leading-relaxed">{item.body}</p>
               </div>
-              <h3 className="text-lg font-semibold text-ink">Tell Us About Your Account</h3>
-              <p className="mt-2 text-sm text-muted leading-relaxed">
-                Submit your platform (Outlier, Alignerr, Scale AI, or DataAnnotation) and specify whether your account is active or waiting on qualification.
-              </p>
             </div>
-          </div>
-
-          <div className="card flex flex-col justify-between">
-            <div>
-              <div className="mb-4 inline-flex h-9 w-9 items-center justify-center rounded border border-line bg-surface-2 font-mono text-xs font-semibold text-muted">
-                02
-              </div>
-              <h3 className="text-lg font-semibold text-ink">We Assign Vetted Specialists</h3>
-              <p className="mt-2 text-sm text-muted leading-relaxed">
-                We pair your account with certified domain specialists who work your queue daily. If tests are pending, assessment evaluators clear them first.
-              </p>
-            </div>
-          </div>
-
-          <div className="card flex flex-col justify-between">
-            <div>
-              <div className="mb-4 inline-flex h-9 w-9 items-center justify-center rounded border border-line bg-surface-2 font-mono text-xs font-semibold text-muted">
-                03
-              </div>
-              <h3 className="text-lg font-semibold text-ink">You Collect 55% Every Week</h3>
-              <p className="mt-2 text-sm text-muted leading-relaxed">
-                Earnings deposit directly to you. Every Friday, you receive a detailed settlement statement showing total payouts, tasker share, and the 15% management fee.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        {/* WORKED EXAMPLE */}
-        <div className="mt-10 rounded-card border border-line bg-surface p-6 sm:p-8">
-          <h4 className="text-base font-semibold text-ink mb-1">Example Monthly Return on an Active Queue</h4>
-          <p className="text-sm text-muted mb-6">How a typical technical queue generating $2,000 monthly settles:</p>
-          <div className="grid gap-4 sm:grid-cols-3 text-center">
-            <div className="rounded border border-line bg-bg p-4">
-              <span className="text-xs font-mono text-muted uppercase">Gross Account Earnings</span>
-              <p className="text-2xl font-semibold text-ink mt-1 font-mono">$2,000</p>
-              <p className="text-xs text-muted mt-1">Generated by specialist tasks</p>
-            </div>
-            <div className="rounded border border-line bg-bg p-4">
-              <span className="text-xs font-mono text-muted uppercase">Tasker &amp; Operations</span>
-              <p className="text-2xl font-semibold text-ink mt-1 font-mono">$900</p>
-              <p className="text-xs text-muted mt-1">30% tasker + 15% management</p>
-            </div>
-            <div className="rounded border border-line bg-surface-2 p-4">
-              <span className="text-xs font-mono text-ink font-semibold uppercase">Your 55% Net Share</span>
-              <p className="text-2xl font-semibold text-ink mt-1 font-mono">$1,100</p>
-              <p className="text-xs text-muted mt-1">Deposited directly to you</p>
-            </div>
-          </div>
-        </div>
-
-        {/* FAST RESPONSE ACTION BAR */}
-        <div className="mt-8 flex flex-col sm:flex-row items-center justify-between gap-4 rounded-card border border-line bg-surface p-5">
-          <div className="flex items-center gap-3">
-            <div className="h-9 w-9 rounded border border-line bg-surface-2 flex items-center justify-center shrink-0">
-              <Send className="h-4 w-4 text-muted" />
-            </div>
-            <div>
-              <p className="text-sm font-semibold text-ink">Free Account Review &amp; Onboarding</p>
-              <p className="text-xs text-muted">No upfront fees or obligation. Coordinate directly with our 24/7 operations team.</p>
-            </div>
-          </div>
-          <div className="flex items-center gap-3 w-full sm:w-auto">
-            <a
-              href="https://t.me/MiddlemenHub"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-accent text-xs uppercase tracking-wider font-semibold !py-2.5 !px-5 whitespace-nowrap text-center flex items-center justify-center gap-1.5 flex-1 sm:flex-none"
-            >
-              <Send className="h-3.5 w-3.5" /> 24/7 Telegram Desk
-            </a>
-            <Link
-              href="#submit"
-              className="btn-secondary text-xs uppercase tracking-wider font-semibold !py-2.5 !px-5 whitespace-nowrap text-center flex-1 sm:flex-none"
-            >
-              Start Free Review
-            </Link>
-          </div>
+          ))}
         </div>
       </Section>
 
-      {/* THE TWO OPTIONS FOR ACCOUNT OWNERS */}
-      <Section id="services" tone="tint" eyebrow="Choose Your Path" title="What Does Your Account Need?" intro="Whether your account is brand new or already active, we have a fast path to start earning.">
+      {/* WORKED EXAMPLE */}
+      <Section 
+        id="example" 
+        tone="tint" 
+        eyebrow="Worked Example" 
+        title="What a Typical Month Looks Like" 
+        intro="Here is how the numbers break down on an active queue earning $2,000 in a month."
+      >
+        <div className="max-w-2xl mx-auto card font-mono p-6">
+          <div className="space-y-3 pb-6 border-b border-line text-sm">
+            <div className="flex justify-between items-center text-ink font-semibold text-base">
+              <span>Gross Account Earnings</span>
+              <span>$2,000.00</span>
+            </div>
+            <div className="flex justify-between items-center text-muted">
+              <span>Specialist Payout (30%+)</span>
+              <span>$600.00</span>
+            </div>
+            <div className="flex justify-between items-center text-muted">
+              <span>MIDDLEMEN Operations (15%)</span>
+              <span>$300.00</span>
+            </div>
+          </div>
+          <div className="pt-6 flex justify-between items-center text-ink font-bold text-lg">
+            <span>You Keep (55%)</span>
+            <span className="text-xl">$1,100.00</span>
+          </div>
+          <p className="mt-4 text-xs font-sans text-muted leading-relaxed">
+            Note: Illustrative example. Actual earnings depend on available platform queue volume, task rates, and project assignments. Payouts distributed weekly every Friday.
+          </p>
+        </div>
+      </Section>
+
+      {/* DUAL OPTIONS: UNLOCK vs MANAGED */}
+      <Section 
+        id="options" 
+        eyebrow="Select Your Path" 
+        title="What Does Your Account Need?" 
+        intro="Whether your account is stuck on an assessment test or already approved and ready to earn, we have a clear operational path."
+      >
         <div className="grid gap-6 md:grid-cols-2">
-          {/* OPTION 1: PASS ASSESSMENT */}
-          <article className="card flex flex-col justify-between">
+          {/* OPTION 1: UNLOCK */}
+          <article className="card relative overflow-hidden flex flex-col justify-between border-2 border-line">
+            <BorderBeam size={180} duration={14} colorFrom="#C6FF3D" colorTo="transparent" />
             <div>
               <div className="flex items-center justify-between mb-4">
-                <span className="badge">
+                <Badge variant="status">
                   Option 1 · Entry Qualification
-                </span>
+                </Badge>
                 <GraduationCap className="h-5 w-5 text-muted" />
               </div>
               <h3 className="text-xl font-semibold text-ink">Unlock Account · Pass Assessments</h3>
@@ -228,9 +221,9 @@ export default function AccountOwners() {
           <article className="card flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between mb-4">
-                <span className="badge">
+                <Badge variant="status">
                   Option 2 · Managed Operations
-                </span>
+                </Badge>
                 <ClipboardCheck className="h-5 w-5 text-muted" />
               </div>
               <h3 className="text-xl font-semibold text-ink">Fully Managed Daily Tasking</h3>

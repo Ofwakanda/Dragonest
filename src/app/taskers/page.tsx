@@ -26,7 +26,7 @@ import {
 } from "lucide-react";
 import { TaskerApplyForm } from "@/components/forms/TaskerApplyForm";
 import { AssessmentTakerForm } from "@/components/forms/AssessmentTakerForm";
-import { CheckList, ComplianceNotice, FeatureGrid, FinalCta, Note, PageHero, Section, Steps } from "@/components/ui";
+import { CheckList, ComplianceNotice, FeatureGrid, FinalCta, Note, PageHero, Section, Steps, Badge } from "@/components/ui";
 import { photos, pricing, site } from "@/config/site";
 import { pageMeta } from "@/lib/seo";
 
@@ -169,9 +169,9 @@ export default function Taskers() {
                       <span className="inline-flex h-10 w-10 items-center justify-center rounded-control bg-accent-soft text-ink">
                         <Icon className="h-5 w-5" />
                       </span>
-                      <span className="font-mono text-xs font-bold text-accent bg-surface-2 px-2.5 py-1 rounded border border-line">
+                      <Badge variant="accent">
                         {track.rate}
-                      </span>
+                      </Badge>
                     </div>
 
                     <h4 className="text-lg font-bold text-ink">{track.domain}</h4>
@@ -181,9 +181,9 @@ export default function Taskers() {
                   <div className="mt-4 pt-3 border-t border-line">
                     <div className="flex flex-wrap gap-1.5">
                       {track.tags.map((t) => (
-                        <span key={t} className="rounded bg-surface-2 px-1.5 py-0.5 font-mono text-[10px] text-muted font-medium">
+                        <Badge key={t} variant="outline" className="text-[10px] py-0 px-1.5 font-mono">
                           {t}
-                        </span>
+                        </Badge>
                       ))}
                     </div>
                   </div>
