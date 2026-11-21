@@ -21,6 +21,7 @@ import Image from "next/image";
 import { photos } from "@/config/site";
 import { AccountSubmitForm } from "@/components/forms/AccountSubmitForm";
 import { DashboardPreview } from "@/components/DashboardPreview";
+import { ProjectCatalogue } from "@/components/ProjectCatalogue";
 import { 
   CheckList, 
   ComplianceNotice, 
@@ -276,6 +277,16 @@ export default function AccountOwners() {
       {/* DASHBOARD PREVIEW */}
       <Section id="dashboard" tone="tint" eyebrow="Live Tracking" title="See Everything in Your Dashboard" intro="Track your earnings, active tasker hours, and weekly payout receipts in one clean place.">
         <DashboardPreview />
+      </Section>
+
+      {/* VERIFIED PROJECTS & CLIENT EARNINGS */}
+      <Section id="catalogue" eyebrow="Platform Proof" title="Verified Projects &amp; Client Earnings" intro="A selection of client accounts operated by our specialists. Every Friday, clients collect their 55% share directly into their bank account.">
+        <ProjectCatalogue limit={4} />
+        <div className="mt-8 text-center">
+          <Link href="/catalogue" className="inline-flex items-center gap-1.5 rounded-card border border-line bg-surface px-5 py-2.5 text-xs font-mono font-semibold text-ink hover:bg-surface-2 transition-colors">
+            View All 20 Verified Projects &rarr;
+          </Link>
+        </div>
       </Section>
 
       {/* SUBMISSION FORM */}

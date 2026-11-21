@@ -8,3 +8,4 @@ export * from "./tasker";
 export * from "./payout";
 export * from "./telemetry";
 export * from "./ui";
+export * from "./project";

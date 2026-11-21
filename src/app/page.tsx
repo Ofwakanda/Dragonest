@@ -23,6 +23,7 @@ import { DashboardPreview } from "@/components/DashboardPreview";
 import { PaymentReceiptLedger } from "@/components/PaymentReceiptLedger";
 import { PayoutStatementCard } from "@/components/PayoutStatementCard";
 import { PricingCalculator } from "@/components/PricingCalculator";
+import { ProjectCatalogue } from "@/components/ProjectCatalogue";
 import { pageMeta } from "@/lib/seo";
 import { reviews } from "@/data/sample";
 
@@ -330,6 +331,24 @@ export default function Home() {
               </div>
             ))}
           </div>
+        </div>
+      </Section>
+
+      {/* 3.5 VERIFIED PLATFORM PROJECT CATALOGUE */}
+      <Section
+        id="catalogue"
+        eyebrow="Platform Projects &amp; Historical Proof"
+        title="Verified Project Catalogue"
+        intro="Inspect real accounts operated by our domain fleet across Outlier, Scale AI, Alignerr, and DataAnnotation. Over $360,000 in gross payouts generated with 55% direct owner return."
+      >
+        <ProjectCatalogue limit={6} />
+        <div className="mt-8 text-center">
+          <Link
+            href="/catalogue"
+            className="inline-flex items-center gap-1.5 rounded-card border border-line bg-surface px-5 py-2.5 text-xs font-mono font-semibold text-ink hover:bg-surface-2 transition-colors"
+          >
+            Explore Complete 20-Project Catalogue &rarr;
+          </Link>
         </div>
       </Section>
 

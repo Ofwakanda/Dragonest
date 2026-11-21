@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0B0E14" />
+      <stop offset="50%" stop-color="#121620" />
+      <stop offset="100%" stop-color="#090B0F" />
+    </linearGradient>
+    <linearGradient id="accentGlow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#C6FF3D" stop-opacity="0.9" />
+      <stop offset="100%" stop-color="#84CC16" stop-opacity="0.7" />
+    </linearGradient>
+    <pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse">
+      <path d="M 24 0 L 0 0 0 24" fill="none" stroke="#1E293B" stroke-width="0.7" opacity="0.35"/>
+    </pattern>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Outer background card with crisp 1px border -->
+  <rect x="0" y="0" width="800" height="500" rx="16" fill="url(#bgGrad)" stroke="#222A38" stroke-width="2" />
+  <!-- Subtle tech dot/grid overlay -->
+  <rect x="0" y="0" width="800" height="500" rx="16" fill="url(#grid)" />
+
+  <!-- Top Terminal Header Bar -->
+  <rect x="0" y="0" width="800" height="54" rx="16" fill="#141923" stroke="#222A38" stroke-width="1.5" />
+  <!-- Rect cover to square bottom corners of header -->
+  <rect x="0" y="40" width="800" height="14" fill="#141923" />
+  <line x1="0" y1="54" x2="800" y2="54" stroke="#222A38" stroke-width="1" />
+
+  <!-- Window controls -->
+  <circle cx="28" cy="27" r="5" fill="#EF4444" opacity="0.8" />
+  <circle cx="44" cy="27" r="5" fill="#F59E0B" opacity="0.8" />
+  <circle cx="60" cy="27" r="5" fill="#10B981" opacity="0.8" />
+
+  <!-- Platform Badge Pill -->
+  <rect x="85" y="15" width="130" height="24" rx="6" fill="#1E2533" stroke="#A855F7" stroke-width="1.2" />
+  <circle cx="98" cy="27" r="3.5" fill="#A855F7" />
+  <text x="110" y="31" fill="#FFFFFF" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="700" letter-spacing="0.5">Outlier.ai</text>
+
+  <!-- Project Code Breadcrumb -->
+  <text x="230" y="32" fill="#64748B" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="600">OSTR-2194</text>
+
+  <!-- Status Pill -->
+  <rect x="645" y="16" width="135" height="23" rx="11.5" fill="#182218" stroke="#94A3B8" stroke-width="1" />
+  <circle cx="660" cy="27.5" r="3.5" fill="#94A3B8" />
+  <text x="672" y="31.5" fill="#94A3B8" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="700" letter-spacing="0.8">QUEUE COMPLETED</text>
+
+  <!-- Project Title & Track -->
+  <text x="36" y="98" fill="#F8FAFC" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="22" font-weight="700" letter-spacing="-0.5">Project Ostrich Dialect QA</text>
+  <text x="36" y="122" fill="#94A3B8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="500">Multilingual Localization</text>
+
+  <!-- Main Hero Callout: Client Gross Earnings Box -->
+  <rect x="36" y="145" width="728" height="135" rx="12" fill="#101520" stroke="#1E2638" stroke-width="1.5" />
+  <!-- Subtle accent edge on the left -->
+  <rect x="36" y="145" width="5" height="135" rx="2" fill="#C6FF3D" />
+
+  <text x="60" y="176" fill="#94A3B8" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="600" letter-spacing="1">CLIENT EARNINGS GENERATED (GROSS)</text>
+  <!-- Huge Earnings Figure with Glow -->
+  <text x="60" y="235" fill="#C6FF3D" font-family="'JetBrains Mono', monospace" font-size="46" font-weight="800" letter-spacing="-1.5" filter="url(#glow)">$12,180.00</text>
+  <text x="60" y="235" fill="#C6FF3D" font-family="'JetBrains Mono', monospace" font-size="46" font-weight="800" letter-spacing="-1.5">$12,180.00</text>
+
+  <!-- Owner Payout Badge inside Gross Card -->
+  <rect x="490" y="172" width="250" height="78" rx="8" fill="#182318" stroke="#C6FF3D" stroke-width="1.2" stroke-opacity="0.4" />
+  <text x="508" y="196" fill="#C6FF3D" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700" letter-spacing="1">CLIENT 55% NET PAYOUT</text>
+  <text x="508" y="232" fill="#FFFFFF" font-family="'JetBrains Mono', monospace" font-size="26" font-weight="800">$6,699.00</text>
+
+  <!-- 4-Column Metric Telemetry Strip -->
+  <!-- Box 1: Hours -->
+  <rect x="36" y="300" width="170" height="92" rx="8" fill="#131824" stroke="#1E283A" stroke-width="1" />
+  <text x="52" y="328" fill="#64748B" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="600" letter-spacing="0.5">HOURS LOGGED</text>
+  <text x="52" y="362" fill="#F1F5F9" font-family="'JetBrains Mono', monospace" font-size="22" font-weight="700">290 hrs</text>
+
+  <!-- Box 2: Tasks -->
+  <rect x="222" y="300" width="170" height="92" rx="8" fill="#131824" stroke="#1E283A" stroke-width="1" />
+  <text x="238" y="328" fill="#64748B" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="600" letter-spacing="0.5">TASKS AUDITED</text>
+  <text x="238" y="362" fill="#F1F5F9" font-family="'JetBrains Mono', monospace" font-size="22" font-weight="700">980</text>
+
+  <!-- Box 3: Rate -->
+  <rect x="408" y="300" width="170" height="92" rx="8" fill="#131824" stroke="#1E283A" stroke-width="1" />
+  <text x="424" y="328" fill="#64748B" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="600" letter-spacing="0.5">BENCHMARK RATE</text>
+  <text x="424" y="362" fill="#F1F5F9" font-family="'JetBrains Mono', monospace" font-size="22" font-weight="700">$42/hr</text>
+
+  <!-- Box 4: QA Score -->
+  <rect x="594" y="300" width="170" height="92" rx="8" fill="#131824" stroke="#1E283A" stroke-width="1" />
+  <text x="610" y="328" fill="#64748B" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="600" letter-spacing="0.5">FLEET QA SCORE</text>
+  <text x="610" y="362" fill="#C6FF3D" font-family="'JetBrains Mono', monospace" font-size="22" font-weight="700">4.88 / 5.0</text>
+
+  <!-- Bottom Verification & Security Audit Footer -->
+  <rect x="36" y="414" width="728" height="52" rx="8" fill="#0E131C" stroke="#1A2230" stroke-width="1" />
+  <!-- Shield icon -->
+  <path d="M 54 433 L 61 430 L 68 433 L 68 441 C 68 446 61 449 61 449 C 61 449 54 446 54 441 Z" fill="none" stroke="#C6FF3D" stroke-width="1.6" stroke-linejoin="round"/>
+  <path d="M 58 439 L 60.5 441.5 L 64.5 436.5" fill="none" stroke="#C6FF3D" stroke-width="1.6" stroke-linecap="round"/>
+  <text x="78" y="444" fill="#94A3B8" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="11" font-weight="600">Verified Remote Session · Isolated Credentials · Zero Public Leak</text>
+
+  <!-- Hash / Audit Stamp -->
+  <text x="590" y="444" fill="#64748B" font-family="'JetBrains Mono', monospace" font-size="11">Hash: <tspan fill="#CBD5E1">0x77ab...22d1</tspan></text>
+</svg>

@@ -51,6 +51,7 @@ export const pricing = {
 export const nav = [
   { href: "/account-owners", label: "Account owners" },
   { href: "/taskers", label: "Taskers" },
+  { href: "/catalogue", label: "Catalogue" },
   { href: "/pricing", label: "Pricing" },
   { href: "/trust-safety", label: "Trust & safety" },
   { href: "/about", label: "About" },
@@ -59,49 +60,42 @@ export const nav = [
 export const legalDocs = [
   { slug: "terms", title: "Terms of Service" },
   { slug: "privacy", title: "Privacy Policy" },
-  { slug: "host-agreement", title: "Host Agreement" },
-  { slug: "tasker-agreement", title: "Tasker Agreement" },
-  { slug: "data-processing", title: "Data Processing Agreement" },
-  { slug: "anti-discrimination", title: "Anti-Discrimination Policy" },
-  { slug: "platform-compliance", title: "Platform Compliance Disclaimer" },
+  { slug: "host-agreement", title: "Account Host Agreement" },
+  { slug: "tasker-agreement", title: "Tasker & Evaluation Agreement" },
+  { slug: "data-processing", title: "Data Processing Addendum" },
+  { slug: "anti-discrimination", title: "Non-Discrimination Policy" },
+  { slug: "platform-compliance", title: "Platform Terms Compliance Statement" },
 ] as const;
 
 export const money = (n: number) =>
-  new Intl.NumberFormat("en-US", { style: "currency", currency: pricing.currency, maximumFractionDigits: n % 1 === 0 ? 0 : 2 }).format(n);
+  new Intl.NumberFormat("en-US", { style: "currency", currency: pricing.currency, maximumFractionDigits: 0 }).format(n);
 
-/**
- * PHOTO SLOTS. Each slot shows an original illustration until you add a photo.
- * To use a stock photo: save it in /public/images/ and set `src`, e.g.
- *   homeHero: { src: "/images/home-hero.jpg", alt: "Two people reviewing AI tasks at a laptop", credit: "Photo: Jane Doe / Unsplash" }
- * Recommended: landscape 4:3, at least 1200px wide, JPG or WebP under 300 KB.
- * Use only photos whose license allows commercial use, and never present
- * stock models as your real team or real customers.
- */
 export type PhotoSlot = { src?: string; alt?: string; credit?: string };
-export const photos: Record<"homeHero" | "accountOwners" | "taskers" | "trust" | "pricing", PhotoSlot> = {
+
+/** Photo slot mappings. */
+export const photos = {
   homeHero: {
     src: "/images/hero-nightshift.jpg",
-    alt: "Layered managed work composition with active dashboard telemetry and subtle lime light strip",
-    credit: "Coded 3D Interface · Real-Time Dispatch",
+    alt: "Dedicated workspace with multiple monitors displaying development tools and telemetry.",
   },
   accountOwners: {
     src: "/images/account-owners-render.jpg",
-    alt: "Brushed-steel key card passing through a narrow frosted-glass gate with a subtle lime dot on the chip, representing access without sharing passwords",
-    credit: "3D Matte Render · Secure Access Gate",
-  },
-  taskers: {
-    src: "/images/taskers-doc-render.jpg",
-    alt: "Over-the-shoulder view of a specialist working at a clean laptop workspace under soft natural window light",
-    credit: "Documentary Photography · Specialist Workplace",
-  },
-  trust: {
-    src: "/images/trust-sandbox-render.jpg",
-    alt: "Isometric view of a graphite cube floating inside layered frosted-glass isolation enclosures with engraved blocked tiles and a lime status indicator",
-    credit: "3D Sandbox Architecture · Layered Isolation",
+    alt: "Brushed steel key card passing through a frosted glass gate, representing safe non-custodial delegation.",
   },
   pricing: {
     src: "/images/pricing-split-render.jpg",
-    alt: "Three stacked monochrome rectangular slabs in 55 : 30 : 15 proportion with a lime top surface representing transparent revenue distribution",
-    credit: "3D Mathematical Render · 55/30/15 Revenue Split",
+    alt: "Matte monochrome architectural blocks stacked in a 55:30:15 proportion, representing clear split accounting.",
   },
-};
+  taskers: {
+    src: "/images/taskers-doc-render.jpg",
+    alt: "35mm documentary shot of a focused evaluator working asynchronously with reference texts.",
+  },
+  trust: {
+    src: "/images/trust-sandbox-render.jpg",
+    alt: "Isometric layered sandbox cube showing strict operational isolation between client credentials and live tasks.",
+  },
+  about: {
+    src: "/images/about-bold-mission.jpg",
+    alt: "Our leadership and operations center in London coordinating global AI training taskers.",
+  },
+} as const;
