@@ -10,6 +10,8 @@ export type PlatformId =
   | "data-annotation"
   | "remotasks"
   | "mercor"
+  | "handshake"
+  | "workada"
   | "other";
 
 export type AccountStatus = 

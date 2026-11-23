@@ -31,11 +31,12 @@ import { formatUsd } from "@/lib/formatters";
 
 const platformFilterOptions = [
   { label: "All Platforms (20)", value: "all" },
+  { label: "Mercor AI", value: "mercor" },
+  { label: "Scale AI", value: "scale-ai" },
   { label: "Outlier.ai", value: "outlier" },
   { label: "Alignerr", value: "alignerr" },
   { label: "DataAnnotation", value: "data-annotation" },
-  { label: "Scale AI", value: "scale-ai" },
-  { label: "Remotasks & Other", value: "other" },
+  { label: "Handshake & Other", value: "other" },
 ];
 
 export function ProjectCatalogue({ limit }: { limit?: number }) {
@@ -49,7 +50,7 @@ export function ProjectCatalogue({ limit }: { limit?: number }) {
       const matchesPlatform = 
         selectedPlatform === "all" ||
         (selectedPlatform === "other" 
-          ? ["remotasks", "mercor", "other"].includes(p.platformId)
+          ? ["remotasks", "handshake", "workada", "other"].includes(p.platformId)
           : p.platformId === selectedPlatform);
 
       // Search filter
@@ -77,7 +78,7 @@ export function ProjectCatalogue({ limit }: { limit?: number }) {
               Total Client Earnings
             </span>
             <div className="text-3xl sm:text-4xl font-bold text-accent tracking-tight">
-              <NumberTicker value={363250} prefix="$" />
+              <NumberTicker value={Math.round(catalogueStats.totalGrossGenerated)} prefix="$" />
             </div>
             <p className="text-[11px] text-muted font-sans">
               Verified gross payouts across 20 active client accounts
@@ -89,7 +90,7 @@ export function ProjectCatalogue({ limit }: { limit?: number }) {
               Disbursed to Owners (55%)
             </span>
             <div className="text-3xl sm:text-4xl font-bold text-ink tracking-tight">
-              <NumberTicker value={199787} prefix="$" />
+              <NumberTicker value={Math.round(catalogueStats.totalOwnerNetDisbursed)} prefix="$" />
             </div>
             <p className="text-[11px] text-muted font-sans">
               Direct weekly ACH / wire payouts into client bank accounts
@@ -101,7 +102,7 @@ export function ProjectCatalogue({ limit }: { limit?: number }) {
               Production Hours Logged
             </span>
             <div className="text-3xl sm:text-4xl font-bold text-ink tracking-tight">
-              <NumberTicker value={6634} suffix=" hrs" />
+              <NumberTicker value={Math.round(catalogueStats.totalHoursCompleted)} suffix=" hrs" />
             </div>
             <p className="text-[11px] text-muted font-sans">
               Completed by verified domain specialists in isolated VMs
@@ -113,7 +114,7 @@ export function ProjectCatalogue({ limit }: { limit?: number }) {
               Average Fleet QA Rating
             </span>
             <div className="text-3xl sm:text-4xl font-bold text-ink tracking-tight">
-              4.93<span className="text-base text-muted font-normal"> / 5.0</span>
+              {catalogueStats.avgQaRating}<span className="text-base text-muted font-normal"> / 5.0</span>
             </div>
             <p className="text-[11px] text-muted font-sans">
               Maintained via independent blind audit sampling
